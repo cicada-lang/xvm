@@ -10,6 +10,23 @@ TODO
 
 TODO
 
+## References
+
+**Books**:
+
+- [Scalable C](https://github.com/booksbyus/scalable-c)
+
+## Community
+
+GitHub:
+
+- Organization: [github.com/cicada-lang](https://github.com/cicada-lang)
+
+Telegram:
+
+- English chat group: [CicadaLanguage](https://t.me/CicadaLanguage)
+- Chinese chat group: [CicadaLanguageCN](https://t.me/CicadaLanguageCN)
+
 ## Contributions
 
 To make a contribution, fork this project and create a pull request.
