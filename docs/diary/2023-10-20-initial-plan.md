@@ -37,7 +37,8 @@ thus already have first load time.
 
 # Semantics
 
-- To define a work, is to map a word (symbol) to a sequence of words.
+- To define a word (in a dictionary),
+  is to map a word (symbol) to a sequence of words.
 
 # Examples
 
