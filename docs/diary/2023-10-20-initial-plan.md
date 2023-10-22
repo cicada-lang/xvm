@@ -5,7 +5,7 @@ date: 2023-10-20
 ---
 
 Instead of a VM for byte code,
-I want a VM for forth-like string code.
+I want a VM for forth-like word code.
 Because people use byte code for fast load time,
 but forth-like system is trivial to parse,
 thus already have first load time.
@@ -27,7 +27,7 @@ thus already have first load time.
 
 - string (length + address)
 - number (64 bits)
-- symbol (index to a hash map of string)
+- word (address of entry in hash map)
 
 # Syntax
 
@@ -38,7 +38,7 @@ thus already have first load time.
 # Semantics
 
 - To define a word (in a dictionary),
-  is to map a word (symbol) to a sequence of words.
+  is to map a word to a sequence of words.
 
 # Examples
 
