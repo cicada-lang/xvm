@@ -2,6 +2,6 @@
 
 int main(void) {
     dict_t *dict = dict_new(10);
-    printf("%ld", dict_size(dict));
+    printf("%ld\n", dict_size(dict));
     return 0;
 }
