@@ -45,7 +45,7 @@ void
 dict_purge(dict_t *self) {
     for (size_t index = 0; index < self->size; index++) {
         // if (self->words[index]) {
-        //     word_destory(&self->words[index]);
+        //     word_destory(self->words[index]);
         // }
     }
 }
