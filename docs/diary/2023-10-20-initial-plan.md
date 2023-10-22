@@ -43,7 +43,7 @@ thus already have first load time.
 # Examples
 
 ```
-[ 'mul ] "./int.cvm" import
+[ 'mul ] "./int.xvm" import
 
 [ dup mul ] 'square define
 ```

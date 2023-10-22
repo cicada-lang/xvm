@@ -1,6 +1,6 @@
-# CVM
+# XVM
 
-Stack-based virtual machine extensible by C.
+Extensible stack-based virtual machine.
 
 ## Usage
 
