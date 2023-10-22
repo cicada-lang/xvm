@@ -1,3 +1,5 @@
+#pragma once
+
 #define XVM_VERSION_MAJOR 0
 #define XVM_VERSION_MINOR 0
 #define XVM_VERSION_PATCH 1
