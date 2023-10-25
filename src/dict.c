@@ -1,4 +1,4 @@
-#include "../everything.h"
+#include "everything.h"
 
 struct _dict_t {
     size_t size;

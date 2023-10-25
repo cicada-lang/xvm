@@ -1,4 +1,4 @@
-#include "../everything.h"
+#include "everything.h"
 
 struct _program_t {
     size_t size;

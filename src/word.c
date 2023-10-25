@@ -1,4 +1,4 @@
-#include "../everything.h"
+#include "everything.h"
 
 typedef void (primitive_fn_t)(env_t *env);
 
