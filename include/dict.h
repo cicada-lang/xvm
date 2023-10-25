@@ -1,7 +1,6 @@
 #pragma once
 
 typedef struct _dict_t dict_t;
-typedef struct _word_t word_t;
 
 dict_t *dict_new(size_t size);
 void dict_destroy(dict_t **self_p);

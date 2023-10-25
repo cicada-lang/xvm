@@ -12,5 +12,7 @@
 
 #include "xvm_prelude.h"
 #include "dict.h"
+#include "word.h"
+#include "program.h"
 #include "env.h"
 #include "value.h"
