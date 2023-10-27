@@ -1,5 +1,3 @@
-extract primitive.c
-
 word_new
 word_destroy
 

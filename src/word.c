@@ -1,7 +1,5 @@
 #include "everything.h"
 
-typedef void (primitive_t)(env_t *env);
-
 struct _word_t {
     char *name;
     program_t *program;
@@ -23,7 +21,6 @@ word_destroy(word_t **self_p) {
         word_t *self = *self_p;
         free(self->name);
         program_destroy(&self->program);
-        // self->primitive
         word_destroy(&self->next);
         free(self);
         *self_p = NULL;

@@ -10,9 +10,11 @@
 #define XVM_VERSION                                                            \
     XVM_MAKE_VERSION(XVM_VERSION_MAJOR, XVM_VERSION_MINOR, XVM_VERSION_PATCH)
 
+// The order matters.
 #include "xvm_prelude.h"
 #include "dict.h"
 #include "word.h"
-#include "program.h"
 #include "env.h"
+#include "primitive.h"
+#include "program.h"
 #include "value.h"
