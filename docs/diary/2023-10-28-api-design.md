@@ -10,10 +10,10 @@ void xvm_define_primitive(xvm_t *vm);
 ```
 
 ```c
-xvm_define_program(vm, "square", (char ){
-  "dup",
-  "mul",
-});
+xvm_define_program(vm, "square", (const char *[]){
+        "dup",
+        "mul",
+    });
 
 xvm_define_primitive(vm, );
 ```
