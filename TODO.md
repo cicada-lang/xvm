@@ -1,8 +1,9 @@
-design api for defining words
+extract primitive.c
 
-extract program/
 word_new
 word_destroy
+
+design api for defining words
 
 [maybe] prefix every class with `x`
 [maybe] rename env to xvm
