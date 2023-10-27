@@ -1,5 +1,12 @@
+design api for defining words
+
 extract program/
+word_new
 word_destroy
+
+[maybe] prefix every class with `x`
+[maybe] rename env to xvm
+
 read the c book -- learn about array and pointer and struct
 learn makefile -- maybe from learn-assembly/x86/day1
 setup tdd -- to first write API examples

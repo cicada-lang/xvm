@@ -5,13 +5,13 @@ struct _dict_t {
     word_t **words;
 };
 
-
 dict_t *
 dict_new(size_t size) {
     dict_t *self = (dict_t *) calloc(1, sizeof(dict_t));
     assert(self);
     self->size = size;
     self->words = (word_t **) calloc(size, sizeof(word_t *));
+    assert(self->words);
     return self;
 }
 
