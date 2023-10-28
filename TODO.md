@@ -1,6 +1,6 @@
-rename env to xvm
-include/xvm_version.h
 include/xvm_index.h
+
+rename env to xvm
 
 xvm api design
 
