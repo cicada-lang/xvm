@@ -17,7 +17,7 @@ dict_create(size_t size) {
 
 void
 dict_destroy(dict_t **self_p) {
-    assert (self_p);
+    assert(self_p);
     if (*self_p) {
         dict_t *self = *self_p;
         dict_purge(self);

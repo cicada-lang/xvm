@@ -15,7 +15,7 @@ program_create() {
 
 void
 program_destroy(program_t **self_p) {
-    assert (self_p);
+    assert(self_p);
     if (*self_p) {
         program_t *self = *self_p;
         // free(self->bytes);

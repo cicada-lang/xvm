@@ -20,7 +20,7 @@ xvm_create(void) {
 
 void
 xvm_destroy(xvm_t **self_p) {
-    assert (self_p);
+    assert(self_p);
     if (*self_p) {
         xvm_t *self = *self_p;
         dict_destroy(&self->dict);

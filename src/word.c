@@ -16,7 +16,7 @@ word_create(const char *name) {
 
 void
 word_destroy(word_t **self_p) {
-    assert (self_p);
+    assert(self_p);
     if (*self_p) {
         word_t *self = *self_p;
         free(self->name);
