@@ -5,8 +5,6 @@ xvm_set_primitive
 
 # program
 
-> [maybe] byte array with dynamic length
-
 program_bytes()
 program_call()
 program_value()

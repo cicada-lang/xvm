@@ -31,3 +31,8 @@ const char *
 word_name(word_t *self) {
     return self->name;
 }
+
+program_t *
+word_program(word_t *self) {
+    return self->program;
+}

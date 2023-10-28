@@ -24,27 +24,17 @@ xvm_destroy(xvm_t **self_p) {
     }
 }
 
-size_t
-string_hash(const char *s) {
-    size_t max_index = 64 - 8;
-    size_t index = 0;
-    size_t hash = 0;
-    while (*s) {
-        hash += (*s) << (index % max_index);
-        index++;
-        s++;
-    }
-
-    return hash;
-}
-
 word_t *
 xvm_word(xvm_t *self, const char *name) {
-    size_t hash = string_hash(name);
-    word_t *found = self->dict->words[hash];
+    return dict_word(self->dict, name);
+}
+
+program_t *
+xvm_program(xvm_t *self, const char *name) {
+    word_t *word = xvm_word(self, name);
+    program_t *found = word_program(word);
     if (found) return found;
 
-    word_t *word = word_create(name);
-    self->dict->words[hash] = word;
-    return word;
+    program_t *program = program_create();
+    return program;
 }
