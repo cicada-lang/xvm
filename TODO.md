@@ -1,8 +1,3 @@
-xvm_program
-xvm_has_program
-xvm_has_primitive
-xvm_set_primitive
-
 # program
 
 program_bytes()
@@ -11,6 +6,7 @@ program_value()
 
 # xvm
 
+xvm_primitive_set
 xvm_primitive
 xvm_load
 xvm_step

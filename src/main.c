@@ -14,11 +14,15 @@ main(void) {
         printf("%ld\n", (uint64_t) word);
     }
 
-    xvm_program(vm, "square");
-    // program_t *program = xvm_program(vm, "square");
-    // program_call(program, "dup");
-    // program_call(program, "mul");
-    // program_end(program);
+    {
+        program_t *program = xvm_program(vm, "square");
+        printf("%ld\n", (uint64_t) program);
+        // xvm_program(vm, "square");
+        // program_t *program = xvm_program(vm, "square");
+        // program_call(program, "dup");
+        // program_call(program, "mul");
+        // program_end(program);
+    }
 
     xvm_destroy(&vm);
     return 0;
