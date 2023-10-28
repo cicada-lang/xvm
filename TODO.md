@@ -5,7 +5,6 @@ return_stack_destroy -- also destroy all return_frames
 # program
 
 program_fetch_value
-program_fetch_instruction
 program_append_program
 program_append_call
 program_append_value

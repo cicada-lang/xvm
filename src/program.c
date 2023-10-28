@@ -33,3 +33,8 @@ byte_t
 program_fetch_byte(program_t *self, size_t index) {
     return self->bytes[index];
 }
+
+instruction_t
+program_fetch_instruction(program_t *self, size_t index) {
+    return (instruction_t) program_fetch_byte(self, index);
+}
