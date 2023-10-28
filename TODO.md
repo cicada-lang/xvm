@@ -1,4 +1,4 @@
-merge include/ into src/ -- starting from private api
+starting from private api
 
 # program
 
