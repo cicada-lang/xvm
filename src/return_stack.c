@@ -40,3 +40,8 @@ return_stack_push(return_stack_t *self, return_frame_t *return_frame) {
     self->return_frames[self->cursor] = return_frame;
     self->cursor++;
 }
+
+bool
+return_stack_is_empty(return_stack_t *self) {
+    return self->cursor == 0;
+}
