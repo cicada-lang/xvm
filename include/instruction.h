@@ -1,6 +1,6 @@
 #pragma once
 
-enum instruction_t {
-    CALL,
-    VALUE,
-};
+typedef byte_t instruction_t;
+
+#define CALL 0
+#define VALUE 1
