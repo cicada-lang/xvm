@@ -68,6 +68,11 @@ xvm_return_stack_push(xvm_t *self, return_frame_t *return_frame) {
     return_stack_push(self->return_stack, return_frame);
 }
 
+bool
+xvm_return_stack_is_empty(xvm_t *self) {
+    return return_stack_is_empty(self->return_stack);
+}
+
 void
 xvm_step(xvm_t *self) {
     printf("xvm_step todo: %ld\n", (uint64_t) self);
