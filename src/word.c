@@ -8,10 +8,9 @@ struct _word_t {
 };
 
 word_t *
-word_new(char *name) {
+word_new(const char *name) {
     word_t *self = (word_t *) calloc(1, sizeof(word_t));
-    assert(self);
-    self->name = name;
+    self->name = strdup(name);
     return self;
 }
 

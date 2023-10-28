@@ -12,3 +12,4 @@ typedef struct {
 
 xvm_t *xvm_new(void);
 void xvm_destroy(xvm_t **self_p);
+void xvm_define(xvm_t *self, char *name, char **body);

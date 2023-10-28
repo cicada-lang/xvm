@@ -39,3 +39,28 @@ size_t
 dict_size(dict_t *self) {
     return self->size;
 }
+
+size_t
+string_hash(const char *s) {
+    size_t max_index = 64 - 8;
+    size_t index = 0;
+    size_t hash = 0;
+    while (*s) {
+        hash += (*s) << (index % max_index);
+        index++;
+        s++;
+    }
+
+    return hash;
+}
+
+word_t *
+dict_word(dict_t *self, const char *name) {
+    size_t hash = string_hash(name);
+    word_t *found = self->words[hash];
+    if (found) return found;
+
+    word_t *word = word_new(name);
+    self->words[hash] = word;
+    return word;
+}

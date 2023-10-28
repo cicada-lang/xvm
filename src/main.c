@@ -1,9 +1,18 @@
 #include "everything.h"
 
 int main(void) {
-    xvm_t *xvm = xvm_new();
-    printf("%ld\n", dict_size(xvm->dict));
-    xvm_destroy(&xvm);
-    printf("%d\n", XVM_VERSION);
+    xvm_t *vm = xvm_new();
+
+    {
+        word_t *word = dict_word(vm->dict, "abc");
+        printf("%ld\n", (uint64_t) word);
+    }
+
+    {
+        word_t *word = dict_word(vm->dict, "abc");
+        printf("%ld\n", (uint64_t) word);
+    }
+
+    xvm_destroy(&vm);
     return 0;
 }

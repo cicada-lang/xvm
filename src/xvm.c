@@ -1,6 +1,6 @@
 #include "everything.h"
 
-#define DICT_SIZE 1000000
+#define DICT_SIZE 1000003
 
 xvm_t *xvm_new(void) {
     xvm_t *self = (xvm_t *) calloc(1, sizeof(xvm_t));
@@ -17,3 +17,7 @@ void xvm_destroy(xvm_t **self_p) {
         *self_p = NULL;
     }
 }
+
+// void xvm_define(xvm_t *self, char *name, char **body) {
+//     self->dict
+// }
