@@ -1,3 +1,9 @@
+rename env to xvm
+include/xvm_version.h
+include/xvm_index.h
+
+xvm api design
+
 word_new
 word_destroy
 
