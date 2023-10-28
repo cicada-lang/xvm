@@ -1,5 +1,3 @@
-return_stack_destroy -- also destroy all return_frames
-
 # program
 
 program_append_program
