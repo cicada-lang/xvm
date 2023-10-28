@@ -15,6 +15,7 @@
 #include "dict.h"
 #include "word.h"
 #include "byte.h"
+#include "instruction.h"
 #include "env.h"
 #include "primitive.h"
 #include "program.h"

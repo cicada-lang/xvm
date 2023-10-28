@@ -1,6 +1,3 @@
-instruction.h and instruction.c
-instruction_t *instructions
-
 word_new
 word_destroy
 
