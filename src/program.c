@@ -41,20 +41,40 @@ program_fetch_instruction(program_t *self, size_t index) {
 
 value_t
 program_fetch_value(program_t *self, size_t index) {
-    return ((value_t *) self->bytes)[index];
+    return *(value_t *) (self->bytes + index);
+}
+
+word_t *
+program_fetch_word(program_t *self, size_t index) {
+    return *(word_t **) (self->bytes + index);
 }
 
 void
 program_append_value(program_t *self, value_t value) {
-    size_t addend = 1 + sizeof value;
+    size_t addend = sizeof(VALUE) + sizeof(value);
     byte_t *bytes = (byte_t *) calloc(self->size + addend, sizeof(byte_t));
-    size_t index = self->size;
     memcpy(bytes, self->bytes, self->size);
     free(self->bytes);
     self->bytes = bytes;
-    ((instruction_t *) self->bytes)[index] = VALUE;
-    index++;
-    ((value_t *) self->bytes)[index] = value;
-    self->size += addend;
 
+    *(instruction_t *) (self->bytes + self->size) = VALUE;
+    self->size += sizeof(VALUE);
+
+    *(value_t *) (self->bytes + self->size) = value;
+    self->size += sizeof(value);
+}
+
+void
+program_append_call(program_t *self, const word_t *word) {
+    size_t addend = sizeof(CALL) + sizeof(word);
+    byte_t *bytes = (byte_t *) calloc(self->size + addend, sizeof(byte_t));
+    memcpy(bytes, self->bytes, self->size);
+    free(self->bytes);
+    self->bytes = bytes;
+
+    *(instruction_t *) (self->bytes + self->size) = CALL;
+    self->size += sizeof(CALL);
+
+    *(const word_t **) (self->bytes + self->size) = word;
+    self->size += sizeof(word);
 }

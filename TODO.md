@@ -1,6 +1,5 @@
 # program
 
-program_append_call
 program_append_program
 
 # xvm

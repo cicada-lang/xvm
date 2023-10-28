@@ -1,5 +1,5 @@
 #pragma once
 
-#define END 0
-#define CALL 1
-#define VALUE 2
+#define END ((byte_t) 0)
+#define CALL ((byte_t) 1)
+#define VALUE ((byte_t) 2)

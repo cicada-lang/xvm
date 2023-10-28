@@ -75,7 +75,7 @@ xvm_return_stack_is_empty(xvm_t *self) {
 
 void
 xvm_step(xvm_t *self) {
-    printf("xvm_step todo: %ld\n", (uint64_t) self);
+    assert(self);
 }
 
 void
