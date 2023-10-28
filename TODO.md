@@ -14,6 +14,16 @@ xvm_step
 dict_word -- handle collision by linked list
 dict_create -- find prime number above given size
 
+# build
+
+learn makefile -- maybe from learn-assembly/x86/day1
+
+# test
+
+setup tdd -- to first write API examples
+
+# parser
+
 # linear type
 
 [note] with linear type, programs with local variables can still be composed.
@@ -24,14 +34,7 @@ only simple type (with generic)
 
 [maybe] with an object model (abstract away from pointer)
 
-# parser
-
 # learn
 
 read the c book -- learn about array and pointer and struct
-learn makefile -- maybe from learn-assembly/x86/day1
-setup tdd -- to first write API examples
-learn zlist for basic c class example
-dict & word -- hash table from word to list of words
-- learn from zhash
-- [maybe] we should say "word" instead of "symbol"
+read czmq -- learn C API
