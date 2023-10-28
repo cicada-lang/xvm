@@ -1,16 +1,27 @@
+# program
+
+> byte array with dynamic length
+
+program_bytes()
+program_call()
+program_value()
+
 # xvm
 
-> - primitive function v.s. composed function
-> - inner interpreter
-
-xvm_define
 xvm_primitive
-
-# parser
+xvm_load
+xvm_step
+xvm_run
 
 # dict
 
+dict_has_program
+dict_program
+dict_has_primitive
+dict_word -- handle collision by linked list
 dict_new -- find prime number above given size
+
+# parser
 
 # learn
 

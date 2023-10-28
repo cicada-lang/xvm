@@ -14,6 +14,8 @@ main(void) {
         printf("%ld\n", (uint64_t) word);
     }
 
+    xvm_define(vm, "square", (const char *[]){ "dup", "mul", NULL });
+
     xvm_destroy(&vm);
     return 0;
 }

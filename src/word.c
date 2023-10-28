@@ -26,3 +26,8 @@ word_destroy(word_t **self_p) {
         *self_p = NULL;
     }
 }
+
+const char *
+word_name(word_t *self) {
+    return self->name;
+}

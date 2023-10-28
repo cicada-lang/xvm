@@ -20,7 +20,14 @@ xvm_destroy(xvm_t **self_p) {
     }
 }
 
-// void
-// xvm_define(xvm_t *self, char *name, char **body) {
-//     word_t *word = dict_word(self->dict, name);
-// }
+void
+xvm_define(xvm_t *self, const char *name, const char **body) {
+    word_t *word = dict_word(self->dict, name);
+    printf("define: %s\n", word_name(word));
+
+    while (*body) {
+        word_t *word = dict_word(self->dict, *body);
+        printf("next: %s\n", word_name(word));
+        body++;
+    }
+}
