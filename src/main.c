@@ -6,17 +6,26 @@ main(void) {
 
     {
         word_t *word = xvm_word(vm, "abc");
-        printf("%ld\n", (uint64_t) word);
+        printf("word address of abc: %ld\n", (uint64_t) word);
     }
 
     {
         word_t *word = xvm_word(vm, "abc");
-        printf("%ld\n", (uint64_t) word);
+        printf("word address of abc: %ld\n", (uint64_t) word);
+    }
+
+    {
+        xvm_value_stack_push(vm, 1);
+        xvm_value_stack_push(vm, 2);
+        xvm_value_stack_push(vm, 3);
+        printf("xvm_value_stack_pop: %ld\n", xvm_value_stack_pop(vm));
+        printf("xvm_value_stack_pop: %ld\n", xvm_value_stack_pop(vm));
+        printf("xvm_value_stack_pop: %ld\n", xvm_value_stack_pop(vm));
     }
 
     {
         program_t *program = xvm_program(vm, "square");
-        printf("%ld\n", (uint64_t) program);
+        printf("program address of square: %ld\n", (uint64_t) program);
         // xvm_program(vm, "square");
         // program_t *program = xvm_program(vm, "square");
         // program_call(program, "dup");

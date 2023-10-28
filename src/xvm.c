@@ -41,6 +41,16 @@ xvm_program(xvm_t *self, const char *name) {
     return word_program(word);
 }
 
+value_t
+xvm_value_stack_pop(xvm_t *self) {
+    return value_stack_pop(self->value_stack);
+}
+
+void
+xvm_value_stack_push(xvm_t *self, value_t value) {
+    value_stack_push(self->value_stack, value);
+}
+
 void
 xvm_step(xvm_t *self) {
     printf("xvm_step todo: %ld\n", (uint64_t) self);
