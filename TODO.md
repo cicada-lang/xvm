@@ -1,4 +1,5 @@
 return_stack_is_empty
+xvm_return_stack_is_empty
 return_stack_destroy -- also destroy all return_frames
 
 # program

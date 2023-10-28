@@ -26,7 +26,7 @@ xvm_destroy(xvm_t **self_p) {
         xvm_t *self = *self_p;
         dict_destroy(&self->dict);
         value_stack_destroy(&self->value_stack);
-        return_stack_destroy(&self->return_stack);        
+        return_stack_destroy(&self->return_stack);
         free(self);
         *self_p = NULL;
     }
@@ -51,6 +51,11 @@ xvm_value_stack_pop(xvm_t *self) {
 void
 xvm_value_stack_push(xvm_t *self, value_t value) {
     value_stack_push(self->value_stack, value);
+}
+
+bool
+xvm_value_stack_is_empty(xvm_t *self) {
+    return value_stack_is_empty(self->value_stack);
 }
 
 return_frame_t *
