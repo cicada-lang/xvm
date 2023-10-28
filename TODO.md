@@ -1,5 +1,3 @@
-word.h -- starting from private api
-
 xvm_word -- instead of dict_word
 
 xvm_has_program

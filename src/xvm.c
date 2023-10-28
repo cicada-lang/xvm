@@ -1,5 +1,9 @@
 #include "index.h"
 
+struct _xvm_t {
+    dict_t *dict;
+};
+
 #define DICT_SIZE 1000003
 
 xvm_t *
@@ -20,14 +24,27 @@ xvm_destroy(xvm_t **self_p) {
     }
 }
 
-void
-xvm_define(xvm_t *self, const char *name, const char **body) {
-    word_t *word = dict_word(self->dict, name);
-    printf("define: %s\n", word_name(word));
-
-    while (*body) {
-        word_t *word = dict_word(self->dict, *body);
-        printf("next: %s\n", word_name(word));
-        body++;
+size_t
+string_hash(const char *s) {
+    size_t max_index = 64 - 8;
+    size_t index = 0;
+    size_t hash = 0;
+    while (*s) {
+        hash += (*s) << (index % max_index);
+        index++;
+        s++;
     }
+
+    return hash;
+}
+
+word_t *
+xvm_word(xvm_t *self, const char *name) {
+    size_t hash = string_hash(name);
+    word_t *found = self->dict->words[hash];
+    if (found) return found;
+
+    word_t *word = word_new(name);
+    self->dict->words[hash] = word;
+    return word;
 }
