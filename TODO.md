@@ -1,8 +1,15 @@
-starting from private api
+word.h -- starting from private api
+
+xvm_word -- instead of dict_word
+
+xvm_has_program
+xvm_program
+xvm_has_primitive
+xvm_set_primitive
 
 # program
 
-> byte array with dynamic length
+> [maybe] byte array with dynamic length
 
 program_bytes()
 program_call()
@@ -16,10 +23,6 @@ xvm_step
 xvm_run
 
 # dict
-
-dict_has_program
-dict_program
-dict_has_primitive
 
 dict_word -- handle collision by linked list
 dict_new -- find prime number above given size

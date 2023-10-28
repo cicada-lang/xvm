@@ -1,10 +1,5 @@
 #include "index.h"
 
-struct _dict_t {
-    size_t size;
-    word_t **words;
-};
-
 dict_t *
 dict_new(size_t size) {
     dict_t *self = (dict_t *) calloc(1, sizeof(dict_t));
@@ -33,11 +28,6 @@ dict_purge(dict_t *self) {
             word_destroy(&self->words[index]);
          }
     }
-}
-
-size_t
-dict_size(dict_t *self) {
-    return self->size;
 }
 
 size_t
