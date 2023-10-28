@@ -39,3 +39,8 @@ value_stack_push(value_stack_t *self, value_t value) {
     self->values[self->cursor] = value;
     self->cursor++;
 }
+
+bool
+value_stack_is_empty(value_stack_t *self) {
+    return self->cursor == 0;
+}
