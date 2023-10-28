@@ -28,3 +28,8 @@ size_t
 program_byte_size(program_t *self) {
     return self->size;
 }
+
+byte_t
+program_fetch_byte(program_t *self, size_t index) {
+    return self->bytes[index];
+}
