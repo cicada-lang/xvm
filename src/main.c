@@ -1,4 +1,4 @@
-#include "everything.h"
+#include "index.h"
 
 int
 main(void) {

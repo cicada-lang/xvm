@@ -1,4 +1,4 @@
-#include "everything.h"
+#include "index.h"
 
 struct _word_t {
     char *name;

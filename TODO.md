@@ -1,3 +1,5 @@
+merge include/ into src/ -- starting from private api
+
 # program
 
 > byte array with dynamic length
@@ -18,6 +20,7 @@ xvm_run
 dict_has_program
 dict_program
 dict_has_primitive
+
 dict_word -- handle collision by linked list
 dict_new -- find prime number above given size
 

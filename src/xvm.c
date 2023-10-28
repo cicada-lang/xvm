@@ -1,4 +1,4 @@
-#include "everything.h"
+#include "index.h"
 
 #define DICT_SIZE 1000003
 
