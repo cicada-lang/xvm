@@ -1,4 +1,3 @@
-retrun_frame_t
 return_stack_t
 return_stack_pop & return_stack_push
 
@@ -22,6 +21,16 @@ xvm_step
 
 dict_word -- handle collision by linked list
 dict_create -- find prime number above given size
+
+# linear type
+
+[note] with linear type, programs with local variables can still be composed.
+
+we also need record effects in the type, to support exceptions (throw and try catch)
+
+only simple type (with generic)
+
+[maybe] with an object model (abstract away from pointer)
 
 # parser
 

@@ -5,6 +5,7 @@
 #include "version.h"
 #include "dependencies.h"
 #include "program.h"
+#include "return_frame.h"
 #include "word.h"
 #include "dict.h"
 #include "byte.h"
