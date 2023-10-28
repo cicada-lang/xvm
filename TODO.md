@@ -1,7 +1,5 @@
-xvm_word -- instead of dict_word
-
-xvm_has_program
 xvm_program
+xvm_has_program
 xvm_has_primitive
 xvm_set_primitive
 
@@ -23,7 +21,7 @@ xvm_run
 # dict
 
 dict_word -- handle collision by linked list
-dict_new -- find prime number above given size
+dict_create -- find prime number above given size
 
 # parser
 

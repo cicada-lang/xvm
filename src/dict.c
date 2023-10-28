@@ -1,7 +1,7 @@
 #include "index.h"
 
 dict_t *
-dict_new(size_t size) {
+dict_create(size_t size) {
     dict_t *self = (dict_t *) calloc(1, sizeof(dict_t));
     assert(self);
     self->size = size;

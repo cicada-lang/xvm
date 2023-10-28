@@ -7,9 +7,9 @@ struct _xvm_t {
 #define DICT_SIZE 1000003
 
 xvm_t *
-xvm_new(void) {
+xvm_create(void) {
     xvm_t *self = (xvm_t *) calloc(1, sizeof(xvm_t));
-    self->dict = dict_new(DICT_SIZE);
+    self->dict = dict_create(DICT_SIZE);
     return self;
 }
 
@@ -44,7 +44,7 @@ xvm_word(xvm_t *self, const char *name) {
     word_t *found = self->dict->words[hash];
     if (found) return found;
 
-    word_t *word = word_new(name);
+    word_t *word = word_create(name);
     self->dict->words[hash] = word;
     return word;
 }

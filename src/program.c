@@ -6,7 +6,7 @@ struct _program_t {
 };
 
 program_t *
-program_new(size_t size) {
+program_create(size_t size) {
     program_t *self = (program_t *) calloc(1, sizeof(program_t));
     assert(self);
     self->size = size;
