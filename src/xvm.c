@@ -3,7 +3,7 @@
 struct _xvm_t {
     dict_t *dict;
     value_stack_t *value_stack;
-    // return_stack_t *return_stack;
+    return_stack_t *return_stack;
 };
 
 #define DICT_SIZE 1000003
@@ -49,6 +49,16 @@ xvm_value_stack_pop(xvm_t *self) {
 void
 xvm_value_stack_push(xvm_t *self, value_t value) {
     value_stack_push(self->value_stack, value);
+}
+
+return_frame_t *
+xvm_return_stack_pop(xvm_t *self) {
+    return return_stack_pop(self->return_stack);
+}
+
+void
+xvm_return_stack_push(xvm_t *self, return_frame_t *return_frame) {
+    return_stack_push(self->return_stack, return_frame);
 }
 
 void

@@ -1,5 +1,3 @@
-xvm_return_stack_pop & xvm_return_stack_push
-
 # program
 
 program_byte_size

@@ -8,5 +8,7 @@ word_t *xvm_word(xvm_t *self, const char *name);
 program_t *xvm_program(xvm_t *self, const char *name);
 value_t xvm_value_stack_pop(xvm_t *self);
 void xvm_value_stack_push(xvm_t *self, value_t value);
+return_frame_t *xvm_return_stack_pop(xvm_t *self);
+void xvm_return_stack_push(xvm_t *self, return_frame_t *return_frame);
 void xvm_step(xvm_t *self);
 void xvm_run(xvm_t *self);
