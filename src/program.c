@@ -5,7 +5,8 @@ struct _program_t {
     byte_t *bytes;
 };
 
-program_t *program_new(size_t size) {
+program_t *
+program_new(size_t size) {
     program_t *self = (program_t *) calloc(1, sizeof(program_t));
     assert(self);
     self->size = size;
@@ -14,7 +15,8 @@ program_t *program_new(size_t size) {
     return self;
 }
 
-void program_destroy(program_t **self_p) {
+void
+program_destroy(program_t **self_p) {
     assert (self_p);
     if (*self_p) {
         program_t *self = *self_p;

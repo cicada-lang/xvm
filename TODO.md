@@ -1,5 +1,3 @@
-dict_define
-
 # xvm
 
 > - primitive function v.s. composed function

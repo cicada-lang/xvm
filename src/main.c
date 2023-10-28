@@ -1,6 +1,7 @@
 #include "everything.h"
 
-int main(void) {
+int
+main(void) {
     xvm_t *vm = xvm_new();
 
     {
