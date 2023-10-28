@@ -1,8 +1,15 @@
+value_stack_pop
+value_stack_push
+return_stack_t
+
 # program
 
-program_bytes()
-program_call()
-program_value()
+program_byte_size
+program_fetch_byte
+program_fetch_value
+program_append_bytes
+program_append_call
+program_append_value
 
 # xvm
 
@@ -10,7 +17,6 @@ xvm_primitive_set
 xvm_primitive
 xvm_load
 xvm_step
-xvm_run
 
 # dict
 

@@ -9,6 +9,7 @@
 #include "dict.h"
 #include "byte.h"
 #include "instruction.h"
+#include "value.h"
+#include "value_stack.h"
 #include "xvm.h"
 #include "primitive.h"
-#include "value.h"

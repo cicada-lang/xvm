@@ -22,6 +22,7 @@ main(void) {
         // program_call(program, "dup");
         // program_call(program, "mul");
         // program_end(program);
+        xvm_run(vm);
     }
 
     xvm_destroy(&vm);
