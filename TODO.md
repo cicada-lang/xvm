@@ -1,7 +1,12 @@
+value_stack_is_empty
+return_stack_is_empty
+return_stack_destroy -- also destroy all return_frames
+
 # program
 
 program_byte_size
 program_fetch_byte
+program_fetch_instruction
 program_fetch_value
 program_append_bytes
 program_append_call

@@ -15,6 +15,7 @@ xvm_create(void) {
     xvm_t *self = (xvm_t *) calloc(1, sizeof(xvm_t));
     self->dict = dict_create(DICT_SIZE);
     self->value_stack = value_stack_create(VALUE_STACK_SIZE);
+    self->return_stack = return_stack_create(RETURN_STACK_SIZE);
     return self;
 }
 
@@ -25,6 +26,7 @@ xvm_destroy(xvm_t **self_p) {
         xvm_t *self = *self_p;
         dict_destroy(&self->dict);
         value_stack_destroy(&self->value_stack);
+        return_stack_destroy(&self->return_stack);        
         free(self);
         *self_p = NULL;
     }

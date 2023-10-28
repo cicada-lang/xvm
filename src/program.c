@@ -8,8 +8,8 @@ struct _program_t {
 program_t *
 program_create() {
     program_t *self = (program_t *) calloc(1, sizeof(program_t));
-    // self->size = size;
-    // self->bytes = (byte_t *) calloc(size, sizeof(byte_t));
+    self->size = 0;
+    self->bytes = NULL;
     return self;
 }
 
@@ -18,7 +18,7 @@ program_destroy(program_t **self_p) {
     assert(self_p);
     if (*self_p) {
         program_t *self = *self_p;
-        // free(self->bytes);
+        free(self->bytes);
         free(self);
         *self_p = NULL;
     }
