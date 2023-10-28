@@ -30,7 +30,8 @@ value_t
 value_stack_pop(value_stack_t *self) {
     assert(self->cursor > 0);
     self->cursor--;
-    return self->values[self->cursor];
+    value_t value = self->values[self->cursor];
+    return value;
 }
 
 void

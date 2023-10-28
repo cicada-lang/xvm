@@ -1,5 +1,4 @@
-return_stack_t
-return_stack_pop & return_stack_push
+xvm_return_stack_pop & xvm_return_stack_push
 
 # program
 
