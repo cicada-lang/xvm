@@ -26,6 +26,12 @@ main(void) {
     {
         program_t *program = xvm_program(vm, "square");
         printf("program address of square: %ld\n", (uint64_t) program);
+        printf("program_byte_size: %ld\n", program_byte_size(program));
+        program_append_value(program, 666);
+        printf("program address of square: %ld\n", (uint64_t) program);
+        printf("program_byte_size: %ld\n", program_byte_size(program));
+        printf("program first byte: %d\n", program_fetch_byte(program, 0));
+        printf("program first value: %ld\n", program_fetch_value(program, 1));
         // xvm_program(vm, "square");
         // program_t *program = xvm_program(vm, "square");
         // program_call(program, "dup");

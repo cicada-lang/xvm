@@ -2,5 +2,6 @@
 
 typedef byte_t instruction_t;
 
-#define CALL 0
-#define VALUE 1
+#define END 0
+#define CALL 1
+#define VALUE 2

@@ -43,3 +43,18 @@ value_t
 program_fetch_value(program_t *self, size_t index) {
     return ((value_t *) self->bytes)[index];
 }
+
+void
+program_append_value(program_t *self, value_t value) {
+    size_t addend = 1 + sizeof value;
+    byte_t *bytes = (byte_t *) calloc(self->size + addend, sizeof(byte_t));
+    size_t index = self->size;
+    memcpy(bytes, self->bytes, self->size);
+    free(self->bytes);
+    self->bytes = bytes;
+    ((instruction_t *) self->bytes)[index] = VALUE;
+    index++;
+    ((value_t *) self->bytes)[index] = value;
+    self->size += addend;
+
+}
