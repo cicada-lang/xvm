@@ -38,3 +38,8 @@ instruction_t
 program_fetch_instruction(program_t *self, size_t index) {
     return (instruction_t) program_fetch_byte(self, index);
 }
+
+value_t
+program_fetch_value(program_t *self, size_t index) {
+    return ((value_t *) self->bytes)[index];
+}
