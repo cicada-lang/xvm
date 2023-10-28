@@ -1,3 +1,3 @@
 #pragma once
 
-typedef void (primitive_t)(env_t *env);
+typedef void (primitive_t)(xvm_t *xvm);

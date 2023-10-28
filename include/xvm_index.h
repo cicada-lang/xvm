@@ -7,7 +7,7 @@
 #include "word.h"
 #include "byte.h"
 #include "instruction.h"
-#include "env.h"
+#include "xvm.h"
 #include "primitive.h"
 #include "program.h"
 #include "value.h"

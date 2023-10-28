@@ -1,5 +1,3 @@
-rename env to xvm
-
 xvm api design
 
 word_new
