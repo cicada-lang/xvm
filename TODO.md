@@ -4,7 +4,6 @@ return_stack_destroy -- also destroy all return_frames
 
 # program
 
-program_byte_size
 program_fetch_byte
 program_fetch_instruction
 program_fetch_value

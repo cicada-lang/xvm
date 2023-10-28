@@ -23,3 +23,8 @@ program_destroy(program_t **self_p) {
         *self_p = NULL;
     }
 }
+
+size_t
+program_byte_size(program_t *self) {
+    return self->size;
+}
