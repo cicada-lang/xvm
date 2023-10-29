@@ -42,4 +42,9 @@ frame_fetch_value(frame_t *self) {
     return value;
 }
 
-// word_t *frame_fetch_word(frame_t *self);
+word_t *
+frame_fetch_word(frame_t *self) {
+    word_t *word = program_fetch_word(self->program, self->index);
+    self->index += sizeof(word_t *);
+    return word;
+}
