@@ -22,3 +22,10 @@ frame_destroy(frame_t **self_p) {
         *self_p = NULL;
     }
 }
+
+byte_t
+frame_fetch_byte(frame_t *self) {
+    byte_t byte = program_fetch_byte(self->program, self->index);
+    self->index += sizeof(byte_t);
+    return byte;
+}

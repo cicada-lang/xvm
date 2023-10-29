@@ -1,3 +1,10 @@
+frame_fetch_instruction
+frame_fetch_value
+frame_fetch_word
+
+execute.h
+execute.c
+
 xvm_step
 
 # inner interpreter
