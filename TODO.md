@@ -14,6 +14,8 @@ xvm_step
 dict_word -- handle collision by linked list
 dict_create -- find prime number above given size
 
+# inner interpreter
+
 # build
 
 learn makefile -- maybe from learn-assembly/x86/day1
@@ -25,6 +27,8 @@ setup tdd -- to first write API examples
 # parser
 
 # linear type
+
+[maybe] rename VALUE to UINT64
 
 [note] with linear type, programs with local variables can still be composed.
 
