@@ -1,8 +1,9 @@
 ---
 title: Thoughts on Forth Programming
 author: Felix Winkelmann
-link: http://www.call-with-current-continuation.org/articles/forth.txt
 ---
+
+[ [Original Post](http://www.call-with-current-continuation.org/articles/forth.txt) ]
 
 This is an attempt to describe my understanding of Forth philosophy
 and some of its attributes that make it in my opinion particularly
