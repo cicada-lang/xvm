@@ -35,20 +35,6 @@ dict_purge(dict_t *self) {
     }
 }
 
-size_t
-string_hash(const char *s) {
-    size_t max_index = 64 - 8;
-    size_t index = 0;
-    size_t hash = 0;
-    while (*s) {
-        hash += (*s) << (index % max_index);
-        index++;
-        s++;
-    }
-
-    return hash;
-}
-
 word_t *
 dict_word(dict_t *self, const char *name) {
     size_t hash = string_hash(name);
