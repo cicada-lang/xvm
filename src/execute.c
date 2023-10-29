@@ -28,8 +28,13 @@ execute_call(xvm_t *vm, frame_t *frame) {
     }
 
     program_t *program = word_program(word);
-    frame_t *new_frame = frame_create(program);
-    xvm_return_stack_push(vm, new_frame);
+    if (program) {
+        frame_t *new_frame = frame_create(program);
+        xvm_return_stack_push(vm, new_frame);
+        return;
+    }
+
+    assert(false);
 }
 
 void

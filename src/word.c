@@ -34,10 +34,12 @@ word_name(word_t *self) {
 
 program_t *
 word_program(word_t *self) {
-    if (self->program) return self->program;
-
-    self->program = program_create();
     return self->program;
+}
+
+void
+word_program_set(word_t *self, program_t *program) {
+    self->program = program;
 }
 
 primitive_t *

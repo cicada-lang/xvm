@@ -1,4 +1,5 @@
-word_program -- should not create program (xvm_program should) -- fix execute_call
+rename xvm_program to xvm_define_program
+rename xvm_primitive_set to xvm_define_primitive
 
 # program
 
