@@ -1,6 +1,6 @@
-# xvm
-
 xvm_step
+
+# inner interpreter
 
 # program
 
@@ -10,8 +10,6 @@ program_append_program
 
 dict_word -- handle collision by linked list
 dict_create -- find prime number above given size
-
-# inner interpreter
 
 # build
 

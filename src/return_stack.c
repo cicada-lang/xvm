@@ -2,7 +2,7 @@
 
 struct _return_stack_t {
     size_t size;
-    return_frame_t **return_frames;
+    frame_t **frames;
     size_t cursor;
 };
 
@@ -10,7 +10,7 @@ return_stack_t *
 return_stack_create(size_t size) {
     return_stack_t *self = (return_stack_t *) calloc(1, sizeof(return_stack_t));
     self->size = size;
-    self->return_frames = (return_frame_t **) calloc(size, sizeof(return_frame_t *));
+    self->frames = (frame_t **) calloc(size, sizeof(frame_t *));
     self->cursor = 0;
     return self;
 }
@@ -21,28 +21,28 @@ return_stack_destroy(return_stack_t **self_p) {
     if (*self_p) {
         return_stack_t *self = *self_p;
         while (!return_stack_is_empty(self)) {
-            return_frame_t *return_frame = return_stack_pop(self);
-            return_frame_destroy(&return_frame);
+            frame_t *frame = return_stack_pop(self);
+            frame_destroy(&frame);
         }
 
-        free(self->return_frames);
+        free(self->frames);
         free(self);
         *self_p = NULL;
     }
 }
 
-return_frame_t *
+frame_t *
 return_stack_pop(return_stack_t *self) {
     assert(self->cursor > 0);
     self->cursor--;
-    return_frame_t *return_frame = self->return_frames[self->cursor];
-    self->return_frames[self->cursor] = NULL;
-    return return_frame;
+    frame_t *frame = self->frames[self->cursor];
+    self->frames[self->cursor] = NULL;
+    return frame;
 }
 
 void
-return_stack_push(return_stack_t *self, return_frame_t *return_frame) {
-    self->return_frames[self->cursor] = return_frame;
+return_stack_push(return_stack_t *self, frame_t *frame) {
+    self->frames[self->cursor] = frame;
     self->cursor++;
 }
 

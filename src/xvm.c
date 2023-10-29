@@ -64,14 +64,14 @@ xvm_value_stack_is_empty(xvm_t *self) {
     return value_stack_is_empty(self->value_stack);
 }
 
-return_frame_t *
+frame_t *
 xvm_return_stack_pop(xvm_t *self) {
     return return_stack_pop(self->return_stack);
 }
 
 void
-xvm_return_stack_push(xvm_t *self, return_frame_t *return_frame) {
-    return_stack_push(self->return_stack, return_frame);
+xvm_return_stack_push(xvm_t *self, frame_t *frame) {
+    return_stack_push(self->return_stack, frame);
 }
 
 bool
@@ -81,17 +81,21 @@ xvm_return_stack_is_empty(xvm_t *self) {
 
 void
 xvm_load(xvm_t *self, program_t *program) {
-    return_frame_t *return_frame = return_frame_create(program);
-    xvm_return_stack_push(self, return_frame);
+    frame_t *frame = frame_create(program);
+    xvm_return_stack_push(self, frame);
 }
 
 void
 xvm_step(xvm_t *self) {
-    return_frame_t *return_frame = xvm_return_stack_pop(self);
-    if (!return_frame) return;
+    frame_t *frame = xvm_return_stack_pop(self);
+    if (!frame) return;
 
-    printf("%p\n", (void *) return_frame);
-    // xvm_return_stack_push(self, return_frame);
+    printf("%p\n", (void *) frame);
+    // execute(self, frame);
+    // execute_call(self, frame);
+    // execute_value(self, frame);
+    // execute_end(self, frame);
+    // xvm_return_stack_push(self, frame);
 }
 
 void
