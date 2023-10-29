@@ -1,11 +1,11 @@
-# program
+tests about literal string -- use VALUE for now
 
-program_append_program
+[maybe] rename VALUE to INT
+[maybe] add STRING as a instruction for literal string
 
-# dict
+# parser
 
-dict_word -- handle collision by linked list
-dict_create -- find prime number above given size
+use JSON string https://www.json.org/json-en.html
 
 # build
 
@@ -15,11 +15,12 @@ learn makefile -- maybe from learn-assembly/x86/day1
 
 setup tdd -- to first write API examples
 
-# parser
+# dict
+
+dict_word -- handle collision by linked list
+dict_create -- find prime number above given size
 
 # linear type
-
-[maybe] rename VALUE to UINT64
 
 [note] with linear type, programs with local variables can still be composed.
 
@@ -28,6 +29,10 @@ we also need record effects in the type, to support exceptions (throw and try ca
 only simple type (with generic)
 
 [maybe] with an object model (abstract away from pointer)
+
+# program
+
+program_append_program
 
 # learn
 
