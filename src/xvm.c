@@ -90,8 +90,7 @@ xvm_step(xvm_t *self) {
     frame_t *frame = xvm_return_stack_pop(self);
     if (!frame) return;
 
-     execute(self, frame);
-    // xvm_return_stack_push(self, frame);
+    execute(self, frame);
 }
 
 void

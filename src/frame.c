@@ -23,6 +23,11 @@ frame_destroy(frame_t **self_p) {
     }
 }
 
+bool
+frame_is_end(frame_t *self) {
+    return self->index >= program_byte_size(self->program);
+}
+
 byte_t
 frame_fetch_byte(frame_t *self) {
     byte_t byte = program_fetch_byte(self->program, self->index);

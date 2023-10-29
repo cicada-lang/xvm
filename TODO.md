@@ -1,5 +1,6 @@
 execute.c
-
+execute_call
+execute_value
 xvm_step
 
 # inner interpreter
