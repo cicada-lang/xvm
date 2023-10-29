@@ -1,4 +1,3 @@
-frame_fetch_value
 frame_fetch_word
 
 execute.h

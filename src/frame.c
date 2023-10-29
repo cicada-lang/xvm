@@ -34,3 +34,12 @@ instruction_t
 frame_fetch_instruction_t(frame_t *self) {
     return (instruction_t) frame_fetch_byte(self);
 }
+
+value_t
+frame_fetch_value(frame_t *self) {
+    value_t value = program_fetch_value(self->program, self->index);
+    self->index += sizeof(value_t);
+    return value;
+}
+
+// word_t *frame_fetch_word(frame_t *self);
