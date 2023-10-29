@@ -49,7 +49,7 @@ xvm_define_program(xvm_t *self, const char *name) {
 }
 
 void
-xvm_primitive_set(xvm_t *self, const char *name, primitive_t *primitive) {
+xvm_define_primitive(xvm_t *self, const char *name, primitive_t *primitive) {
     word_t *word = xvm_word(self, name);
     word_primitive_set(word, primitive);
 }

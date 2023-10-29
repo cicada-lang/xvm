@@ -69,9 +69,9 @@ main(void) {
         program_append_call(program, xvm_word(vm, "print"));
         program_append_call(program, xvm_word(vm, "newline"));
 
-        xvm_primitive_set(vm, "print", print);
-        xvm_primitive_set(vm, "println", println);
-        xvm_primitive_set(vm, "newline", newline);
+        xvm_define_primitive(vm, "print", print);
+        xvm_define_primitive(vm, "println", println);
+        xvm_define_primitive(vm, "newline", newline);
         xvm_load(vm, program);
         xvm_run(vm);
     }
