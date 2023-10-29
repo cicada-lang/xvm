@@ -1,13 +1,11 @@
+# xvm
+
+xvm_load
+xvm_step
+
 # program
 
 program_append_program
-
-# xvm
-
-xvm_primitive_set
-xvm_primitive
-xvm_load
-xvm_step
 
 # dict
 

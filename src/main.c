@@ -1,5 +1,10 @@
 #include "index.h"
 
+void print(xvm_t *vm) {
+    value_t value = xvm_value_stack_pop(vm);
+    printf("%ld", value);
+}
+
 int
 main(void) {
     xvm_t *vm = xvm_create();
@@ -43,6 +48,17 @@ main(void) {
         assert(program_fetch_word(program, 1) == xvm_word(vm, "dup"));
         assert(program_fetch_byte(program, unit_size) == CALL);
         assert(program_fetch_word(program, unit_size + 1) == xvm_word(vm, "mul"));
+    }
+
+
+    {
+        program_t *program = xvm_program(vm, "sixsixsix");
+        program_append_value(program, 666);
+        program_append_call(program, xvm_word(vm, "print"));
+
+        xvm_primitive_set(vm, "print", print);
+        // xvm_load(vm, program);
+        xvm_run(vm);
     }
 
     xvm_destroy(&vm);

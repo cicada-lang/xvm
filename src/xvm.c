@@ -43,6 +43,12 @@ xvm_program(xvm_t *self, const char *name) {
     return word_program(word);
 }
 
+void
+xvm_primitive_set(xvm_t *self, const char *name, primitive_t *primitive) {
+    word_t *word = xvm_word(self, name);
+    word_primitive_set(word, primitive);
+}
+
 value_t
 xvm_value_stack_pop(xvm_t *self) {
     return value_stack_pop(self->value_stack);

@@ -39,3 +39,8 @@ word_program(word_t *self) {
     self->program = program_create();
     return self->program;
 }
+
+void
+word_primitive_set(word_t *self, primitive_t *primitive) {
+    self->primitive = primitive;
+}
