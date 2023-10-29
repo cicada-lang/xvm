@@ -38,7 +38,7 @@ xvm_word(xvm_t *self, const char *name) {
 }
 
 program_t *
-xvm_define_program(xvm_t *self, const char *name) {
+xvm_build_program(xvm_t *self, const char *name) {
     word_t *word = xvm_word(self, name);
     program_t *found = word_program(word);
     if (found) return found;
