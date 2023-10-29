@@ -3,6 +3,7 @@
 #include "version.h"
 #include "dependencies.h"
 #include "types.h"
+#include "utils.h"
 
 #include "instruction.h"
 #include "program.h"
