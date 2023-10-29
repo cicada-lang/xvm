@@ -1,6 +1,5 @@
 # xvm
 
-xvm_load
 xvm_step
 
 # program

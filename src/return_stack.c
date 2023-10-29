@@ -20,12 +20,12 @@ return_stack_destroy(return_stack_t **self_p) {
     assert(self_p);
     if (*self_p) {
         return_stack_t *self = *self_p;
-        free(self->return_frames);
         while (!return_stack_is_empty(self)) {
             return_frame_t *return_frame = return_stack_pop(self);
             return_frame_destroy(&return_frame);
         }
 
+        free(self->return_frames);
         free(self);
         *self_p = NULL;
     }

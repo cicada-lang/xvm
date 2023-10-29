@@ -57,7 +57,7 @@ main(void) {
         program_append_call(program, xvm_word(vm, "print"));
 
         xvm_primitive_set(vm, "print", print);
-        // xvm_load(vm, program);
+        xvm_load(vm, program);
         xvm_run(vm);
     }
 

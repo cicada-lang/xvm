@@ -80,11 +80,23 @@ xvm_return_stack_is_empty(xvm_t *self) {
 }
 
 void
+xvm_load(xvm_t *self, program_t *program) {
+    return_frame_t *return_frame = return_frame_create(program);
+    xvm_return_stack_push(self, return_frame);
+}
+
+void
 xvm_step(xvm_t *self) {
-    assert(self);
+    return_frame_t *return_frame = xvm_return_stack_pop(self);
+    if (!return_frame) return;
+
+    printf("%p\n", (void *) return_frame);
+    // xvm_return_stack_push(self, return_frame);
 }
 
 void
 xvm_run(xvm_t *self) {
-    xvm_step(self);
+    while(!xvm_return_stack_is_empty(self)) {
+        xvm_step(self);
+    }
 }

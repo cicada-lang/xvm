@@ -2,11 +2,11 @@
 
 struct _return_frame_t {
     size_t index;
-    const program_t *program;
+    program_t *program;
 };
 
 return_frame_t *
-return_frame_create(const program_t *program) {
+return_frame_create(program_t *program) {
     return_frame_t *self = (return_frame_t *) calloc(1, sizeof(return_frame_t));
     self->index = 0;
     self->program = program;
