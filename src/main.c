@@ -50,7 +50,8 @@ main(void) {
         assert(program_byte_size(program) == 0);
 
         program_append_value(program, 666);
-        assert(program_byte_size(program) == sizeof(instruction_t) + sizeof(value_t));
+        size_t unit_size = sizeof(instruction_t) + sizeof(value_t);
+        assert(program_byte_size(program) == unit_size);
         assert(program_fetch_byte(program, 0) == VALUE);
         assert(program_fetch_instruction(program, 0) == VALUE);
         assert(program_fetch_value(program, 1) == 666);
