@@ -34,7 +34,7 @@ main(void) {
     }
 
     {
-        program_t *program = xvm_program(vm, "sixsixsix");
+        program_t *program = xvm_define_program(vm, "sixsixsix");
         assert(program_byte_size(program) == 0);
 
         program_append_value(program, 666);
@@ -45,7 +45,7 @@ main(void) {
     }
 
     {
-        program_t *program = xvm_program(vm, "square");
+        program_t *program = xvm_define_program(vm, "square");
         assert(program_byte_size(program) == 0);
 
         program_append_call(program, xvm_word(vm, "dup"));
@@ -62,7 +62,7 @@ main(void) {
 
 
     {
-        program_t *program = xvm_program(vm, "sixsixsix");
+        program_t *program = xvm_define_program(vm, "sixsixsix");
         program_append_value(program, 666);
         program_append_call(program, xvm_word(vm, "println"));
         program_append_value(program, 666);

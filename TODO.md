@@ -1,4 +1,3 @@
-rename xvm_program to xvm_define_program
 rename xvm_primitive_set to xvm_define_primitive
 
 # program
