@@ -1,6 +1,3 @@
-execute_value
-xvm_step
-
 # inner interpreter
 
 # program
