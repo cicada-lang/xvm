@@ -1,4 +1,4 @@
-# inner interpreter
+word_program -- should not create program (xvm_program should) -- fix execute_call
 
 # program
 

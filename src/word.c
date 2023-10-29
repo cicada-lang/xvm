@@ -40,6 +40,11 @@ word_program(word_t *self) {
     return self->program;
 }
 
+primitive_t *
+word_primitive(word_t *self) {
+    return self->primitive;
+}
+
 void
 word_primitive_set(word_t *self, primitive_t *primitive) {
     self->primitive = primitive;
