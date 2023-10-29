@@ -4,16 +4,16 @@
 
 # now
 
-tests about literal string -- use VALUE for now
+tests about literal string -- follow scalable c style -- use VALUE for now
 
 [maybe] rename VALUE to INT
 [maybe] add STRING as a instruction for literal string
 
 # device
 
-learn about console IO
+port uxn console IO
 
-learn about screen IO
+port uxn screen IO
 
 do something like the uxn screen IO but for 3D!
 

@@ -15,7 +15,7 @@ thus already have first load time.
 - Two stacks, value stack and return stack.
 - Indirect threaded code interpreter.
 - No GC, use explicit memory management.
-- Every value is a 64 bits number.
+- Every value is 64 bits number.
 
 # Additions to forth
 
@@ -25,14 +25,14 @@ thus already have first load time.
 
 # Primitive datatypes
 
-- string (length + address)
-- number (64 bits)
+- string (simply use c string)
+- int and float number (both 64 bits)
 - word (address of entry in hash map)
 
 # Syntax
 
 - Except for quotation`[ ... ]`, all syntax should be pure postfix.
-- Mostly whitespace separated words, except for string.
+- Mostly whitespace separated words, except for string and quotation.
   - Use JSON string: https://www.json.org
 
 # Semantics
