@@ -34,6 +34,7 @@ execute_call(xvm_t *vm, frame_t *frame) {
         return;
     }
 
+    printf("[execute_call] word name: %s\n", word_name(word));
     assert(false);
 }
 

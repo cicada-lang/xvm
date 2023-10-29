@@ -15,6 +15,18 @@ void newline(xvm_t * vm) {
     printf("\n");
 }
 
+void dup(xvm_t * vm) {
+    value_t value = xvm_value_stack_pop(vm);
+    xvm_value_stack_push(vm, value);
+    xvm_value_stack_push(vm, value);
+}
+
+void mul(xvm_t * vm) {
+    value_t x = xvm_value_stack_pop(vm);
+    value_t y = xvm_value_stack_pop(vm);
+    xvm_value_stack_push(vm, x * y);
+}
+
 int
 main(void) {
     xvm_t *vm = xvm_create();
@@ -45,7 +57,7 @@ main(void) {
     }
 
     {
-        program_t *program = xvm_build_program(vm, "square");
+        program_t *program = xvm_build_program(vm, "square_test");
         assert(program_byte_size(program) == 0);
 
         program_append_call(program, xvm_word(vm, "dup"));
@@ -72,6 +84,32 @@ main(void) {
         xvm_define_primitive(vm, "print", print);
         xvm_define_primitive(vm, "println", println);
         xvm_define_primitive(vm, "newline", newline);
+        xvm_load(vm, program);
+        xvm_run(vm);
+    }
+
+    {
+        program_t *program = xvm_build_program(vm, "square");
+        program_append_call(program, xvm_word(vm, "dup"));
+        program_append_call(program, xvm_word(vm, "mul"));
+
+        xvm_define_primitive(vm, "dup", dup);
+        xvm_define_primitive(vm, "mul", mul);
+    }
+
+    {
+        program_t *program = xvm_build_program(vm, "six");
+        program_append_value(program, 6);
+    }
+
+    {
+        program_t *program = xvm_build_program(vm, "main");
+        program_append_call(program, xvm_word(vm, "six"));
+        program_append_call(program, xvm_word(vm, "println"));
+        program_append_call(program, xvm_word(vm, "six"));
+        program_append_call(program, xvm_word(vm, "square"));
+        program_append_call(program, xvm_word(vm, "println"));
+
         xvm_load(vm, program);
         xvm_run(vm);
     }
