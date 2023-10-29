@@ -31,7 +31,7 @@ frame_fetch_byte(frame_t *self) {
 }
 
 instruction_t
-frame_fetch_instruction_t(frame_t *self) {
+frame_fetch_instruction(frame_t *self) {
     return (instruction_t) frame_fetch_byte(self);
 }
 

@@ -7,6 +7,7 @@
 #include "instruction.h"
 #include "program.h"
 #include "frame.h"
+#include "execute.h"
 #include "return_stack.h"
 #include "word.h"
 #include "dict.h"
