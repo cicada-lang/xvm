@@ -16,6 +16,11 @@ TODO
 
 - [Scalable C](https://github.com/booksbyus/scalable-c)
 
+**Articles**:
+
+- [Thoughts on Forth Programming](https://readonly.link/articles/https://code-of-xvm.fidb.app/docs/references/articles/thoughts-on-forth-programming.md)
+- [Forth Methodology Applied to Programming](https://readonly.link/articles/https://code-of-xvm.fidb.app/docs/references/articles/forth-methodology-applied-to-programming.md)
+
 ## Community
 
 GitHub:
