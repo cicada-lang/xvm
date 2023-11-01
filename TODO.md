@@ -1,7 +1,5 @@
 # builtins
 
-[maybe] naming convention for primitive function or macro
-
 [builtins] string_dup
 [builtins] string_length
 

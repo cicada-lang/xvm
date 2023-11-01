@@ -1,11 +1,11 @@
 #include "../index.h"
 
-void string_print(xvm_t * vm) {
+void _string_print(xvm_t * vm) {
     char *s = (char *) xvm_value_stack_pop(vm);
     printf("%s", s);
 }
 
-void string_append(xvm_t * vm) {
+void _string_append(xvm_t * vm) {
     char *first = (char *) xvm_value_stack_pop(vm);
     char *second = (char *) xvm_value_stack_pop(vm);
     size_t first_length = strlen(first);
