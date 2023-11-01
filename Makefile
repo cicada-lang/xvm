@@ -9,6 +9,14 @@ bin = xvm xvm-test
 .PHONY: all
 all: ${bin}
 
+.PHONY: run
+run: xvm
+	./bin/xvm
+
+.PHONY: test
+test: xvm-test
+	./bin/xvm-test
+
 ${bin}: ${lib}
 	$(cc) -c $(cflags) $@.c -o $@.o
 	mkdir -p bin; ${cc} ${ldflags} $@.o $^ -o bin/$@

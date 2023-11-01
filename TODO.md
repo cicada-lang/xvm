@@ -1,4 +1,4 @@
-setup tdd -- use test.c as an entry point
+fix makefile for bin
 
 # parser
 
