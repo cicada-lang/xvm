@@ -1,26 +1,4 @@
-# now
-
-extract primitives.h & primitives.c
-
-tests about literal string -- follow scalable c style -- use VALUE for now
-
-[maybe] rename VALUE to INT
-[maybe] add STRING as a instruction for literal string
-
-# device
-
-port uxn console IO
-
-port uxn screen IO
-
-do something like the uxn screen IO but for 3D!
-
-learn freecad and instead of the editor-based UI,
-design a XML-based UI for modelling 3D objects.
-
-# parser
-
-use JSON string https://www.json.org/json-en.html
+naming convention for primitive function or macro
 
 # build
 
@@ -29,6 +7,10 @@ learn makefile -- maybe from learn-assembly/x86/day1
 # test
 
 setup tdd -- to first write API examples
+
+# parser
+
+use JSON string https://www.json.org/json-en.html
 
 # dict
 
@@ -53,3 +35,14 @@ program_append_program
 
 read the c book -- learn about array and pointer and struct
 read czmq -- learn C API
+
+# device
+
+port uxn console IO -- design better API
+
+port uxn screen IO -- design better API
+
+do something like the uxn screen IO but for 3D!
+
+learn freecad and instead of the editor-based UI,
+design a XML-based UI for modelling 3D objects.

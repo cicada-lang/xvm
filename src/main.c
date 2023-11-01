@@ -48,6 +48,9 @@ main(void) {
 
 
     {
+        xvm_define_primitive(vm, "int_print", int_print);
+        xvm_define_primitive(vm, "newline", newline);
+
         program_t *program = xvm_build_program(vm, "sixsixsix");
         program_append_value(program, 666);
         program_append_call(program, xvm_word(vm, "int_print"));
@@ -56,19 +59,17 @@ main(void) {
         program_append_call(program, xvm_word(vm, "int_print"));
         program_append_call(program, xvm_word(vm, "newline"));
 
-        xvm_define_primitive(vm, "int_print", int_print);
-        xvm_define_primitive(vm, "newline", newline);
         xvm_load(vm, program);
         xvm_run(vm);
     }
 
     {
+        xvm_define_primitive(vm, "int_dup", int_dup);
+        xvm_define_primitive(vm, "int_mul", int_mul);
+
         program_t *program = xvm_build_program(vm, "int_square");
         program_append_call(program, xvm_word(vm, "int_dup"));
         program_append_call(program, xvm_word(vm, "int_mul"));
-
-        xvm_define_primitive(vm, "int_dup", int_dup);
-        xvm_define_primitive(vm, "int_mul", int_mul);
     }
 
     {
@@ -91,12 +92,26 @@ main(void) {
     }
 
     {
+        xvm_define_primitive(vm, "string_print", string_print);
+
         program_t *program = xvm_build_program(vm, "test_string_print");
         program_append_value(program, (value_t) "hello, world!");
         program_append_call(program, xvm_word(vm, "string_print"));
         program_append_call(program, xvm_word(vm, "newline"));
 
-        xvm_define_primitive(vm, "string_print", string_print);
+        xvm_load(vm, program);
+        xvm_run(vm);
+    }
+
+    {
+        xvm_define_primitive(vm, "string_append", string_append);
+
+        program_t *program = xvm_build_program(vm, "test_string_append");
+        program_append_value(program, (value_t) string_dup("hello, "));
+        program_append_value(program, (value_t) string_dup("world!"));
+        program_append_call(program, xvm_word(vm, "string_append"));
+        program_append_call(program, xvm_word(vm, "string_print"));
+        program_append_call(program, xvm_word(vm, "newline"));
 
         xvm_load(vm, program);
         xvm_run(vm);
