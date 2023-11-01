@@ -1,4 +1,4 @@
-#include "index.h"
+#include "src/index.h"
 
 int
 main(void) {
