@@ -50,13 +50,13 @@ main(void) {
     {
         program_t *program = xvm_build_program(vm, "sixsixsix");
         program_append_value(program, 666);
-        program_append_call(program, xvm_word(vm, "println"));
+        program_append_call(program, xvm_word(vm, "print"));
+        program_append_call(program, xvm_word(vm, "newline"));
         program_append_value(program, 666);
         program_append_call(program, xvm_word(vm, "print"));
         program_append_call(program, xvm_word(vm, "newline"));
 
         xvm_define_primitive(vm, "print", print);
-        xvm_define_primitive(vm, "println", println);
         xvm_define_primitive(vm, "newline", newline);
         xvm_load(vm, program);
         xvm_run(vm);
@@ -79,10 +79,12 @@ main(void) {
     {
         program_t *program = xvm_build_program(vm, "test_square");
         program_append_call(program, xvm_word(vm, "six"));
-        program_append_call(program, xvm_word(vm, "println"));
+        program_append_call(program, xvm_word(vm, "print"));
+        program_append_call(program, xvm_word(vm, "newline"));
         program_append_call(program, xvm_word(vm, "six"));
         program_append_call(program, xvm_word(vm, "square"));
-        program_append_call(program, xvm_word(vm, "println"));
+        program_append_call(program, xvm_word(vm, "print"));
+        program_append_call(program, xvm_word(vm, "newline"));
 
         xvm_load(vm, program);
         xvm_run(vm);

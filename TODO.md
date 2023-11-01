@@ -1,5 +1,7 @@
 # now
 
+add int prefix to print, mul and dup
+
 extract primitives.h & primitives.c
 
 tests about literal string -- follow scalable c style -- use VALUE for now
