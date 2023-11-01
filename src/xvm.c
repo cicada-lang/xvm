@@ -104,3 +104,24 @@ xvm_run(xvm_t *self) {
         xvm_step(self);
     }
 }
+
+void
+xvm_define_builtins(xvm_t *self) {
+    xvm_define_primitive(self, "newline", _newline);
+
+    xvm_define_primitive(self, "int_print", _int_print);
+    xvm_define_primitive(self, "int_dup", _int_dup);
+    xvm_define_primitive(self, "int_mul", _int_mul);
+
+    xvm_define_primitive(self, "string_print", _string_print);
+    xvm_define_primitive(self, "string_append", _string_append);
+    xvm_define_primitive(self, "string_dup", _string_dup);
+    xvm_define_primitive(self, "string_length", _string_length);
+}
+
+xvm_t *
+xvm_init(void) {
+    xvm_t *vm = xvm_create();
+    xvm_define_builtins(vm);
+    return vm;
+}

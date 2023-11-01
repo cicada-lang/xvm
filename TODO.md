@@ -1,7 +1,3 @@
-# builtins
-
-xvm_define_builtins
-
 # build
 
 learn makefile -- maybe from learn-assembly/x86/day1

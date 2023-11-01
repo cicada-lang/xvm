@@ -19,3 +19,6 @@ bool xvm_return_stack_is_empty(xvm_t *self);
 void xvm_load(xvm_t *self, program_t *program);
 void xvm_step(xvm_t *self);
 void xvm_run(xvm_t *self);
+
+void xvm_define_builtins(xvm_t *self);
+xvm_t *xvm_init(void);

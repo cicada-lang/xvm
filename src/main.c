@@ -2,7 +2,7 @@
 
 int
 main(void) {
-    xvm_t *vm = xvm_create();
+    xvm_t *vm = xvm_init();
 
     {
         word_t *word = xvm_word(vm, "abc");
@@ -48,9 +48,6 @@ main(void) {
 
 
     {
-        xvm_define_primitive(vm, "int_print", _int_print);
-        xvm_define_primitive(vm, "newline", _newline);
-
         program_t *program = xvm_build_program(vm, "sixsixsix");
         program_append_value(program, 666);
         program_append_call(program, xvm_word(vm, "int_print"));
@@ -64,9 +61,6 @@ main(void) {
     }
 
     {
-        xvm_define_primitive(vm, "int_dup", _int_dup);
-        xvm_define_primitive(vm, "int_mul", _int_mul);
-
         program_t *program = xvm_build_program(vm, "int_square");
         program_append_call(program, xvm_word(vm, "int_dup"));
         program_append_call(program, xvm_word(vm, "int_mul"));
@@ -92,8 +86,6 @@ main(void) {
     }
 
     {
-        xvm_define_primitive(vm, "string_print", _string_print);
-
         program_t *program = xvm_build_program(vm, "test_string_print");
         program_append_value(program, (value_t) string_dup("hello, world!"));
         program_append_call(program, xvm_word(vm, "string_print"));
@@ -104,10 +96,6 @@ main(void) {
     }
 
     {
-        xvm_define_primitive(vm, "string_append", _string_append);
-        xvm_define_primitive(vm, "string_dup", _string_dup);
-        xvm_define_primitive(vm, "string_length", _string_length);
-
         program_t *program = xvm_build_program(vm, "test_string_append");
         program_append_value(program, (value_t) string_dup("hello, "));
         program_append_value(program, (value_t) string_dup("world!"));
