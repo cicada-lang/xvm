@@ -10,12 +10,13 @@ string_dup(const char *s) {
 }
 
 size_t
-string_hash(const char *s) {
+string_hash(const char *s, size_t size) {
     size_t max_index = 64 - 8;
     size_t index = 0;
     size_t hash = 0;
     while (*s) {
         hash += (*s) << (index % max_index);
+        if (hash > size) hash %= size;
         index++;
         s++;
     }

@@ -1,8 +1,6 @@
-# learn
-
-[xvm] uxn does also need a CALL opcode?
-
 # now
+
+extract primitives.h & primitives.c
 
 tests about literal string -- follow scalable c style -- use VALUE for now
 

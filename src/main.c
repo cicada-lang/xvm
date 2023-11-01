@@ -1,32 +1,5 @@
 #include "index.h"
 
-void print(xvm_t *vm) {
-    value_t value = xvm_value_stack_pop(vm);
-    printf("%ld", value);
-}
-
-void println(xvm_t *vm) {
-    value_t value = xvm_value_stack_pop(vm);
-    printf("%ld\n", value);
-}
-
-void newline(xvm_t * vm) {
-    (void) vm;
-    printf("\n");
-}
-
-void dup(xvm_t * vm) {
-    value_t value = xvm_value_stack_pop(vm);
-    xvm_value_stack_push(vm, value);
-    xvm_value_stack_push(vm, value);
-}
-
-void mul(xvm_t * vm) {
-    value_t x = xvm_value_stack_pop(vm);
-    value_t y = xvm_value_stack_pop(vm);
-    xvm_value_stack_push(vm, x * y);
-}
-
 int
 main(void) {
     xvm_t *vm = xvm_create();
@@ -104,12 +77,24 @@ main(void) {
     }
 
     {
-        program_t *program = xvm_build_program(vm, "main");
+        program_t *program = xvm_build_program(vm, "test_square");
         program_append_call(program, xvm_word(vm, "six"));
         program_append_call(program, xvm_word(vm, "println"));
         program_append_call(program, xvm_word(vm, "six"));
         program_append_call(program, xvm_word(vm, "square"));
         program_append_call(program, xvm_word(vm, "println"));
+
+        xvm_load(vm, program);
+        xvm_run(vm);
+    }
+
+    {
+        program_t *program = xvm_build_program(vm, "test_string_pr");
+        program_append_value(program, (value_t) "hello, world!");
+        program_append_call(program, xvm_word(vm, "string_print"));
+        program_append_call(program, xvm_word(vm, "newline"));
+
+        xvm_define_primitive(vm, "string_print", string_print);
 
         xvm_load(vm, program);
         xvm_run(vm);

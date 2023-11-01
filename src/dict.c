@@ -8,10 +8,8 @@ struct _dict_t {
 dict_t *
 dict_create(size_t size) {
     dict_t *self = (dict_t *) calloc(1, sizeof(dict_t));
-    assert(self);
     self->size = size;
     self->words = (word_t **) calloc(size, sizeof(word_t *));
-    assert(self->words);
     return self;
 }
 
@@ -37,7 +35,7 @@ dict_purge(dict_t *self) {
 
 word_t *
 dict_word(dict_t *self, const char *name) {
-    size_t hash = string_hash(name);
+    size_t hash = string_hash(name, self->size);
     word_t *found = self->words[hash];
     if (found) return found;
 
