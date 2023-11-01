@@ -1,127 +1,118 @@
 #include "index.h"
 
-struct _xvm_t {
-    dict_t *dict;
-    value_stack_t *value_stack;
-    return_stack_t *return_stack;
-};
+int
+main(void) {
+    xvm_t *vm = xvm_init();
 
-#define DICT_SIZE 1000003
-#define VALUE_STACK_SIZE 10000
-#define RETURN_STACK_SIZE 10000
-
-xvm_t *
-xvm_create(void) {
-    xvm_t *self = (xvm_t *) calloc(1, sizeof(xvm_t));
-    self->dict = dict_create(DICT_SIZE);
-    self->value_stack = value_stack_create(VALUE_STACK_SIZE);
-    self->return_stack = return_stack_create(RETURN_STACK_SIZE);
-    return self;
-}
-
-void
-xvm_destroy(xvm_t **self_p) {
-    assert(self_p);
-    if (*self_p) {
-        xvm_t *self = *self_p;
-        dict_destroy(&self->dict);
-        value_stack_destroy(&self->value_stack);
-        return_stack_destroy(&self->return_stack);
-        free(self);
-        *self_p = NULL;
+    {
+        word_t *word = xvm_word(vm, "abc");
+        assert(word == xvm_word(vm, "abc"));
     }
-}
 
-word_t *
-xvm_word(xvm_t *self, const char *name) {
-    return dict_word(self->dict, name);
-}
-
-program_t *
-xvm_build_program(xvm_t *self, const char *name) {
-    word_t *word = xvm_word(self, name);
-    program_t *found = word_program(word);
-    if (found) return found;
-
-    program_t *program = program_create();
-    word_program_set(word, program);
-    return program;
-}
-
-void
-xvm_define_primitive(xvm_t *self, const char *name, primitive_t *primitive) {
-    word_t *word = xvm_word(self, name);
-    word_primitive_set(word, primitive);
-}
-
-value_t
-xvm_value_stack_pop(xvm_t *self) {
-    return value_stack_pop(self->value_stack);
-}
-
-void
-xvm_value_stack_push(xvm_t *self, value_t value) {
-    value_stack_push(self->value_stack, value);
-}
-
-bool
-xvm_value_stack_is_empty(xvm_t *self) {
-    return value_stack_is_empty(self->value_stack);
-}
-
-frame_t *
-xvm_return_stack_pop(xvm_t *self) {
-    return return_stack_pop(self->return_stack);
-}
-
-void
-xvm_return_stack_push(xvm_t *self, frame_t *frame) {
-    return_stack_push(self->return_stack, frame);
-}
-
-bool
-xvm_return_stack_is_empty(xvm_t *self) {
-    return return_stack_is_empty(self->return_stack);
-}
-
-void
-xvm_load(xvm_t *self, program_t *program) {
-    frame_t *frame = frame_create(program);
-    xvm_return_stack_push(self, frame);
-}
-
-void
-xvm_step(xvm_t *self) {
-    frame_t *frame = xvm_return_stack_pop(self);
-    if (!frame) return;
-
-    execute(self, frame);
-}
-
-void
-xvm_run(xvm_t *self) {
-    while(!xvm_return_stack_is_empty(self)) {
-        xvm_step(self);
+    {
+        xvm_value_stack_push(vm, 1);
+        xvm_value_stack_push(vm, 2);
+        xvm_value_stack_push(vm, 3);
+        assert(xvm_value_stack_pop(vm) == 3);
+        assert(xvm_value_stack_pop(vm) == 2);
+        assert(xvm_value_stack_pop(vm) == 1);
     }
-}
 
-void
-xvm_define_builtins(xvm_t *self) {
-    xvm_define_primitive(self, "newline", _newline);
+    {
+        program_t *program = xvm_build_program(vm, "sixsixsix");
+        assert(program_byte_size(program) == 0);
 
-    xvm_define_primitive(self, "int_print", _int_print);
-    xvm_define_primitive(self, "int_dup", _int_dup);
-    xvm_define_primitive(self, "int_mul", _int_mul);
+        program_append_value(program, 666);
+        size_t unit_size = sizeof(instruction_t) + sizeof(value_t);
+        assert(program_byte_size(program) == unit_size);
+        assert(program_fetch_byte(program, 0) == VALUE);
+        assert(program_fetch_instruction(program, 0) == VALUE);
+        assert(program_fetch_value(program, 1) == 666);
+    }
 
-    xvm_define_primitive(self, "string_print", _string_print);
-    xvm_define_primitive(self, "string_append", _string_append);
-    xvm_define_primitive(self, "string_dup", _string_dup);
-    xvm_define_primitive(self, "string_length", _string_length);
-}
+    {
+        program_t *program = xvm_build_program(vm, "square_test");
+        assert(program_byte_size(program) == 0);
 
-xvm_t *
-xvm_init(void) {
-    xvm_t *vm = xvm_create();
-    xvm_define_builtins(vm);
-    return vm;
+        program_append_call(program, xvm_word(vm, "int_dup"));
+        size_t unit_size = sizeof(instruction_t) + sizeof(value_t);
+        assert(program_byte_size(program) == unit_size);
+
+        program_append_call(program, xvm_word(vm, "int_mul"));
+        assert(program_byte_size(program) == unit_size * 2);
+        assert(program_fetch_byte(program, 0) == CALL);
+        assert(program_fetch_word(program, 1) == xvm_word(vm, "int_dup"));
+        assert(program_fetch_byte(program, unit_size) == CALL);
+        assert(program_fetch_word(program, unit_size + 1) == xvm_word(vm, "int_mul"));
+    }
+
+
+    {
+        program_t *program = xvm_build_program(vm, "sixsixsix");
+        program_append_value(program, 666);
+        program_append_call(program, xvm_word(vm, "int_print"));
+        program_append_call(program, xvm_word(vm, "newline"));
+        program_append_value(program, 666);
+        program_append_call(program, xvm_word(vm, "int_print"));
+        program_append_call(program, xvm_word(vm, "newline"));
+
+        xvm_load(vm, program);
+        xvm_run(vm);
+    }
+
+    {
+        program_t *program = xvm_build_program(vm, "int_square");
+        program_append_call(program, xvm_word(vm, "int_dup"));
+        program_append_call(program, xvm_word(vm, "int_mul"));
+    }
+
+    {
+        program_t *program = xvm_build_program(vm, "six");
+        program_append_value(program, 6);
+    }
+
+    {
+        program_t *program = xvm_build_program(vm, "test_int_square");
+        program_append_call(program, xvm_word(vm, "six"));
+        program_append_call(program, xvm_word(vm, "int_print"));
+        program_append_call(program, xvm_word(vm, "newline"));
+        program_append_call(program, xvm_word(vm, "six"));
+        program_append_call(program, xvm_word(vm, "int_square"));
+        program_append_call(program, xvm_word(vm, "int_print"));
+        program_append_call(program, xvm_word(vm, "newline"));
+
+        xvm_load(vm, program);
+        xvm_run(vm);
+    }
+
+    {
+        program_t *program = xvm_build_program(vm, "test_string_print");
+        program_append_value(program, (value_t) string_dup("hello, world!"));
+        program_append_call(program, xvm_word(vm, "string_print"));
+        program_append_call(program, xvm_word(vm, "newline"));
+
+        xvm_load(vm, program);
+        xvm_run(vm);
+    }
+
+    {
+        program_t *program = xvm_build_program(vm, "test_string_append");
+        program_append_value(program, (value_t) string_dup("hello, "));
+        program_append_value(program, (value_t) string_dup("world!"));
+        program_append_call(program, xvm_word(vm, "string_append"));
+        program_append_call(program, xvm_word(vm, "string_dup"));
+        program_append_call(program, xvm_word(vm, "string_dup"));
+        program_append_call(program, xvm_word(vm, "string_append"));
+        program_append_call(program, xvm_word(vm, "string_print"));
+        program_append_call(program, xvm_word(vm, "newline"));
+        program_append_call(program, xvm_word(vm, "string_length"));
+        program_append_call(program, xvm_word(vm, "int_print"));
+        program_append_call(program, xvm_word(vm, "newline"));
+
+        xvm_load(vm, program);
+        xvm_run(vm);
+    }
+
+    xvm_destroy(&vm);
+    return 0;
 }

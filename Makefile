@@ -9,6 +9,7 @@ bin = bin/xvm
 .PHONY: all
 all: ${bin}
 
+.PHONY: run
 run: ${bin}
 	time ./bin/xvm
 
