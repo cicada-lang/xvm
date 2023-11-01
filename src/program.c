@@ -6,7 +6,7 @@ struct _program_t {
 };
 
 program_t *
-program_create() {
+program_create(void) {
     program_t *self = (program_t *) calloc(1, sizeof(program_t));
     self->size = 0;
     self->bytes = NULL;

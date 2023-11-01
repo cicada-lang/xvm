@@ -2,7 +2,7 @@
 
 // A program is a dynamic byte array with dynamic length.
 
-program_t *program_create();
+program_t *program_create(void);
 void program_destroy(program_t **self_p);
 size_t program_byte_size(program_t *self);
 byte_t program_fetch_byte(program_t *self, size_t index);
