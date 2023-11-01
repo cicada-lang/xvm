@@ -1,6 +1,7 @@
 typedef uint8_t byte_t;
 typedef byte_t instruction_t;
 typedef uint64_t value_t;
+typedef int64_t int_t;
 
 typedef struct _dict_t dict_t;
 typedef struct _word_t word_t;
