@@ -1,4 +1,4 @@
-#include "index.h"
+#include "../index.h"
 
 void newline(xvm_t * vm) {
     (void) vm;
