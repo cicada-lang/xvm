@@ -1,5 +1,3 @@
-fix makefile for bin
-
 # parser
 
 parser/token.h
