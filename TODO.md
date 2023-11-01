@@ -1,7 +1,5 @@
 # builtins
 
-[builtins] string_length
-
 xvm_define_builtins
 
 # build

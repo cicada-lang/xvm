@@ -3,12 +3,19 @@
 void _string_print(xvm_t * vm) {
     char *s = (char *) xvm_value_stack_pop(vm);
     printf("%s", s);
+    free(s);
 }
 
 void _string_dup(xvm_t * vm) {
     char *s = (char *) xvm_value_stack_pop(vm);
     xvm_value_stack_push(vm, (value_t) s);
     xvm_value_stack_push(vm, (value_t) string_dup(s));
+}
+
+void _string_length(xvm_t * vm) {
+    char *s = (char *) xvm_value_stack_pop(vm);
+    xvm_value_stack_push(vm, strlen(s));
+    free(s);
 }
 
 void _string_append(xvm_t * vm) {
