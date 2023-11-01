@@ -1,4 +1,15 @@
-naming convention for primitive function or macro
+# builtins
+
+builtins/console
+builtins/int
+builtins/string
+
+[maybe] naming convention for primitive function or macro
+
+[builtins] string_dup
+[builtins] string_length
+
+xvm_define_builtins
 
 # build
 
