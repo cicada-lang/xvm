@@ -105,10 +105,13 @@ main(void) {
 
     {
         xvm_define_primitive(vm, "string_append", _string_append);
+        xvm_define_primitive(vm, "string_dup", _string_dup);
 
         program_t *program = xvm_build_program(vm, "test_string_append");
         program_append_value(program, (value_t) string_dup("hello, "));
         program_append_value(program, (value_t) string_dup("world!"));
+        program_append_call(program, xvm_word(vm, "string_append"));
+        program_append_call(program, xvm_word(vm, "string_dup"));
         program_append_call(program, xvm_word(vm, "string_append"));
         program_append_call(program, xvm_word(vm, "string_print"));
         program_append_call(program, xvm_word(vm, "newline"));

@@ -1,6 +1,5 @@
 # builtins
 
-[builtins] string_dup
 [builtins] string_length
 
 xvm_define_builtins

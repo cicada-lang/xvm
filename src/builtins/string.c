@@ -5,6 +5,12 @@ void _string_print(xvm_t * vm) {
     printf("%s", s);
 }
 
+void _string_dup(xvm_t * vm) {
+    char *s = (char *) xvm_value_stack_pop(vm);
+    xvm_value_stack_push(vm, (value_t) s);
+    xvm_value_stack_push(vm, (value_t) string_dup(s));
+}
+
 void _string_append(xvm_t * vm) {
     char *first = (char *) xvm_value_stack_pop(vm);
     char *second = (char *) xvm_value_stack_pop(vm);
