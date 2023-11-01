@@ -1,4 +1,3 @@
-rename api.c to xvm.c
 setup tdd -- use test.c as an entry point
 
 # parser

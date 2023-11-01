@@ -4,7 +4,7 @@ cflags = -g -Wall -Wwrite-strings -Wextra -Werror -O2 -std=c99 -pedantic
 
 src = ${shell find src -name '*.c'}
 lib = ${patsubst src/%,lib/%,${patsubst %.c,%.o,${src}}}
-bin = xvm test
+bin = xvm xvm-test
 
 .PHONY: all
 all: ${bin}

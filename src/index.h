@@ -14,4 +14,4 @@
 #include "word.h"
 #include "dict.h"
 #include "value_stack.h"
-#include "api.h"
+#include "xvm.h"
