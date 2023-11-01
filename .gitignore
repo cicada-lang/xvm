@@ -1,6 +1,11 @@
+# c
+
+*.o
+
 # build
 
-build
+bin
+lib
 
 # emacs
 *~

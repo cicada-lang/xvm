@@ -1,12 +1,15 @@
-# build
-
-learn makefile -- maybe from learn-assembly/x86/day1
-
-# test
-
-setup tdd -- to first write API examples
+setup tdd -- use test.c as an entry point
 
 # parser
+
+parser/token.h
+
+token_t *token_lex(char *code);
+
+xvm_load_code(char *code);
+xvm_load_tokens(token_t *tokens);
+
+parser/token.c
 
 use JSON string https://www.json.org/json-en.html
 
