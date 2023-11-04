@@ -1,6 +1,5 @@
 # parser
 
-lexer_create
 lexer_destroy
 lexer_lex
 
