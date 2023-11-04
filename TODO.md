@@ -1,12 +1,9 @@
 # parser
 
-list_pop
-
 list_test
+utils/test_utils
 
 list_purge
-
-utils/test_utils
 
 lexer.h
 lexer_create
