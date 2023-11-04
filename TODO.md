@@ -1,10 +1,9 @@
 # parser
 
+list_unshift
 list_pop
 
 list_test
-
-list_shift & list_unshift
 
 list_purge
 
