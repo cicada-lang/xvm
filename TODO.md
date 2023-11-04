@@ -1,10 +1,13 @@
 # parser
 
-list_push & list_pop
+list_pop
+
+list_test
+
 list_shift & list_unshift
 
 list_purge
-list_test
+
 utils/test_utils
 
 lexer.h

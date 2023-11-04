@@ -16,6 +16,11 @@ void *list_next(list_t *self);
 void *list_prev(list_t *self);
 void *list_end(list_t *self);
 
+// at the end of the list.
+
+void list_push(list_t *self, void *iten);
+void *list_pop(list_t *self);
+
 // //  Return first item in the list, or null, leaves the cursor
 // void *list_head(list_t *self);
 

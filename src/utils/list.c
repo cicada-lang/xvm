@@ -41,12 +41,14 @@ list_current(list_t *self) {
         return NULL;
 }
 
-void *list_first(list_t *self) {
+void *
+list_first(list_t *self) {
     assert(self);
     return self->first->item;
 }
 
-void *list_last(list_t *self) {
+void *
+list_last(list_t *self) {
     assert(self);
     return self->last->item;
 }
@@ -68,9 +70,30 @@ list_next(list_t *self) {
 }
 
 void *
-list_end(list_t *self)
-{
+list_end(list_t *self) {
     assert(self);
     self->cursor = self->last;
     return list_current(self);
+}
+
+void
+list_push(list_t *self, void *item) {
+    assert(item);
+
+    node_t *node = (node_t *) calloc(1, sizeof (node_t));
+    assert(node);
+    node->item = item;
+
+    if (self->last) {
+        self->last->next = node;
+        node->prev = self->last;
+        node->next = NULL;
+    } else {
+        self->first = node;
+        node->prev = NULL;
+        node->next = NULL;
+    }
+
+    self->last = node;
+    self->size++;
 }
