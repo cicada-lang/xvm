@@ -2,7 +2,7 @@
 
 void
 test_builtin_int(void) {
-    printf("<test_builtin_int>");
+    printf("<test_builtin_int>\n");
 
     vm_t *vm = vm_init();
 
