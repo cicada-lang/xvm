@@ -1,13 +1,11 @@
 #include "src/index.h"
+#include "src/tests/index.h"
 
 int
 main(void) {
     vm_t *vm = vm_init();
 
-    {
-        word_t *word = vm_word(vm, "abc");
-        assert(word == vm_word(vm, "abc"));
-    }
+    test_word();
 
     {
         vm_value_stack_push(vm, 1);

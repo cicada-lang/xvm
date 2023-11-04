@@ -1,11 +1,25 @@
 # parser
 
-token_lex
+test_value_stack
+
+utils/string
+utils/list
+
+token_create_word
+token_create_string
+token_is_word
+token_is_string
+token_destroy
+
+lexer.h
+lexer_lex
 
 - use JSON string https://www.json.org/json-en.html
 
 vm_load_code(char *code);
 vm_load_tokens(token_t **tokens);
+
+note about "simple linear type system"
 
 # dict
 
