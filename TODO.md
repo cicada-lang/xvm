@@ -1,7 +1,5 @@
 # parser
 
-test_value_stack
-
 utils/string
 utils/list
 

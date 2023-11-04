@@ -6,15 +6,7 @@ main(void) {
     vm_t *vm = vm_init();
 
     test_word();
-
-    {
-        vm_value_stack_push(vm, 1);
-        vm_value_stack_push(vm, 2);
-        vm_value_stack_push(vm, 3);
-        assert(vm_value_stack_pop(vm) == 3);
-        assert(vm_value_stack_pop(vm) == 2);
-        assert(vm_value_stack_pop(vm) == 1);
-    }
+    test_value_stack();
 
     {
         program_t *program = vm_build_program(vm, "sixsixsix");
