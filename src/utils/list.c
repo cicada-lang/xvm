@@ -12,7 +12,7 @@ struct _list_t {
     node_t *first;
     node_t *last;
     node_t *cursor;
-    size_t size;
+    size_t length;
 };
 
 list_t *
@@ -30,6 +30,11 @@ list_destroy(list_t **self_ptr) {
         free(self);
         *self_ptr = NULL;
     }
+}
+
+size_t
+list_lenght(list_t *self) {
+    return self->length;
 }
 
 void *
@@ -78,7 +83,7 @@ list_end(list_t *self) {
 
 void
 list_push(list_t *self, void *item) {
-    node_t *node = (node_t *) calloc(1, sizeof (node_t));
+    node_t *node = (node_t *) calloc(1, sizeof(node_t));
     assert(node);
     node->item = item;
 
@@ -93,7 +98,7 @@ list_push(list_t *self, void *item) {
     }
 
     self->last = node;
-    self->size++;
+    self->length++;
 }
 
 void *
@@ -117,14 +122,14 @@ list_pop(list_t *self) {
     }
 
     free(node);
-    self->size--;
+    self->length--;
 
     return item;
 }
 
 void
 list_unshift(list_t *self, void *item) {
-    node_t *node = (node_t *) calloc(1, sizeof (node_t));
+    node_t *node = (node_t *) calloc(1, sizeof(node_t));
     assert(node);
     node->item = item;
 
@@ -139,7 +144,7 @@ list_unshift(list_t *self, void *item) {
     }
 
     self->first = node;
-    self->size++;
+    self->length++;
 }
 
 void *
@@ -163,7 +168,7 @@ list_shift(list_t *self) {
     }
 
     free(node);
-    self->size--;
+    self->length--;
 
     return item;
 }
@@ -174,7 +179,7 @@ list_test(void) {
 
     list_t *list = list_create();
     assert(list);
-    // assert(list_lenght(list) == 0);
+    assert(list_lenght(list) == 0);
 
     //  Three items we'll use as test data
     //  List items are void *, not particularly strings
@@ -183,17 +188,17 @@ list_test(void) {
     char *wine = string_dup("bordeaux");
 
     list_push(list, cheese);
-    // assert(list_lenght(list) == 1);
+    assert(list_lenght(list) == 1);
     // assert(list_has(list, cheese));
     // assert(!list_has(list, bread));
     // assert(!list_has(list, wine));
     list_push(list, bread);
-    // assert(list_lenght(list) == 2);
+    assert(list_lenght(list) == 2);
     // assert(list_has(list, cheese));
     // assert(list_has(list, bread));
     // assert(!list_has(list, wine));
     list_push(list, wine);
-    // assert(list_lenght(list) == 3);
+    assert(list_lenght(list) == 3);
     // assert(list_has(list, cheese));
     // assert(list_has(list, bread));
     // assert(list_has(list, wine));

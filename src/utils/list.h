@@ -4,6 +4,7 @@
 
 list_t *list_create(void);
 void list_destroy(list_t **self_ptr);
+size_t list_lenght(list_t *self);
 
 void *list_current(list_t *self);
 void *list_first(list_t *self);
@@ -64,8 +65,7 @@ void *list_shift(list_t *self);
 // //  Purge all items from list
 // void list_purge(list_t *self);
 
-// //  Return number of items in the list
-// size_t list_size(list_t *self);
+
 
 // //  Sort the list. If the compare function is null, sorts the list by
 // //  ascending key value using a straight ASCII comparison. If you specify
