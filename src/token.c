@@ -31,3 +31,14 @@ token_string_create(char *string, size_t start, size_t end) {
     self->end = end;
     return self;
 }
+
+void
+token_destroy(token_t **self_ptr) {
+    assert(self_ptr);
+    if (*self_ptr) {
+        token_t *self = *self_ptr;
+        free(self->string);
+        free(self);
+        *self_ptr = NULL;
+    }
+}

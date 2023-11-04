@@ -1,9 +1,6 @@
 # parser
 
-token_word_p
-token_string_p
-token_destroy
-
+token_word_p & token_string_p
 utils/list.h -- copy from czmq
 
 lexer.h
