@@ -85,6 +85,24 @@ vm_return_stack_is_empty(vm_t *self) {
 }
 
 void
+vm_load_code(vm_t *self, char *code) {
+    (void) self;
+    lexer_t *lexer = lexer_create(code);
+    token_t **tokens = lexer_lex(lexer);
+
+    // program_t *program;
+    // vm_load(self, program);
+
+    printf("vm_load_code:\n");
+    while (*tokens) {
+        printf("- token: %s\n", token_string(*tokens));
+        tokens++;
+    }
+
+    // free(tokens);
+}
+
+void
 vm_load(vm_t *self, program_t *program) {
     frame_t *frame = frame_create(program);
     vm_return_stack_push(self, frame);

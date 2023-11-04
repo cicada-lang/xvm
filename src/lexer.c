@@ -27,8 +27,9 @@ lexer_destroy(lexer_t **self_ptr) {
 token_t **
 lexer_tokens(lexer_t *self) {
     token_t **tokens = allocate_array(
-        list_lenght(self->token_list),
+        list_lenght(self->token_list) + 1,
         sizeof(token_t *));
+
     size_t index = 0;
     token_t *token = list_start(self->token_list);
     while (token) {
@@ -37,5 +38,55 @@ lexer_tokens(lexer_t *self) {
         index++;
     }
 
+    tokens[index] = NULL;
     return tokens;
+}
+
+token_t **
+lexer_lex(lexer_t *self) {
+    size_t index = 0;
+    size_t code_length = strlen(self->code);
+    char c = self->code[index];
+    bool in_space_p = isspace(c);
+    size_t max_buffer_length = 1024;
+    char *buffer = allocate(max_buffer_length + 1);
+    size_t buffer_length = 0;
+
+    while(index < code_length) {
+        c = self->code[index];
+
+        if (in_space_p) {
+            if (isspace(c)) {
+            } else {
+                buffer[0] = c;
+                buffer[1] = '\0';
+                buffer_length = 1;
+            }
+        } else {
+            if (isspace(c)) {
+                size_t start = index;
+                size_t end = index + strlen(buffer);
+                char *string = string_dup(buffer);
+                token_t *token = token_word_create(string, start, end);
+                list_push(self->token_list, token);
+            } else {
+                buffer[buffer_length] = c;
+                buffer[buffer_length + 1] = '\0';
+                buffer_length++;
+            }
+        }
+
+        in_space_p = (isspace(c));
+        index++;
+    }
+
+    size_t start = index;
+    size_t end = index + strlen(buffer);
+    char *string = string_dup(buffer);
+    token_t *token = token_word_create(string, start, end);
+    list_push(self->token_list, token);
+
+    free(buffer);
+
+    return lexer_tokens(self);
 }

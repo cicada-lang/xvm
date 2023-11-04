@@ -1,10 +1,9 @@
 # parser
 
-lexer_lex -- support word
-lexer_lex -- support JSON string -- https://www.json.org/json-en.html
+vm_load_code
 
-vm_load_code(char *code);
-vm_load_tokens(token_t **tokens);
+refactor lexer_lex
+lexer_lex -- support JSON string -- https://www.json.org/json-en.html
 
 # dict
 

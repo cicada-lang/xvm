@@ -16,6 +16,7 @@ frame_t *vm_return_stack_pop(vm_t *self);
 void vm_return_stack_push(vm_t *self, frame_t *frame);
 bool vm_return_stack_is_empty(vm_t *self);
 
+void vm_load_code(vm_t *self, char *code);
 void vm_load(vm_t *self, program_t *program);
 void vm_step(vm_t *self);
 void vm_run(vm_t *self);

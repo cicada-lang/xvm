@@ -34,6 +34,15 @@ test_builtin_string(void) {
         vm_run(vm);
     }
 
+    {
+        vm_load_code(
+            vm,
+            string_dup("newline   newline\n     newline newline"));
+        vm_run(vm);
+    }
+
+
+
     vm_destroy(&vm);
 
     printf("</test_builtin_string>\n");

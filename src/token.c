@@ -32,9 +32,15 @@ token_string_create(char *string, size_t start, size_t end) {
     return self;
 }
 
-void token_free(token_t *self) {
+void
+token_free(token_t *self) {
     free(self->string);
     free(self);
+}
+
+const char *
+token_string(token_t *self) {
+    return self->string;
 }
 
 void
