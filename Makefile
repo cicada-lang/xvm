@@ -4,18 +4,18 @@ cflags = -g -Wall -Wwrite-strings -Wextra -Werror -O2 -std=c99 -pedantic
 
 src = ${shell find src -name '*.c'}
 lib = ${patsubst src/%,lib/%,${patsubst %.c,%.o,${src}}}
-bin = bin/xvm bin/xvm-test
+bin = bin/x bin/x-test
 
 .PHONY: all
 all: ${bin}
 
 .PHONY: run
-run: bin/xvm
-	./bin/xvm
+run: bin/x
+	./bin/x
 
 .PHONY: test
-test: bin/xvm-test
-	./bin/xvm-test
+test: bin/x-test
+	./bin/x-test
 
 ${bin}: ${lib}
 	$(cc) -c $(cflags) ${patsubst bin/%,%.c,$@} -o ${patsubst bin/%,%.o,$@}
