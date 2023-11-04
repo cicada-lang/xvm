@@ -17,7 +17,7 @@ struct _list_t {
 
 list_t *
 list_create(void) {
-    list_t *self = (list_t *) calloc(1, sizeof(list_t));
+    list_t *self = allocate(sizeof(list_t));
     return self;
 }
 
@@ -158,7 +158,7 @@ list_end(list_t *self) {
 
 void
 list_push(list_t *self, void *item) {
-    node_t *node = (node_t *) calloc(1, sizeof(node_t));
+    node_t *node = allocate(sizeof(node_t));
     assert(node);
     node->item = item;
 
@@ -204,7 +204,7 @@ list_pop(list_t *self) {
 
 void
 list_unshift(list_t *self, void *item) {
-    node_t *node = (node_t *) calloc(1, sizeof(node_t));
+    node_t *node = allocate(sizeof(node_t));
     assert(node);
     node->item = item;
 

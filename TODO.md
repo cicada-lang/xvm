@@ -1,9 +1,5 @@
 # parser
 
-allocate.h
-allocate_bytes
-allocate_array
-
 lexer_lex
 
 - use JSON string https://www.json.org/json-en.html

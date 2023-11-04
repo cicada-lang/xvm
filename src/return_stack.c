@@ -8,9 +8,9 @@ struct _return_stack_t {
 
 return_stack_t *
 return_stack_create(size_t size) {
-    return_stack_t *self = (return_stack_t *) calloc(1, sizeof(return_stack_t));
+    return_stack_t *self = allocate(sizeof(return_stack_t));
     self->size = size;
-    self->frames = (frame_t **) calloc(size, sizeof(frame_t *));
+    self->frames = allocate_array(size, sizeof(frame_t *));
     self->cursor = 0;
     return self;
 }

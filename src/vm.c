@@ -12,7 +12,7 @@ struct _vm_t {
 
 vm_t *
 vm_create(void) {
-    vm_t *self = (vm_t *) calloc(1, sizeof(vm_t));
+    vm_t *self = allocate(sizeof(vm_t));
     self->dict = dict_create(DICT_SIZE);
     self->value_stack = value_stack_create(VALUE_STACK_SIZE);
     self->return_stack = return_stack_create(RETURN_STACK_SIZE);

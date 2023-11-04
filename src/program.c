@@ -7,7 +7,7 @@ struct _program_t {
 
 program_t *
 program_create(void) {
-    program_t *self = (program_t *) calloc(1, sizeof(program_t));
+    program_t *self = allocate(sizeof(program_t));
     self->size = 0;
     self->bytes = NULL;
     return self;
@@ -52,7 +52,7 @@ program_fetch_word(program_t *self, size_t index) {
 void
 program_append_value(program_t *self, value_t value) {
     size_t addend = sizeof(VALUE) + sizeof(value);
-    byte_t *bytes = (byte_t *) calloc(self->size + addend, sizeof(byte_t));
+    byte_t *bytes = allocate_array(self->size + addend, sizeof(byte_t));
     memcpy(bytes, self->bytes, self->size);
     free(self->bytes);
     self->bytes = bytes;
@@ -67,7 +67,7 @@ program_append_value(program_t *self, value_t value) {
 void
 program_append_call(program_t *self, const word_t *word) {
     size_t addend = sizeof(CALL) + sizeof(word);
-    byte_t *bytes = (byte_t *) calloc(self->size + addend, sizeof(byte_t));
+    byte_t *bytes = allocate_array(self->size + addend, sizeof(byte_t));
     memcpy(bytes, self->bytes, self->size);
     free(self->bytes);
     self->bytes = bytes;

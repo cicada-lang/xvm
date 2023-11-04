@@ -9,7 +9,7 @@ struct _word_t {
 
 word_t *
 word_create(const char *name) {
-    word_t *self = (word_t *) calloc(1, sizeof(word_t));
+    word_t *self = allocate(sizeof(word_t));
     self->name = string_dup(name);
     return self;
 }

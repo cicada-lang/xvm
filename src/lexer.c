@@ -5,7 +5,7 @@ struct _lexer_t {
 };
 
 lexer_t *lexer_create(char *code) {
-    lexer_t *self = (lexer_t *) calloc(1, sizeof(lexer_t));
+    lexer_t *self = allocate(sizeof(lexer_t));
     self->code = code;
     return self;
 }

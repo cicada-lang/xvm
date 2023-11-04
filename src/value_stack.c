@@ -8,9 +8,9 @@ struct _value_stack_t {
 
 value_stack_t *
 value_stack_create(size_t size) {
-    value_stack_t *self = (value_stack_t *) calloc(1, sizeof(value_stack_t));
+    value_stack_t *self = allocate(sizeof(value_stack_t));
     self->size = size;
-    self->values = (value_t *) calloc(size, sizeof(value_t));
+    self->values = allocate_array(size, sizeof(value_t));
     self->cursor = 0;
     return self;
 }

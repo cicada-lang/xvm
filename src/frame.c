@@ -7,7 +7,7 @@ struct _frame_t {
 
 frame_t *
 frame_create(program_t *program) {
-    frame_t *self = (frame_t *) calloc(1, sizeof(frame_t));
+    frame_t *self = allocate(sizeof(frame_t));
     self->index = 0;
     self->program = program;
     return self;

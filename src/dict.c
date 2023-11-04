@@ -7,9 +7,9 @@ struct _dict_t {
 
 dict_t *
 dict_create(size_t size) {
-    dict_t *self = (dict_t *) calloc(1, sizeof(dict_t));
+    dict_t *self = allocate(sizeof(dict_t));
     self->size = size;
-    self->words = (word_t **) calloc(size, sizeof(word_t *));
+    self->words = allocate_array(size, sizeof(word_t *));
     return self;
 }
 
