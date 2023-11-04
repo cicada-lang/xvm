@@ -1,6 +1,8 @@
 # parser
 
-list_test -- test list_push and list_pop
+list_remove
+list_test -- list_pop
+list_test -- list_unshift and list_start
 
 list_purge
 
