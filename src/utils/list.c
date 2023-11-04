@@ -8,7 +8,7 @@ struct _node_t {
 };
 
 struct _list_t {
-    node_t *head;
+    node_t *first;
     node_t *last;
     node_t *cursor;
     size_t size;
@@ -40,19 +40,30 @@ list_current(list_t *self) {
         return NULL;
 }
 
+// void *list_first(list_t *self);
+
+// void *list_last(list_t *self);
+
 void *
-list_first(list_t *self) {
+list_start(list_t *self) {
     assert(self);
-    self->cursor = self->head;
+    self->cursor = self->first;
     return list_current(self);
 }
 
 void *
 list_next(list_t *self) {
     assert(self);
-    if (self->cursor)
-        self->cursor = self->cursor->next;
-    else
-        self->cursor = self->head;
+    self->cursor = self->cursor
+        ? self->cursor->next
+        : self->first;
+    return list_current(self);
+}
+
+void *
+list_end(list_t *self)
+{
+    assert(self);
+    self->cursor = self->last;
     return list_current(self);
 }

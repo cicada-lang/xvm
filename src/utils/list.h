@@ -1,14 +1,20 @@
 #pragma once
 
+// double linked list, with a private cursor.
+
 list_t *list_create(void);
 void list_destroy(list_t **self_ptr);
+
 void *list_current(list_t *self);
 void *list_first(list_t *self);
-void *list_next(list_t *self);
+void *list_last(list_t *self);
 
-// //  Return the item at the tail of list. If the list is empty, returns NULL.
-// //  Leaves cursor pointing at the tail item, or NULL if the list is empty.
-// void *list_last(list_t *self);
+// move the cursor.
+
+void *list_start(list_t *self);
+void *list_next(list_t *self);
+void *list_prev(list_t *self);
+void *list_end(list_t *self);
 
 // //  Return first item in the list, or null, leaves the cursor
 // void *list_head(list_t *self);
