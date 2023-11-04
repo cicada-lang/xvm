@@ -2,10 +2,8 @@
 
 list_t *list_create(void);
 void list_destroy(list_t **self_ptr);
+void *list_current(list_t *self);
 void *list_first(list_t *self);
-
-//  Return the next item. If the list is empty, returns NULL. To move to
-//  the start of the list call list_first(). Advances the cursor.
 void *list_next(list_t *self);
 
 // //  Return the item at the tail of list. If the list is empty, returns NULL.
@@ -18,9 +16,6 @@ void *list_next(list_t *self);
 // //  Return last item in the list, or null, leaves the cursor
 // void *list_tail(list_t *self);
 
-// //  Return the current item of list. If the list is empty, returns NULL.
-// //  Leaves cursor pointing at the current item, or NULL if the list is empty.
-// void *list_item(list_t *self);
 
 // //  Append an item to the end of the list, return 0 if OK or -1 if this
 // //  failed for some reason(invalid input). Note that if a duplicator has

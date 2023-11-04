@@ -32,11 +32,27 @@ list_destroy(list_t **self_ptr) {
 }
 
 void *
-list_first(list_t *self) {
+list_current(list_t *self) {
     assert(self);
-    self->cursor = self->head;
     if (self->cursor)
         return self->cursor->item;
     else
         return NULL;
+}
+
+void *
+list_first(list_t *self) {
+    assert(self);
+    self->cursor = self->head;
+    return list_current(self);
+}
+
+void *
+list_next(list_t *self) {
+    assert(self);
+    if (self->cursor)
+        self->cursor = self->cursor->next;
+    else
+        self->cursor = self->head;
+    return list_current(self);
 }

@@ -1,6 +1,5 @@
 # parser
 
-list_next
 list_last
 list_purge
 list_test
