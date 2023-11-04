@@ -16,4 +16,5 @@
 #include "dict.h"
 #include "value_stack.h"
 #include "token.h"
+#include "lexer.h"
 #include "vm.h"
