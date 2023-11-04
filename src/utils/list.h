@@ -6,6 +6,7 @@ list_t *list_create(void);
 void list_destroy(list_t **self_ptr);
 size_t list_lenght(list_t *self);
 bool list_has(list_t *self, void *item);
+bool list_remove(list_t *self, void *item);
 
 void *list_current(list_t *self);
 void *list_first(list_t *self);
@@ -28,29 +29,6 @@ void *list_pop(list_t *self);
 void list_unshift(list_t *self, void *item);
 void *list_shift(list_t *self);
 
-// //  Return first item in the list, or null, leaves the cursor
-// void *list_head(list_t *self);
-
-// //  Return last item in the list, or null, leaves the cursor
-// void *list_tail(list_t *self);
-
-
-// //  Append an item to the end of the list, return 0 if OK or -1 if this
-// //  failed for some reason(invalid input). Note that if a duplicator has
-// //  been set, this method will also duplicate the item.
-// int list_append(list_t *self, void *item);
-
-// //  Push an item to the start of the list, return 0 if OK or -1 if this
-// //  failed for some reason(invalid input). Note that if a duplicator has
-// //  been set, this method will also duplicate the item.
-// int list_push(list_t *self, void *item);
-
-// //  Pop the item off the start of the list, if any
-// void *list_pop(list_t *self);
-
-// //  Remove the specified item from the list if present
-// void list_remove(list_t *self, void *item);
-
 // //  Make a copy of list. If the list has autofree set, the copied list will
 // //  duplicate all items, which must be strings. Otherwise, the list will hold
 // //  pointers back to the items in the original list. If list is null, returns
@@ -60,8 +38,6 @@ void *list_shift(list_t *self);
 
 // //  Purge all items from list
 // void list_purge(list_t *self);
-
-
 
 // //  Sort the list. If the compare function is null, sorts the list by
 // //  ascending key value using a straight ASCII comparison. If you specify

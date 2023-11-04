@@ -1,6 +1,5 @@
 # parser
 
-list_remove
 list_test -- list_pop
 list_test -- list_unshift and list_start
 

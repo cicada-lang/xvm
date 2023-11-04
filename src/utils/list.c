@@ -49,6 +49,35 @@ list_has(list_t *self, void *item) {
     return false;
 }
 
+bool
+list_remove(list_t *self, void *item) {
+    node_t *node = self->first;
+
+    while (node != NULL) {
+        if (node->item == item) break;
+        node = node->next;
+    }
+
+    if (!node) return false;
+
+    if (node->next)
+        node->next->prev = node->prev;
+    if (node->prev)
+        node->prev->next = node->next;
+
+
+    if (self->cursor == node)
+        self->cursor = NULL;
+    if (self->first == node)
+        self->first = node->next;
+    if (self->last == node)
+        self->last = node->prev;
+
+    free(node);
+    self->length--;
+    return true;
+}
+
 void *
 list_current(list_t *self) {
     assert(self);
@@ -61,13 +90,19 @@ list_current(list_t *self) {
 void *
 list_first(list_t *self) {
     assert(self);
-    return self->first->item;
+    if (self->first)
+        return self->first->item;
+    else
+        return NULL;
 }
 
 void *
 list_last(list_t *self) {
     assert(self);
-    return self->last->item;
+    if (self->last)
+        return self->last->item;
+    else
+        return NULL;
 }
 
 void *
@@ -83,6 +118,15 @@ list_next(list_t *self) {
     self->cursor = self->cursor
         ? self->cursor->next
         : self->first;
+    return list_current(self);
+}
+
+void *
+list_prev(list_t *self) {
+    assert(self);
+    self->cursor = self->cursor
+        ? self->cursor->prev
+        : self->last;
     return list_current(self);
 }
 
@@ -193,6 +237,19 @@ list_test(void) {
     assert(list);
     assert(list_lenght(list) == 0);
 
+    assert(list_first(list) == NULL);
+    assert(list_last(list) == NULL);
+    assert(list_current(list) == NULL);
+
+    assert(list_start(list) == NULL);
+    assert(list_end(list) == NULL);
+
+    assert(list_next(list) == NULL);
+    assert(list_prev(list) == NULL);
+
+    assert(list_pop(list) == NULL);
+    assert(list_shift(list) == NULL);
+
     //  Three items we'll use as test data
     //  List items are void *, not particularly strings
     char *cheese = string_dup("boursin");
@@ -232,24 +289,24 @@ list_test(void) {
     assert(list_next(list) == cheese);
     assert(list_lenght(list) == 3);
 
-    // list_remove(list, wine);
-    // assert(list_lenght(list) == 2);
+    list_remove(list, wine);
+    assert(list_lenght(list) == 2);
 
-    // assert(list_first(list) == cheese);
-    // list_remove(list, cheese);
-    // assert(list_lenght(list) == 1);
-    // assert(list_first(list) == bread);
+    assert(list_first(list) == cheese);
+    list_remove(list, cheese);
+    assert(list_lenght(list) == 1);
+    assert(list_first(list) == bread);
 
-    // list_remove(list, bread);
-    // assert(list_lenght(list) == 0);
+    list_remove(list, bread);
+    assert(list_lenght(list) == 0);
 
-    // list_append(list, cheese);
-    // list_append(list, bread);
-    // assert(list_last(list) == bread);
-    // list_remove(list, bread);
-    // assert(list_last(list) == cheese);
-    // list_remove(list, cheese);
-    // assert(list_last(list) == NULL);
+    list_push(list, cheese);
+    list_push(list, bread);
+    assert(list_last(list) == bread);
+    list_remove(list, bread);
+    assert(list_last(list) == cheese);
+    list_remove(list, cheese);
+    assert(list_last(list) == NULL);
 
     // list_unshift(list, cheese);
     // assert(list_lenght(list) == 1);
