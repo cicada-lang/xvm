@@ -13,7 +13,11 @@ using `type_unify`.
 [ int_dup int_mul ] 'square define
 ```
 
-`?a` is a `type_var`.
+The type of `type_unify` is `[ type_t - type_t - ]`,
+`type_t` is a sum type of `type_term_t` and `type_var_t`.
+
+`?a` is a `'a type_var_gen`, and the generated `type_var`
+will be scoped within current frame.
 
 We can use `-` as an abbreviation of `type_unify`.
 
