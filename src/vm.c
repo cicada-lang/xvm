@@ -85,21 +85,25 @@ vm_return_stack_is_empty(vm_t *self) {
 }
 
 void
-vm_load_code(vm_t *self, char *code) {
+vm_load_token_list(vm_t *self, list_t *token_list) {
     (void) self;
-    lexer_t *lexer = lexer_create(code);
-    token_t **tokens = lexer_lex(lexer);
-
     // program_t *program;
     // vm_load(self, program);
-
-    printf("vm_load_code:\n");
-    while (*tokens) {
-        printf("- token: %s\n", token_string(*tokens));
-        tokens++;
+    printf("vm_load_token_list:\n");
+    token_t *token = list_start(token_list);
+    while (token) {
+        printf("- token: %s\n", token_string(token));
+        token = list_next(token_list);
     }
 
-    // free(tokens);
+}
+
+void
+vm_load_code(vm_t *self, char *code) {
+    lexer_t *lexer = lexer_create(code);
+    lexer_lex(lexer);
+    vm_load_token_list(self, lexer_token_list(lexer));
+    lexer_destroy(&lexer);
 }
 
 void

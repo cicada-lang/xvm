@@ -24,25 +24,12 @@ lexer_destroy(lexer_t **self_ptr) {
     }
 }
 
-token_t **
-lexer_tokens(lexer_t *self) {
-    token_t **tokens = allocate_array(
-        list_lenght(self->token_list) + 1,
-        sizeof(token_t *));
-
-    size_t index = 0;
-    token_t *token = list_start(self->token_list);
-    while (token) {
-        tokens[index] = token;
-        token = list_next(self->token_list);
-        index++;
-    }
-
-    tokens[index] = NULL;
-    return tokens;
+list_t *
+lexer_token_list(lexer_t *self) {
+    return self->token_list;
 }
 
-token_t **
+void
 lexer_lex(lexer_t *self) {
     size_t index = 0;
     size_t code_length = strlen(self->code);
@@ -87,6 +74,4 @@ lexer_lex(lexer_t *self) {
     list_push(self->token_list, token);
 
     free(buffer);
-
-    return lexer_tokens(self);
 }
