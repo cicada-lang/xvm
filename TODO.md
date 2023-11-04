@@ -1,8 +1,9 @@
 # parser
 
-list_destroy
-list_head
-list_last
+list_first
+list_next
+
+list_purge
 
 lexer.h
 lexer_create
