@@ -41,9 +41,15 @@ list_current(list_t *self) {
         return NULL;
 }
 
-// void *list_first(list_t *self);
+void *list_first(list_t *self) {
+    assert(self);
+    return self->first->item;
+}
 
-// void *list_last(list_t *self);
+void *list_last(list_t *self) {
+    assert(self);
+    return self->last->item;
+}
 
 void *
 list_start(list_t *self) {

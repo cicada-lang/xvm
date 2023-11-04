@@ -1,7 +1,5 @@
 # parser
 
-list_first & list_last
-
 list_push & list_pop
 list_shift & list_unshift
 
