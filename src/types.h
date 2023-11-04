@@ -9,6 +9,6 @@ typedef struct _program_t program_t;
 typedef struct _value_stack_t value_stack_t;
 typedef struct _frame_t frame_t;
 typedef struct _return_stack_t return_stack_t;
-typedef struct _xvm_t xvm_t;
+typedef struct _vm_t vm_t;
 
-typedef void (primitive_t)(xvm_t *vm);
+typedef void (primitive_t)(vm_t *vm);
