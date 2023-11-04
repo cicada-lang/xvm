@@ -16,13 +16,13 @@ value_stack_create(size_t size) {
 }
 
 void
-value_stack_destroy(value_stack_t **self_p) {
-    assert(self_p);
-    if (*self_p) {
-        value_stack_t *self = *self_p;
+value_stack_destroy(value_stack_t **self_ptr) {
+    assert(self_ptr);
+    if (*self_ptr) {
+        value_stack_t *self = *self_ptr;
         free(self->values);
         free(self);
-        *self_p = NULL;
+        *self_ptr = NULL;
     }
 }
 

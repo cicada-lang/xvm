@@ -8,11 +8,6 @@ typedef enum {
 struct _token_t {
     token_kind_t kind;
     char *string;
+    size_t start;
+    size_t end;
 };
-
-
-token_t **
-token_lex(char *code) {
-    (void) code;
-    return NULL;
-}

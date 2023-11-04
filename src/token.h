@@ -1,3 +1,3 @@
 #pragma once
 
-token_t **token_lex(char *code);
+// token_t *token_create_word()

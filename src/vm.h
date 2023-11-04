@@ -1,7 +1,7 @@
 #pragma once
 
 vm_t *vm_create(void);
-void vm_destroy(vm_t **self_p);
+void vm_destroy(vm_t **self_ptr);
 
 word_t *vm_word(vm_t *self, const char *name);
 

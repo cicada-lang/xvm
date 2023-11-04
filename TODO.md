@@ -1,7 +1,7 @@
 # parser
 
-token_create_word
-token_create_string
+token_word_create
+token_string_create
 token_is_word
 token_is_string
 token_destroy

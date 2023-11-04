@@ -16,10 +16,10 @@ return_stack_create(size_t size) {
 }
 
 void
-return_stack_destroy(return_stack_t **self_p) {
-    assert(self_p);
-    if (*self_p) {
-        return_stack_t *self = *self_p;
+return_stack_destroy(return_stack_t **self_ptr) {
+    assert(self_ptr);
+    if (*self_ptr) {
+        return_stack_t *self = *self_ptr;
         while (!return_stack_is_empty(self)) {
             frame_t *frame = return_stack_pop(self);
             frame_destroy(&frame);
@@ -27,7 +27,7 @@ return_stack_destroy(return_stack_t **self_p) {
 
         free(self->frames);
         free(self);
-        *self_p = NULL;
+        *self_ptr = NULL;
     }
 }
 

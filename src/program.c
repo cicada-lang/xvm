@@ -14,13 +14,13 @@ program_create(void) {
 }
 
 void
-program_destroy(program_t **self_p) {
-    assert(self_p);
-    if (*self_p) {
-        program_t *self = *self_p;
+program_destroy(program_t **self_ptr) {
+    assert(self_ptr);
+    if (*self_ptr) {
+        program_t *self = *self_ptr;
         free(self->bytes);
         free(self);
-        *self_p = NULL;
+        *self_ptr = NULL;
     }
 }
 

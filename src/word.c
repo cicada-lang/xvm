@@ -15,15 +15,15 @@ word_create(const char *name) {
 }
 
 void
-word_destroy(word_t **self_p) {
-    assert(self_p);
-    if (*self_p) {
-        word_t *self = *self_p;
+word_destroy(word_t **self_ptr) {
+    assert(self_ptr);
+    if (*self_ptr) {
+        word_t *self = *self_ptr;
         free(self->name);
         program_destroy(&self->program);
         word_destroy(&self->next);
         free(self);
-        *self_p = NULL;
+        *self_ptr = NULL;
     }
 }
 
