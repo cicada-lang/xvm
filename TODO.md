@@ -1,8 +1,8 @@
 # parser
 
 list_test -- list_pop
-list_test -- list_unshift and list_start
-
+list_test -- list_unshift
+list_t -- has free_fn
 list_purge
 
 lexer.h
