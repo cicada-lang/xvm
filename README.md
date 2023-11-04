@@ -27,8 +27,8 @@ make clean    # clean up compiled files
 
 **Articles**:
 
-- [Thoughts on Forth Programming](https://readonly.link/articles/https://code-of-xvm.fidb.app/docs/references/articles/thoughts-on-forth-programming.md)
-- [Forth Methodology Applied to Programming](https://readonly.link/articles/https://code-of-xvm.fidb.app/docs/references/articles/forth-methodology-applied-to-programming.md)
+- [Thoughts on Forth Programming](https://readonly.link/articles/https://code-of-x-script.fidb.app/docs/references/articles/thoughts-on-forth-programming.md)
+- [Forth Methodology Applied to Programming](https://readonly.link/articles/https://code-of-x-script.fidb.app/docs/references/articles/forth-methodology-applied-to-programming.md)
 
 ## Contributions
 
