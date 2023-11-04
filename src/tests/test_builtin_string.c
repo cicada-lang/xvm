@@ -35,13 +35,10 @@ test_builtin_string(void) {
     }
 
     {
-        vm_load_code(
-            vm,
-            string_dup("newline   newline\n     newline newline"));
+        char *code = string_dup("newline   newline\n     newline newline");
+        vm_load_code(vm, code);
         vm_run(vm);
     }
-
-
 
     vm_destroy(&vm);
 
