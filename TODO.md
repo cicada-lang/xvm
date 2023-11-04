@@ -1,5 +1,3 @@
-note about "simple linear type system"
-
 # parser
 
 token_create_word
@@ -8,7 +6,7 @@ token_is_word
 token_is_string
 token_destroy
 
-utils/list.h
+utils/list.h -- copy from czmq
 
 lexer.h
 lexer_create
