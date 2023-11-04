@@ -2,7 +2,7 @@
 
 void
 test_build_program(void) {
-    printf("- test_build_program: ");
+    printf("<test_build_program>");
 
     vm_t *vm = vm_init();
 
@@ -34,5 +34,7 @@ test_build_program(void) {
         assert(program_fetch_word(program, unit_size + 1) == vm_word(vm, "int_mul"));
     }
 
-    printf("OK\n");
+    vm_destroy(&vm);
+
+    printf("</test_build_program>\n");
 }

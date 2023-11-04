@@ -2,7 +2,7 @@
 
 void
 test_value_stack(void) {
-    printf("- test_value_stack: ");
+    printf("<test_value_stack>");
 
     vm_t *vm = vm_init();
 
@@ -13,5 +13,7 @@ test_value_stack(void) {
     assert(vm_value_stack_pop(vm) == 2);
     assert(vm_value_stack_pop(vm) == 1);
 
-    printf("OK\n");
+    vm_destroy(&vm);
+
+    printf("</test_value_stack>\n");
 }

@@ -2,7 +2,7 @@
 
 void
 test_word(void) {
-    printf("- test_word: ");
+    printf("<test_word>");
 
     vm_t *vm = vm_init();
 
@@ -11,5 +11,5 @@ test_word(void) {
 
     vm_destroy(&vm);
 
-    printf("OK\n");
+    printf("</test_word>\n");
 }
