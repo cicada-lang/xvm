@@ -1,11 +1,11 @@
 #pragma once
 
-#define XVM_VERSION_MAJOR 0
-#define XVM_VERSION_MINOR 0
-#define XVM_VERSION_PATCH 1
+#define X_VERSION_MAJOR 0
+#define X_VERSION_MINOR 0
+#define X_VERSION_PATCH 1
 
-#define XVM_MAKE_VERSION(major, minor, patch)                                  \
+#define X_MAKE_VERSION(major, minor, patch)                                  \
     ((major)*10000 + (minor)*100 + (patch))
 
-#define XVM_VERSION                                                            \
-    XVM_MAKE_VERSION(XVM_VERSION_MAJOR, XVM_VERSION_MINOR, XVM_VERSION_PATCH)
+#define X_VERSION                                                            \
+    X_MAKE_VERSION(X_VERSION_MAJOR, X_VERSION_MINOR, X_VERSION_PATCH)

@@ -1,11 +1,13 @@
+drop xvm prefix -- for now
+
 # parser
 
 parser/token.h
 
-token_t *token_lex(char *code);
+token_t **token_lex(char *code);
 
 xvm_load_code(char *code);
-xvm_load_tokens(token_t *tokens);
+xvm_load_tokens(token_t **tokens);
 
 parser/token.c
 

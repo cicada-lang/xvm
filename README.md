@@ -1,6 +1,10 @@
-# XVM
+# X Script
 
-Extensible stack-based virtual machine.
+X Script is a pure postfix scripting language.
+
+- It is trivially extensible by C, to be used as scripting language for C/C++ projects.
+- It has NO GC (garbage collector).
+- It uses a simple linear type system for resource management.
 
 ## Usage
 
@@ -8,7 +12,12 @@ TODO
 
 ## Development
 
-TODO
+```sh
+make all      # compile src/ files to lib/ and bin/
+make run      # compile and run the interpreter
+make test     # compile and run test
+make clean    # clean up compiled files
+```
 
 ## References
 
@@ -20,17 +29,6 @@ TODO
 
 - [Thoughts on Forth Programming](https://readonly.link/articles/https://code-of-xvm.fidb.app/docs/references/articles/thoughts-on-forth-programming.md)
 - [Forth Methodology Applied to Programming](https://readonly.link/articles/https://code-of-xvm.fidb.app/docs/references/articles/forth-methodology-applied-to-programming.md)
-
-## Community
-
-GitHub:
-
-- Organization: [github.com/cicada-lang](https://github.com/cicada-lang)
-
-Telegram:
-
-- English chat group: [CicadaLanguage](https://t.me/CicadaLanguage)
-- Chinese chat group: [CicadaLanguageCN](https://t.me/CicadaLanguageCN)
 
 ## Contributions
 
