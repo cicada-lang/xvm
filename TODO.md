@@ -1,5 +1,8 @@
 # parser
 
+test_builtin_int
+test_builtin_string
+
 utils/string
 utils/list
 
