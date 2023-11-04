@@ -3,6 +3,7 @@
 typedef struct _node_t node_t;
 
 struct _node_t {
+    node_t *prev;
     node_t *next;
     void *item;
 };
