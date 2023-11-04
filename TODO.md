@@ -1,6 +1,9 @@
 # parser
 
-utils/list.h -- copy from czmq
+list_create
+list_destroy
+list_head
+list_last
 
 lexer.h
 lexer_create

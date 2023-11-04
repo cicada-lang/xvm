@@ -1,4 +1,4 @@
-#include "../dependencies.h"
+#include "index.h"
 
 char*
 string_dup(const char *s) {
