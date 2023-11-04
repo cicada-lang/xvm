@@ -1,6 +1,6 @@
 # parser
 
-lexer_lex
+lexer_lex -- support word
 lexer_lex -- support JSON string -- https://www.json.org/json-en.html
 
 vm_load_code(char *code);
