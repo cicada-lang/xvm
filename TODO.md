@@ -1,8 +1,5 @@
 # parser
 
-list_t -- has free_fn
-list_purge
-
 lexer.h
 lexer_create
 lexer_destroy

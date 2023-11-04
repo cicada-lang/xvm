@@ -22,14 +22,33 @@ list_create(void) {
 }
 
 void
-list_destroy(list_t **self_ptr) {
+list_destroy(list_t **self_ptr, list_item_delete_fn_t *delete_fn) {
     assert(self_ptr);
     if (*self_ptr) {
         list_t *self = *self_ptr;
-        // list_purge(self);
+        list_purge(self, delete_fn);
         free(self);
         *self_ptr = NULL;
     }
+}
+
+void
+list_purge(list_t *self, list_item_delete_fn_t *delete_fn) {
+    assert(self);
+    node_t *node = self->first;
+    while (node) {
+        node_t *next = node->next;
+        if (delete_fn)
+            (delete_fn)(node->item);
+
+        free(node);
+        node = next;
+    }
+
+    self->first = NULL;
+    self->last = NULL;
+    self->cursor = NULL;
+    self->length = 0;
 }
 
 size_t
@@ -369,8 +388,18 @@ list_test(void) {
         assert(list_pop(list) == cheese);
     }
 
-    list_destroy(&list);
-    assert(list == NULL);
+    {
+        list_push(list, cheese);
+        list_push(list, bread);
+        list_push(list, wine);
+
+        list_purge(list, free);
+        assert(list_lenght(list) == 0);
+
+        list_destroy(&list, free);
+
+        assert(list == NULL);
+    }
 
     printf("</list>\n");
 }
