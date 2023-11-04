@@ -97,4 +97,5 @@ void *list_shift(list_t *self);
 // //  you don't have memory leaks. You can pass 'free' or NULL as a free_fn_t.
 // //  Returns the item, or NULL if there is no such item.
 // void *list_freefn(list_t *self, void *item, list_free_fn_t fn, bool at_tail);
-// void list_test(bool verbose);
+
+void list_test(void);

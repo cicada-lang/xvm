@@ -1,7 +1,8 @@
 # parser
 
-list_test
-utils/test_utils
+setup utils/test_utils
+list_lenght
+list_test -- test list_lenght
 
 list_purge
 

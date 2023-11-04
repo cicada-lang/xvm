@@ -167,3 +167,129 @@ list_shift(list_t *self) {
 
     return item;
 }
+
+void
+list_test(void) {
+    printf("<list>\n");
+
+    list_t *list = list_create();
+    assert(list);
+    // assert(list_size(list) == 0);
+
+    // //  Three items we'll use as test data
+    // //  List items are void *, not particularly strings
+    // char *cheese = "boursin";
+    // char *bread = "baguette";
+    // char *wine = "bordeaux";
+
+    // list_append(list, cheese);
+    // assert(list_size(list) == 1);
+    // assert(list_exists(list, cheese));
+    // assert(!list_exists(list, bread));
+    // assert(!list_exists(list, wine));
+    // list_append(list, bread);
+    // assert(list_size(list) == 2);
+    // assert(list_exists(list, cheese));
+    // assert(list_exists(list, bread));
+    // assert(!list_exists(list, wine));
+    // list_append(list, wine);
+    // assert(list_size(list) == 3);
+    // assert(list_exists(list, cheese));
+    // assert(list_exists(list, bread));
+    // assert(list_exists(list, wine));
+
+    // assert(list_head(list) == cheese);
+    // assert(list_next(list) == cheese);
+
+    // assert(list_first(list) == cheese);
+    // assert(list_tail(list) == wine);
+    // assert(list_next(list) == bread);
+
+    // assert(list_first(list) == cheese);
+    // assert(list_next(list) == bread);
+    // assert(list_next(list) == wine);
+    // assert(list_next(list) == NULL);
+    // //  After we reach end of list, next wraps around
+    // assert(list_next(list) == cheese);
+    // assert(list_size(list) == 3);
+
+    // list_remove(list, wine);
+    // assert(list_size(list) == 2);
+
+    // assert(list_first(list) == cheese);
+    // list_remove(list, cheese);
+    // assert(list_size(list) == 1);
+    // assert(list_first(list) == bread);
+
+    // list_remove(list, bread);
+    // assert(list_size(list) == 0);
+
+    // list_append(list, cheese);
+    // list_append(list, bread);
+    // assert(list_last(list) == bread);
+    // list_remove(list, bread);
+    // assert(list_last(list) == cheese);
+    // list_remove(list, cheese);
+    // assert(list_last(list) == NULL);
+
+    // list_push(list, cheese);
+    // assert(list_size(list) == 1);
+    // assert(list_first(list) == cheese);
+
+    // list_push(list, bread);
+    // assert(list_size(list) == 2);
+    // assert(list_first(list) == bread);
+    // assert(list_item(list) == bread);
+
+    // list_append(list, wine);
+    // assert(list_size(list) == 3);
+    // assert(list_first(list) == bread);
+
+    // list_t *sub_list = list_dup(list);
+    // assert(sub_list);
+    // assert(list_size(sub_list) == 3);
+
+    // list_sort(list, NULL);
+    // char *item;
+    // item = (char *) list_pop(list);
+    // assert(item == bread);
+    // item = (char *) list_pop(list);
+    // assert(item == wine);
+    // item = (char *) list_pop(list);
+    // assert(item == cheese);
+    // assert(list_size(list) == 0);
+
+    // assert(list_size(sub_list) == 3);
+    // list_push(list, sub_list);
+    // list_t *sub_list_2 = list_dup(sub_list);
+    // list_append(list, sub_list_2);
+    // assert(list_freefn(list, sub_list, &s_list_free, false) == sub_list);
+    // assert(list_freefn(list, sub_list_2, &s_list_free, true) == sub_list_2);
+    // list_destroy(&list);
+
+    // //  Test autofree functionality
+    // list = list_new();
+    // assert(list);
+    // list_autofree(list);
+    // //  Set equals function otherwise equals will not work as autofree copies strings
+    // list_comparefn(list,(list_compare_fn *) strcmp);
+    // list_push(list, bread);
+    // list_append(list, cheese);
+    // assert(list_size(list) == 2);
+    // list_append(list, wine);
+    // assert(list_exists(list, wine));
+    // list_remove(list, wine);
+    // assert(!list_exists(list, wine));
+    // assert(streq((const char *) list_first(list), bread));
+    // item = (char *) list_pop(list);
+    // assert(streq(item, bread));
+    // free(item);
+    // item = (char *) list_pop(list);
+    // assert(streq(item, cheese));
+    // free(item);
+
+    list_destroy(&list);
+    assert(list == NULL);
+
+    printf("</list>\n");
+}
