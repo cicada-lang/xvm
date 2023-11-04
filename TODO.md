@@ -1,15 +1,11 @@
 # parser
 
-parser/token.h
+token_lex
 
-token_t **token_lex(char *code);
+- use JSON string https://www.json.org/json-en.html
 
 vm_load_code(char *code);
 vm_load_tokens(token_t **tokens);
-
-parser/token.c
-
-use JSON string https://www.json.org/json-en.html
 
 # dict
 
