@@ -1,8 +1,12 @@
 # parser
 
+extract method out of vm.h
+interpret.h -- interpret_code interpret_token
+vm_t -- COMPILING v.s. INTERPRETING mode
+use INT instead of VALUE as instruction -- for the type system
 refactor lexer_lex
 lexer_lex -- support JSON string
-lexer_lex -- support JSON number
+lexer_lex -- support JSON int
 
 # dict
 
@@ -11,13 +15,11 @@ dict_create -- find prime number above given size
 
 # linear type
 
-[note] with linear type, programs with local variables can still be composed.
+support linear local variable by `'name set` and `'name get`
 
 we also need record effects in the type, to support exceptions (throw and try catch)
 
 only simple type (with generic)
-
-[maybe] with an object model (abstract away from pointer)
 
 # program
 
