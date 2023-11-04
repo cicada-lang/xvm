@@ -96,6 +96,26 @@ list_push(list_t *self, void *item) {
     self->size++;
 }
 
+void
+list_unshift(list_t *self, void *item) {
+    node_t *node = (node_t *) calloc(1, sizeof (node_t));
+    assert(node);
+    node->item = item;
+
+    if (self->first) {
+        self->first->prev = node;
+        node->next = self->first;
+        node->prev = NULL;
+    } else {
+        self->last = node;
+        node->next = NULL;
+        node->prev = NULL;
+    }
+
+    self->first = node;
+    self->size++;
+}
+
 void *
 list_shift(list_t *self) {
     if (self->cursor == self->first)
