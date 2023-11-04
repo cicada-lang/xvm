@@ -1,6 +1,5 @@
 # parser
 
-list_has
 list_test -- test list_push and list_pop
 
 list_purge

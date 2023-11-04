@@ -37,6 +37,18 @@ list_lenght(list_t *self) {
     return self->length;
 }
 
+bool
+list_has(list_t *self, void *item) {
+    assert(self);
+    node_t *node = self->first;
+    while (node) {
+        if (node->item == item) return true;
+        node = node->next;
+    }
+
+    return false;
+}
+
 void *
 list_current(list_t *self) {
     assert(self);
@@ -189,19 +201,21 @@ list_test(void) {
 
     list_push(list, cheese);
     assert(list_lenght(list) == 1);
-    // assert(list_has(list, cheese));
-    // assert(!list_has(list, bread));
-    // assert(!list_has(list, wine));
+    assert(list_has(list, cheese));
+    assert(!list_has(list, bread));
+    assert(!list_has(list, wine));
+
     list_push(list, bread);
     assert(list_lenght(list) == 2);
-    // assert(list_has(list, cheese));
-    // assert(list_has(list, bread));
-    // assert(!list_has(list, wine));
+    assert(list_has(list, cheese));
+    assert(list_has(list, bread));
+    assert(!list_has(list, wine));
+
     list_push(list, wine);
     assert(list_lenght(list) == 3);
-    // assert(list_has(list, cheese));
-    // assert(list_has(list, bread));
-    // assert(list_has(list, wine));
+    assert(list_has(list, cheese));
+    assert(list_has(list, bread));
+    assert(list_has(list, wine));
 
     assert(list_first(list) == cheese);
     assert(list_next(list) == cheese);

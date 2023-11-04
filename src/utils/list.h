@@ -5,6 +5,7 @@
 list_t *list_create(void);
 void list_destroy(list_t **self_ptr);
 size_t list_lenght(list_t *self);
+bool list_has(list_t *self, void *item);
 
 void *list_current(list_t *self);
 void *list_first(list_t *self);
@@ -46,11 +47,6 @@ void *list_shift(list_t *self);
 
 // //  Pop the item off the start of the list, if any
 // void *list_pop(list_t *self);
-
-// //  Checks if an item already is present. Uses compare method to determine if
-// //  items are equal. If the compare method is NULL the check will only compare
-// //  pointers. Returns true if item is present else false.
-// bool list_exists(list_t *self, void *item);
 
 // //  Remove the specified item from the list if present
 // void list_remove(list_t *self, void *item);
