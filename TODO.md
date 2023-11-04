@@ -1,8 +1,12 @@
 # parser
 
-setup utils/test_utils
+list_test -- test list_push and list_pop
+
 list_lenght
 list_test -- test list_lenght
+
+list_has
+list_test -- test list_has
 
 list_purge
 

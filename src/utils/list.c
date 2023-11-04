@@ -170,40 +170,40 @@ list_shift(list_t *self) {
 
 void
 list_test(void) {
-    printf("<list>\n");
+    printf("<list>");
 
     list_t *list = list_create();
     assert(list);
-    // assert(list_size(list) == 0);
+    // assert(list_lenght(list) == 0);
 
-    // //  Three items we'll use as test data
-    // //  List items are void *, not particularly strings
-    // char *cheese = "boursin";
-    // char *bread = "baguette";
-    // char *wine = "bordeaux";
+    //  Three items we'll use as test data
+    //  List items are void *, not particularly strings
+    char *cheese = string_dup("boursin");
+    char *bread = string_dup("baguette");
+    char *wine = string_dup("bordeaux");
 
-    // list_append(list, cheese);
-    // assert(list_size(list) == 1);
-    // assert(list_exists(list, cheese));
-    // assert(!list_exists(list, bread));
-    // assert(!list_exists(list, wine));
-    // list_append(list, bread);
-    // assert(list_size(list) == 2);
-    // assert(list_exists(list, cheese));
-    // assert(list_exists(list, bread));
-    // assert(!list_exists(list, wine));
-    // list_append(list, wine);
-    // assert(list_size(list) == 3);
-    // assert(list_exists(list, cheese));
-    // assert(list_exists(list, bread));
-    // assert(list_exists(list, wine));
+    list_push(list, cheese);
+    // assert(list_lenght(list) == 1);
+    // assert(list_has(list, cheese));
+    // assert(!list_has(list, bread));
+    // assert(!list_has(list, wine));
+    list_push(list, bread);
+    // assert(list_lenght(list) == 2);
+    // assert(list_has(list, cheese));
+    // assert(list_has(list, bread));
+    // assert(!list_has(list, wine));
+    list_push(list, wine);
+    // assert(list_lenght(list) == 3);
+    // assert(list_has(list, cheese));
+    // assert(list_has(list, bread));
+    // assert(list_has(list, wine));
 
-    // assert(list_head(list) == cheese);
-    // assert(list_next(list) == cheese);
+    assert(list_first(list) == cheese);
+    assert(list_next(list) == cheese);
 
-    // assert(list_first(list) == cheese);
-    // assert(list_tail(list) == wine);
-    // assert(list_next(list) == bread);
+    assert(list_start(list) == cheese);
+    assert(list_last(list) == wine);
+    assert(list_next(list) == bread);
 
     // assert(list_first(list) == cheese);
     // assert(list_next(list) == bread);
@@ -211,18 +211,18 @@ list_test(void) {
     // assert(list_next(list) == NULL);
     // //  After we reach end of list, next wraps around
     // assert(list_next(list) == cheese);
-    // assert(list_size(list) == 3);
+    // assert(list_lenght(list) == 3);
 
     // list_remove(list, wine);
-    // assert(list_size(list) == 2);
+    // assert(list_lenght(list) == 2);
 
     // assert(list_first(list) == cheese);
     // list_remove(list, cheese);
-    // assert(list_size(list) == 1);
+    // assert(list_lenght(list) == 1);
     // assert(list_first(list) == bread);
 
     // list_remove(list, bread);
-    // assert(list_size(list) == 0);
+    // assert(list_lenght(list) == 0);
 
     // list_append(list, cheese);
     // list_append(list, bread);
@@ -233,21 +233,21 @@ list_test(void) {
     // assert(list_last(list) == NULL);
 
     // list_push(list, cheese);
-    // assert(list_size(list) == 1);
+    // assert(list_lenght(list) == 1);
     // assert(list_first(list) == cheese);
 
     // list_push(list, bread);
-    // assert(list_size(list) == 2);
+    // assert(list_lenght(list) == 2);
     // assert(list_first(list) == bread);
     // assert(list_item(list) == bread);
 
     // list_append(list, wine);
-    // assert(list_size(list) == 3);
+    // assert(list_lenght(list) == 3);
     // assert(list_first(list) == bread);
 
     // list_t *sub_list = list_dup(list);
     // assert(sub_list);
-    // assert(list_size(sub_list) == 3);
+    // assert(list_lenght(sub_list) == 3);
 
     // list_sort(list, NULL);
     // char *item;
@@ -257,9 +257,9 @@ list_test(void) {
     // assert(item == wine);
     // item = (char *) list_pop(list);
     // assert(item == cheese);
-    // assert(list_size(list) == 0);
+    // assert(list_lenght(list) == 0);
 
-    // assert(list_size(sub_list) == 3);
+    // assert(list_lenght(sub_list) == 3);
     // list_push(list, sub_list);
     // list_t *sub_list_2 = list_dup(sub_list);
     // list_append(list, sub_list_2);
@@ -275,11 +275,11 @@ list_test(void) {
     // list_comparefn(list,(list_compare_fn *) strcmp);
     // list_push(list, bread);
     // list_append(list, cheese);
-    // assert(list_size(list) == 2);
+    // assert(list_lenght(list) == 2);
     // list_append(list, wine);
-    // assert(list_exists(list, wine));
+    // assert(list_has(list, wine));
     // list_remove(list, wine);
-    // assert(!list_exists(list, wine));
+    // assert(!list_has(list, wine));
     // assert(streq((const char *) list_first(list), bread));
     // item = (char *) list_pop(list);
     // assert(streq(item, bread));
