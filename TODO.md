@@ -1,9 +1,8 @@
 # parser
 
-token_word_create
 token_string_create
-token_is_word
-token_is_string
+token_word_p
+token_string_p
 token_destroy
 
 utils/list.h -- copy from czmq
