@@ -11,5 +11,7 @@ main(void) {
     test_builtin_int();
     test_builtin_string();
 
+    printf("\n");
+
     return 0;
 }
