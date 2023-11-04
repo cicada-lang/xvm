@@ -8,6 +8,9 @@ struct _node_t {
 };
 
 struct _list_t {
+    node_t *head;
+    node_t *last;
+    node_t *cursor;
     size_t size;
 };
 
@@ -26,4 +29,14 @@ list_destroy(list_t **self_ptr) {
         free(self);
         *self_ptr = NULL;
     }
+}
+
+void *
+list_first(list_t *self) {
+    assert(self);
+    self->cursor = self->head;
+    if (self->cursor)
+        return self->cursor->item;
+    else
+        return NULL;
 }

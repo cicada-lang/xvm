@@ -2,9 +2,6 @@
 
 list_t *list_create(void);
 void list_destroy(list_t **self_ptr);
-
-//  Return the item at the head of list. If the list is empty, returns NULL.
-//  Leaves cursor pointing at the head item, or NULL if the list is empty.
 void *list_first(list_t *self);
 
 //  Return the next item. If the list is empty, returns NULL. To move to
