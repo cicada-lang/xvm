@@ -1,7 +1,6 @@
 # parser
 
-utils/string
-utils/list
+utils/list.h
 
 token_create_word
 token_create_string

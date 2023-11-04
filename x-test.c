@@ -3,6 +3,8 @@
 
 int
 main(void) {
+    // INTEGRATION TESTS
+
     test_word();
     test_value_stack();
     test_build_program();

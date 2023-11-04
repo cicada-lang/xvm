@@ -30,5 +30,5 @@ lib/%.o: src/%.c
 
 .PHONY: clean
 clean:
-	rm -f ${patsubst bin/%,%.o,${bin}}
+	rm -f *.o
 	rm -rf lib bin

@@ -3,9 +3,10 @@
 #include "version.h"
 #include "dependencies.h"
 #include "types.h"
-#include "utils.h"
 
+#include "utils/index.h"
 #include "builtins/index.h"
+
 #include "instruction.h"
 #include "program.h"
 #include "frame.h"
