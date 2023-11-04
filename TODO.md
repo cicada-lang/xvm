@@ -1,7 +1,6 @@
 # parser
 
-list_test -- list_pop
-list_test -- list_unshift
+list_test -- list_end & list_prev
 list_t -- has free_fn
 list_purge
 

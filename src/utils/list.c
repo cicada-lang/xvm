@@ -309,6 +309,30 @@ list_test(void) {
     assert(list_last(list) == NULL);
 
     list_unshift(list, cheese);
+    list_unshift(list, bread);
+    list_unshift(list, wine);
+
+    assert(list_shift(list) == wine);
+    assert(list_shift(list) == bread);
+    assert(list_shift(list) == cheese);
+
+    list_push(list, cheese);
+    list_push(list, bread);
+    list_push(list, wine);
+
+    assert(list_shift(list) == cheese);
+    assert(list_shift(list) == bread);
+    assert(list_shift(list) == wine);
+
+    list_push(list, cheese);
+    list_push(list, bread);
+    list_push(list, wine);
+
+    assert(list_pop(list) == wine);
+    assert(list_pop(list) == bread);
+    assert(list_pop(list) == cheese);
+
+    list_unshift(list, cheese);
     assert(list_lenght(list) == 1);
     assert(list_first(list) == cheese);
 
