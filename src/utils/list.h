@@ -3,8 +3,8 @@
 // double linked list, with a private cursor.
 
 list_t *list_create(void);
-void list_destroy(list_t **self_ptr, list_item_delete_fn_t *delete_fn);
-void list_purge(list_t *self, list_item_delete_fn_t *delete_fn);
+void list_destroy(list_t **self_ptr, list_item_free_fn_t *free_fn);
+void list_purge(list_t *self, list_item_free_fn_t *free_fn);
 
 size_t list_lenght(list_t *self);
 bool list_has(list_t *self, void *item);
