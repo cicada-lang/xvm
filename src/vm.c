@@ -86,16 +86,14 @@ vm_return_stack_is_empty(vm_t *self) {
 
 void
 vm_load_token_list(vm_t *self, list_t *token_list) {
-    (void) self;
-    // program_t *program;
-    // vm_load(self, program);
-    printf("vm_load_token_list:\n");
+    program_t *program = program_create();
     token_t *token = list_start(token_list);
     while (token) {
-        printf("- token: %s\n", token_string(token));
+        program_append_call(program, vm_word(self, token_string(token)));
         token = list_next(token_list);
     }
 
+    vm_load(self, program);
 }
 
 void

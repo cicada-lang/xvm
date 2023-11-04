@@ -1,7 +1,5 @@
 # parser
 
-(private) vm_load_token_list
-
 refactor lexer_lex
 lexer_lex -- support JSON string -- https://www.json.org/json-en.html
 
