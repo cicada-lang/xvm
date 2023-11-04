@@ -1,7 +1,8 @@
 # parser
 
 refactor lexer_lex
-lexer_lex -- support JSON string -- https://www.json.org/json-en.html
+lexer_lex -- support JSON string
+lexer_lex -- support JSON number
 
 # dict
 
