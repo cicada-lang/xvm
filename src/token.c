@@ -42,3 +42,13 @@ token_destroy(token_t **self_ptr) {
         *self_ptr = NULL;
     }
 }
+
+bool
+token_word_p(token_t *self) {
+    return self->kind == TOKEN_WORD;
+}
+
+bool
+token_string_p(token_t *self) {
+    return self->kind == TOKEN_STRING;
+}
