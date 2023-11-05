@@ -1,11 +1,17 @@
 #include "index.h"
 
+typedef enum {
+    IN_SPACE,
+    IN_WORD,
+    IN_DOUBLE_QUOTES,
+} lexer_mode_t;
+
 struct _lexer_t {
     list_t *token_list;
     char *code;
     size_t code_length;
     size_t index;
-    bool in_space_p;
+    lexer_mode_t mode;
     size_t max_buffer_length;
     char *buffer;
     size_t buffer_length;
@@ -18,7 +24,7 @@ lexer_t *lexer_create(char *code) {
     self->code_length = strlen(code);
     self->index = 0;
     char c = self->code[0];
-    self->in_space_p = isspace(c);
+    self->mode = isspace(c) ? IN_SPACE : IN_WORD;
     self->max_buffer_length = 1024;
     self->buffer = allocate(self->max_buffer_length + 1);
     self->buffer_length = 0;
@@ -74,13 +80,13 @@ lexer_lex(lexer_t *self) {
 
         if (!isspace(c))
             lexer_lex_collect_char(self, c);
-        if (isspace(c) && self->in_space_p)
+        if (isspace(c) && self->mode == IN_SPACE)
             lexer_lex_ignore_space(self);
-        if (isspace(c) && !self->in_space_p)
+        if (isspace(c) && self->mode != IN_SPACE)
             lexer_lex_collect_token(self);
 
         self->index++;
-        self->in_space_p = isspace(c);
+        self->mode = isspace(c) ? IN_SPACE : IN_WORD;
     }
 
     lexer_lex_collect_token(self);

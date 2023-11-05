@@ -1,9 +1,6 @@
 # parser
 
-[maybe] opcode.h -- use enum
-
-lexer -- has lexer_mode -- IN_SPACE & IN_WORD -- instead of in_space_p
-lexer -- lexer_mode -- IN_DOUBLE_QUOTES
+lexer -- rename buffer to string
 
 lexer_lex -- support JSON string
 lexer_lex -- support JSON int
