@@ -34,9 +34,9 @@ program_fetch_byte(program_t *self, size_t index) {
     return *(self->bytes + index);
 }
 
-instruction_t
-program_fetch_instruction(program_t *self, size_t index) {
-    return (instruction_t) program_fetch_byte(self, index);
+opcode_t
+program_fetch_opcode(program_t *self, size_t index) {
+    return (opcode_t) program_fetch_byte(self, index);
 }
 
 value_t
@@ -57,7 +57,7 @@ program_append_call(program_t *self, const word_t *word) {
     free(self->bytes);
     self->bytes = bytes;
 
-    *(instruction_t *)(self->bytes + self->size) = CALL;
+    *(opcode_t *)(self->bytes + self->size) = CALL;
     self->size += sizeof(CALL);
 
     *(const word_t **)(self->bytes + self->size) = word;
@@ -67,17 +67,17 @@ program_append_call(program_t *self, const word_t *word) {
 void
 program_append_literal_value(
     program_t *self,
-    instruction_t instruction,
+    opcode_t opcode,
     value_t value
 ) {
-    size_t addend = sizeof(instruction) + sizeof(value);
+    size_t addend = sizeof(opcode) + sizeof(value);
     byte_t *bytes = allocate_array(self->size + addend, sizeof(byte_t));
     memcpy(bytes, self->bytes, self->size);
     free(self->bytes);
     self->bytes = bytes;
 
-    *(instruction_t *)(self->bytes + self->size) = instruction;
-    self->size += sizeof(instruction);
+    *(opcode_t *)(self->bytes + self->size) = opcode;
+    self->size += sizeof(opcode);
 
     *(value_t *)(self->bytes + self->size) = value;
     self->size += sizeof(value);

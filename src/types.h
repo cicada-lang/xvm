@@ -1,7 +1,7 @@
 #pragma once
 
 typedef uint8_t byte_t;
-typedef byte_t instruction_t;
+typedef byte_t opcode_t;
 typedef uintptr_t value_t;
 typedef int64_t int_t;
 

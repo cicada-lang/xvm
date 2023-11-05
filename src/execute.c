@@ -4,13 +4,13 @@ void
 execute(vm_t *vm, frame_t *frame) {
     if (frame_is_end(frame)) return;
 
-    instruction_t instruction = frame_fetch_instruction(frame);
-    if (instruction == CALL) {
+    opcode_t opcode = frame_fetch_opcode(frame);
+    if (opcode == CALL) {
         execute_call(vm, frame);
         return;
     } else if (
-        instruction == LITERAL_INT ||
-        instruction == LITERAL_STRING
+        opcode == LITERAL_INT ||
+        opcode == LITERAL_STRING
         ) {
         execute_literal_value(vm, frame);
         return;

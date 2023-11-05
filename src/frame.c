@@ -35,9 +35,9 @@ frame_fetch_byte(frame_t *self) {
     return byte;
 }
 
-instruction_t
-frame_fetch_instruction(frame_t *self) {
-    return (instruction_t) frame_fetch_byte(self);
+opcode_t
+frame_fetch_opcode(frame_t *self) {
+    return (opcode_t) frame_fetch_byte(self);
 }
 
 value_t
