@@ -45,6 +45,13 @@ lexer_current_char(lexer_t *self) {
     return self->code[self->index];
 }
 
+void
+lexer_collect_char(lexer_t *self, char c) {
+    self->string[self->string_length] = c;
+    self->string[self->string_length + 1] = '\0';
+    self->string_length++;
+}
+
 list_t *
 lexer_token_list(lexer_t *self) {
     return self->token_list;
@@ -52,7 +59,7 @@ lexer_token_list(lexer_t *self) {
 
 void lexer_lex_ignore_space(lexer_t *self);
 void lexer_lex_double_qoutes(lexer_t *self);
-void lexer_lex_collect_word(lexer_t *self);
+void lexer_lex_word(lexer_t *self);
 
 void
 lexer_lex(lexer_t *self) {
@@ -66,7 +73,7 @@ lexer_lex(lexer_t *self) {
         else if (c == '\"')
             lexer_lex_double_qoutes(self);
         else
-            lexer_lex_collect_word(self);
+            lexer_lex_word(self);
     }
 }
 
@@ -82,13 +89,54 @@ lexer_lex_ignore_space(lexer_t *self) {
     }
 }
 
+void lexer_lex_double_qoutes_escape(lexer_t *self);
+
 void
 lexer_lex_double_qoutes(lexer_t *self) {
-    (void) self;
+    self->index++;
+
+    while (lexer_finished_p(self)) {
+        char c = lexer_current_char(self);
+
+        if (c == '\"') {
+            size_t start = self->index;
+            size_t end = self->index + strlen(self->string);
+            char *string = string_dup(self->string);
+            token_t *token = token_double_quotes_create(string, start, end);
+            list_push(self->token_list, token);
+            self->string[0] = '\0';
+            self->string_length = 0;
+            self->index++;
+            return;
+        } else if (c == '\\') {
+            self->index++;
+            lexer_lex_double_qoutes_escape(self);
+        } else {
+            lexer_collect_char(self, c);
+            self->index++;
+        }
+    }
 }
 
 void
-lexer_lex_collect_word(lexer_t *self) {
+lexer_lex_double_qoutes_escape(lexer_t *self) {
+    assert(!lexer_finished_p(self));
+
+    char c = lexer_current_char(self);
+
+    if (c == '\"') lexer_collect_char(self, '\"');
+    else if (c == '\\') lexer_collect_char(self, '\\');
+    else if (c == 'b') lexer_collect_char(self, '\b');
+    else if (c == 'f') lexer_collect_char(self, '\f');
+    else if (c == 'n') lexer_collect_char(self, '\n');
+    else if (c == 'r') lexer_collect_char(self, '\r');
+    else if (c == 't') lexer_collect_char(self, '\t');
+
+    self->index++;
+}
+
+void
+lexer_lex_word(lexer_t *self) {
     while (lexer_finished_p(self)) {
         char c = lexer_current_char(self);
 
@@ -102,9 +150,7 @@ lexer_lex_collect_word(lexer_t *self) {
             self->string_length = 0;
             return;
         } else {
-            self->string[self->string_length] = c;
-            self->string[self->string_length + 1] = '\0';
-            self->string_length++;
+            lexer_collect_char(self, c);
             self->index++;
         }
     }
