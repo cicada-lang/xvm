@@ -2,7 +2,7 @@
 
 typedef enum {
     TOKEN_WORD,
-    TOKEN_STRING,
+    TOKEN_DOUBLE_QUOTES,
 } token_kind_t;
 
 struct _token_t {
@@ -23,9 +23,9 @@ token_word_create(char *string, size_t start, size_t end) {
 }
 
 token_t *
-token_string_create(char *string, size_t start, size_t end) {
+token_double_quotes_create(char *string, size_t start, size_t end) {
     token_t *self = allocate(sizeof(token_t));
-    self->kind = TOKEN_STRING;
+    self->kind = TOKEN_DOUBLE_QUOTES;
     self->string = string;
     self->start = start;
     self->end = end;
@@ -58,6 +58,6 @@ token_word_p(token_t *self) {
 }
 
 bool
-token_string_p(token_t *self) {
-    return self->kind == TOKEN_STRING;
+token_double_quotes_p(token_t *self) {
+    return self->kind == TOKEN_DOUBLE_QUOTES;
 }
