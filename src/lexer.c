@@ -44,6 +44,11 @@ lexer_current_char(lexer_t *self) {
     return self->code[self->index];
 }
 
+char
+lexer_next_char(lexer_t *self) {
+    return self->code[self->index + 1];
+}
+
 void
 lexer_collect_char(lexer_t *self, char c) {
     self->string[self->string_length] = c;
@@ -57,6 +62,7 @@ lexer_token_list(lexer_t *self) {
 }
 
 void lexer_lex_ignore_space(lexer_t *self);
+void lexer_lex_ignore_comment(lexer_t *self);
 void lexer_lex_double_qoutes(lexer_t *self);
 void lexer_lex_word(lexer_t *self);
 
@@ -67,6 +73,8 @@ lexer_lex(lexer_t *self) {
 
         if (c == '\0')
             return;
+        else if (c == '/' || lexer_next_char(self) == '/')
+            lexer_lex_ignore_comment(self);
         else if (isspace(c))
             lexer_lex_ignore_space(self);
         else if (c == '\"')
@@ -85,6 +93,22 @@ lexer_lex_ignore_space(lexer_t *self) {
             self->index++;
         else
             return;
+    }
+}
+
+void
+lexer_lex_ignore_comment(lexer_t *self) {
+    self->index += 2;
+
+    while (lexer_finished_p(self)) {
+        char c = lexer_current_char(self);
+
+        if (c == '\n') {
+            self->index++;
+            return;
+        }
+        else
+            self->index++;
     }
 }
 

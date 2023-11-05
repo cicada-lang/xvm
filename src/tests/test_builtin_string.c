@@ -36,9 +36,8 @@ test_builtin_string(void) {
 
     {
         const char *code =
-            "\"abc\" string_print "
-            "newline \n"
-            "\"123\" string_print "
+            "\"abc\" string_print newline \n"
+            "\"123\" string_print // comment \n"
             "newline \n";
 
         vm_interpret_code(vm, code);

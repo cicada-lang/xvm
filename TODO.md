@@ -1,6 +1,5 @@
 # parser
 
-lexer_lex -- handle line comment
 lexer_lex -- handle JSON int
 
 execute should free frame
