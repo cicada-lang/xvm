@@ -1,6 +1,5 @@
 # parser
 
-interpreter_create
 interpreter_destroy
 
 interpreter_interpret
