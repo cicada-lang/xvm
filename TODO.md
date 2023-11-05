@@ -1,11 +1,15 @@
 # parser
 
-lexer -- has lexer_mode -- IN_SPACE & IN_DOUBLE_QUOTES -- instead of in_space_p
+lexer -- has lexer_mode -- IN_SPACE & IN_WORD -- instead of in_space_p
+lexer -- lexer_mode -- IN_DOUBLE_QUOTES
 
 lexer_lex -- support JSON string
 lexer_lex -- support JSON int
 
-use INT instead of VALUE as instruction -- for the type system
+use LITERAL_INT instead of VALUE as instruction -- for type inference
+LITERAL_FLOAT instruction - Double-precision floating-point
+LITERAL_BOOLEAN instruction
+LITERAL_NULL instruction
 
 execute should free frame
 
@@ -25,10 +29,6 @@ support linear local variable by `'name set` and `'name get`
 we also need record effects in the type, to support exceptions (throw and try catch)
 
 only simple type (with generic)
-
-# program
-
-program_append_program
 
 # learn
 
