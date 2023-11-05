@@ -1,6 +1,5 @@
 # parser
 
-interpreter_interpret
 interpreter_interpret_token
 
 lexer_lex -- support JSON int

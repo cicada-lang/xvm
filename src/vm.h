@@ -22,4 +22,4 @@ void vm_define_primitive(vm_t *self, const char *name, primitive_t *primitive);
 void vm_define_builtins(vm_t *self);
 
 vm_t *vm_init(void);
-void vm_interpret_code(vm_t *self, char *code);
+void vm_interpret_code(vm_t *self, const char *code);

@@ -127,17 +127,8 @@ vm_init(void) {
 }
 
 void
-vm_interpret_code(vm_t *self, char *code) {
-    (void) self;
-
-    lexer_t *lexer = lexer_create(code);
-    lexer_lex(lexer);
-    list_t *token_list = lexer_token_list(lexer);
-    token_t *token = list_start(token_list);
-    while (token) {
-        // interpret_token(vm, token);
-        token = list_next(token_list);
-    }
-
-    lexer_destroy(&lexer);
+vm_interpret_code(vm_t *self, const char *code) {
+    interpreter_t *interpreter = interpreter_create(self, code);
+    interpreter_interpret(interpreter);
+    interpreter_destroy(&interpreter);
 }

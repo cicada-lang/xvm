@@ -38,11 +38,6 @@ token_free(token_t *self) {
     free(self);
 }
 
-const char *
-token_string(token_t *self) {
-    return self->string;
-}
-
 void
 token_destroy(token_t **self_ptr) {
     assert(self_ptr);
@@ -50,6 +45,11 @@ token_destroy(token_t **self_ptr) {
         token_free(*self_ptr);
         *self_ptr = NULL;
     }
+}
+
+const char *
+token_string(token_t *self) {
+    return self->string;
 }
 
 bool

@@ -2,7 +2,7 @@
 
 struct _lexer_t {
     list_t *token_list;
-    char *code;
+    const char *code;
     size_t code_length;
     size_t index;
     size_t max_string_length;
@@ -10,7 +10,7 @@ struct _lexer_t {
     size_t string_length;
 };
 
-lexer_t *lexer_create(char *code) {
+lexer_t *lexer_create(const char *code) {
     lexer_t *self = allocate(sizeof(lexer_t));
     self->token_list = list_create();
     self->code = code;
@@ -28,7 +28,6 @@ lexer_destroy(lexer_t **self_ptr) {
     if (*self_ptr) {
         lexer_t *self = *self_ptr;
         list_destroy(&self->token_list, (list_item_free_fn_t *) token_free);
-        free(self->code);
         free(self->string);
         free(self);
         *self_ptr = NULL;

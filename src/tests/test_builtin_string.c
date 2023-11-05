@@ -35,7 +35,7 @@ test_builtin_string(void) {
     }
 
     {
-        char *code = string_dup("newline   newline\n     newline newline");
+        const char *code = "newline   newline\n     newline newline";
         vm_interpret_code(vm, code);
         vm_run(vm);
     }
