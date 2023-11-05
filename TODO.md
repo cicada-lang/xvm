@@ -1,6 +1,8 @@
 # parser
 
-interpreter_t
+interpreter_create
+interpreter_destroy
+
 interpreter_interpret
 interpreter_interpret_token
 
