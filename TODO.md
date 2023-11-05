@@ -1,6 +1,6 @@
 # parser
 
-lexer_lex -- support JSON string
+lexer_lex_double_qoutes -- handle JSON string
 lexer_lex -- support JSON int
 
 execute should free frame
