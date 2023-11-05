@@ -1,6 +1,5 @@
 # parser
 
-execute should free frame
 lexer_lex -- handle JSON int
 
 # cli

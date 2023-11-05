@@ -2,7 +2,10 @@
 
 void
 execute(vm_t *vm, frame_t *frame) {
-    if (frame_end_p(frame)) return;
+    if (frame_end_p(frame)) {
+        frame_destroy(&frame);
+        return;
+    }
 
     opcode_t opcode = frame_fetch_opcode(frame);
     if (opcode == CALL) {

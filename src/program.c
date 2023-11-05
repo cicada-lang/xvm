@@ -25,27 +25,27 @@ program_destroy(program_t **self_ptr) {
 }
 
 size_t
-program_byte_size(program_t *self) {
+program_byte_size(const program_t *self) {
     return self->size;
 }
 
 byte_t
-program_fetch_byte(program_t *self, size_t index) {
+program_fetch_byte(const program_t *self, size_t index) {
     return *(self->bytes + index);
 }
 
 opcode_t
-program_fetch_opcode(program_t *self, size_t index) {
+program_fetch_opcode(const program_t *self, size_t index) {
     return (opcode_t) program_fetch_byte(self, index);
 }
 
 value_t
-program_fetch_value(program_t *self, size_t index) {
+program_fetch_value(const program_t *self, size_t index) {
     return *(value_t *)(self->bytes + index);
 }
 
 word_t *
-program_fetch_word(program_t *self, size_t index) {
+program_fetch_word(const program_t *self, size_t index) {
     return *(word_t **)(self->bytes + index);
 }
 

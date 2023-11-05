@@ -1,6 +1,6 @@
 #pragma once
 
-frame_t *frame_create(program_t *program);
+frame_t *frame_create(const program_t *program);
 void frame_destroy(frame_t **self_ptr);
 
 bool frame_end_p(frame_t *self);

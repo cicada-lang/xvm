@@ -1,6 +1,6 @@
 #include "index.h"
 
-// The interpreter does not own `vm`.
+// The interpreter  does not own `vm`.
 
 struct _interpreter_t {
     vm_t *vm;

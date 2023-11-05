@@ -52,12 +52,12 @@ list_purge(list_t *self, list_item_free_fn_t *free_fn) {
 }
 
 size_t
-list_lenght(list_t *self) {
+list_lenght(const list_t *self) {
     return self->length;
 }
 
 bool
-list_has(list_t *self, void *item) {
+list_has(const list_t *self, void *item) {
     assert(self);
     node_t *node = self->first;
     while (node) {
@@ -98,7 +98,7 @@ list_remove(list_t *self, void *item) {
 }
 
 void *
-list_current(list_t *self) {
+list_current(const list_t *self) {
     assert(self);
     if (self->cursor)
         return self->cursor->item;
@@ -107,7 +107,7 @@ list_current(list_t *self) {
 }
 
 void *
-list_first(list_t *self) {
+list_first(const list_t *self) {
     assert(self);
     if (self->first)
         return self->first->item;
@@ -116,7 +116,7 @@ list_first(list_t *self) {
 }
 
 void *
-list_last(list_t *self) {
+list_last(const list_t *self) {
     assert(self);
     if (self->last)
         return self->last->item;

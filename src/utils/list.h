@@ -6,13 +6,13 @@ list_t *list_create(void);
 void list_destroy(list_t **self_ptr, list_item_free_fn_t *free_fn);
 void list_purge(list_t *self, list_item_free_fn_t *free_fn);
 
-size_t list_lenght(list_t *self);
-bool list_has(list_t *self, void *item);
+size_t list_lenght(const list_t *self);
+bool list_has(const list_t *self, void *item);
 bool list_remove(list_t *self, void *item);
 
-void *list_current(list_t *self);
-void *list_first(list_t *self);
-void *list_last(list_t *self);
+void *list_current(const list_t *self);
+void *list_first(const list_t *self);
+void *list_last(const list_t *self);
 
 // move the cursor.
 

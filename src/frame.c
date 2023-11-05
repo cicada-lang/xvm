@@ -2,11 +2,11 @@
 
 struct _frame_t {
     size_t index;
-    program_t *program;
+    const program_t *program;
 };
 
 frame_t *
-frame_create(program_t *program) {
+frame_create(const program_t *program) {
     frame_t *self = allocate(sizeof(frame_t));
     self->index = 0;
     self->program = program;
