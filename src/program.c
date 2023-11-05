@@ -82,3 +82,13 @@ program_append_literal_value(
     *(value_t *)(self->bytes + self->size) = value;
     self->size += sizeof(value);
 }
+
+void
+program_append_literal_int(program_t *self, int64_t n) {
+    program_append_literal_value(self, LITERAL_INT, (value_t) n);
+}
+
+void
+program_append_literal_string(program_t *self, char *string) {
+    program_append_literal_value(self, LITERAL_STRING, (value_t) string);
+}

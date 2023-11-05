@@ -8,10 +8,10 @@ test_builtin_int(void) {
 
     {
         program_t *program = vm_build_program(vm, "sixsixsix");
-        program_append_literal_value(program, LITERAL_INT, 666);
+        program_append_literal_int(program, 666);
         program_append_call(program, vm_word(vm, "int_print"));
         program_append_call(program, vm_word(vm, "newline"));
-        program_append_literal_value(program, LITERAL_INT, 666);
+        program_append_literal_int(program, 666);
         program_append_call(program, vm_word(vm, "int_print"));
         program_append_call(program, vm_word(vm, "newline"));
 
@@ -27,7 +27,7 @@ test_builtin_int(void) {
 
     {
         program_t *program = vm_build_program(vm, "six");
-        program_append_literal_value(program, LITERAL_INT, 6);
+        program_append_literal_int(program, 6);
     }
 
     {
