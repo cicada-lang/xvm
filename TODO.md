@@ -1,10 +1,8 @@
 # parser
-ambr token_double_quotes_p token_double_quotes_p
-ambr token_double_quotes_create token_double_quotes_create
-rename TOKEN_STRING to TOKEN_DOUBLE_QUOTES
+
+lexer -- has lexer_mode -- IN_SPACE & IN_DOUBLE_QUOTES -- instead of in_space_p
 
 lexer_lex -- support JSON string
-
 lexer_lex -- support JSON int
 
 use INT instead of VALUE as instruction -- for the type system

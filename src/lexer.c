@@ -69,8 +69,6 @@ lexer_lex_collect_token(lexer_t *self) {
 
 void
 lexer_lex(lexer_t *self) {
-
-
     while(self->index < self->code_length) {
         char c = self->code[self->index];
 
