@@ -16,6 +16,7 @@ bool vm_return_stack_empty_p(vm_t *self);
 void vm_load_program(vm_t *self, program_t *program);
 void vm_step(vm_t *self);
 void vm_run(vm_t *self);
+void vm_run_word(vm_t *self, word_t *word);
 
 program_t *vm_build_program(vm_t *self, const char *name);
 void vm_define_primitive(vm_t *self, const char *name, primitive_t *primitive);

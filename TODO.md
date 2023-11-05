@@ -1,8 +1,22 @@
 # parser
 
+execute should free frame
 lexer_lex -- handle JSON int
 
-execute should free frame
+# cli
+
+setup `x run` command
+setup `x repl` command
+
+setup `x help` command
+
+- `x --help`
+- `x -h`
+
+setup `x version` command
+
+- `x --version`
+- `x -v`
 
 # dict
 

@@ -88,6 +88,15 @@ vm_run(vm_t *self) {
     }
 }
 
+void
+vm_run_word(vm_t *self, word_t *word) {
+    program_t *program = program_create();
+    program_append_call(program, word);
+    vm_load_program(self, program);
+    vm_run(self);
+    program_destroy(&program);
+}
+
 program_t *
 vm_build_program(vm_t *self, const char *name) {
     word_t *word = vm_word(self, name);
