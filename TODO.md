@@ -1,7 +1,5 @@
 # parser
 
-lexer -- rename buffer to string
-
 lexer_lex -- support JSON string
 lexer_lex -- support JSON int
 

@@ -12,9 +12,9 @@ struct _lexer_t {
     size_t code_length;
     size_t index;
     lexer_mode_t mode;
-    size_t max_buffer_length;
-    char *buffer;
-    size_t buffer_length;
+    size_t max_string_length;
+    char *string;
+    size_t string_length;
 };
 
 lexer_t *lexer_create(char *code) {
@@ -25,9 +25,9 @@ lexer_t *lexer_create(char *code) {
     self->index = 0;
     char c = self->code[0];
     self->mode = isspace(c) ? IN_SPACE : IN_WORD;
-    self->max_buffer_length = 1024;
-    self->buffer = allocate(self->max_buffer_length + 1);
-    self->buffer_length = 0;
+    self->max_string_length = 1024;
+    self->string = allocate(self->max_string_length + 1);
+    self->string_length = 0;
     return self;
 }
 
@@ -38,7 +38,7 @@ lexer_destroy(lexer_t **self_ptr) {
         lexer_t *self = *self_ptr;
         list_destroy(&self->token_list, (list_item_free_fn_t *) token_free);
         free(self->code);
-        free(self->buffer);
+        free(self->string);
         free(self);
         *self_ptr = NULL;
     }
@@ -49,29 +49,9 @@ lexer_token_list(lexer_t *self) {
     return self->token_list;
 }
 
-void
-lexer_lex_ignore_space(lexer_t *self) {
-    (void) self;
-}
-
-void
-lexer_lex_collect_char(lexer_t *self, char c) {
-    self->buffer[self->buffer_length] = c;
-    self->buffer[self->buffer_length + 1] = '\0';
-    self->buffer_length++;
-}
-
-void
-lexer_lex_collect_token(lexer_t *self) {
-    size_t start = self->index;
-    size_t end = self->index + strlen(self->buffer);
-    char *string = string_dup(self->buffer);
-    token_t *token = token_word_create(string, start, end);
-    list_push(self->token_list, token);
-
-    self->buffer[0] = '\0';
-    self->buffer_length = 0;
-}
+void lexer_lex_ignore_space(lexer_t *self);
+void lexer_lex_collect_char(lexer_t *self, char c);
+void lexer_lex_collect_token(lexer_t *self);
 
 void
 lexer_lex(lexer_t *self) {
@@ -90,4 +70,28 @@ lexer_lex(lexer_t *self) {
     }
 
     lexer_lex_collect_token(self);
+}
+
+void
+lexer_lex_ignore_space(lexer_t *self) {
+    (void) self;
+}
+
+void
+lexer_lex_collect_char(lexer_t *self, char c) {
+    self->string[self->string_length] = c;
+    self->string[self->string_length + 1] = '\0';
+    self->string_length++;
+}
+
+void
+lexer_lex_collect_token(lexer_t *self) {
+    size_t start = self->index;
+    size_t end = self->index + strlen(self->string);
+    char *string = string_dup(self->string);
+    token_t *token = token_word_create(string, start, end);
+    list_push(self->token_list, token);
+
+    self->string[0] = '\0';
+    self->string_length = 0;
 }
