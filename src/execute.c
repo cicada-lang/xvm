@@ -1,7 +1,7 @@
 #include "index.h"
 
 void
-execute(vm_t *vm, frame_t *frame) {
+execute(const vm_t *vm, frame_t *frame) {
     if (frame_end_p(frame)) {
         frame_destroy(&frame);
         return;
@@ -23,7 +23,7 @@ execute(vm_t *vm, frame_t *frame) {
 }
 
 void
-execute_call(vm_t *vm, frame_t *frame) {
+execute_call(const vm_t *vm, frame_t *frame) {
     word_t *word = frame_fetch_word(frame);
     vm_return_stack_push(vm, frame);
 
@@ -45,7 +45,7 @@ execute_call(vm_t *vm, frame_t *frame) {
 }
 
 void
-execute_literal_value(vm_t *vm, frame_t *frame) {
+execute_literal_value(const vm_t *vm, frame_t *frame) {
     value_t value = frame_fetch_value(frame);
     vm_return_stack_push(vm, frame);
     vm_value_stack_push(vm, value);

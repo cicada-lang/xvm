@@ -1,15 +1,13 @@
 #include "index.h"
 
-// The interpreter  does not own `vm`.
-
 struct _interpreter_t {
-    vm_t *vm;
+    const vm_t *vm;
     const char *code;
     lexer_t *lexer;
 };
 
 interpreter_t *
-interpreter_create(vm_t *vm, const char *code) {
+interpreter_create(const vm_t *vm, const char *code) {
     interpreter_t *self = allocate(sizeof(interpreter_t));
     self->vm = vm;
     self->code = code;

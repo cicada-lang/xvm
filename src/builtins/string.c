@@ -1,24 +1,24 @@
 #include "../index.h"
 
-void _string_print(vm_t *vm) {
+void _string_print(const vm_t *vm) {
     char *s = (char *) vm_value_stack_pop(vm);
     printf("%s", s);
     free(s);
 }
 
-void _string_dup(vm_t *vm) {
+void _string_dup(const vm_t *vm) {
     char *s = (char *) vm_value_stack_pop(vm);
     vm_value_stack_push(vm, (value_t) s);
     vm_value_stack_push(vm, (value_t) string_dup(s));
 }
 
-void _string_length(vm_t *vm) {
+void _string_length(const vm_t *vm) {
     char *s = (char *) vm_value_stack_pop(vm);
     vm_value_stack_push(vm, strlen(s));
     free(s);
 }
 
-void _string_append(vm_t *vm) {
+void _string_append(const vm_t *vm) {
     char *first = (char *) vm_value_stack_pop(vm);
     char *second = (char *) vm_value_stack_pop(vm);
     size_t first_length = strlen(first);

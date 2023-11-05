@@ -1,12 +1,12 @@
 #pragma once
 
-void _newline(vm_t *vm);
+void _newline(const vm_t *vm);
 
-void _int_print(vm_t *vm);
-void _int_dup(vm_t *vm);
-void _int_mul(vm_t *vm);
+void _int_print(const vm_t *vm);
+void _int_dup(const vm_t *vm);
+void _int_mul(const vm_t *vm);
 
-void _string_print(vm_t *vm);
-void _string_dup(vm_t *vm);
-void _string_length(vm_t *vm);
-void _string_append(vm_t *vm);
+void _string_print(const vm_t *vm);
+void _string_dup(const vm_t *vm);
+void _string_length(const vm_t *vm);
+void _string_append(const vm_t *vm);
