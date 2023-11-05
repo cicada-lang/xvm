@@ -125,3 +125,19 @@ vm_init(void) {
     vm_define_builtins(vm);
     return vm;
 }
+
+void
+vm_interpret_code(vm_t *self, char *code) {
+    (void) self;
+
+    lexer_t *lexer = lexer_create(code);
+    lexer_lex(lexer);
+    list_t *token_list = lexer_token_list(lexer);
+    token_t *token = list_start(token_list);
+    while (token) {
+        // interpret_token(vm, token);
+        token = list_next(token_list);
+    }
+
+    lexer_destroy(&lexer);
+}

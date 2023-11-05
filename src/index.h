@@ -17,5 +17,5 @@
 #include "value_stack.h"
 #include "token.h"
 #include "lexer.h"
+#include "interpreter.h"
 #include "vm.h"
-#include "interpret.h"

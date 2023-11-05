@@ -1,12 +1,12 @@
 # parser
 
+interpreter_t
+interpreter_interpret
+interpreter_interpret_token
+
 lexer_lex -- support JSON int
 
 execute should free frame
-
-interpret_token
-
-vm_t -- COMPILING v.s. INTERPRETING mode
 
 # dict
 
