@@ -1,5 +1,8 @@
 # parser
 
+lexer_finished_p
+lexer_current_char
+
 lexer_lex_double_qoutes -- handle JSON string
 lexer_lex -- support JSON int
 

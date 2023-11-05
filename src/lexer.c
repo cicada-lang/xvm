@@ -35,6 +35,11 @@ lexer_destroy(lexer_t **self_ptr) {
     }
 }
 
+bool
+lexer_finished_p(lexer_t *self) {
+    return self->index < self->code_length;
+}
+
 list_t *
 lexer_token_list(lexer_t *self) {
     return self->token_list;
@@ -46,7 +51,7 @@ void lexer_lex_collect_word(lexer_t *self);
 
 void
 lexer_lex(lexer_t *self) {
-    while (self->index < self->code_length) {
+    while (lexer_finished_p(self)) {
         char c = self->code[self->index];
 
         if (c == '\0')
@@ -62,7 +67,7 @@ lexer_lex(lexer_t *self) {
 
 void
 lexer_lex_ignore_space(lexer_t *self) {
-    while (self->index < self->code_length) {
+    while (lexer_finished_p(self)) {
         char c = self->code[self->index];
 
         if (isspace(c))
@@ -79,7 +84,7 @@ lexer_lex_double_qoutes(lexer_t *self) {
 
 void
 lexer_lex_collect_word(lexer_t *self) {
-    while (self->index < self->code_length) {
+    while (lexer_finished_p(self)) {
         char c = self->code[self->index];
 
         if (isspace(c)) {
