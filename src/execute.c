@@ -8,8 +8,11 @@ execute(vm_t *vm, frame_t *frame) {
     if (instruction == CALL) {
         execute_call(vm, frame);
         return;
-    } else if (instruction == VALUE) {
-        execute_value(vm, frame);
+    } else if (
+        instruction == LITERAL_INT ||
+        instruction == LITERAL_STRING
+        ) {
+        execute_literal_value(vm, frame);
         return;
     } else {
         assert(false);
@@ -39,7 +42,7 @@ execute_call(vm_t *vm, frame_t *frame) {
 }
 
 void
-execute_value(vm_t *vm, frame_t *frame) {
+execute_literal_value(vm_t *vm, frame_t *frame) {
     value_t value = frame_fetch_value(frame);
     vm_return_stack_push(vm, frame);
     vm_value_stack_push(vm, value);

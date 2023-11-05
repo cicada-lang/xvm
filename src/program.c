@@ -50,15 +50,19 @@ program_fetch_word(program_t *self, size_t index) {
 }
 
 void
-program_append_value(program_t *self, value_t value) {
-    size_t addend = sizeof(VALUE) + sizeof(value);
+program_append_literal_value(
+    program_t *self,
+    instruction_t instruction,
+    value_t value
+) {
+    size_t addend = sizeof(instruction) + sizeof(value);
     byte_t *bytes = allocate_array(self->size + addend, sizeof(byte_t));
     memcpy(bytes, self->bytes, self->size);
     free(self->bytes);
     self->bytes = bytes;
 
-    *(instruction_t *)(self->bytes + self->size) = VALUE;
-    self->size += sizeof(VALUE);
+    *(instruction_t *)(self->bytes + self->size) = instruction;
+    self->size += sizeof(instruction);
 
     *(value_t *)(self->bytes + self->size) = value;
     self->size += sizeof(value);

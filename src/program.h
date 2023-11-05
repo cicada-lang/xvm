@@ -12,5 +12,5 @@ instruction_t program_fetch_instruction(program_t *self, size_t index);
 value_t program_fetch_value(program_t *self, size_t index);
 word_t *program_fetch_word(program_t *self, size_t index);
 
-void program_append_value(program_t *self, value_t value);
+void program_append_literal_value(program_t *self, instruction_t instruction, value_t value);
 void program_append_call(program_t *self, const word_t *word);

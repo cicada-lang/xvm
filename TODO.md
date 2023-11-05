@@ -6,7 +6,6 @@ lexer -- lexer_mode -- IN_DOUBLE_QUOTES
 lexer_lex -- support JSON string
 lexer_lex -- support JSON int
 
-use LITERAL_INT instead of VALUE as instruction -- for type inference
 LITERAL_FLOAT instruction - Double-precision floating-point
 LITERAL_BOOLEAN instruction
 LITERAL_NULL instruction
