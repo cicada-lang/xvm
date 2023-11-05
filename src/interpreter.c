@@ -14,6 +14,7 @@ interpreter_create(vm_t *vm, const char *code) {
     self->vm = vm;
     self->code = code;
     self->lexer = lexer_create(code);
+    lexer_lex(self->lexer);
     return self;
 }
 
@@ -28,12 +29,25 @@ interpreter_destroy(interpreter_t **self_ptr) {
     }
 }
 
+void interpreter_interpret_token(interpreter_t *self, token_t *token);
+
 void
 interpreter_interpret(interpreter_t *self) {
     list_t *token_list = lexer_token_list(self->lexer);
     token_t *token = list_start(token_list);
     while (token) {
-        // interpret_token(vm, token);
+        interpreter_interpret_token(self, token);
         token = list_next(token_list);
+    }
+}
+
+void
+interpreter_interpret_token(interpreter_t *self, token_t *token) {
+    if (token_word_p(token)) {
+        program_t *program = program_create();
+        program_append_call(program, vm_word(self->vm, token_string(token)));
+        vm_load_program(self->vm, program);
+        vm_run(self->vm);
+        program_destroy(&program);
     }
 }

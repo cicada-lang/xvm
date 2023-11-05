@@ -37,7 +37,6 @@ test_builtin_string(void) {
     {
         const char *code = "newline   newline\n     newline newline";
         vm_interpret_code(vm, code);
-        vm_run(vm);
     }
 
     vm_destroy(&vm);
