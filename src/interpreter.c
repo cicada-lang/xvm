@@ -45,9 +45,18 @@ void
 interpreter_interpret_token(interpreter_t *self, token_t *token) {
     if (token_word_p(token)) {
         program_t *program = program_create();
-        program_append_call(program, vm_word(self->vm, token_string(token)));
+        char *string = string_dup(token_string(token));
+        program_append_call(program, vm_word(self->vm, string));
         vm_load_program(self->vm, program);
         vm_run(self->vm);
         program_destroy(&program);
+    } else if (token_double_quotes_p(token)) {
+        char *string = string_dup(token_string(token));
+        vm_value_stack_push(self->vm, (value_t) string);
+    } else {
+        printf(
+            "[interpreter_interpret_token] I meet unknown token: %s",
+            token_string(token));
+        assert(false);
     }
 }

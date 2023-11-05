@@ -1,8 +1,7 @@
 # parser
 
-interpreter_interpret_token -- handle literal string
-
-lexer_lex -- support JSON int
+lexer_lex -- handle line comment
+lexer_lex -- handle JSON int
 
 execute should free frame
 
