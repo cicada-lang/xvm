@@ -4,15 +4,15 @@ lexer_lex -- handle JSON int
 
 # cli
 
-setup `x run` command
-setup `x repl` command
+[command] `x run` -- read from file
+[command] `x repl`
 
-setup `x help` command
+[command] `x help`
 
 - `x --help`
 - `x -h`
 
-setup `x version` command
+[command] `x version`
 
 - `x --version`
 - `x -v`
