@@ -1,5 +1,7 @@
 # parser
 
+[maybe] instruction.h -- use enum
+
 program_append_literal_int & program_append_literal_string
 
 lexer -- has lexer_mode -- IN_SPACE & IN_WORD -- instead of in_space_p
@@ -7,10 +9,6 @@ lexer -- lexer_mode -- IN_DOUBLE_QUOTES
 
 lexer_lex -- support JSON string
 lexer_lex -- support JSON int
-
-LITERAL_FLOAT instruction - Double-precision floating-point
-LITERAL_BOOLEAN instruction
-LITERAL_NULL instruction
 
 execute should free frame
 
