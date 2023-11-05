@@ -1,16 +1,18 @@
 # parser
 
-interpret_token
-
-vm_t -- COMPILING v.s. INTERPRETING mode
-
-use INT instead of VALUE as instruction -- for the type system
-
-refactor lexer_lex
-
 lexer_lex -- support JSON string
 
 lexer_lex -- support JSON int
+
+use INT instead of VALUE as instruction -- for the type system
+
+execute should free frame
+
+rename TOKEN_STRING to TOKEN_DOUBLE_QUOTED
+
+interpret_token
+
+vm_t -- COMPILING v.s. INTERPRETING mode
 
 # dict
 
