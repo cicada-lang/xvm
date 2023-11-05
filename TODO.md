@@ -1,11 +1,15 @@
 # parser
 
-extract method out of vm.h
-interpret.h -- interpret_code interpret_token
+interpret_token
+
 vm_t -- COMPILING v.s. INTERPRETING mode
+
 use INT instead of VALUE as instruction -- for the type system
+
 refactor lexer_lex
+
 lexer_lex -- support JSON string
+
 lexer_lex -- support JSON int
 
 # dict

@@ -12,7 +12,7 @@ test_builtin_string(void) {
         program_append_call(program, vm_word(vm, "string_print"));
         program_append_call(program, vm_word(vm, "newline"));
 
-        vm_load(vm, program);
+        vm_load_program(vm, program);
         vm_run(vm);
     }
 
@@ -30,13 +30,13 @@ test_builtin_string(void) {
         program_append_call(program, vm_word(vm, "int_print"));
         program_append_call(program, vm_word(vm, "newline"));
 
-        vm_load(vm, program);
+        vm_load_program(vm, program);
         vm_run(vm);
     }
 
     {
         char *code = string_dup("newline   newline\n     newline newline");
-        vm_load_code(vm, code);
+        interpret_code(vm, code);
         vm_run(vm);
     }
 

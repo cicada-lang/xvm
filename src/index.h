@@ -18,3 +18,4 @@
 #include "token.h"
 #include "lexer.h"
 #include "vm.h"
+#include "interpret.h"

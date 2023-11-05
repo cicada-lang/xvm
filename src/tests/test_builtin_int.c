@@ -15,7 +15,7 @@ test_builtin_int(void) {
         program_append_call(program, vm_word(vm, "int_print"));
         program_append_call(program, vm_word(vm, "newline"));
 
-        vm_load(vm, program);
+        vm_load_program(vm, program);
         vm_run(vm);
     }
 
@@ -40,7 +40,7 @@ test_builtin_int(void) {
         program_append_call(program, vm_word(vm, "int_print"));
         program_append_call(program, vm_word(vm, "newline"));
 
-        vm_load(vm, program);
+        vm_load_program(vm, program);
         vm_run(vm);
     }
 

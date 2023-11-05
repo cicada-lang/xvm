@@ -37,23 +37,6 @@ vm_word(vm_t *self, const char *name) {
     return dict_word(self->dict, name);
 }
 
-program_t *
-vm_build_program(vm_t *self, const char *name) {
-    word_t *word = vm_word(self, name);
-    program_t *found = word_program(word);
-    if (found) return found;
-
-    program_t *program = program_create();
-    word_program_set(word, program);
-    return program;
-}
-
-void
-vm_define_primitive(vm_t *self, const char *name, primitive_t *primitive) {
-    word_t *word = vm_word(self, name);
-    word_primitive_set(word, primitive);
-}
-
 value_t
 vm_value_stack_pop(vm_t *self) {
     return value_stack_pop(self->value_stack);
@@ -85,27 +68,7 @@ vm_return_stack_is_empty(vm_t *self) {
 }
 
 void
-vm_load_token_list(vm_t *self, list_t *token_list) {
-    program_t *program = program_create();
-    token_t *token = list_start(token_list);
-    while (token) {
-        program_append_call(program, vm_word(self, token_string(token)));
-        token = list_next(token_list);
-    }
-
-    vm_load(self, program);
-}
-
-void
-vm_load_code(vm_t *self, char *code) {
-    lexer_t *lexer = lexer_create(code);
-    lexer_lex(lexer);
-    vm_load_token_list(self, lexer_token_list(lexer));
-    lexer_destroy(&lexer);
-}
-
-void
-vm_load(vm_t *self, program_t *program) {
+vm_load_program(vm_t *self, program_t *program) {
     frame_t *frame = frame_create(program);
     vm_return_stack_push(self, frame);
 }
@@ -123,6 +86,23 @@ vm_run(vm_t *self) {
     while(!vm_return_stack_is_empty(self)) {
         vm_step(self);
     }
+}
+
+program_t *
+vm_build_program(vm_t *self, const char *name) {
+    word_t *word = vm_word(self, name);
+    program_t *found = word_program(word);
+    if (found) return found;
+
+    program_t *program = program_create();
+    word_program_set(word, program);
+    return program;
+}
+
+void
+vm_define_primitive(vm_t *self, const char *name, primitive_t *primitive) {
+    word_t *word = vm_word(self, name);
+    word_primitive_set(word, primitive);
 }
 
 void
