@@ -24,7 +24,7 @@ frame_destroy(frame_t **self_ptr) {
 }
 
 bool
-frame_is_end(frame_t *self) {
+frame_end_p(frame_t *self) {
     return self->index >= program_byte_size(self->program);
 }
 
