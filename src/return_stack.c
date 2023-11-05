@@ -20,7 +20,7 @@ return_stack_destroy(return_stack_t **self_ptr) {
     assert(self_ptr);
     if (*self_ptr) {
         return_stack_t *self = *self_ptr;
-        while (!return_stack_is_empty(self)) {
+        while (!return_stack_empty_p(self)) {
             frame_t *frame = return_stack_pop(self);
             frame_destroy(&frame);
         }
@@ -47,6 +47,6 @@ return_stack_push(return_stack_t *self, frame_t *frame) {
 }
 
 bool
-return_stack_is_empty(return_stack_t *self) {
+return_stack_empty_p(return_stack_t *self) {
     return self->cursor == 0;
 }
