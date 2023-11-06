@@ -3,12 +3,27 @@
 X Script is a pure postfix scripting language.
 
 - It is trivially extensible by C, to be used as scripting language for C/C++ projects.
-- It has NO GC (garbage collector).
+- It has NO garbage collector, it allocates and frees memory directly.
 - It uses a simple linear type system for resource management.
 
 ## Usage
 
-TODO
+On Linux:
+
+```
+git clone https://github.com/xieyuheng/x-script
+cd x-script
+make
+```
+
+The compiled `bin/x` is the command-line program.
+
+```sh
+x repl       # start the read-eval-print-loop
+x run        # run a script
+x version    # print version
+x help       # print help
+```
 
 ## Development
 
