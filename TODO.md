@@ -1,8 +1,13 @@
-# parser
-
-lexer_lex -- handle JSON int
-
 # cli
+
+[command] what should be the name of the class for command-line interface utils?
+
+- cmd? not so good.
+
+[command] api design
+
+- problem: we need to parse argv, and route command to functions, and generate docs.
+- solution: parse the argv to a little database, and use builder pattern to add route, with docs.
 
 [command] `x run` -- read from file
 [command] `x repl`
@@ -16,6 +21,14 @@ lexer_lex -- handle JSON int
 
 - `x --version`
 - `x -v`
+
+# tests
+
+setup language tests -- for example tests/hello-world.x
+
+# parser
+
+lexer_lex -- handle JSON int
 
 # dict
 
