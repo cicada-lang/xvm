@@ -29,22 +29,28 @@ command_runner_destroy(command_runner_t **self_ptr) {
 }
 
 void
-command_runner_mount(command_runner_t *self, command_plugin_fn_t *plugin_fn) {
+command_runner_add(const command_runner_t *self, command_t *command) {
+    list_push(self->command_list, command);
+}
+
+void
+command_runner_mount(const command_runner_t *self, command_plugin_fn_t *plugin_fn) {
     (*plugin_fn)(self);
 }
 
 void
-command_runner_run(command_runner_t *self) {
+command_runner_run(const command_runner_t *self) {
     const char *name = self->argv[1];
 
-    if (name) {
-        printf("command name: %s\n", name);
+    if (!name) {
+        // printf("command name: %s\n", name);
+        return;
     }
 
     command_t *command = list_start(self->command_list);
     while (command) {
-        if (strcmp(command_name(command), name) == 0) {
-            (*command_run_fn(command))(self->argv++);
+        if (strcmp(command->name, name) == 0) {
+            (*command->run_fn)(self->argv + 1);
             return;
         }
 

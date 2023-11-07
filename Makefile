@@ -15,7 +15,7 @@ run: bin/x
 
 .PHONY: test
 test: bin/x
-	time -v ./bin/x self-test
+	./bin/x self-test
 
 bin/x: $(lib) lib/x.o
 	mkdir -p $(dir $@); $(cc) $(ldflags) $^ -o $@

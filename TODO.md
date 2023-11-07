@@ -1,7 +1,5 @@
 # clib
 
-[command] `x self-test`
-
 [command] command_runner -- has default_command
 
 [command] command_runner_parse_argv
