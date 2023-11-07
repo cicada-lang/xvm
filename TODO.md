@@ -1,7 +1,5 @@
 # cli
 
-mv command_runner to utils/cli
-
 [command] command_runner_t
 
 [command] api design
