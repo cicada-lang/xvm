@@ -1,7 +1,5 @@
 # cli
 
-mv files to lang/
-
 command_fn_t
 
 [command] command_runner_t -- has a lis command_fs

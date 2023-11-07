@@ -1,8 +1,8 @@
 #pragma once
 
-#include "version.h"
-#include "dependencies.h"
-#include "utils/index.h"
+#include "../version.h"
+#include "../dependencies.h"
+#include "../utils/index.h"
 #include "types.h"
 #include "opcode.h"
 #include "program.h"

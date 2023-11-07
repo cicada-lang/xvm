@@ -1,4 +1,4 @@
-#include "../index.h"
+#include "index.h"
 
 void
 test_utils(void) {
