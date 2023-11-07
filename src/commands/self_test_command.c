@@ -7,7 +7,7 @@ void
 self_test_command(const command_runner_t *runner) {
     command_t *command = command_create("self-test");
     command->run_fn = run;
-    command_runner_add(runner, command);
+    command_runner_add_command(runner, command);
 }
 
 void

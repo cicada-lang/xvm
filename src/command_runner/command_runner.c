@@ -29,7 +29,7 @@ command_runner_destroy(command_runner_t **self_ptr) {
 }
 
 void
-command_runner_add(const command_runner_t *self, command_t *command) {
+command_runner_add_command(const command_runner_t *self, command_t *command) {
     list_push(self->command_list, command);
 }
 
