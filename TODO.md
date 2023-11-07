@@ -1,7 +1,12 @@
 # cli
 
-[command] command_runner_destroy
+[command] x create runner
 [command] command_runner_mount
+
+[command] command_create
+[command] command_destroy
+
+[command] command_runner_destroy -- call command_destroy
 
 [command] api design
 
