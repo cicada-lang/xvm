@@ -5,3 +5,4 @@
 #include "../utils/index.h"
 #include "types.h"
 #include "command_runner.h"
+#include "command.h"

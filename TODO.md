@@ -1,13 +1,11 @@
 # cli
 
-command_fn_t
+command_plugin_fn_t -- given runner, build command
 
-[command] command_runner_t -- has a lis command_fs
+[command] command_runner_t -- has a list of command_list
 [command] command_runner_create
 [command] command_runner_destroy
 [command] command_runner_mount
-
-[command] define_command(command_runner_t *runner);
 
 [command] api design
 
