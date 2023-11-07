@@ -5,13 +5,14 @@
 void self_test(void);
 
 int
-main(int argc, char *argv[]) {
-    command_runner_t *runner = command_runner_create(X_VERSION, argc, argv);
-
+main(int argc, const char *argv[]) {
     self_test();
 
-    command_runner_destroy(&runner);
+    command_runner_t *runner = command_runner_create(X_VERSION, argc, argv);
 
+    command_runner_run(runner);
+
+    command_runner_destroy(&runner);
     return 0;
 }
 

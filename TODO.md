@@ -1,10 +1,10 @@
 # clib
 
-[command] command_runner_run -- route to command by name
+[command] `x self-test`
+
+[command] command_runner -- has default_command
 
 [command] command_runner_parse_argv
-
-[command] `x self-test`
 
 [command] api design
 
