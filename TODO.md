@@ -1,7 +1,5 @@
 # cli
 
-command_t -- has command_run_fn_t
-
 [command] command_runner_t -- has a list of command_list
 [command] command_runner_create
 [command] command_runner_destroy
