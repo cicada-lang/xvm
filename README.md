@@ -14,6 +14,7 @@ On Linux:
 git clone https://github.com/xieyuheng/x-script
 cd x-script
 make
+make test
 ```
 
 The compiled `bin/x` is the command-line program.
