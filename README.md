@@ -19,10 +19,10 @@ make
 The compiled `bin/x` is the command-line program.
 
 ```sh
-x repl       # start the read-eval-print-loop
-x run        # run a script
-x version    # print version
-x help       # print help
+x repl        # start the read-eval-print-loop
+x run         # run a script
+x version     # print version
+x help        # print help
 ```
 
 ## Development
