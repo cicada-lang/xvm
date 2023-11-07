@@ -1,6 +1,5 @@
 # clib
 
-[command] command_create
 [command] command_destroy
 
 [command] command_runner_destroy -- call command_destroy
