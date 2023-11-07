@@ -38,22 +38,42 @@ command_runner_mount(const command_runner_t *self, command_plugin_fn_t *plugin_f
     (*plugin_fn)(self);
 }
 
-void
+const command_t *
+command_runner_default_command(const command_runner_t *self) {
+    command_t *command = list_start(self->command_list);
+    while (command) {
+        if (strcmp(command->name, "default") == 0)
+            return command;
+
+        command = list_next(self->command_list);
+    }
+
+    return NULL;
+}
+
+int
 command_runner_run(const command_runner_t *self) {
     const char *name = self->argv[1];
+    const char **args = self->argv + 1;
 
     if (!name) {
-        // printf("command name: %s\n", name);
-        return;
+        const command_t *default_command = command_runner_default_command(self);
+        if (default_command) {
+            return (*default_command->run_fn)(args);
+        } else {
+            // show command list
+            return 0;
+        }
     }
 
     command_t *command = list_start(self->command_list);
     while (command) {
-        if (strcmp(command->name, name) == 0) {
-            (*command->run_fn)(self->argv + 1);
-            return;
-        }
+        if (strcmp(command->name, name) == 0)
+            return (*command->run_fn)(args);
 
         command = list_next(self->command_list);
     }
+
+    // command not found
+    return 1;
 }

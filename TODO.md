@@ -1,6 +1,6 @@
 # clib
 
-[command] command_runner -- has default_command
+[command] `x default`
 
 [command] command_runner_parse_argv
 
