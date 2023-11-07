@@ -1,5 +1,5 @@
-#include "../index.h"
-#include "../tests/index.h"
+#include "index.h"
+#include "tests/index.h"
 
 int
 main(void) {

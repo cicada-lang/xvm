@@ -1,15 +1,20 @@
 # cli
 
-[command] what should be the name of the class for command-line interface utils?
+mv command_runner to utils/cli
 
-- cmd? not so good.
+[command] command_runner_t
 
 [command] api design
 
 - problem: we need to parse argv, and route command to functions, and generate docs.
 - solution: parse the argv to a little database, and use builder pattern to add route, with docs.
 
+[command] `x self-test`
+
+[command] `x run`
+
 [command] `x run` -- read from file
+
 [command] `x repl`
 
 [command] `x help`
