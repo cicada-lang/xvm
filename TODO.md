@@ -6,6 +6,8 @@
 [command] command_runner_destroy -- call command_destroy
 [command] command_runner_run -- route to command by name
 
+[command] command_runner_parse_argv
+
 [command] `x self-test`
 
 [command] api design

@@ -2,13 +2,17 @@
 
 struct _command_runner_t {
     const char *version;
+    int argc;
+    char **argv;
     list_t *command_list;
 };
 
 command_runner_t *
-command_runner_create(const char *version) {
+command_runner_create(const char *version, int argc, char **argv) {
     command_runner_t *self = allocate(sizeof(command_runner_t));
     self->version = version;
+    self->argc = argc;
+    self->argv = argv;
     self->command_list = list_create();
     return self;
 }

@@ -5,8 +5,8 @@
 void self_test(void);
 
 int
-main(void) {
-    command_runner_t *runner = command_runner_create(X_VERSION);
+main(int argc, char *argv[]) {
+    command_runner_t *runner = command_runner_create(X_VERSION, argc, argv);
 
     self_test();
 
