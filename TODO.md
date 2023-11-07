@@ -1,6 +1,8 @@
 # cli
 
-command_plugin_fn_t -- given runner, build command
+command_t -- has command_description_fn_t
+command_t -- has command_help_fn_t
+command_t -- has command_run_fn_t
 
 [command] command_runner_t -- has a list of command_list
 [command] command_runner_create
