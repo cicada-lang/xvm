@@ -1,6 +1,15 @@
 # cli
 
-[command] command_runner_t
+mv files to lang/
+
+command_fn_t
+
+[command] command_runner_t -- has a lis command_fs
+[command] command_runner_create
+[command] command_runner_destroy
+[command] command_runner_mount
+
+[command] define_command(command_runner_t *runner);
 
 [command] api design
 

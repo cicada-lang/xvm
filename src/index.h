@@ -2,11 +2,8 @@
 
 #include "version.h"
 #include "dependencies.h"
-#include "types.h"
-
 #include "utils/index.h"
-#include "builtins/index.h"
-
+#include "types.h"
 #include "opcode.h"
 #include "program.h"
 #include "frame.h"
@@ -19,3 +16,4 @@
 #include "lexer.h"
 #include "interpreter.h"
 #include "vm.h"
+#include "builtins/index.h"
