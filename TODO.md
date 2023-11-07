@@ -1,18 +1,22 @@
 # clib
 
-[command] command_runner_mount
-
 [command] command_create
 [command] command_destroy
 
 [command] command_runner_destroy -- call command_destroy
+[command] command_runner_run -- route to command by name
+
+[command] `x self-test`
 
 [command] api design
 
 - problem: we need to parse argv, and route command to functions, and generate docs.
 - solution: parse the argv to a little database, and use builder pattern to add route, with docs.
 
-[command] `x self-test`
+[command] `x version`
+
+- `x --version`
+- `x -v`
 
 [command] `x run`
 
@@ -24,11 +28,6 @@
 
 - `x --help`
 - `x -h`
-
-[command] `x version`
-
-- `x --version`
-- `x -v`
 
 # tests
 

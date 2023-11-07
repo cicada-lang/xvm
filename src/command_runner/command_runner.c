@@ -23,3 +23,8 @@ command_runner_destroy(command_runner_t **self_ptr) {
         *self_ptr = NULL;
     }
 }
+
+void
+command_runner_mount(command_runner_t *self, command_plugin_fn_t *plugin_fn) {
+    (*plugin_fn)(self);
+}
