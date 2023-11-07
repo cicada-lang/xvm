@@ -1,13 +1,10 @@
 # clib
 
-[command] `x default`
+[command] show command list by default
+[command] handle command not found error
 
+[command] show command list by default -- show description
 [command] command_runner_parse_argv
-
-[command] api design
-
-- problem: we need to parse argv, and route command to functions, and generate docs.
-- solution: parse the argv to a little database, and use builder pattern to add route, with docs.
 
 [command] `x version`
 
@@ -18,7 +15,7 @@
 
 [command] `x run` -- read from file
 
-[command] `x repl`
+[command] `x repl` -- as default
 
 [command] `x help`
 

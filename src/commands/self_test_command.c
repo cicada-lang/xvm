@@ -14,14 +14,14 @@ int
 run(const char **args) {
     (void) args;
 
+    printf("<self-test>\n");
     test_word();
     test_value_stack();
     test_build_program();
     test_builtin_int();
     test_builtin_string();
     test_utils();
-
-    printf("\n");
+    printf("</self-test>\n");
 
     return 0;
 }
