@@ -1,6 +1,5 @@
-# cli
+# clib
 
-[command] x create runner
 [command] command_runner_mount
 
 [command] command_create
