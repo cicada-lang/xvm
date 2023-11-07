@@ -18,11 +18,15 @@ command_create(const char *name) {
 }
 
 void
+command_free(command_t *self) {
+    free(self);
+}
+
+void
 command_destroy(command_t **self_ptr) {
     assert(self_ptr);
     if (*self_ptr) {
-        command_t *self = *self_ptr;
-        free(self);
+        command_free(*self_ptr);
         *self_ptr = NULL;
     }
 }

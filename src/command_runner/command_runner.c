@@ -22,7 +22,7 @@ command_runner_destroy(command_runner_t **self_ptr) {
     assert(self_ptr);
     if (*self_ptr) {
         command_runner_t *self = *self_ptr;
-        list_destroy(&self->command_list, NULL);
+        list_destroy(&self->command_list, (list_item_free_fn_t *) command_free);
         free(self);
         *self_ptr = NULL;
     }
