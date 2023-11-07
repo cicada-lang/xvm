@@ -1,6 +1,5 @@
 # cli
 
-[command] command_runner_create
 [command] command_runner_destroy
 [command] command_runner_mount
 
