@@ -1,5 +1,5 @@
 #include "index.h"
-#include "../lang/tests/index.h"
+#include "../lang/index.h"
 
 static int run(const char **args);
 

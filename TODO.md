@@ -1,10 +1,11 @@
 # clib
 
-[command] `x run` -- read from file
-[command] `x repl` -- as default
-[command] `x help`
+[command] run_command -- refactor
+[command] repl_command -- as the default
+[command] repl_command
 
 [command] parse options
+
 [command] `x --help`
 [command] `x -h`
 [command] `x --version`
