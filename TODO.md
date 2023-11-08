@@ -1,6 +1,5 @@
 # clib
 
-[command] help and version should be builtin command -- like default
 [command] `x run` -- read from file
 [command] `x repl` -- as default
 [command] `x help`
