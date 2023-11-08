@@ -61,10 +61,10 @@ lexer_token_list(lexer_t *self) {
     return self->token_list;
 }
 
-void lexer_lex_ignore_space(lexer_t *self);
-void lexer_lex_ignore_comment(lexer_t *self);
-void lexer_lex_double_qoutes(lexer_t *self);
-void lexer_lex_word(lexer_t *self);
+static void lexer_lex_ignore_space(lexer_t *self);
+static void lexer_lex_ignore_comment(lexer_t *self);
+static void lexer_lex_double_qoutes(lexer_t *self);
+static void lexer_lex_word(lexer_t *self);
 
 void
 lexer_lex(lexer_t *self) {
@@ -112,7 +112,7 @@ lexer_lex_ignore_comment(lexer_t *self) {
     }
 }
 
-void lexer_lex_double_qoutes_escape(lexer_t *self);
+static void lexer_lex_double_qoutes_escape(lexer_t *self);
 
 void
 lexer_lex_double_qoutes(lexer_t *self) {

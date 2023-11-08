@@ -38,7 +38,7 @@ command_runner_mount(const command_runner_t *self, command_plugin_fn_t *plugin_f
     (*plugin_fn)(self);
 }
 
-const command_t *
+static const command_t *
 command_runner_default_command(const command_runner_t *self) {
     command_t *command = list_start(self->command_list);
     while (command) {
@@ -51,7 +51,7 @@ command_runner_default_command(const command_runner_t *self) {
     return NULL;
 }
 
-void
+static void
 command_runner_print_command_list(const command_runner_t *self) {
     printf("commands:\n");
     command_t *command = list_start(self->command_list);

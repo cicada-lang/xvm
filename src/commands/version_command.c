@@ -10,7 +10,7 @@ version_command(const command_runner_t *runner) {
     command_runner_add_command(runner, command);
 }
 
-static int
+int
 run(const char **args) {
     (void) args;
 
