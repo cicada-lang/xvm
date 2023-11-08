@@ -1,12 +1,5 @@
 #include "index.h"
 
-struct _command_t {
-    const char *name;
-    const char *description;
-    const char *help;
-    command_run_fn_t *run_fn;
-};
-
 command_t *
 command_create(const char *name) {
     command_t *self = allocate(sizeof(command_t));

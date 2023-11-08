@@ -1,16 +1,19 @@
 #include "index.h"
 
 struct _command_runner_t {
+    const char *name;    
     const char *version;
+    const char *description;
     int argc;
     const char **argv;
     list_t *command_list;
 };
 
 command_runner_t *
-command_runner_create(const char *version, int argc, const char **argv) {
+command_runner_create(const char *name, const char *version, int argc, const char **argv) {
     command_runner_t *self = allocate(sizeof(command_runner_t));
-    self->version = version;
+    self->name = name;
+    self->version = version;    
     self->argc = argc;
     self->argv = argv;
     self->command_list = list_create();

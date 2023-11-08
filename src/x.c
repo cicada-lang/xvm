@@ -4,7 +4,8 @@
 
 int
 main(int argc, const char *argv[]) {
-    command_runner_t *runner = command_runner_create(X_VERSION, argc, argv);
+    command_runner_t *runner = command_runner_create(
+        "x-script", X_VERSION, argc, argv);
 
     command_runner_mount(runner, help_command);
     command_runner_mount(runner, run_command);

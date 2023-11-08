@@ -1,7 +1,6 @@
 # clib
 
-[command] command_runner has description
-[command] command_runner_help -- runner description
+[command] command_runner_help -- show runner name and version
 [command] `x run` -- read from file
 [command] `x repl` -- as default
 [command] `x help`
