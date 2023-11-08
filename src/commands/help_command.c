@@ -6,6 +6,7 @@ static int run(const char **args);
 void
 help_command(const command_runner_t *runner) {
     command_t *command = command_create("help");
+    command->description = "print help message";
     command->run_fn = run;
     command_runner_add_command(runner, command);
 }

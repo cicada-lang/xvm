@@ -1,6 +1,5 @@
 # clib
 
-[command] show command list by default -- show description
 [command] `x run` -- read from file
 [command] `x repl` -- as default
 [command] `x help`

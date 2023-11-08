@@ -6,6 +6,7 @@ static int run(const char **args);
 void
 self_test_command(const command_runner_t *runner) {
     command_t *command = command_create("self-test");
+    command->description = "run self test";
     command->run_fn = run;
     command_runner_add_command(runner, command);
 }

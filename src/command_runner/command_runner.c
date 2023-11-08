@@ -56,7 +56,11 @@ command_runner_print_command_list(const command_runner_t *self) {
     printf("commands:\n");
     command_t *command = list_start(self->command_list);
     while (command) {
-        printf("  %s\n", command->name);
+        printf("  %s", command->name);
+        if (command->description)
+            printf(" -- %s", command->description);
+
+        printf("\n");
         command = list_next(self->command_list);
     }
 }
