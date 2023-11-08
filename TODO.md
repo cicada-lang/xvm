@@ -1,6 +1,5 @@
 # clib
 
-[command] show command list by default
 [command] handle command not found error
 
 [command] show command list by default -- show description

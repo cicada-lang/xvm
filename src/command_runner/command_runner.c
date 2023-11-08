@@ -51,6 +51,16 @@ command_runner_default_command(const command_runner_t *self) {
     return NULL;
 }
 
+void
+command_runner_print_command_list(const command_runner_t *self) {
+    printf("commands:\n");
+    command_t *command = list_start(self->command_list);
+    while (command) {
+        printf("  %s\n", command->name);
+        command = list_next(self->command_list);
+    }
+}
+
 int
 command_runner_run(const command_runner_t *self) {
     const char *name = self->argv[1];
@@ -61,7 +71,7 @@ command_runner_run(const command_runner_t *self) {
         if (default_command) {
             return (*default_command->run_fn)(args);
         } else {
-            // show command list
+            command_runner_print_command_list(self);
             return 0;
         }
     }
