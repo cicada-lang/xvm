@@ -1,6 +1,6 @@
 # clib
 
-[command] command_runner_help -- show runner name and version
+[command] help and version should be builtin command -- like default
 [command] `x run` -- read from file
 [command] `x repl` -- as default
 [command] `x help`

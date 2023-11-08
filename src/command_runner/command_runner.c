@@ -1,7 +1,7 @@
 #include "index.h"
 
 struct _command_runner_t {
-    const char *name;    
+    const char *name;
     const char *version;
     const char *description;
     int argc;
@@ -13,7 +13,7 @@ command_runner_t *
 command_runner_create(const char *name, const char *version, int argc, const char **argv) {
     command_runner_t *self = allocate(sizeof(command_runner_t));
     self->name = name;
-    self->version = version;    
+    self->version = version;
     self->argc = argc;
     self->argv = argv;
     self->command_list = list_create();
@@ -56,6 +56,9 @@ command_runner_default_command(const command_runner_t *self) {
 
 static void
 command_runner_help(const command_runner_t *self) {
+    printf("%s %s\n", self->name, self->version);
+    printf("\n");
+
     printf("commands:\n");
     command_t *command = list_start(self->command_list);
     while (command) {
