@@ -7,7 +7,7 @@ void
 run_command(const command_runner_t *runner) {
     command_t *command = command_create("run");
     command->description = "run a file";
-    command->run = run;
+    command->run_fn = run;
     command_runner_add_command(runner, command);
 }
 

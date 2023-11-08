@@ -22,24 +22,24 @@ list_create(void) {
 }
 
 void
-list_destroy(list_t **self_ptr, list_item_free_t *free) {
+list_destroy(list_t **self_ptr, list_item_free_fn_t *free_fn) {
     assert(self_ptr);
     if (*self_ptr) {
         list_t *self = *self_ptr;
-        list_purge(self, free);
+        list_purge(self, free_fn);
         free(self);
         *self_ptr = NULL;
     }
 }
 
 void
-list_purge(list_t *self, list_item_free_t *free) {
+list_purge(list_t *self, list_item_free_fn_t *free_fn) {
     assert(self);
     node_t *node = self->first;
     while (node) {
         node_t *next = node->next;
-        if (free)
-            (free)(node->item);
+        if (free_fn)
+            (free_fn)(node->item);
 
         free(node);
         node = next;

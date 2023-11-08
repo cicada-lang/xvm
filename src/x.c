@@ -7,11 +7,11 @@ main(int argc, const char *argv[]) {
     command_runner_t *runner = command_runner_create(
         "x-script", X_VERSION, argc, argv);
 
+    command_runner_mount(runner, help_command);
     command_runner_mount(runner, run_command);
     command_runner_mount(runner, repl_command);
+    command_runner_mount(runner, version_command);
     command_runner_mount(runner, self_test_command);
-    command_runner_mount(runner, default_help_command);
-    command_runner_mount(runner, default_version_command);
 
     int status_code = command_runner_run(runner);
     command_runner_destroy(&runner);

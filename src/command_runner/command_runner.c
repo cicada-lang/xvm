@@ -25,7 +25,7 @@ command_runner_destroy(command_runner_t **self_ptr) {
     assert(self_ptr);
     if (*self_ptr) {
         command_runner_t *self = *self_ptr;
-        list_destroy(&self->command_list, (list_item_free_t *) command_free);
+        list_destroy(&self->command_list, (list_item_free_fn_t *) command_free);
         free(self);
         *self_ptr = NULL;
     }
@@ -37,8 +37,8 @@ command_runner_add_command(const command_runner_t *self, command_t *command) {
 }
 
 void
-command_runner_mount(const command_runner_t *self, command_plugin_t *plugin) {
-    (*plugin)(self);
+command_runner_mount(const command_runner_t *self, command_plugin_fn_t *plugin_fn) {
+    (*plugin_fn)(self);
 }
 
 static const command_t *
@@ -54,7 +54,7 @@ command_runner_default_command(const command_runner_t *self) {
     return NULL;
 }
 
-void
+static void
 command_runner_help(const command_runner_t *self) {
     printf("%s %s\n", self->name, self->version);
     printf("\n");
@@ -65,33 +65,21 @@ command_runner_help(const command_runner_t *self) {
         printf("  %s", command->name);
         if (command->description)
             printf(" -- %s", command->description);
+
         printf("\n");
         command = list_next(self->command_list);
     }
 }
 
-static int
-command_runner_run_command(const command_runner_t *self, const command_t *command) {
-    assert(command);
-
-    const char **args = self->argv + 1;
-    if (command->run_with_runner)
-        return (*command->run_with_runner)(args, self);
-    if (command->run)
-        return (*command->run)(args);
-
-    printf("no callback function in command: %s\n", command->name);
-    return 1;
-}
-
 int
 command_runner_run(const command_runner_t *self) {
     const char *name = self->argv[1];
+    const char **args = self->argv + 1;
 
     if (!name) {
         const command_t *default_command = command_runner_default_command(self);
         if (default_command) {
-            return command_runner_run_command(self, default_command);
+            return (*default_command->run_fn)(args);
         } else {
             command_runner_help(self);
             return 0;
@@ -101,7 +89,8 @@ command_runner_run(const command_runner_t *self) {
     command_t *command = list_start(self->command_list);
     while (command) {
         if (strcmp(command->name, name) == 0)
-            return command_runner_run_command(self, command);
+            return (*command->run_fn)(args);
+
         command = list_next(self->command_list);
     }
 
