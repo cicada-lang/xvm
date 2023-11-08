@@ -84,6 +84,6 @@ command_runner_run(const command_runner_t *self) {
         command = list_next(self->command_list);
     }
 
-    // command not found
+    printf("command not found: %s\n", name);
     return 1;
 }

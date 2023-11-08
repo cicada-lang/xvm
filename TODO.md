@@ -1,7 +1,5 @@
 # clib
 
-[command] handle command not found error
-
 [command] show command list by default -- show description
 [command] command_runner_parse_argv
 
