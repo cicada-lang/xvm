@@ -52,7 +52,7 @@ command_runner_default_command(const command_runner_t *self) {
 }
 
 static void
-command_runner_print_command_list(const command_runner_t *self) {
+command_runner_help(const command_runner_t *self) {
     printf("commands:\n");
     command_t *command = list_start(self->command_list);
     while (command) {
@@ -75,7 +75,7 @@ command_runner_run(const command_runner_t *self) {
         if (default_command) {
             return (*default_command->run_fn)(args);
         } else {
-            command_runner_print_command_list(self);
+            command_runner_help(self);
             return 0;
         }
     }
