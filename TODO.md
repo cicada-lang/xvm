@@ -1,18 +1,7 @@
-# clib
+[learn] read the c book -- learn about array and pointer and struct
+[learn] read the c book -- learn about file IO
 
-[command] run_command -- refactor
-[command] repl_command -- as the default
-[command] repl_command
-
-[command] parse options
-
-[command] `x --help`
-[command] `x -h`
-[command] `x --version`
-[command] `x -v`
-# tests
-
-setup language tests -- for example tests/hello-world.x
+[command-line] run_command -- refactor
 
 # parser
 
@@ -31,10 +20,18 @@ we also need record effects in the type, to support exceptions (throw and try ca
 
 only simple type (with generic)
 
-# learn
+# command-line
 
-read the c book -- learn about array and pointer and struct
-read czmq -- learn C API
+[command-line] parse options
+
+[command-line] `x --help`
+[command-line] `x -h`
+[command-line] `x --version`
+[command-line] `x -v`
+
+# repl
+
+[repl] repl_command
 
 # device
 
