@@ -27,7 +27,7 @@ lexer_destroy(lexer_t **self_ptr) {
     assert(self_ptr);
     if (*self_ptr) {
         lexer_t *self = *self_ptr;
-        list_destroy(&self->token_list, (list_item_free_fn_t *) token_free);
+        list_destroy(&self->token_list, (list_item_free_t *) token_free);
         free(self->string);
         free(self);
         *self_ptr = NULL;

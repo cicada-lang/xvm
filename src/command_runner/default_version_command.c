@@ -4,10 +4,10 @@
 static int run(const char **args);
 
 void
-version_command(const command_runner_t *runner) {
+default_version_command(const command_runner_t *runner) {
     command_t *command = command_create("version");
     command->description = "print version";
-    command->run_fn = run;
+    command->run = run;
     command_runner_add_command(runner, command);
 }
 
