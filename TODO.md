@@ -1,24 +1,15 @@
 # clib
 
 [command] show command list by default -- show description
-[command] command_runner_parse_argv
-
-[command] `x version`
-
-- `x --version`
-- `x -v`
-
-[command] `x run`
-
 [command] `x run` -- read from file
-
 [command] `x repl` -- as default
-
 [command] `x help`
 
-- `x --help`
-- `x -h`
-
+[command] parse options
+[command] `x --help`
+[command] `x -h`
+[command] `x --version`
+[command] `x -v`
 # tests
 
 setup language tests -- for example tests/hello-world.x

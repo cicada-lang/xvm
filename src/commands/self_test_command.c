@@ -1,7 +1,7 @@
 #include "index.h"
 #include "../lang/tests/index.h"
 
-int run(const char **args);
+static int run(const char **args);
 
 void
 self_test_command(const command_runner_t *runner) {
@@ -10,7 +10,7 @@ self_test_command(const command_runner_t *runner) {
     command_runner_add_command(runner, command);
 }
 
-int
+static int
 run(const char **args) {
     (void) args;
 
