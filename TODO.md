@@ -1,5 +1,6 @@
-[learn] read the c book -- learn about array and pointer and struct
 [learn] read the c book -- learn about file IO
+
+- learn from czmq file API
 
 [command-line] run_command -- refactor
 

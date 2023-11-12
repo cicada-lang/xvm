@@ -37,6 +37,11 @@ make clean    # clean up compiled files
 
 ## References
 
+**Inspirations**:
+
+- [uxn](https://100r.co/site/uxn.html)
+- [dt](https://github.com/so-dang-cool/dt)
+
 **Books**:
 
 - [Scalable C](https://github.com/booksbyus/scalable-c)
