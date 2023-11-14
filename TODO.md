@@ -1,12 +1,12 @@
-[learn] read the c book -- learn about file IO
-
-- learn from czmq file API
-
-[command-line] run_command -- refactor
+`x run` run all arguments one by one
 
 # parser
 
-lexer_lex -- handle JSON int
+extract string_is_int & string_to_int
+
+# command-line
+
+[command-line] run_command -- refactor
 
 # dict
 
