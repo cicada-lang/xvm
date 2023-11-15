@@ -43,10 +43,8 @@ void
 interpreter_interpret_token(interpreter_t *self, token_t *token) {
     if (token_is_word(token)) {
         char *string = string_dup(token_string(token));
-        char **int_end = &string;
-        const long i = strtol(string, int_end, 0);
-        if (**int_end == '\0')
-            vm_value_stack_push(self->vm, (value_t) i);
+        if (string_is_int(string))
+            vm_value_stack_push(self->vm, string_to_int(string));
         else
             vm_run_word(self->vm, vm_word(self->vm, string));
     } else if (token_is_double_quotes(token)) {

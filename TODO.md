@@ -1,9 +1,5 @@
 `x run` run all arguments one by one
 
-# parser
-
-string_is_int & string_to_int
-
 # command-line
 
 [command-line] run_command -- refactor

@@ -23,3 +23,17 @@ string_hash(const char *s, size_t size) {
 
     return hash;
 }
+
+bool
+string_is_int(const char *s) {
+    char *int_end = NULL;
+    strtol(s, &int_end, 0);
+    if (int_end == s) return false;
+    return *int_end == '\0';
+}
+
+int64_t
+string_to_int(const char *s) {
+    char *int_end = NULL;
+    return strtol(s, &int_end, 0);
+}
