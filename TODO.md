@@ -1,7 +1,3 @@
-# command-line
-
-[command-line] run_command -- refactor
-
 # dict
 
 dict_word -- handle collision by linked list
@@ -14,6 +10,10 @@ support linear local variable by `'name set` and `'name get`
 we also need record effects in the type, to support exceptions (throw and try catch)
 
 only simple type (with generic)
+
+# command-line
+
+[command-line] run_command -- refactor
 
 # command-line
 
