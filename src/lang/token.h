@@ -6,5 +6,5 @@ void token_free(token_t *self);
 void token_destroy(token_t **self_pointer);
 
 const char *token_string(token_t *self);
-bool token_word_p(token_t *self);
-bool token_double_quotes_p(token_t *self);
+bool token_is_word(token_t *self);
+bool token_is_double_quotes(token_t *self);

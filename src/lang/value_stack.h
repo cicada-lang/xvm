@@ -5,4 +5,4 @@ void value_stack_destroy(value_stack_t **self_pointer);
 
 value_t value_stack_pop(value_stack_t *self);
 void value_stack_push(value_stack_t *self, value_t value);
-bool value_stack_empty_p(value_stack_t *self);
+bool value_stack_is_empty(value_stack_t *self);

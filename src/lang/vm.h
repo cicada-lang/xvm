@@ -7,11 +7,11 @@ word_t *vm_word(const vm_t *self, const char *name);
 
 value_t vm_value_stack_pop(const vm_t *self);
 void vm_value_stack_push(const vm_t *self, value_t value);
-bool vm_value_stack_empty_p(const vm_t *self);
+bool vm_value_stack_is_empty(const vm_t *self);
 
 frame_t *vm_return_stack_pop(const vm_t *self);
 void vm_return_stack_push(const vm_t *self, frame_t *frame);
-bool vm_return_stack_empty_p(const vm_t *self);
+bool vm_return_stack_is_empty(const vm_t *self);
 
 void vm_load_program(const vm_t *self, program_t *program);
 void vm_step(const vm_t *self);

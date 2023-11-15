@@ -35,7 +35,7 @@ lexer_destroy(lexer_t **self_pointer) {
 }
 
 bool
-lexer_finished_p(lexer_t *self) {
+lexer_is_finished(lexer_t *self) {
     return self->index < self->code_length;
 }
 
@@ -68,7 +68,7 @@ static void lexer_lex_word(lexer_t *self);
 
 void
 lexer_lex(lexer_t *self) {
-    while (lexer_finished_p(self)) {
+    while (lexer_is_finished(self)) {
         char c = lexer_current_char(self);
 
         if (c == '\0')
@@ -86,7 +86,7 @@ lexer_lex(lexer_t *self) {
 
 void
 lexer_lex_ignore_space(lexer_t *self) {
-    while (lexer_finished_p(self)) {
+    while (lexer_is_finished(self)) {
         char c = lexer_current_char(self);
 
         if (isspace(c))
@@ -100,7 +100,7 @@ void
 lexer_lex_ignore_comment(lexer_t *self) {
     self->index += 2;
 
-    while (lexer_finished_p(self)) {
+    while (lexer_is_finished(self)) {
         char c = lexer_current_char(self);
 
         if (c == '\n') {
@@ -118,7 +118,7 @@ void
 lexer_lex_double_qoutes(lexer_t *self) {
     self->index++;
 
-    while (lexer_finished_p(self)) {
+    while (lexer_is_finished(self)) {
         char c = lexer_current_char(self);
 
         if (c == '\"') {
@@ -143,7 +143,7 @@ lexer_lex_double_qoutes(lexer_t *self) {
 
 void
 lexer_lex_double_qoutes_escape(lexer_t *self) {
-    assert(!lexer_finished_p(self));
+    assert(!lexer_is_finished(self));
 
     char c = lexer_current_char(self);
 
@@ -160,7 +160,7 @@ lexer_lex_double_qoutes_escape(lexer_t *self) {
 
 void
 lexer_lex_word(lexer_t *self) {
-    while (lexer_finished_p(self)) {
+    while (lexer_is_finished(self)) {
         char c = lexer_current_char(self);
 
         if (isspace(c)) {

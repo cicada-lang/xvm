@@ -1,5 +1,3 @@
-quit using `_p` as predicate ending
-
 `x run` run all arguments one by one
 
 # parser

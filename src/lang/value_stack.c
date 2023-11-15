@@ -41,6 +41,6 @@ value_stack_push(value_stack_t *self, value_t value) {
 }
 
 bool
-value_stack_empty_p(value_stack_t *self) {
+value_stack_is_empty(value_stack_t *self) {
     return self->cursor == 0;
 }

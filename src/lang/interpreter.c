@@ -41,7 +41,7 @@ interpreter_interpret(interpreter_t *self) {
 
 void
 interpreter_interpret_token(interpreter_t *self, token_t *token) {
-    if (token_word_p(token)) {
+    if (token_is_word(token)) {
         char *string = string_dup(token_string(token));
         char **int_end = &string;
         const long i = strtol(string, int_end, 0);
@@ -49,7 +49,7 @@ interpreter_interpret_token(interpreter_t *self, token_t *token) {
             vm_value_stack_push(self->vm, (value_t) i);
         else
             vm_run_word(self->vm, vm_word(self->vm, string));
-    } else if (token_double_quotes_p(token)) {
+    } else if (token_is_double_quotes(token)) {
         char *string = string_dup(token_string(token));
         vm_value_stack_push(self->vm, (value_t) string);
     } else {

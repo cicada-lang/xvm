@@ -2,7 +2,7 @@
 
 void
 execute(const vm_t *vm, frame_t *frame) {
-    if (frame_end_p(frame)) {
+    if (frame_is_end(frame)) {
         frame_destroy(&frame);
         return;
     }

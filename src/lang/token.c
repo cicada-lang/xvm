@@ -53,11 +53,11 @@ token_string(token_t *self) {
 }
 
 bool
-token_word_p(token_t *self) {
+token_is_word(token_t *self) {
     return self->kind == TOKEN_WORD;
 }
 
 bool
-token_double_quotes_p(token_t *self) {
+token_is_double_quotes(token_t *self) {
     return self->kind == TOKEN_DOUBLE_QUOTES;
 }

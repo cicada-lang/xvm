@@ -48,8 +48,8 @@ vm_value_stack_push(const vm_t *self, value_t value) {
 }
 
 bool
-vm_value_stack_empty_p(const vm_t *self) {
-    return value_stack_empty_p(self->value_stack);
+vm_value_stack_is_empty(const vm_t *self) {
+    return value_stack_is_empty(self->value_stack);
 }
 
 frame_t *
@@ -63,8 +63,8 @@ vm_return_stack_push(const vm_t *self, frame_t *frame) {
 }
 
 bool
-vm_return_stack_empty_p(const vm_t *self) {
-    return return_stack_empty_p(self->return_stack);
+vm_return_stack_is_empty(const vm_t *self) {
+    return return_stack_is_empty(self->return_stack);
 }
 
 void
@@ -83,7 +83,7 @@ vm_step(const vm_t *self) {
 
 void
 vm_run(const vm_t *self) {
-    while(!vm_return_stack_empty_p(self)) {
+    while(!vm_return_stack_is_empty(self)) {
         vm_step(self);
     }
 }
