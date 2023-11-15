@@ -1,3 +1,7 @@
+interpreter has program_list
+
+interpreter_interpret_token -- handle `[` (program_start) and `]` (program_end)
+
 # dict
 
 dict_word -- handle collision by linked list

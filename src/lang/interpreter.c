@@ -4,6 +4,7 @@ struct _interpreter_t {
     const vm_t *vm;
     const char *code;
     lexer_t *lexer;
+    list_t *program_list;
 };
 
 interpreter_t *
@@ -13,6 +14,7 @@ interpreter_create(const vm_t *vm, const char *code) {
     self->code = code;
     self->lexer = lexer_create(code);
     lexer_lex(self->lexer);
+    self->program_list = list_create();
     return self;
 }
 
@@ -22,6 +24,11 @@ interpreter_destroy(interpreter_t **self_pointer) {
     if (*self_pointer) {
         interpreter_t *self = *self_pointer;
         lexer_destroy(&self->lexer);
+        // We use `NULL` as `item_free`, because there is
+        // no need to free the programs in the list,
+        // the number of which is very limited,
+        // and they might be owned by the dict.
+        list_destroy(&self->program_list, NULL);
         free(self);
         *self_pointer = NULL;
     }
