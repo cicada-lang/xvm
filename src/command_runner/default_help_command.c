@@ -1,7 +1,7 @@
 #include "index.h"
 #include "../lang/tests/index.h"
 
-static int run_with_runner(const char **args, const command_runner_t *runner);
+static int run_with_runner(char **args, const command_runner_t *runner);
 
 void
 default_help_command(const command_runner_t *runner) {
@@ -12,7 +12,7 @@ default_help_command(const command_runner_t *runner) {
 }
 
 int
-run_with_runner(const char **args, const command_runner_t *runner) {
+run_with_runner(char **args, const command_runner_t *runner) {
     (void) args;
 
     command_runner_help(runner);

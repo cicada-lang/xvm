@@ -1,7 +1,7 @@
 #include "index.h"
 #include "../lang/index.h"
 
-static int run(const char **args);
+static int run(char **args);
 
 void
 run_command(const command_runner_t *runner) {
@@ -11,9 +11,22 @@ run_command(const command_runner_t *runner) {
     command_runner_add_command(runner, command);
 }
 
+static int run_file(const char *file_name);
+
 int
-run(const char **args) {
-    const char *file_name = args[1];
+run(char **args) {
+    char **file_names = ++args;
+    while (*file_names) {
+        int status_code = run_file(*file_names);
+        if (status_code != 0) return status_code;
+        file_names++;
+    }
+
+    return 0;
+}
+
+int
+run_file(const char *file_name) {
     if (!file_name) {
         printf("[run] I expect a file name.\n");
         return 1;

@@ -1,7 +1,7 @@
 #include "index.h"
 #include "../lang/tests/index.h"
 
-static int run(const char **args);
+static int run(char **args);
 
 void
 default_version_command(const command_runner_t *runner) {
@@ -12,7 +12,7 @@ default_version_command(const command_runner_t *runner) {
 }
 
 int
-run(const char **args) {
+run(char **args) {
     (void) args;
 
     printf("%s\n", X_VERSION);

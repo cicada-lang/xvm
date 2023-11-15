@@ -1,5 +1,3 @@
-`x run` run all arguments one by one
-
 # command-line
 
 [command-line] run_command -- refactor

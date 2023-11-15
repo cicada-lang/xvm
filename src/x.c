@@ -3,7 +3,7 @@
 #include "lang/index.h"
 
 int
-main(int argc, const char *argv[]) {
+main(int argc, char *argv[]) {
     command_runner_t *runner = command_runner_create(
         "x-script", X_VERSION, argc, argv);
 

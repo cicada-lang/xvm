@@ -5,12 +5,12 @@ struct _command_runner_t {
     const char *version;
     const char *description;
     int argc;
-    const char **argv;
+    char **argv;
     list_t *command_list;
 };
 
 command_runner_t *
-command_runner_create(const char *name, const char *version, int argc, const char **argv) {
+command_runner_create(const char *name, const char *version, int argc, char **argv) {
     command_runner_t *self = allocate(sizeof(command_runner_t));
     self->name = name;
     self->version = version;
@@ -74,7 +74,7 @@ static int
 command_runner_run_command(const command_runner_t *self, const command_t *command) {
     assert(command);
 
-    const char **args = self->argv + 1;
+    char **args = self->argv + 1;
     if (command->run_with_runner)
         return (*command->run_with_runner)(args, self);
     if (command->run)
@@ -86,7 +86,7 @@ command_runner_run_command(const command_runner_t *self, const command_t *comman
 
 int
 command_runner_run(const command_runner_t *self) {
-    const char *name = self->argv[1];
+    char *name = self->argv[1];
 
     if (!name) {
         const command_t *default_command = command_runner_default_command(self);

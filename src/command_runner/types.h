@@ -4,8 +4,8 @@ typedef struct _command_runner_t command_runner_t;
 
 typedef void (command_plugin_t)(const command_runner_t *runner);
 
-typedef int (command_run_t)(const char **args);
-typedef int (command_run_with_runner_t)(const char **args, const command_runner_t *runner);
+typedef int (command_run_t)(char **args);
+typedef int (command_run_with_runner_t)(char **args, const command_runner_t *runner);
 
 typedef struct {
     const char *name;
