@@ -20,15 +20,15 @@ vm_create(void) {
 }
 
 void
-vm_destroy(vm_t **self_ptr) {
-    assert(self_ptr);
-    if (*self_ptr) {
-        vm_t *self = *self_ptr;
+vm_destroy(vm_t **self_pointer) {
+    assert(self_pointer);
+    if (*self_pointer) {
+        vm_t *self = *self_pointer;
         dict_destroy(&self->dict);
         value_stack_destroy(&self->value_stack);
         return_stack_destroy(&self->return_stack);
         free(self);
-        *self_ptr = NULL;
+        *self_pointer = NULL;
     }
 }
 

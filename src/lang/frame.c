@@ -14,12 +14,12 @@ frame_create(const program_t *program) {
 }
 
 void
-frame_destroy(frame_t **self_ptr) {
-    assert(self_ptr);
-    if (*self_ptr) {
-        frame_t *self = *self_ptr;
+frame_destroy(frame_t **self_pointer) {
+    assert(self_pointer);
+    if (*self_pointer) {
+        frame_t *self = *self_pointer;
         free(self);
-        *self_ptr = NULL;
+        *self_pointer = NULL;
     }
 }
 

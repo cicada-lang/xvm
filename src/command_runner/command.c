@@ -16,10 +16,10 @@ command_free(command_t *self) {
 }
 
 void
-command_destroy(command_t **self_ptr) {
-    assert(self_ptr);
-    if (*self_ptr) {
-        command_free(*self_ptr);
-        *self_ptr = NULL;
+command_destroy(command_t **self_pointer) {
+    assert(self_pointer);
+    if (*self_pointer) {
+        command_free(*self_pointer);
+        *self_pointer = NULL;
     }
 }

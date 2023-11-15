@@ -39,11 +39,11 @@ token_free(token_t *self) {
 }
 
 void
-token_destroy(token_t **self_ptr) {
-    assert(self_ptr);
-    if (*self_ptr) {
-        token_free(*self_ptr);
-        *self_ptr = NULL;
+token_destroy(token_t **self_pointer) {
+    assert(self_pointer);
+    if (*self_pointer) {
+        token_free(*self_pointer);
+        *self_pointer = NULL;
     }
 }
 

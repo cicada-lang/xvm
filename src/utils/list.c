@@ -22,13 +22,13 @@ list_create(void) {
 }
 
 void
-list_destroy(list_t **self_ptr, list_item_free_t *item_free) {
-    assert(self_ptr);
-    if (*self_ptr) {
-        list_t *self = *self_ptr;
+list_destroy(list_t **self_pointer, list_item_free_t *item_free) {
+    assert(self_pointer);
+    if (*self_pointer) {
+        list_t *self = *self_pointer;
         list_purge(self, item_free);
         free(self);
-        *self_ptr = NULL;
+        *self_pointer = NULL;
     }
 }
 

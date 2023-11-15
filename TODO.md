@@ -1,8 +1,10 @@
+quit using `_p` as predicate ending
+
 `x run` run all arguments one by one
 
 # parser
 
-extract string_is_int & string_to_int
+string_is_int & string_to_int
 
 # command-line
 

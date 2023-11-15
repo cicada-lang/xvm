@@ -14,13 +14,13 @@ dict_create(size_t size) {
 }
 
 void
-dict_destroy(dict_t **self_ptr) {
-    assert(self_ptr);
-    if (*self_ptr) {
-        dict_t *self = *self_ptr;
+dict_destroy(dict_t **self_pointer) {
+    assert(self_pointer);
+    if (*self_pointer) {
+        dict_t *self = *self_pointer;
         dict_purge(self);
         free(self);
-        *self_ptr = NULL;
+        *self_pointer = NULL;
     }
 }
 

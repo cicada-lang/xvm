@@ -1,7 +1,7 @@
 #pragma once
 
 frame_t *frame_create(const program_t *program);
-void frame_destroy(frame_t **self_ptr);
+void frame_destroy(frame_t **self_pointer);
 
 bool frame_end_p(frame_t *self);
 

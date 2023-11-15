@@ -17,13 +17,13 @@ interpreter_create(const vm_t *vm, const char *code) {
 }
 
 void
-interpreter_destroy(interpreter_t **self_ptr) {
-    assert(self_ptr);
-    if (*self_ptr) {
-        interpreter_t *self = *self_ptr;
+interpreter_destroy(interpreter_t **self_pointer) {
+    assert(self_pointer);
+    if (*self_pointer) {
+        interpreter_t *self = *self_pointer;
         lexer_destroy(&self->lexer);
         free(self);
-        *self_ptr = NULL;
+        *self_pointer = NULL;
     }
 }
 

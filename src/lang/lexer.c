@@ -23,14 +23,14 @@ lexer_t *lexer_create(const char *code) {
 }
 
 void
-lexer_destroy(lexer_t **self_ptr) {
-    assert(self_ptr);
-    if (*self_ptr) {
-        lexer_t *self = *self_ptr;
+lexer_destroy(lexer_t **self_pointer) {
+    assert(self_pointer);
+    if (*self_pointer) {
+        lexer_t *self = *self_pointer;
         list_destroy(&self->token_list, (list_item_free_t *) token_free);
         free(self->string);
         free(self);
-        *self_ptr = NULL;
+        *self_pointer = NULL;
     }
 }
 

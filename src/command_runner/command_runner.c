@@ -21,13 +21,13 @@ command_runner_create(const char *name, const char *version, int argc, const cha
 }
 
 void
-command_runner_destroy(command_runner_t **self_ptr) {
-    assert(self_ptr);
-    if (*self_ptr) {
-        command_runner_t *self = *self_ptr;
+command_runner_destroy(command_runner_t **self_pointer) {
+    assert(self_pointer);
+    if (*self_pointer) {
+        command_runner_t *self = *self_pointer;
         list_destroy(&self->command_list, (list_item_free_t *) command_free);
         free(self);
-        *self_ptr = NULL;
+        *self_pointer = NULL;
     }
 }
 
