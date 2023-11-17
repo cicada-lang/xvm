@@ -1,6 +1,5 @@
 # builtins
 
-[builtins] bool/
 [builtins] _assert -- for test
 
 # dict
