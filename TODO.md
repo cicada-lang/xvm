@@ -1,8 +1,18 @@
 # builtins
 
-[builtins] _assert -- for test
+[builtins] _if
 
-[builtins] _if -- what should be the API?
+```
+p [on_true] if
+```
+
+[builtins] _if_else
+
+```
+p [on_true] [on_false] if_else
+```
+
+[builtins] _assert -- for test
 
 # dict
 

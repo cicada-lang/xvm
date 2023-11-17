@@ -13,7 +13,7 @@ using `type_unify`.
 [ int_dup int_mul ] 'square define
 ```
 
-The type of `type_unify` is `[ type_t - type_t - ]`,
+The type of `type_unify` would be `[ type_t type_unify type_t type_unify ]`,
 `type_t` is a sum type of `type_term_t` and `type_var_t`.
 
 `?a` is a `'a type_var_gen`, and the generated `type_var`
