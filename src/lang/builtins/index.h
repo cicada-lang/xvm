@@ -5,4 +5,4 @@
 #include "string/index.h"
 #include "word/index.h"
 
-void define_builtins(vm_t *self);
+void define_all_builtins(vm_t *self);

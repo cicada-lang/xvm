@@ -1,7 +1,7 @@
 #include "../index.h"
 
 void
-define_builtins(vm_t *self) {
+define_all_builtins(vm_t *self) {
     vm_define_primitive(self, "newline", _newline);
 
     vm_define_primitive(self, "int_print", _int_print);

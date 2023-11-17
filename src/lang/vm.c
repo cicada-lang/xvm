@@ -117,7 +117,7 @@ vm_define_primitive(vm_t *self, const char *name, primitive_t *primitive) {
 vm_t *
 vm_init(void) {
     vm_t *vm = vm_create();
-    define_builtins(vm);
+    define_all_builtins(vm);
     return vm;
 }
 
