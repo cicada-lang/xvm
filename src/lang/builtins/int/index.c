@@ -1,4 +1,4 @@
-#include "../index.h"
+#include "../../index.h"
 
 void _int_print(const vm_t *vm) {
     int_t value = vm_value_stack_pop(vm);

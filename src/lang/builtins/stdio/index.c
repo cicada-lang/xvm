@@ -1,4 +1,4 @@
-#include "../index.h"
+#include "../../index.h"
 
 void _newline(const vm_t *vm) {
     (void) vm;

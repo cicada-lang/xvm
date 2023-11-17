@@ -1,4 +1,11 @@
+move vm_define_builtins to builtins/define_builtins
+
 interpreter_compile_token -- handle 'word
+
+# builtins
+
+[builtins] _define
+[builtins] _assert
 
 # dict
 
