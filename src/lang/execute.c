@@ -19,7 +19,6 @@ execute(const vm_t *vm, frame_t *frame) {
         opcode == LITERAL_BOOLEAN   ||
         opcode == LITERAL_NULL      ||
         opcode == LITERAL_FLOAT
-
         ) {
         vm_value_stack_push(vm, frame_fetch_value(frame));
         vm_return_stack_push(vm, frame);
@@ -29,6 +28,9 @@ execute(const vm_t *vm, frame_t *frame) {
         vm_value_stack_push(vm, (value_t) string_dup(string));
         vm_return_stack_push(vm, frame);
     } else if (opcode == LITERAL_PROGRAM) {
+        // No need to dup `program`, because
+        // we currently do not generate program dynamicly.
+        // -- there is no function such as `program_append`.
         program_t *program = (program_t *) frame_fetch_value(frame);
         vm_value_stack_push(vm, (value_t) program);
         vm_return_stack_push(vm, frame);
