@@ -1,6 +1,10 @@
 # builtins
 
+[builtins] _word_dup
+
 [builtins] _assert -- for test
+
+[builtins] _if -- what should be the API?
 
 # dict
 

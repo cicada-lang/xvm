@@ -17,6 +17,12 @@ void _bool_print(const vm_t *vm) {
     }
 }
 
+void _bool_dup(const vm_t *vm) {
+    bool x = vm_value_stack_pop(vm);
+    vm_value_stack_push(vm, x);
+    vm_value_stack_push(vm, x);
+}
+
 void _bool_not(const vm_t *vm) {
     bool x = vm_value_stack_pop(vm);
     vm_value_stack_push(vm, !x);

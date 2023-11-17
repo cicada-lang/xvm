@@ -1,6 +1,9 @@
 true bool_print newline
 false bool_print newline
 
+true bool_dup bool_print newline
+bool_print newline
+
 true bool_not bool_print newline
 false bool_not bool_print newline
 
