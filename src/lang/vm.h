@@ -20,7 +20,6 @@ void vm_run_word(const vm_t *self, word_t *word);
 
 program_t *vm_build_program(vm_t *self, const char *name);
 void vm_define_primitive(vm_t *self, const char *name, primitive_t *primitive);
-void vm_define_builtins(vm_t *self);
 
 vm_t *vm_init(void);
 void vm_interpret_code(vm_t *self, const char *code);
