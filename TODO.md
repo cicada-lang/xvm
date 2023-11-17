@@ -1,11 +1,11 @@
 # builtins
 
-[builtins] _assert
+[builtins] bool/
+[builtins] _assert -- for test
 
 # dict
 
 dict_word -- handle collision by linked list
-dict_create -- find prime number above given size
 
 # linear type
 
