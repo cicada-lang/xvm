@@ -7,3 +7,4 @@
 #define LITERAL_BOOLEAN   ((opcode_t) 0x05)
 #define LITERAL_NULL      ((opcode_t) 0x06)
 #define LITERAL_FLOAT     ((opcode_t) 0x07) // Double-precision floating-point
+#define LITERAL_PROGRAM   ((opcode_t) 0x08)

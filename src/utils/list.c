@@ -57,6 +57,11 @@ list_lenght(const list_t *self) {
 }
 
 bool
+list_is_empty(const list_t *self) {
+    return self->length == 0;
+}
+
+bool
 list_has(const list_t *self, void *item) {
     assert(self);
     node_t *node = self->first;

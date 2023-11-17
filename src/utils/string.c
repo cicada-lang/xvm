@@ -9,6 +9,11 @@ string_dup(const char *s) {
     return s_dup;
 }
 
+bool
+string_equal(const char *x, const char *y) {
+    return strcmp(x, y) == 0;
+}
+
 size_t
 string_hash(const char *s, size_t size) {
     size_t max_index = 64 - 8;

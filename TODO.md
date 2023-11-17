@@ -1,4 +1,5 @@
-interpreter_interpret_token -- handle `[` (program_start) and `]` (program_end)
+interpreter_execute_token -- refactor
+interpreter_execute_token -- handle 'word
 
 # dict
 
