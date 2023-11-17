@@ -10,8 +10,8 @@ string_dup(const char *s) {
 }
 
 bool
-string_equal(const char *x, const char *y) {
-    return strcmp(x, y) == 0;
+string_equal(const char *lhs, const char *rhs) {
+    return strcmp(lhs, rhs) == 0;
 }
 
 size_t
@@ -41,4 +41,14 @@ int64_t
 string_to_int(const char *s) {
     char *int_end = NULL;
     return strtol(s, &int_end, 0);
+}
+
+bool
+string_starts_with(const char *target, const char *prefix) {
+    size_t target_length = strlen(target);
+    size_t prefix_length = strlen(prefix);
+
+    if (target_length < prefix_length) return false;
+
+    return strncmp(target, prefix, prefix_length) == 0;
 }

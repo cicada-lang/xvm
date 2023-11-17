@@ -1,4 +1,5 @@
-interpreter_execute_token -- handle 'word
+[builtins] word_print -- test 'word
+
 interpreter_compile_token -- handle 'word
 
 # dict

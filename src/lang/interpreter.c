@@ -61,6 +61,8 @@ interpreter_execute_token(interpreter_t *self, token_t *token) {
             list_push(self->program_list, program_create());
         } else if (string_equal(string, "]")) {
             assert(false && "[interpreter_execute_token] I meet extract ]");
+        } else if (string_starts_with(string, "'")) {
+            vm_value_stack_push(self->vm, (value_t) vm_word(self->vm, string+1));
         } else {
             vm_run_word(self->vm, vm_word(self->vm, string));
         }
