@@ -16,3 +16,4 @@ void program_append_call(program_t *self, const word_t *word);
 void program_append_literal_value(program_t *self, opcode_t opcode, value_t value);
 void program_append_literal_int(program_t *self, int64_t n);
 void program_append_literal_string(program_t *self, char *string);
+void program_append_literal_program(program_t *self, program_t *program);

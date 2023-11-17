@@ -92,3 +92,8 @@ void
 program_append_literal_string(program_t *self, char *string) {
     program_append_literal_value(self, LITERAL_STRING, (value_t) string);
 }
+
+void
+program_append_literal_program(program_t *self, program_t *program) {
+    program_append_literal_value(self, LITERAL_PROGRAM, (value_t) program);
+}

@@ -65,8 +65,7 @@ interpreter_execute_token(interpreter_t *self, token_t *token) {
             vm_run_word(self->vm, vm_word(self->vm, string));
         }
     } else if (token_is_double_quotes(token)) {
-        char *string = string_dup(token_string(token));
-        vm_value_stack_push(self->vm, (value_t) string);
+        vm_value_stack_push(self->vm, (value_t) string_dup(token_string(token)));
     } else {
         printf(
             "[interpreter_execute_token] I meet unknown token: %s",
@@ -84,16 +83,17 @@ interpreter_compile_token(interpreter_t *self, token_t *token, program_t *progra
         } else if (string_equal(string, "[")) {
             list_push(self->program_list, program_create());
         } else if (string_equal(string, "]")) {
-            program_append_literal_value(
-                program,
-                LITERAL_PROGRAM,
-                (value_t) list_pop(self->program_list));
+            list_pop(self->program_list);
+            if (list_is_empty(self->program_list)) {
+                vm_value_stack_push(self->vm, (value_t) program);
+            } else {
+                program_append_literal_program(list_last(self->program_list), program);
+            }
         } else {
             program_append_call(program, vm_word(self->vm, string));
         }
     } else if (token_is_double_quotes(token)) {
-        char *string = string_dup(token_string(token));
-        program_append_literal_string(program, string);
+        program_append_literal_string(program, string_dup(token_string(token)));
     } else {
         printf(
             "[interpreter_compile_token] I meet unknown token: %s",

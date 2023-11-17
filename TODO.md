@@ -1,8 +1,5 @@
-
 interpreter_execute_token -- handle 'word
 interpreter_compile_token -- handle 'word
-
-program_append_literal_program
 
 # dict
 
