@@ -1,4 +1,3 @@
-interpreter_execute_token -- refactor
 interpreter_execute_token -- handle 'word
 
 # dict
