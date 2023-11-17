@@ -24,6 +24,7 @@ define_all_builtins(vm_t *self) {
     vm_define_primitive(self, "string_length", _string_length);
 
     vm_define_primitive(self, "word_print", _word_print);
+    vm_define_primitive(self, "word_dup", _word_dup);
 
     vm_define_primitive(self, "define", _define);
 }
