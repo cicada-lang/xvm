@@ -128,6 +128,8 @@ vm_define_builtins(vm_t *self) {
     vm_define_primitive(self, "string_append", _string_append);
     vm_define_primitive(self, "string_dup", _string_dup);
     vm_define_primitive(self, "string_length", _string_length);
+
+    vm_define_primitive(self, "word_print", _word_print);
 }
 
 vm_t *

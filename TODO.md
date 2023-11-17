@@ -1,5 +1,3 @@
-[builtins] word_print -- test 'word
-
 interpreter_compile_token -- handle 'word
 
 # dict
