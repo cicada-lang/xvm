@@ -4,5 +4,6 @@
 #include "int/index.h"
 #include "string/index.h"
 #include "word/index.h"
+#include "vm/index.h"
 
 void define_all_builtins(vm_t *self);

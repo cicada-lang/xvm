@@ -1,5 +1,7 @@
 #include "index.h"
 
+static void execute_call(const vm_t *self, frame_t *frame);
+
 void
 execute(const vm_t *vm, frame_t *frame) {
     if (frame_is_end(frame)) {
@@ -12,13 +14,27 @@ execute(const vm_t *vm, frame_t *frame) {
         execute_call(vm, frame);
         return;
     } else if (
-        opcode == LITERAL_INT ||
-        opcode == LITERAL_STRING
+        opcode == LITERAL_INT       ||
+        opcode == LITERAL_WORD      ||
+        opcode == LITERAL_BOOLEAN   ||
+        opcode == LITERAL_NULL      ||
+        opcode == LITERAL_FLOAT
+
         ) {
-        execute_literal_value(vm, frame);
+        vm_value_stack_push(vm, frame_fetch_value(frame));
+        vm_return_stack_push(vm, frame);
         return;
+    } else if (opcode == LITERAL_STRING) {
+        char *string = (char *) frame_fetch_value(frame);
+        vm_value_stack_push(vm, (value_t) string_dup(string));
+        vm_return_stack_push(vm, frame);
+    } else if (opcode == LITERAL_PROGRAM) {
+        program_t *program = (program_t *) frame_fetch_value(frame);
+        vm_value_stack_push(vm, (value_t) program);
+        vm_return_stack_push(vm, frame);
     } else {
-        assert(false);
+        printf("[execute] unknown opcode: %d\n", opcode);
+        assert(false && "[execute] unknown opcode.");
     }
 }
 
@@ -41,12 +57,5 @@ execute_call(const vm_t *vm, frame_t *frame) {
     }
 
     printf("[execute_call] word name: %s\n", word_name(word));
-    assert(false);
-}
-
-void
-execute_literal_value(const vm_t *vm, frame_t *frame) {
-    value_t value = frame_fetch_value(frame);
-    vm_return_stack_push(vm, frame);
-    vm_value_stack_push(vm, value);
+    assert(false && "[execute_call] undefined word name.");
 }

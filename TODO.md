@@ -1,6 +1,5 @@
 # builtins
 
-[builtins] _define
 [builtins] _assert
 
 # dict
