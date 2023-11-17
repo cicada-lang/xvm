@@ -94,6 +94,11 @@ program_append_literal_string(program_t *self, char *string) {
 }
 
 void
+program_append_literal_word(program_t *self, word_t *word) {
+    program_append_literal_value(self, LITERAL_WORD, (value_t) word);
+}
+
+void
 program_append_literal_program(program_t *self, program_t *program) {
     program_append_literal_value(self, LITERAL_PROGRAM, (value_t) program);
 }

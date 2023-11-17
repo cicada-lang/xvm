@@ -62,7 +62,7 @@ interpreter_execute_token(interpreter_t *self, token_t *token) {
         } else if (string_equal(string, "]")) {
             assert(false && "[interpreter_execute_token] I meet extract ]");
         } else if (string_starts_with(string, "'")) {
-            vm_value_stack_push(self->vm, (value_t) vm_word(self->vm, string+1));
+            vm_value_stack_push(self->vm, (value_t) vm_word(self->vm, string + 1));
         } else {
             vm_run_word(self->vm, vm_word(self->vm, string));
         }
@@ -91,6 +91,8 @@ interpreter_compile_token(interpreter_t *self, token_t *token, program_t *progra
             } else {
                 program_append_literal_program(list_last(self->program_list), program);
             }
+        } else if (string_starts_with(string, "'")) {
+            program_append_literal_word(program, vm_word(self->vm, string + 1));
         } else {
             program_append_call(program, vm_word(self->vm, string));
         }
