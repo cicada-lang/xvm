@@ -11,6 +11,7 @@ define_all_builtins(vm_t *self) {
     vm_define_primitive(self, "bool_not", _bool_not);
     vm_define_primitive(self, "bool_and", _bool_and);
     vm_define_primitive(self, "bool_or", _bool_or);
+    vm_define_primitive(self, "bool_choose", _bool_choose);
 
     vm_define_primitive(self, "int_print", _int_print);
     vm_define_primitive(self, "int_dup", _int_dup);

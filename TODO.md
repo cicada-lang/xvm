@@ -1,18 +1,16 @@
 # builtins
 
-[builtins] _if
+refactor `run_command`
+
+- fix `bool_choose` test
+
+[builtins] _assert -- for testing
+
+[builtins] _bool_when
 
 ```
-p [on_true] if
+p [on_true] bool_when
 ```
-
-[builtins] _if_else
-
-```
-p [on_true] [on_false] if_else
-```
-
-[builtins] _assert -- for test
 
 # dict
 
@@ -25,6 +23,12 @@ support linear local variable by `'name set` and `'name get`
 we also need record effects in the type, to support exceptions (throw and try catch)
 
 only simple type (with generic)
+
+type of `bool_choose`
+
+```
+[ type_merge $merged_type_program bool_t - merged_type_program apply ] 'bool_choose claim
+```
 
 # command-line
 

@@ -39,3 +39,14 @@ void _bool_or(const vm_t *vm) {
     bool y = vm_value_stack_pop(vm);
     vm_value_stack_push(vm, x || y);
 }
+
+void _bool_choose(const vm_t *vm) {
+    program_t *on_false_program = (program_t *) vm_value_stack_pop(vm);
+    program_t *on_true_program = (program_t *) vm_value_stack_pop(vm);
+    bool target = vm_value_stack_pop(vm);
+    if (target) {
+        vm_load_program(vm, on_true_program);
+    } else {
+        vm_load_program(vm, on_false_program);
+    }
+}
