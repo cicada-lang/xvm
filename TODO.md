@@ -1,6 +1,5 @@
 # builtins
 
-[builtins] _int_equal
 [builtins] _int_greater
 [builtins] _int_lesser
 [builtins] _int_greater_or_equal
