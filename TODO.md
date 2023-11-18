@@ -1,6 +1,5 @@
 # builtins
 
-[builtins] _word_drop
 [builtins] _string_free
 
 [builtins] _int_greater
@@ -14,9 +13,19 @@ dict_word -- handle collision by linked list
 
 - test collision by using a small dict size
 
-# linear type
+# linear local variable
+
+frame -- has locals
+[builtins] _set
+[builtins] _get
 
 support linear local variable by `'name set` and `'name get`
+
+# linear type
+
+type_var_t & type_term_t
+
+# linear type
 
 we also need record effects in the type, to support exceptions (throw and try catch)
 
