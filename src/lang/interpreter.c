@@ -53,8 +53,6 @@ interpreter_interpret(interpreter_t *self) {
 
 void
 interpreter_execute_token(interpreter_t *self, token_t *token) {
-    printf("[interpreter_execute_token] token string: %s\n", token_string(token));
-
     if (token_is_word(token)) {
         const char *string = token_string(token);
         if (string_is_int(string)) {
@@ -80,8 +78,6 @@ interpreter_execute_token(interpreter_t *self, token_t *token) {
 
 void
 interpreter_compile_token(interpreter_t *self, token_t *token, program_t *program) {
-    printf("[interpreter_compile_token] token string: %s\n", token_string(token));
-
     if (token_is_word(token)) {
         const char *string = token_string(token);
         if (string_is_int(string)) {

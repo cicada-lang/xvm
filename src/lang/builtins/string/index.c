@@ -19,15 +19,10 @@ void _string_length(const vm_t *vm) {
 }
 
 void _string_append(const vm_t *vm) {
-    char *first = (char *) vm_value_stack_pop(vm);
-    char *second = (char *) vm_value_stack_pop(vm);
-    size_t first_length = strlen(first);
-    size_t second_length = strlen(second);
-    char *result = malloc(first_length + second_length + 1);
-    result[0] = '\0';
-    strcat(result, second);
-    strcat(result, first);
-    free(first);
-    free(second);
+    char *left = (char *) vm_value_stack_pop(vm);
+    char *right = (char *) vm_value_stack_pop(vm);
+    char *result = string_append(left, right);
+    free(left);
+    free(right);
     vm_value_stack_push(vm, (value_t) result);
 }

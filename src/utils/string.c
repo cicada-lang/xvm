@@ -10,8 +10,8 @@ string_dup(const char *s) {
 }
 
 bool
-string_equal(const char *lhs, const char *rhs) {
-    return strcmp(lhs, rhs) == 0;
+string_equal(const char *left, const char *right) {
+    return strcmp(left, right) == 0;
 }
 
 size_t
@@ -51,4 +51,15 @@ string_starts_with(const char *target, const char *prefix) {
     if (target_length < prefix_length) return false;
 
     return strncmp(target, prefix, prefix_length) == 0;
+}
+
+char *
+string_append(const char *left, const char *right) {
+    size_t left_length = strlen(left);
+    size_t right_length = strlen(right);
+    char *result = malloc(left_length + right_length + 1);
+    result[0] = '\0';
+    strcat(result, right);
+    strcat(result, left);
+    return result;
 }
