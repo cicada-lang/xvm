@@ -1,3 +1,6 @@
+`word_t` -- rename `program` to `defined`
+`word_t` -- has `claimed`
+
 # linear local variable
 
 frame -- has locals

@@ -44,17 +44,17 @@ which stores substitution.
 Maybe have everything reversed is not ok.
 
 ```
-[ 'a list_t ] 'list_null claim
-[ 'a list_t 'a -- 'a list_t ] :list_cons claim
-[ 'a list_t [ 'b ] [ 'a list_t 'a -- 'b ] -- 'b ] 'list_match claim
+[ :a list_t ] 'list_null claim
+[ :a list_t :a -- :a list_t ] :list_cons claim
+[ :a list_t [ :b ] [ :a list_t :a -- :b ] -- :b ] 'list_match claim
 ```
 
 It feels so un-intuitive that every inputs have to be in reverse.
 
 ```
-[ 'a list_t ] 'list_null claim
-[ 'a - 'a list_t - 'a list_t ] :list_cons claim
-[ [ 'a - 'a list_t - 'b ] - [ 'b ] - 'a list_t - 'b ] 'list_match claim
+[ :a list_t ] 'list_null claim
+[ :a - :a list_t - :a list_t ] 'list_cons claim
+[ [ :a - :a list_t - :b ] - [ :b ] - :a list_t - :b ] 'list_match claim
 ```
 
 It feels evil, but maybe I can implement both `--` and `-`.
