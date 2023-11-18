@@ -1,12 +1,3 @@
-[ 'y set 'x set
-
-  'x get int_dup 'x set
-  'y get int_dup 'y set
-
-  'x get
-  'y get
-]
-
 [ [ x y ] swap
   [ y x ] int_dup
   [ y x x ] rot
