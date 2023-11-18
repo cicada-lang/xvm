@@ -19,8 +19,8 @@ void _string_length(const vm_t *vm) {
 }
 
 void _string_append(const vm_t *vm) {
-    char *left = (char *) vm_value_stack_pop(vm);
     char *right = (char *) vm_value_stack_pop(vm);
+    char *left = (char *) vm_value_stack_pop(vm);
     char *result = string_append(left, right);
     free(left);
     free(right);

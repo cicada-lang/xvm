@@ -1,10 +1,4 @@
-[utils] file/
-
 # builtins
-
-refactor `run_command`
-
-- fix `bool_choose` test
 
 [builtins] _assert -- for testing
 

@@ -9,6 +9,13 @@ string_dup(const char *s) {
     return s_dup;
 }
 
+char *
+string_empty() {
+    char *s = malloc(1);
+    s[0] = '\0';
+    return s;
+}
+
 bool
 string_equal(const char *left, const char *right) {
     return strcmp(left, right) == 0;
@@ -55,11 +62,13 @@ string_starts_with(const char *target, const char *prefix) {
 
 char *
 string_append(const char *left, const char *right) {
+    assert(left);
+    assert(right);
     size_t left_length = strlen(left);
     size_t right_length = strlen(right);
     char *result = malloc(left_length + right_length + 1);
     result[0] = '\0';
-    strcat(result, right);
     strcat(result, left);
+    strcat(result, right);
     return result;
 }

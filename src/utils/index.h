@@ -5,3 +5,4 @@
 #include "allocate.h"
 #include "string.h"
 #include "list.h"
+#include "file.h"
