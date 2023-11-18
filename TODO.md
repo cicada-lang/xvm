@@ -1,7 +1,20 @@
+`input_type_stack` -- like `value_stack` but for unferflow during type checking
+
+```
+[ int_t - int_t int_t ] 'int_dup claim
+[ int_t - int_t - int_t ] 'int_mul claim
+
+[ int_t - int_t ] 'square claim
+[ int_dup int_mul ] 'square define
+```
+
+vm has `input_type_stack`
+
 [builtins] _datatype
 
 ```
-[ ... ] 'int_t datatype
+[ type_t ] 'int_t datatype
+[ type_t - type_t ] 'list_t datatype
 ```
 
 `word_t` -- has `type_program`
