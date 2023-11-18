@@ -3,7 +3,7 @@
 [builtins] _bool_when
 
 ```
-p [on_true] bool_when
+target [on_true] bool_when
 ```
 
 [builtins] _string_equal
