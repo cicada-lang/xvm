@@ -12,6 +12,11 @@ void _string_dup(const vm_t *vm) {
     vm_value_stack_push(vm, (value_t) string_dup(s));
 }
 
+void _string_drop(const vm_t *vm) {
+    char *s = (char *) vm_value_stack_pop(vm);
+    free(s);
+}
+
 void _string_equal(const vm_t *vm) {
     char *right = (char *) vm_value_stack_pop(vm);
     char *left = (char *) vm_value_stack_pop(vm);
