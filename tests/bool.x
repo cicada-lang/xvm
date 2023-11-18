@@ -3,6 +3,9 @@ false bool_print newline
 
 true bool_dup assert assert
 
+true false bool_drop
+true bool_equal assert
+
 true true bool_equal assert
 false false bool_equal assert
 true false bool_equal bool_not assert

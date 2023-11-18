@@ -23,6 +23,10 @@ void _bool_dup(const vm_t *vm) {
     vm_value_stack_push(vm, x);
 }
 
+void _bool_drop(const vm_t *vm) {
+    vm_value_stack_pop(vm);
+}
+
 void _bool_equal(const vm_t *vm) {
     bool x = vm_value_stack_pop(vm);
     bool y = vm_value_stack_pop(vm);
