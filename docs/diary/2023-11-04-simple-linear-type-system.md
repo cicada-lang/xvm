@@ -6,30 +6,28 @@ date: 2023-11-04
 
 We should not use `[ ... -- ... ]` to specify type of a program,
 we should factor the complicated syntax to pure postfix word composition,
-using `type_unify`.
+using `-` -- which takes two types from the stack and unify them.
 
 ```
-[ int_t type_unify int_t ] 'square claim
+[ int_t - int_t ] 'square claim
 [ int_dup int_mul ] 'square define
 ```
 
-The type of `type_unify` would be `[ type_t type_unify type_t type_unify ]`,
-`type_t` is a sum type of `type_term_t` and `type_var_t`.
+- The type of `-` would be `[ type_t - type_t - ]`,
+  which can also be used in normal program.
 
-`?a` is a `'a type_var_gen`, and the generated `type_var`
-will be scoped within current frame.
+- `type_t` is a sum type of `type_term_t` and `type_var_t`.
 
-We can use `-` as an abbreviation of `type_unify`.
+`:a` generate `type_var`, and it will be scoped
+in current type program context (not current frame).
+
+- I also thought about using `?a`, but
+  a lot of `?` in the code feels too noisy.
 
 ```
-[ ?a list_t ] 'list_null claim
-[ ?a - ?a list_t - ?a list_t ] 'list_cons claim
-
-[ [ ?a - ?a list_t - ?b ] -
-  [ ?b ] -
-  ?a list_t -
-  ?b
-] 'list_match claim
+[ :a list_t ] 'list_null claim
+[ :a - :a list_t - :a list_t ] 'list_cons claim
+[ [ :a - :a list_t - :b ] - [ :b ] - :a list_t - :b ] 'list_match claim
 ```
 
 Beside `value_stack` we can use `input_stack`
@@ -39,9 +37,11 @@ When calling `define`, we should perform type checking.
 During which instructions will be interpreted in a new context,
 which stores substitution.
 
-# maybe
+# Maybe
 
 Maybe have everything reversed is not ok.
+Because it feels so un-intuitive that
+every inputs have to be in reverse.
 
 ```
 [ :a list_t ] 'list_null claim
@@ -49,12 +49,5 @@ Maybe have everything reversed is not ok.
 [ :a list_t [ :b ] [ :a list_t :a -- :b ] -- :b ] 'list_match claim
 ```
 
-It feels so un-intuitive that every inputs have to be in reverse.
-
-```
-[ :a list_t ] 'list_null claim
-[ :a - :a list_t - :a list_t ] 'list_cons claim
-[ [ :a - :a list_t - :b ] - [ :b ] - :a list_t - :b ] 'list_match claim
-```
-
-It feels evil, but maybe I can implement both `--` and `-`.
+But the semantics of composition is so good.
+It feels evil, but maybe I can implement both `-` and `--`.

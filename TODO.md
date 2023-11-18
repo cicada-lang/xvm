@@ -1,13 +1,14 @@
-`word_t` -- rename `program` to `defined`
-`word_t` -- has `claimed`
-
-word has type
-
-[builtins] _type
+[builtins] _datatype
 
 ```
-[ ... ] 'int_t type
+[ ... ] 'int_t datatype
 ```
+
+`word_t` -- has `type_program`
+
+word_type_program & word_type_program_set
+
+_claim
 
 # linear local variable
 
