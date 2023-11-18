@@ -1,11 +1,5 @@
 # builtins
 
-[builtins] _bool_when
-
-```
-target [on_true] bool_when
-```
-
 [builtins] _string_equal
 [builtins] _int_equal
 [builtins] _word_equal

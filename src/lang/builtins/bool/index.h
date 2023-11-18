@@ -8,5 +8,6 @@ void _bool_not(const vm_t *vm);
 void _bool_and(const vm_t *vm);
 void _bool_or(const vm_t *vm);
 void _bool_choose(const vm_t *vm);
+void _bool_when(const vm_t *vm);
 
 void define_bool_builtins(vm_t *vm);

@@ -50,3 +50,11 @@ void _bool_choose(const vm_t *vm) {
         vm_load_program(vm, on_false_program);
     }
 }
+
+void _bool_when(const vm_t *vm) {
+    program_t *on_true_program = (program_t *) vm_value_stack_pop(vm);
+    bool target = vm_value_stack_pop(vm);
+    if (target) {
+        vm_load_program(vm, on_true_program);
+    }
+}

@@ -10,4 +10,5 @@ define_bool_builtins(vm_t *vm) {
     vm_define_primitive(vm, "bool_and", _bool_and);
     vm_define_primitive(vm, "bool_or", _bool_or);
     vm_define_primitive(vm, "bool_choose", _bool_choose);
+    vm_define_primitive(vm, "bool_when", _bool_when);
 }
