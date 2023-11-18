@@ -17,3 +17,11 @@
 2 1 int_sub 1 int_equal assert
 2 2 int_mul 4 int_equal assert
 3 3 int_mul 9 int_equal assert
+
+1 2 int_lesser assert
+1 2 int_lesser_or_equal assert
+2 2 int_lesser_or_equal assert
+
+2 1 int_greater assert
+2 1 int_greater_or_equal assert
+2 2 int_greater_or_equal assert

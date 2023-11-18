@@ -18,7 +18,31 @@ void _int_drop(const vm_t *vm) {
 void _int_equal(const vm_t *vm) {
     int_t right = vm_value_stack_pop(vm);
     int_t left = vm_value_stack_pop(vm);
-    vm_value_stack_push(vm, right == left);
+    vm_value_stack_push(vm, left == right);
+}
+
+void _int_greater(const vm_t *vm) {
+    int_t right = vm_value_stack_pop(vm);
+    int_t left = vm_value_stack_pop(vm);
+    vm_value_stack_push(vm, left > right);
+}
+
+void _int_lesser(const vm_t *vm) {
+    int_t right = vm_value_stack_pop(vm);
+    int_t left = vm_value_stack_pop(vm);
+    vm_value_stack_push(vm, left < right);
+}
+
+void _int_greater_or_equal(const vm_t *vm) {
+    int_t right = vm_value_stack_pop(vm);
+    int_t left = vm_value_stack_pop(vm);
+    vm_value_stack_push(vm, left >= right);
+}
+
+void _int_lesser_or_equal(const vm_t *vm) {
+    int_t right = vm_value_stack_pop(vm);
+    int_t left = vm_value_stack_pop(vm);
+    vm_value_stack_push(vm, left <= right);
 }
 
 void _int_add(const vm_t *vm) {

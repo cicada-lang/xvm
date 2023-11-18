@@ -1,9 +1,6 @@
 # builtins
 
-[builtins] _int_greater
-[builtins] _int_lesser
-[builtins] _int_greater_or_equal
-[builtins] _int_lesser_or_equal
+test int_gcd.x
 
 # dict
 
