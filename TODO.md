@@ -1,6 +1,14 @@
 `word_t` -- rename `program` to `defined`
 `word_t` -- has `claimed`
 
+word has type
+
+[builtins] _type
+
+```
+[ ... ] 'int_t type
+```
+
 # linear local variable
 
 frame -- has locals
