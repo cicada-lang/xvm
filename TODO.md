@@ -1,13 +1,26 @@
 # builtins
 
 [builtins] _string_equal
+
 [builtins] _int_equal
+[builtins] _int_greater
+[builtins] _int_lesser
+[builtins] _int_greater_or_equal
+[builtins] _int_lesser_or_equal
+
 [builtins] _word_equal
 [builtins] _bool_equal
+
+[builtins] _string_free
+[builtins] _int_drop
+[builtins] _word_drop
+[builtins] _bool_drop
 
 # dict
 
 dict_word -- handle collision by linked list
+
+- test collision by using a small dict size
 
 # linear type
 
@@ -17,15 +30,11 @@ we also need record effects in the type, to support exceptions (throw and try ca
 
 only simple type (with generic)
 
-type of `bool_choose`
+[maybe] type of `bool_choose`
 
 ```
 [ type_merge $merged_type_program bool_t - merged_type_program apply ] 'bool_choose claim
 ```
-
-# command-line
-
-[command-line] run_command -- refactor
 
 # command-line
 
