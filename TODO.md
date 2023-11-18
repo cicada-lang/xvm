@@ -1,7 +1,5 @@
 # builtins
 
-[builtins] _bool_equal
-
 [builtins] _string_free
 [builtins] _int_drop
 [builtins] _word_drop
