@@ -21,6 +21,17 @@
 
   int_dup2
   int_equal [ int_drop ] [ int_gcd ] bool_choose
+]
+
+[ int_dup2 int_equal
+  [ int_drop ]
+  [ int_dup2
+    int_dup2 int_greater
+    [ int_sub rot int_drop ]
+    [ swap int_sub swap int_drop ]
+    bool_choose
+    int_gcd ]
+  bool_choose
 ] 'int_gcd define
 
 8 12 int_gcd
@@ -29,9 +40,5 @@
 17 5 int_gcd
 1 int_equal assert
 
-[ We can not handle this without no early return.
-
 1 1 int_gcd
 1 int_equal assert
-
-]
