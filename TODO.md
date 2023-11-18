@@ -1,9 +1,8 @@
 # builtins
 
-[builtins] _string_free
-[builtins] _int_drop
 [builtins] _word_drop
 [builtins] _bool_drop
+[builtins] _string_free
 
 [builtins] _int_greater
 [builtins] _int_lesser

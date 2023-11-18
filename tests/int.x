@@ -4,6 +4,15 @@
 011 9 int_equal assert
 0xFF 255 int_equal assert
 
+1 int_dup
+1 int_equal assert
+1 int_equal assert
+
+1 2 3 int_drop int_drop
+1 int_equal assert
+
+123 -123 int_add 0 int_equal assert
+
 1 1 int_add 2 int_equal assert
 2 1 int_sub 1 int_equal assert
 2 2 int_mul 4 int_equal assert
