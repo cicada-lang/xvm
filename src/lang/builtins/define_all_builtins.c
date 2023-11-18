@@ -4,6 +4,8 @@ void
 define_all_builtins(vm_t *self) {
     vm_define_primitive(self, "newline", _newline);
 
+    vm_define_primitive(self, "assert", _assert);
+
     vm_define_primitive(self, "true", _true);
     vm_define_primitive(self, "false", _false);
     vm_define_primitive(self, "bool_print", _bool_print);

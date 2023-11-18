@@ -1,12 +1,15 @@
 # builtins
 
-[builtins] _assert -- for testing
-
 [builtins] _bool_when
 
 ```
 p [on_true] bool_when
 ```
+
+[builtins] _string_equal
+[builtins] _int_equal
+[builtins] _word_equal
+[builtins] _bool_equal
 
 # dict
 
