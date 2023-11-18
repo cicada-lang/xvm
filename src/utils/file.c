@@ -2,7 +2,7 @@
 
 char *
 file_readline(FILE *file) {
-    size_t line_max_length  = 10 * 1000 * 1000;
+    size_t line_max_length  = 1000 * 1000;
     char *buffer = allocate(line_max_length);
 
     char *ok = fgets(buffer, line_max_length, file);

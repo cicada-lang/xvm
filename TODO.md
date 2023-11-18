@@ -1,13 +1,3 @@
-# builtins
-
-test int_gcd.x
-
-# dict
-
-dict_word -- handle collision by linked list
-
-- test collision by using a small dict size
-
 # linear local variable
 
 frame -- has locals
@@ -15,6 +5,12 @@ frame -- has locals
 [builtins] _get
 
 support linear local variable by `'name set` and `'name get`
+
+# dict
+
+dict_word -- handle collision by linked list
+
+- test collision by using a small dict size
 
 # linear type
 
