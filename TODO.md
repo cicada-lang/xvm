@@ -1,17 +1,16 @@
 # builtins
 
-[builtins] _int_greater
-[builtins] _int_lesser
-[builtins] _int_greater_or_equal
-[builtins] _int_lesser_or_equal
-
-[builtins] _word_equal
 [builtins] _bool_equal
 
 [builtins] _string_free
 [builtins] _int_drop
 [builtins] _word_drop
 [builtins] _bool_drop
+
+[builtins] _int_greater
+[builtins] _int_lesser
+[builtins] _int_greater_or_equal
+[builtins] _int_lesser_or_equal
 
 # dict
 
