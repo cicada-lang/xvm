@@ -1,12 +1,12 @@
 #include "../index.h"
 
 void
-define_all_builtins(vm_t *self) {
-    define_stdio_builtins(self);
-    define_assert_builtins(self);
-    define_bool_builtins(self);
-    define_int_builtins(self);
-    define_string_builtins(self);
-    define_word_builtins(self);
-    define_vm_builtins(self);
+define_all_builtins(vm_t *vm) {
+    define_stdio_builtins(vm);
+    define_assert_builtins(vm);
+    define_bool_builtins(vm);
+    define_int_builtins(vm);
+    define_string_builtins(vm);
+    define_word_builtins(vm);
+    define_vm_builtins(vm);
 }
