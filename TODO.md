@@ -1,7 +1,5 @@
 # builtins
 
-[builtins] _string_equal
-
 [builtins] _int_equal
 [builtins] _int_greater
 [builtins] _int_lesser
