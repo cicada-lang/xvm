@@ -1,4 +1,3 @@
-`word_t` -- has `type_constructor`
 extract `execute_word` -- from `execute_call`
 `execute_word` -- handle `type_constructor`
 

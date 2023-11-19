@@ -5,6 +5,7 @@ struct _word_t {
     program_t *program;
     program_t *type_program;
     primitive_t *primitive;
+    type_constructor_t *type_constructor;
     word_t *next;
 };
 
@@ -23,6 +24,7 @@ word_destroy(word_t **self_pointer) {
         free(self->name);
         program_destroy(&self->program);
         program_destroy(&self->type_program);
+        type_constructor_destroy(&self->type_constructor);
         word_destroy(&self->next);
         free(self);
         *self_pointer = NULL;
