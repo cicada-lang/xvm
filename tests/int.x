@@ -1,6 +1,3 @@
-123 int_print newline
--123 int_print newline
-
 011 9 int_equal assert
 0xFF 255 int_equal assert
 

@@ -1,7 +1,7 @@
-[ [ "hello, true!" string_print newline ]
-  [ "hello, false!" string_print newline ]
+[ [ "hello, true!" ]
+  [ "hello, false!" ]
   bool_choose
-] 'bool_hello define
+] 'bool_format_hello define
 
-true bool_hello
-false bool_hello
+true bool_format_hello "hello, true!" string_equal assert
+false bool_format_hello "hello, false!" string_equal assert

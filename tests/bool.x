@@ -1,6 +1,3 @@
-true bool_print newline
-false bool_print newline
-
 true bool_dup assert assert
 
 true false bool_drop

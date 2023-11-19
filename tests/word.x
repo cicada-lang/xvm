@@ -1,5 +1,3 @@
-'abc word_print newline
-
 'a word_dup
 'a word_equal assert
 'a word_equal assert
