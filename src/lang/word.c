@@ -3,6 +3,7 @@
 struct _word_t {
     char *name;
     program_t *program;
+    program_t *type_program;
     primitive_t *primitive;
     word_t *next;
 };
@@ -21,6 +22,7 @@ word_destroy(word_t **self_pointer) {
         word_t *self = *self_pointer;
         free(self->name);
         program_destroy(&self->program);
+        program_destroy(&self->type_program);
         word_destroy(&self->next);
         free(self);
         *self_pointer = NULL;
