@@ -7,7 +7,6 @@
 [ type_t - type_t ] 'list_t type_claim
 ```
 
-
 API about `input_type_stack`
 
 ```
