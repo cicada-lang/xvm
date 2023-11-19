@@ -37,7 +37,7 @@ When calling `define`, we should perform type checking.
 During which instructions will be interpreted in a new context,
 which stores substitution.
 
-# Maybe
+# Maybe also [ ... -- ... ]
 
 Maybe have everything reversed is not ok.
 Because it feels so un-intuitive that
@@ -51,3 +51,23 @@ every inputs have to be in reverse.
 
 But the semantics of composition is so good.
 It feels evil, but maybe I can implement both `-` and `--`.
+
+# Defining types
+
+About defining types,
+because the arity is all we need for now,
+I come up with this crazy long word first:
+
+```
+0 'int_t define_type_constructor_by_arity
+1 'list_t define_type_constructor_by_arity
+```
+
+But actually a type constructor definition
+is like a `claim` plus a trivial arity-based runtime behavior,
+thus maybe we should write:
+
+```
+[ type_t ] 'int_t claim_type
+[ type_t - type_t ] 'list_t claim_type
+```
