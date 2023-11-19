@@ -68,6 +68,6 @@ is like a `claim` plus a trivial arity-based runtime behavior,
 thus maybe we should write:
 
 ```
-[ type_t ] 'int_t claim_type
-[ type_t - type_t ] 'list_t claim_type
+[ type_t ] 'int_t type_claim
+[ type_t - type_t ] 'list_t type_claim
 ```

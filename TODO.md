@@ -1,4 +1,19 @@
-`input_type_stack` -- like `value_stack` but for unferflow during type checking
+`input_type_stack_t` -- like `value_stack_t` but for unferflow during type checking
+
+vm has `input_type_stack`
+
+[builtins] _type_claim
+
+```
+[ type_t ] 'int_t type_claim
+[ type_t - type_t ] 'list_t type_claim
+```
+
+`word_t` -- has `type_program`
+
+word_type_program & word_type_program_set
+
+[builtins] _claim
 
 ```
 [ int_t - int_t int_t ] 'int_dup claim
@@ -7,21 +22,6 @@
 [ int_t - int_t ] 'square claim
 [ int_dup int_mul ] 'square define
 ```
-
-vm has `input_type_stack`
-
-[builtins] _datatype
-
-```
-[ type_t ] 'int_t datatype
-[ type_t - type_t ] 'list_t datatype
-```
-
-`word_t` -- has `type_program`
-
-word_type_program & word_type_program_set
-
-_claim
 
 # linear local variable
 
