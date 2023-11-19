@@ -1,11 +1,6 @@
 `word_t` -- has `type_constructor`
-
-[builtins] _type_claim
-
-```
-[ type_t ] 'int_t type_claim
-[ type_t - type_t ] 'list_t type_claim
-```
+extract `execute_word` -- from `execute_call`
+`execute_word` -- handle `type_constructor`
 
 API about `input_type_stack`
 
@@ -14,6 +9,15 @@ vm_input_type_stack_pop
 vm_input_type_stack_push
 vm_input_type_stack_is_empty
 ```
+
+[builtins] `_type_claim` -- need to get arity from `input_type_stack`
+
+```
+[ type_t ] 'int_t type_claim
+[ type_t - type_t ] 'list_t type_claim
+```
+
+`execute` -- handle tail call
 
 # linear local variable
 
