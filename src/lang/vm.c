@@ -3,10 +3,12 @@
 struct _vm_t {
     dict_t *dict;
     value_stack_t *value_stack;
+    value_stack_t *input_type_stack;
     return_stack_t *return_stack;
 };
 
 #define DICT_SIZE 1000003
+#define INPUT_TYPE_STACK_SIZE 1000
 #define VALUE_STACK_SIZE 10000
 #define RETURN_STACK_SIZE 10000
 
@@ -15,6 +17,7 @@ vm_create(void) {
     vm_t *self = allocate(sizeof(vm_t));
     self->dict = dict_create(DICT_SIZE);
     self->value_stack = value_stack_create(VALUE_STACK_SIZE);
+    self->input_type_stack = value_stack_create(INPUT_TYPE_STACK_SIZE);
     self->return_stack = return_stack_create(RETURN_STACK_SIZE);
     return self;
 }
@@ -26,6 +29,7 @@ vm_destroy(vm_t **self_pointer) {
         vm_t *self = *self_pointer;
         dict_destroy(&self->dict);
         value_stack_destroy(&self->value_stack);
+        value_stack_destroy(&self->input_type_stack);
         return_stack_destroy(&self->return_stack);
         free(self);
         *self_pointer = NULL;
