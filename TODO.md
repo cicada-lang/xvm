@@ -1,3 +1,5 @@
+`type_t` -- union of `type_term_t` and `type_var_t`
+
 `execute_word` -- handle `type_constructor`
 
 API about `input_type_stack`
@@ -17,11 +19,18 @@ vm_input_type_stack_is_empty
 
 `execute` -- handle tail call
 
+# type variable
+
+vm has scope for type variables
+
+`:a` create `type_var_t`
+
 # linear local variable
 
-frame -- has locals
-[builtins] _set
-[builtins] _get
+`frame` -- has `locals`
+
+[builtins] `_set`
+[builtins] `_get`
 
 support linear local variable by `'name set` and `'name get`
 
@@ -30,10 +39,6 @@ support linear local variable by `'name set` and `'name get`
 dict_word -- handle collision by linked list
 
 - test collision by using a small dict size
-
-# linear type
-
-type_var_t & type_term_t
 
 # linear type
 
