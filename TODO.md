@@ -1,5 +1,3 @@
-word_type_program & word_type_program_set
-
 [builtins] _claim
 
 ```

@@ -44,6 +44,16 @@ word_program_set(word_t *self, program_t *program) {
     self->program = program;
 }
 
+program_t *
+word_type_program(word_t *self) {
+    return self->type_program;
+}
+
+void
+word_type_program_set(word_t *self, program_t *type_program) {
+    self->type_program = type_program;
+}
+
 primitive_t *
 word_primitive(word_t *self) {
     return self->primitive;
