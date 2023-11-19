@@ -7,6 +7,13 @@ _define(const vm_t *vm) {
     word_program_set(word, program);
 }
 
+void
+_claim(const vm_t *vm) {
+    word_t *word = (word_t *) vm_value_stack_pop(vm);
+    program_t *type_program = (program_t *) vm_value_stack_pop(vm);
+    word_type_program_set(word, type_program);
+}
+
 void _swap(const vm_t *vm) {
     value_t second = vm_value_stack_pop(vm);
     value_t first = vm_value_stack_pop(vm);

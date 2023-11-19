@@ -1,13 +1,3 @@
-[builtins] _claim
-
-```
-[ int_t - int_t int_t ] 'int_dup claim
-[ int_t - int_t - int_t ] 'int_mul claim
-
-[ int_t - int_t ] 'square claim
-[ int_dup int_mul ] 'square define
-```
-
 `word_t` -- has `type_constructor`
 
 [builtins] _type_claim
