@@ -40,11 +40,18 @@ execute(const vm_t *vm, frame_t *frame) {
     }
 }
 
+static void execute_word(const vm_t *vm, word_t *word);
+
 void
 execute_call(const vm_t *vm, frame_t *frame) {
     word_t *word = frame_fetch_word(frame);
     vm_return_stack_push(vm, frame);
 
+    execute_word(vm, word);
+}
+
+void
+execute_word(const vm_t *vm, word_t *word) {
     primitive_t *primitive = word_primitive(word);
     if (primitive) {
         (*primitive)(vm);
@@ -58,6 +65,6 @@ execute_call(const vm_t *vm, frame_t *frame) {
         return;
     }
 
-    printf("[execute_call] word name: %s\n", word_name(word));
-    assert(false && "[execute_call] undefined word name.");
+    printf("[execute_word] word name: %s\n", word_name(word));
+    assert(false && "[execute_word] undefined word name.");
 }

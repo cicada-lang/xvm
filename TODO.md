@@ -1,4 +1,3 @@
-extract `execute_word` -- from `execute_call`
 `execute_word` -- handle `type_constructor`
 
 API about `input_type_stack`
