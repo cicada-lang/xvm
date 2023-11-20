@@ -10,7 +10,7 @@ string_dup(const char *s) {
 }
 
 char *
-string_empty() {
+string_empty(void) {
     char *s = malloc(1);
     s[0] = '\0';
     return s;

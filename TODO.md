@@ -1,5 +1,3 @@
-`type_t` -- union of `type_term_t` and `type_var_t`
-
 `execute_word` -- handle `type_constructor`
 
 API about `input_type_stack`
