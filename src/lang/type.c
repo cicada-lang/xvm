@@ -54,7 +54,7 @@ type_destroy(type_t **self_pointer) {
         if (self->tag == TYPE_VAR) {
             free(self->type_var->name);
             free(self->type_var);
-        } else if ((self->tag == TYPE_TERM)) {
+        } else if (self->tag == TYPE_TERM) {
             free(self->type_term->name);
             for (size_t i = 0; i < self->type_term->arity; i++) {
                 type_destroy(&self->type_term->arg_types[i]);
