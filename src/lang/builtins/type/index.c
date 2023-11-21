@@ -5,7 +5,8 @@ void _type_t(const vm_t *vm) {
     vm_value_stack_push(vm, (value_t) the_type_t);
 }
 
-// void _type_claim_by_arity(const vm_t *vm) {
-//     word_t *word =  vm_value_stack_pop(vm);
-//     size_t arity =  vm_value_stack_pop(vm);
-// }
+void _type_claim_by_arity(const vm_t *vm) {
+    word_t *word =  (word_t *) vm_value_stack_pop(vm);
+    size_t arity =  vm_value_stack_pop(vm);
+    word_type_constructor_set(word, type_constructor_create(arity));
+}
