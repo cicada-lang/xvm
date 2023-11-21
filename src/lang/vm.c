@@ -56,6 +56,21 @@ vm_value_stack_is_empty(const vm_t *self) {
     return value_stack_is_empty(self->value_stack);
 }
 
+value_t
+vm_input_type_stack_pop(const vm_t *self) {
+    return value_stack_pop(self->input_type_stack);
+}
+
+void
+vm_input_type_stack_push(const vm_t *self, value_t value) {
+    value_stack_push(self->input_type_stack, value);
+}
+
+bool
+vm_input_type_stack_is_empty(const vm_t *self) {
+    return value_stack_is_empty(self->input_type_stack);
+}
+
 frame_t *
 vm_return_stack_pop(const vm_t *self) {
     return return_stack_pop(self->return_stack);

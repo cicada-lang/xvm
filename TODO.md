@@ -1,12 +1,6 @@
-`execute_word` -- handle `type_constructor`
+`type_t` as a builtin word
 
-API about `input_type_stack`
-
-```
-vm_input_type_stack_pop
-vm_input_type_stack_push
-vm_input_type_stack_is_empty
-```
+`-` as a builtin word -- `type_unify`
 
 [builtins] `_type_claim` -- need to get arity from `input_type_stack`
 
@@ -15,13 +9,17 @@ vm_input_type_stack_is_empty
 [ type_t - type_t ] 'list_t type_claim
 ```
 
-`execute` -- handle tail call
+`execute_word` -- handle `type_constructor`
 
-# type variable
+`_type_print`
 
-vm has scope for type variables
+vm has scope for type variables -- enter the scope during running of a type
 
 `:a` create `type_var_t`
+
+# later
+
+`execute` -- handle tail call
 
 # linear local variable
 

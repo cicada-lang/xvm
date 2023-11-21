@@ -52,6 +52,11 @@ every inputs have to be in reverse.
 But the semantics of composition is so good.
 It feels evil, but maybe I can implement both `-` and `--`.
 
+How to implement `--`?
+
+A frame can record the stack pointer on enter,
+`--` can use this stack pointer to collect types into `input_type_stack`.
+
 # Defining types
 
 About defining types,
