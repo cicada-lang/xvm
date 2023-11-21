@@ -16,4 +16,5 @@
 #include "lexer.h"
 #include "interpreter.h"
 #include "vm.h"
+#include "type.h"
 #include "builtins/index.h"

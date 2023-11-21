@@ -1,6 +1,6 @@
-`type_t` as a builtin word
+`_type_print`
 
-`-` as a builtin word -- `type_unify`
+`--` as a builtin word -- `type_unify_many`
 
 [builtins] `_type_claim` -- need to get arity from `input_type_stack`
 
@@ -10,8 +10,6 @@
 ```
 
 `execute_word` -- handle `type_constructor`
-
-`_type_print`
 
 vm has scope for type variables -- enter the scope during running of a type
 
