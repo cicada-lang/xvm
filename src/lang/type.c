@@ -46,28 +46,6 @@ type_term_create(const char *name, size_t arity) {
     return self;
 }
 
-bool
-type_is_type_var(const type_t *self) {
-    return self->tag == TYPE_VAR;
-}
-
-bool
-type_is_type_term(const type_t *self) {
-    return self->tag == TYPE_TERM;
-}
-
-const char *
-type_var_name(const type_t *self) {
-    assert(type_is_type_var(self));
-    return self->type_var->name;
-}
-
-const char *
-type_term_name(const type_t *self) {
-    assert(type_is_type_term(self));
-    return self->type_term->name;
-}
-
 void
 type_destroy(type_t **self_pointer) {
     assert(self_pointer);
@@ -88,4 +66,26 @@ type_destroy(type_t **self_pointer) {
         free(self);
         *self_pointer = NULL;
     }
+}
+
+bool
+type_is_type_var(const type_t *self) {
+    return self->tag == TYPE_VAR;
+}
+
+bool
+type_is_type_term(const type_t *self) {
+    return self->tag == TYPE_TERM;
+}
+
+const char *
+type_var_name(const type_t *self) {
+    assert(type_is_type_var(self));
+    return self->type_var->name;
+}
+
+const char *
+type_term_name(const type_t *self) {
+    assert(type_is_type_term(self));
+    return self->type_term->name;
 }

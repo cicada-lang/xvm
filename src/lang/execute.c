@@ -52,6 +52,12 @@ execute_call(const vm_t *vm, frame_t *frame) {
 
 void
 execute_word(const vm_t *vm, word_t *word) {
+    type_constructor_t *type_constructor = word_type_constructor(word);
+    if (type_constructor) {
+      size_t arity = type_constructor_arity(type_constructor);
+      (void) arity;
+    }
+
     primitive_t *primitive = word_primitive(word);
     if (primitive) {
         (*primitive)(vm);

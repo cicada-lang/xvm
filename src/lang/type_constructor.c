@@ -20,3 +20,8 @@ type_constructor_destroy(type_constructor_t **self_pointer) {
         *self_pointer = NULL;
     }
 }
+
+size_t
+type_constructor_arity(type_constructor_t *self) {
+    return self->arity;
+}

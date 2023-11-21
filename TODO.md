@@ -2,7 +2,9 @@
 
 - create `type_constructor` and save values in the stack to `type_args`
 
-vm has scope for type variables -- enter the scope during running of a type
+fix `_type_format` also format `type_args` -- test by `int_t list_t`
+
+vm has scope for type variables -- enter the scope during running of a `type_program`
 
 `:a` create `type_var_t`
 
