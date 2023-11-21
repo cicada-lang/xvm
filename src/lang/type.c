@@ -90,10 +90,25 @@ type_term_name(const type_t *self) {
     return self->type_term->name;
 }
 
+void
+type_print(const type_t *self) {
+    if (type_is_type_var(self)) {
+        printf("%s", type_var_name(self));
+    } else if (type_is_type_term(self)) {
+        // TODO Also print prepend args.
+        for (size_t i = 0; i < type_term_arity(self); i++) {
+            type_print(type_term_type_arg_get(self, i));
+            printf(" ");
+        }
+
+        printf("%s", type_term_name(self));
+    }
+}
+
 size_t
 type_term_arity(const type_t *self) {
     assert(type_is_type_term(self));
-    return self->type_term->arity;    
+    return self->type_term->arity;
 }
 
 const type_t *

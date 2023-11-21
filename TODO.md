@@ -1,5 +1,3 @@
-`type_print` -- not only `_type_print` -- for recursion
-
 vm has scope for type variables -- enter the scope during running of a `type_program`
 
 `:a` create `type_var_t`
