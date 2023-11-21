@@ -1,5 +1,3 @@
-`_type_format` & `_type_print` -- print -- test by `type_t`
-
 `execute_word` -- handle `type_constructor`
 
 vm has scope for type variables -- enter the scope during running of a type
