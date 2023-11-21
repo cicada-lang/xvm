@@ -12,20 +12,18 @@ void _type_claim_by_arity(const vm_t *vm) {
 }
 
 void
-_type_format(const vm_t *vm) {
+_type_print(const vm_t *vm) {
     type_t *type = (type_t *) vm_value_stack_pop(vm);
     if (type_is_type_var(type)) {
-        vm_value_stack_push(vm, (value_t) string_dup(type_var_name(type)));
+        printf("%s", type_var_name(type));
         type_destroy(&type);
     } else if (type_is_type_term(type)) {
         // TODO Also print prepend args.
-        vm_value_stack_push(vm, (value_t) string_dup(type_term_name(type)));
+        for (size_t i = 0; i < type_term_arity(type); i++) {
+            printf("%s ", type_term_name(type_term_type_arg_get(type, i)));
+        }
+
+        printf("%s", type_term_name(type));
         type_destroy(&type);
     }
-}
-
-void
-_type_print(const vm_t *vm) {
-    _type_format(vm);
-    _string_print(vm);
 }

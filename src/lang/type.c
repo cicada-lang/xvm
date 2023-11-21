@@ -90,6 +90,19 @@ type_term_name(const type_t *self) {
     return self->type_term->name;
 }
 
+size_t
+type_term_arity(const type_t *self) {
+    assert(type_is_type_term(self));
+    return self->type_term->arity;    
+}
+
+const type_t *
+type_term_type_arg_get(const type_t *self, size_t index) {
+    assert(type_is_type_term(self));
+    return self->type_term->type_args[index];
+}
+
+
 void
 type_term_type_arg_set(const type_t *self, size_t index, type_t *type_arg) {
     assert(type_is_type_term(self));
