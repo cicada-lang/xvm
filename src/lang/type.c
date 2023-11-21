@@ -38,7 +38,7 @@ type_var_create(const char *name) {
 type_t *
 type_term_create(const char *name, size_t arity) {
     type_t *self = allocate(sizeof(type_t));
-    self->tag = TYPE_VAR;
+    self->tag = TYPE_TERM;
     self->type_term = allocate(sizeof(type_term_t));
     self->type_term->name = string_dup(name);
     self->type_term->arity = arity;
@@ -88,4 +88,10 @@ const char *
 type_term_name(const type_t *self) {
     assert(type_is_type_term(self));
     return self->type_term->name;
+}
+
+void
+type_term_type_arg_set(const type_t *self, size_t index, type_t *type_arg) {
+    assert(type_is_type_term(self));
+    self->type_term->type_args[index] = type_arg;
 }

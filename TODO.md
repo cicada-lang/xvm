@@ -1,7 +1,3 @@
-`execute_word` -- handle `type_constructor`
-
-- create `type_constructor` and save values in the stack to `type_args`
-
 fix `_type_format` also format `type_args` -- test by `int_t list_t`
 
 vm has scope for type variables -- enter the scope during running of a `type_program`
