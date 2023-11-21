@@ -1,9 +1,10 @@
-vm has scope for type variables -- enter the scope during running of a `type_program`
-
+vm has `type_var_counter`
+`type_var_t` also has `subscript`
 `:a` create `type_var_t`
-
+`cut` & `cut_word` -- like `execute` but run `type_program` of a word
+vm has scope for type variables -- enter the scope during one call to `cut`
+`:a` bind created `type_var_t` to current vm scope for type variables
 `-` as a builtin word -- `type_unify`
-
 `--` as a builtin word -- `type_unify_many`
 
 # later
