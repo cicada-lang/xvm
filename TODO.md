@@ -1,6 +1,25 @@
+[builtins] `_type_claim_by_arity`
+
+```
+0 'int_t type_claim_by_arity
+1 'list_t type_claim_by_arity
+```
+
+`execute_word` -- handle `type_constructor`
+
 `_type_print`
 
+vm has scope for type variables -- enter the scope during running of a type
+
+`:a` create `type_var_t`
+
+`-` as a builtin word -- `type_unify`
+
 `--` as a builtin word -- `type_unify_many`
+
+# later
+
+`execute` -- handle tail call
 
 [builtins] `_type_claim` -- need to get arity from `input_type_stack`
 
@@ -8,16 +27,6 @@
 [ type_t ] 'int_t type_claim
 [ type_t - type_t ] 'list_t type_claim
 ```
-
-`execute_word` -- handle `type_constructor`
-
-vm has scope for type variables -- enter the scope during running of a type
-
-`:a` create `type_var_t`
-
-# later
-
-`execute` -- handle tail call
 
 # linear local variable
 

@@ -65,3 +65,13 @@ void
 word_primitive_set(word_t *self, primitive_t *primitive) {
     self->primitive = primitive;
 }
+
+type_constructor_t *
+word_type_constructor(word_t *self) {
+    return self->type_constructor;
+}
+
+void
+word_type_constructor_set(word_t *self, type_constructor_t *type_constructor) {
+    self->type_constructor = type_constructor;
+}

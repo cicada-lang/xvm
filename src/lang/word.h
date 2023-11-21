@@ -13,3 +13,6 @@ void word_type_program_set(word_t *self, program_t *program);
 
 primitive_t *word_primitive(word_t *self);
 void word_primitive_set(word_t *self, primitive_t *primitive);
+
+type_constructor_t *word_type_constructor(word_t *self);
+void word_type_constructor_set(word_t *self, type_constructor_t *type_constructor);
