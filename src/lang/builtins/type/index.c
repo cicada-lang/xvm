@@ -15,10 +15,10 @@ void
 _type_format(const vm_t *vm) {
     type_t *type = (type_t *) vm_value_stack_pop(vm);
     if (type_is_type_var(type)) {
-        // vm_value_stack_push(vm, type_var_name(type));
+        vm_value_stack_push(vm, (value_t) string_dup(type_var_name(type)));
     } else if (type_is_type_term(type)) {
         // TODO Also print prepend args.
-        // vm_value_stack_push(vm, type_term_name(type));
+        vm_value_stack_push(vm, (value_t) string_dup(type_term_name(type)));
     }
 }
 

@@ -1,5 +1,3 @@
-type_var_name & type_term_name
-
 `_type_format` & `_type_print` -- print -- test by `type_t`
 
 `execute_word` -- handle `type_constructor`
