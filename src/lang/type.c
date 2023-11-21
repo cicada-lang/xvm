@@ -15,7 +15,7 @@ struct _type_var_t {
 struct _type_term_t {
     char *name;
     size_t arity;
-    type_t **arg_types;
+    type_t **type_args;
 };
 
 struct _type_t {
@@ -42,7 +42,7 @@ type_term_create(const char *name, size_t arity) {
     self->type_term = allocate(sizeof(type_term_t));
     self->type_term->name = string_dup(name);
     self->type_term->arity = arity;
-    self->type_term->arg_types = allocate_array(arity, sizeof(type_t));
+    self->type_term->type_args = allocate_array(arity, sizeof(type_t));
     return self;
 }
 
@@ -79,10 +79,10 @@ type_destroy(type_t **self_pointer) {
         } else if (self->tag == TYPE_TERM) {
             free(self->type_term->name);
             for (size_t i = 0; i < self->type_term->arity; i++) {
-                type_destroy(&self->type_term->arg_types[i]);
+                type_destroy(&self->type_term->type_args[i]);
             }
 
-            free(self->type_term->arg_types);
+            free(self->type_term->type_args);
         }
 
         free(self);

@@ -1,5 +1,7 @@
 `execute_word` -- handle `type_constructor`
 
+- create `type_constructor` and save values in the stack to `type_args`
+
 vm has scope for type variables -- enter the scope during running of a type
 
 `:a` create `type_var_t`
