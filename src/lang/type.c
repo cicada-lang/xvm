@@ -46,6 +46,16 @@ type_term_create(const char *name, size_t arity) {
     return self;
 }
 
+bool
+type_is_type_var(const type_t *self) {
+    return self->tag == TYPE_VAR;
+}
+
+bool
+type_is_type_term(const type_t *self) {
+    return self->tag == TYPE_TERM;
+}
+
 void
 type_destroy(type_t **self_pointer) {
     assert(self_pointer);
