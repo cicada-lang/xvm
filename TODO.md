@@ -1,3 +1,6 @@
+to compare two function types (types of two quoted programs)
+we need to first normalize them into two type effects.
+
 vm has `type_var_counter`
 `type_var_t` also has `subscript`
 `:a` create `type_var_t`
