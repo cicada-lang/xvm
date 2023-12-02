@@ -20,9 +20,9 @@
   [ int_dup2 int_greater
     [ int_dup2 int_sub rot int_drop ]
     [ int_dup2 swap int_sub swap int_drop ]
-    bool_choose
+    if_else
     int_gcd ]
-  bool_choose
+  if_else
 ] 'int_gcd define
 
 8 12 int_gcd

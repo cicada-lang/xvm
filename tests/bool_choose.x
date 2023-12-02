@@ -1,6 +1,6 @@
 [ [ "hello, true!" ]
   [ "hello, false!" ]
-  bool_choose
+  if_else
 ] 'bool_format_hello define
 
 true bool_format_hello "hello, true!" string_equal assert

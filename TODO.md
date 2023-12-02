@@ -47,10 +47,10 @@ we also need record effects in the type, to support exceptions (throw and try ca
 
 only simple type (with generic)
 
-[maybe] type of `bool_choose`
+[maybe] type of `if_else`
 
 ```
-[ type_merge $merged_type_program bool_t - merged_type_program apply ] 'bool_choose claim
+[ type_merge $merged_type_program bool_t - merged_type_program apply ] 'if_else claim
 ```
 
 # command-line

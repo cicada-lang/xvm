@@ -1,6 +1,6 @@
 [ bool_dup
-  [ "hello, true!" string_print newline ] bool_when
-  [ "hello, false!" string_print newline ] bool_when
+  [ "hello, true!" string_print newline ] if
+  [ "hello, false!" string_print newline ] if
 ] 'bool_hello define
 
 true bool_hello
