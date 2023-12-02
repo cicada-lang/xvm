@@ -117,7 +117,6 @@ type_term_type_arg_get(const type_t *self, size_t index) {
     return self->type_term->type_args[index];
 }
 
-
 void
 type_term_type_arg_set(const type_t *self, size_t index, type_t *type_arg) {
     assert(type_is_type_term(self));

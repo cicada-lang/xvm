@@ -1,21 +1,4 @@
-remove code about runtime type system
-
-add runtime algebraic data type
-
-# maybe
-
-quit using opcode, all that in the body of a program should be words
-
-- a primitive word can do anything to the vm during execution.
-
 # old
-
-design a 32bits stack-based instruction set architecture
-
-- we do not define function, we give label to a list of instructions.
-
-to compare two function types (types of two quoted programs)
-we need to first normalize them into two type effects.
 
 vm has `type_var_counter`
 `type_var_t` also has `subscript`
@@ -26,16 +9,20 @@ vm has scope for type variables -- enter the scope during one call to `cut`
 `-` as a builtin word -- `type_unify`
 `--` as a builtin word -- `type_unify_many`
 
+# remove runtime type
+
+add runtime algebraic data type
+
+remove code about runtime type system
+
+# NbE
+
+to compare two function types (types of two quoted programs)
+we need to first normalize them into two type effects.
+
 # later
 
 `execute` -- handle tail call
-
-[builtins] `_type_claim` -- need to get arity from `input_type_stack`
-
-```
-[ type_t ] 'int_t type_claim
-[ type_t - type_t ] 'list_t type_claim
-```
 
 # linear local variable
 
@@ -51,6 +38,18 @@ support linear local variable by `'name set` and `'name get`
 dict_word -- handle collision by linked list
 
 - test collision by using a small dict size
+
+# maybe
+
+quit using opcode, all that in the body of a program should be words
+
+- a primitive word can do anything to the vm during execution.
+
+# instruction set architecture
+
+design a 32bits stack-based instruction set architecture
+
+- we do not define function, we give label to a list of instructions.
 
 # linear type
 
