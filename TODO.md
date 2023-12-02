@@ -1,7 +1,8 @@
+# old
+
 design a 32bits stack-based instruction set architecture
 
 - we do not define function, we give label to a list of instructions.
-
 
 to compare two function types (types of two quoted programs)
 we need to first normalize them into two type effects.
