@@ -7,15 +7,6 @@ date: 2023-12-03
 We need to design a runtime algebraic data type,
 and also keep it type checkable.
 
-For the runtime, all we need is a `data_t` type,
-which have the type tag and case tag.
-
-```
-'list_t [ type_t -- type_t ] claim
-'null [ -- :a list_t ] claim
-'cons [ :a :a list_t -- :a list_t ] claim
-```
-
 Designing new syntax like `data` and `match` in lisp feels effortless,
 but how should we design new syntax for concatenative language?
 
@@ -37,3 +28,40 @@ but how should we design new syntax for concatenative language?
       (nil zero)
       ((:: x xs) (add1 (length xs))))))
 ```
+
+For the runtime, all we need is a `data_t` type,
+which have the type tag and case tag.
+
+```
+'list_t [ type_t -- type_t ] claim
+'null [ -- :a list_t ] claim
+'cons [ :a :a list_t -- :a list_t ] claim
+
+'list_lenght [
+  'null [ zero ]
+  'cons [ swap drop list_length add1 ]
+  'list_t match
+] define
+```
+
+if we do not care about type, only need runtime tagged data:
+
+```
+'list_t datatype_begin
+  'null 0 arity_case
+  'cons 2 arity_case
+datatype_end
+```
+
+for type maybe:
+
+```
+'list_t [ type_t -- type_t ] datatype_begin
+  'null [ -- :a list_t ] case
+  'cons [ :a :a list_t -- :a list_t ] case
+datatype_end
+```
+
+maybe like `define` v.s. `claim`,
+we should use untyped `datatype_begin`
+and `claim` the type separately.
