@@ -46,6 +46,6 @@ thus already have first load time.
 [ 'int_mul 'int_t ] "./int.x" import
 "./int.x" require
 
-[ int_t type_unify int_t ] 'square claim
-[ value_dup int_mul ] 'square define
+'square [ int_t type_unify int_t ] claim
+'square [ value_dup int_mul ] define
 ```

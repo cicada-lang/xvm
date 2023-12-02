@@ -9,8 +9,8 @@ we should factor the complicated syntax to pure postfix word composition,
 using `-` -- which takes two types from the stack and unify them.
 
 ```
-[ int_t - int_t ] 'square claim
-[ int_dup int_mul ] 'square define
+'square [ int_t - int_t ] claim
+'square [ int_dup int_mul ] define
 ```
 
 - The type of `-` would be `[ type_t - type_t - ]`,
@@ -25,9 +25,9 @@ in current type program context (not current frame).
   a lot of `?` in the code feels too noisy.
 
 ```
-[ :a list_t ] 'list_null claim
-[ :a - :a list_t - :a list_t ] 'list_cons claim
-[ [ :a - :a list_t - :b ] - [ :b ] - :a list_t - :b ] 'list_match claim
+'list_null [ :a list_t ] claim
+'list_cons [ :a - :a list_t - :a list_t ] claim
+'list_match [ [ :a - :a list_t - :b ] - [ :b ] - :a list_t - :b ] claim
 ```
 
 Beside `value_stack` we can use `input_stack`
@@ -44,9 +44,9 @@ Because it feels so un-intuitive that
 every inputs have to be in reverse.
 
 ```
-[ :a list_t ] 'list_null claim
-[ :a list_t :a -- :a list_t ] :list_cons claim
-[ :a list_t [ :b ] [ :a list_t :a -- :b ] -- :b ] 'list_match claim
+'list_null [ :a list_t ] claim
+'list_cons [ :a list_t :a -- :a list_t ] claim
+'list_match [ :a list_t [ :b ] [ :a list_t :a -- :b ] -- :b ] claim
 ```
 
 But the semantics of composition is so good.
@@ -64,8 +64,8 @@ because the arity is all we need for now,
 I come up with this crazy long word first:
 
 ```
-0 'int_t define_type_constructor_by_arity
-1 'list_t define_type_constructor_by_arity
+'int_t 0 define_type_constructor_by_arity
+'list_t 1 define_type_constructor_by_arity
 ```
 
 But actually a type constructor definition
@@ -73,6 +73,6 @@ is like a `claim` plus a trivial arity-based runtime behavior,
 thus maybe we should write:
 
 ```
-[ type_t ] 'int_t type_claim
-[ type_t - type_t ] 'list_t type_claim
+'int_t [ type_t ] type_claim
+'list_t [ type_t - type_t ] type_claim
 ```

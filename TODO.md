@@ -1,3 +1,13 @@
+remove code about runtime type system
+
+add runtime algebraic data type
+
+# maybe
+
+quit using opcode, all that in the body of a program should be words
+
+- a primitive word can do anything to the vm during execution.
+
 # old
 
 design a 32bits stack-based instruction set architecture

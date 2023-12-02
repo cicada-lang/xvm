@@ -1,4 +1,5 @@
-[ [ x y ] swap
+[
+  [ x y ] swap
   [ y x ] int_dup
   [ y x x ] rot
   [ x x y ] int_dup
@@ -7,7 +8,7 @@
   [ x y x y ]
 ]
 
-[ swap int_dup rot int_dup rot swap ] 'int_dup2 define
+'int_dup2 [ swap int_dup rot int_dup rot swap ] define
 
 1 2 int_dup2
 2 int_equal assert
@@ -15,7 +16,8 @@
 2 int_equal assert
 1 int_equal assert
 
-[ int_dup2 int_equal
+'int_gcd [
+  int_dup2 int_equal
   [ int_drop ]
   [ int_dup2 int_greater
     [ int_dup2 int_sub rot int_drop ]
@@ -23,7 +25,7 @@
     if_else
     int_gcd ]
   if_else
-] 'int_gcd define
+] define
 
 8 12 int_gcd
 4 int_equal assert
