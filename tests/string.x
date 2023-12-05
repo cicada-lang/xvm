@@ -4,6 +4,6 @@
 "a" "b" string_drop
 "a" string_equal assert
 
-"a" string_dup
+"a" string_clone
 "a" string_equal assert
 "a" string_equal assert

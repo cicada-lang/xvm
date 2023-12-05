@@ -8,7 +8,7 @@ test_builtin_string(void) {
 
     {
         program_t *program = vm_build_program(vm, "test_string_print");
-        program_append_literal_string(program, string_dup("hello, world!"));
+        program_append_literal_string(program, string_clone("hello, world!"));
         program_append_call(program, vm_word(vm, "string_print"));
         program_append_call(program, vm_word(vm, "newline"));
 
@@ -18,11 +18,11 @@ test_builtin_string(void) {
 
     {
         program_t *program = vm_build_program(vm, "test_string_append");
-        program_append_literal_string(program, string_dup("hello, "));
-        program_append_literal_string(program, string_dup("world!"));
+        program_append_literal_string(program, string_clone("hello, "));
+        program_append_literal_string(program, string_clone("world!"));
         program_append_call(program, vm_word(vm, "string_append"));
-        program_append_call(program, vm_word(vm, "string_dup"));
-        program_append_call(program, vm_word(vm, "string_dup"));
+        program_append_call(program, vm_word(vm, "string_clone"));
+        program_append_call(program, vm_word(vm, "string_clone"));
         program_append_call(program, vm_word(vm, "string_append"));
         program_append_call(program, vm_word(vm, "string_print"));
         program_append_call(program, vm_word(vm, "newline"));

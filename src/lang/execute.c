@@ -22,7 +22,7 @@ execute(const vm_t *vm, frame_t *frame, opcode_t opcode) {
 
     case LITERAL_STRING: {
         char *string = (char *) frame_fetch_value(frame);
-        vm_value_stack_push(vm, (value_t) string_dup(string));
+        vm_value_stack_push(vm, (value_t) string_clone(string));
         return;
     }
 

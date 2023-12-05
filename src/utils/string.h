@@ -1,6 +1,6 @@
 #pragma once
 
-char *string_dup(const char *s);
+char *string_clone(const char *s);
 char *string_empty(void);
 bool string_equal(const char *left, const char *right);
 size_t string_hash(const char *s, size_t size);

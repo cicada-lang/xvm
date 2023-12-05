@@ -67,7 +67,7 @@ interpreter_execute_token(interpreter_t *self, token_t *token) {
             vm_run_word(self->vm, vm_word(self->vm, string));
         }
     } else if (token_is_double_quotes(token)) {
-        vm_value_stack_push(self->vm, (value_t) string_dup(token_string(token)));
+        vm_value_stack_push(self->vm, (value_t) string_clone(token_string(token)));
     } else {
         printf(
             "[interpreter_execute_token] I meet unknown token: %s",
@@ -97,7 +97,7 @@ interpreter_compile_token(interpreter_t *self, token_t *token, program_t *progra
             program_append_call(program, vm_word(self->vm, string));
         }
     } else if (token_is_double_quotes(token)) {
-        program_append_literal_string(program, string_dup(token_string(token)));
+        program_append_literal_string(program, string_clone(token_string(token)));
     } else {
         printf(
             "[interpreter_compile_token] I meet unknown token: %s",

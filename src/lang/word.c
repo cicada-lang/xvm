@@ -11,7 +11,7 @@ struct _word_t {
 word_t *
 word_create(const char *name) {
     word_t *self = allocate(sizeof(word_t));
-    self->name = string_dup(name);
+    self->name = string_clone(name);
     return self;
 }
 

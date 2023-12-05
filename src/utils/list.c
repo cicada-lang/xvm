@@ -276,9 +276,9 @@ list_test(void) {
 
     //  Three items we'll use as test data
     //  List items are void *, not particularly strings
-    char *cheese = string_dup("boursin");
-    char *bread = string_dup("baguette");
-    char *wine = string_dup("bordeaux");
+    char *cheese = string_clone("boursin");
+    char *bread = string_clone("baguette");
+    char *wine = string_clone("bordeaux");
 
     {
         list_push(list, cheese);

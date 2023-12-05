@@ -124,7 +124,7 @@ lexer_lex_double_qoutes(lexer_t *self) {
         if (c == '\"') {
             size_t start = self->index;
             size_t end = self->index + strlen(self->string);
-            char *string = string_dup(self->string);
+            char *string = string_clone(self->string);
             token_t *token = token_double_quotes_create(string, start, end);
             list_push(self->token_list, token);
             self->string[0] = '\0';
@@ -166,7 +166,7 @@ lexer_lex_word(lexer_t *self) {
         if (isspace(c)) {
             size_t start = self->index;
             size_t end = self->index + strlen(self->string);
-            char *string = string_dup(self->string);
+            char *string = string_clone(self->string);
             token_t *token = token_word_create(string, start, end);
             list_push(self->token_list, token);
             self->string[0] = '\0';
