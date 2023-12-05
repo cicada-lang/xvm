@@ -10,7 +10,7 @@ using `-` -- which takes two types from the stack and unify them.
 
 ```
 'square [ int_t - int_t ] claim
-'square [ int_dup int_mul ] define
+'square [ dup mul ] define
 ```
 
 - The type of `-` would be `[ type_t - type_t - ]`,

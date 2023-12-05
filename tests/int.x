@@ -8,17 +8,17 @@
 1 2 3 drop drop
 1 int_equal assert
 
-123 -123 int_add 0 int_equal assert
+123 -123 add 0 int_equal assert
 
-1 1 int_add 2 int_equal assert
-2 1 int_sub 1 int_equal assert
-2 2 int_mul 4 int_equal assert
-3 3 int_mul 9 int_equal assert
+1 1 add 2 int_equal assert
+2 1 sub 1 int_equal assert
+2 2 mul 4 int_equal assert
+3 3 mul 9 int_equal assert
 
-1 2 int_lesser assert
-1 2 int_lesser_or_equal assert
-2 2 int_lesser_or_equal assert
+1 2 lesser assert
+1 2 lesser_or_equal assert
+2 2 lesser_or_equal assert
 
-2 1 int_greater assert
-2 1 int_greater_or_equal assert
-2 2 int_greater_or_equal assert
+2 1 greater assert
+2 1 greater_or_equal assert
+2 2 greater_or_equal assert

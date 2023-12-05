@@ -22,7 +22,7 @@ test_builtin_int(void) {
     {
         program_t *program = vm_build_program(vm, "int_square");
         program_append_call(program, vm_word(vm, "dup"));
-        program_append_call(program, vm_word(vm, "int_mul"));
+        program_append_call(program, vm_word(vm, "mul"));
     }
 
     {

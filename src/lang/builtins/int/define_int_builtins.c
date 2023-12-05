@@ -4,11 +4,11 @@ void
 define_int_builtins(vm_t *vm) {
     vm_define_primitive(vm, "int_print", _int_print);
     vm_define_primitive(vm, "int_equal", _int_equal);
-    vm_define_primitive(vm, "int_greater", _int_greater);
-    vm_define_primitive(vm, "int_lesser", _int_lesser);
-    vm_define_primitive(vm, "int_greater_or_equal", _int_greater_or_equal);
-    vm_define_primitive(vm, "int_lesser_or_equal", _int_lesser_or_equal);
-    vm_define_primitive(vm, "int_add", _int_add);
-    vm_define_primitive(vm, "int_sub", _int_sub);
-    vm_define_primitive(vm, "int_mul", _int_mul);
+    vm_define_primitive(vm, "greater", _greater);
+    vm_define_primitive(vm, "lesser", _lesser);
+    vm_define_primitive(vm, "greater_or_equal", _greater_or_equal);
+    vm_define_primitive(vm, "lesser_or_equal", _lesser_or_equal);
+    vm_define_primitive(vm, "add", _add);
+    vm_define_primitive(vm, "sub", _sub);
+    vm_define_primitive(vm, "mul", _mul);
 }

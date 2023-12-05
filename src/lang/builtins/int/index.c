@@ -11,43 +11,43 @@ void _int_equal(const vm_t *vm) {
     vm_value_stack_push(vm, left == right);
 }
 
-void _int_greater(const vm_t *vm) {
+void _greater(const vm_t *vm) {
     int_t right = vm_value_stack_pop(vm);
     int_t left = vm_value_stack_pop(vm);
     vm_value_stack_push(vm, left > right);
 }
 
-void _int_lesser(const vm_t *vm) {
+void _lesser(const vm_t *vm) {
     int_t right = vm_value_stack_pop(vm);
     int_t left = vm_value_stack_pop(vm);
     vm_value_stack_push(vm, left < right);
 }
 
-void _int_greater_or_equal(const vm_t *vm) {
+void _greater_or_equal(const vm_t *vm) {
     int_t right = vm_value_stack_pop(vm);
     int_t left = vm_value_stack_pop(vm);
     vm_value_stack_push(vm, left >= right);
 }
 
-void _int_lesser_or_equal(const vm_t *vm) {
+void _lesser_or_equal(const vm_t *vm) {
     int_t right = vm_value_stack_pop(vm);
     int_t left = vm_value_stack_pop(vm);
     vm_value_stack_push(vm, left <= right);
 }
 
-void _int_add(const vm_t *vm) {
+void _add(const vm_t *vm) {
     int_t x = vm_value_stack_pop(vm);
     int_t y = vm_value_stack_pop(vm);
     vm_value_stack_push(vm, x + y);
 }
 
-void _int_sub(const vm_t *vm) {
+void _sub(const vm_t *vm) {
     int_t x = vm_value_stack_pop(vm);
     int_t y = vm_value_stack_pop(vm);
     vm_value_stack_push(vm, y - x);
 }
 
-void _int_mul(const vm_t *vm) {
+void _mul(const vm_t *vm) {
     int_t x = vm_value_stack_pop(vm);
     int_t y = vm_value_stack_pop(vm);
     vm_value_stack_push(vm, x * y);

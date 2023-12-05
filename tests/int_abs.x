@@ -1,6 +1,6 @@
 'int_abs [
-  dup 0 int_lesser
-  [ -1 int_mul ] if
+  dup 0 lesser
+  [ -1 mul ] if
 ] define
 
 0 int_abs 0 int_equal assert

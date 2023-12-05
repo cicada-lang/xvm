@@ -15,9 +15,9 @@
 'int_gcd [
   dup2 int_equal
   [ drop ]
-  [ dup2 int_greater
-    [ dup2 int_sub rot drop ]
-    [ dup2 swap int_sub swap drop ]
+  [ dup2 greater
+    [ dup2 sub rot drop ]
+    [ dup2 swap sub swap drop ]
     if_else
     int_gcd ]
   if_else
