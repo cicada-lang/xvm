@@ -17,6 +17,20 @@ datatype_end
 ] define
 ```
 
+# maybe
+
+quit using opcode, all that in the body of a program should be words
+
+- a primitive word can do anything to the vm during execution.
+
+- we need hidden word entry -- like forth.
+
+  - simply use word with space
+
+    - `(hidden) literal_atom`
+    - `(hidden) literal_string` -- need to clone string
+    - `(hidden) literal_program` -- NO need to clone program
+
 # repl
 
 [repl] repl_command
@@ -27,35 +41,6 @@ dict_word -- handle collision by linked list
 
 - test collision by using a small dict size
 
-# maybe
-
-quit using opcode, all that in the body of a program should be words
-
-- a primitive word can do anything to the vm during execution.
-
-# NbE
-
-to compare two function types (types of two quoted programs)
-we need to first normalize them into two type effects.
-
-# instruction set architecture
-
-design a 32bits stack-based instruction set architecture
-
-- we do not define function, we give label to a list of instructions.
-
-# linear type
-
-we also need record effects in the type, to support exceptions (throw and try catch)
-
-only simple type (with generic)
-
-[maybe] type of `if_else`
-
-```
-[ type_merge $merged_type_program bool_t - merged_type_program apply ] 'if_else claim
-```
-
 # command-line
 
 [command-line] parse options
@@ -64,14 +49,3 @@ only simple type (with generic)
 [command-line] `x -h`
 [command-line] `x --version`
 [command-line] `x -v`
-
-# device
-
-port uxn console IO -- design better API
-
-port uxn screen IO -- design better API
-
-do something like the uxn screen IO but for 3D!
-
-learn freecad and instead of the editor-based UI,
-design a XML-based UI for modelling 3D objects.

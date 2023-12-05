@@ -27,7 +27,7 @@ execute(const vm_t *vm, frame_t *frame, opcode_t opcode) {
     }
 
     case LITERAL_PROGRAM: {
-        // No need to dup `program`, because
+        // No need to clone `program`, because
         // we currently do not generate program dynamicly.
         // -- there is no function such as `program_append`.
         program_t *program = (program_t *) frame_fetch_value(frame);
