@@ -6,4 +6,4 @@
 'a word_equal assert
 
 'abc 'abc word_equal assert
-'abc 'abcd word_equal bool_not assert
+'abc 'abcd word_equal not assert

@@ -5,13 +5,13 @@ true bool_equal assert
 
 true true bool_equal assert
 false false bool_equal assert
-true false bool_equal bool_not assert
+true false bool_equal not assert
 
-true bool_not false bool_equal assert
-false bool_not true bool_equal assert
+true not false bool_equal assert
+false not true bool_equal assert
 
-true false bool_and false bool_equal assert
-true true bool_and true bool_equal assert
+true false and false bool_equal assert
+true true and true bool_equal assert
 
-true false bool_or true bool_equal assert
-false false bool_or false bool_equal assert
+true false or true bool_equal assert
+false false or false bool_equal assert

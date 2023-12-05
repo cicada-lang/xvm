@@ -23,18 +23,18 @@ void _bool_equal(const vm_t *vm) {
     vm_value_stack_push(vm, x == y);
 }
 
-void _bool_not(const vm_t *vm) {
+void _not(const vm_t *vm) {
     bool x = vm_value_stack_pop(vm);
     vm_value_stack_push(vm, !x);
 }
 
-void _bool_and(const vm_t *vm) {
+void _and(const vm_t *vm) {
     bool x = vm_value_stack_pop(vm);
     bool y = vm_value_stack_pop(vm);
     vm_value_stack_push(vm, x && y);
 }
 
-void _bool_or(const vm_t *vm) {
+void _or(const vm_t *vm) {
     bool x = vm_value_stack_pop(vm);
     bool y = vm_value_stack_pop(vm);
     vm_value_stack_push(vm, x || y);
