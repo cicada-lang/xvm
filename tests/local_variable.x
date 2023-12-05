@@ -1,8 +1,6 @@
 'my_swap [
-  'top set
-  'lower set
-  'top get
-  'lower get
+  'y set 'x set
+  'y get 'x get
 ] define
 
 1 2 my_swap
