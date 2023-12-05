@@ -4,7 +4,7 @@ void _int_print(const vm_t *vm);
 void _eq(const vm_t *vm);
 void _greater(const vm_t *vm);
 void _lesser(const vm_t *vm);
-void _greater_or_equal(const vm_t *vm);
+void _gteq(const vm_t *vm);
 void _lteq(const vm_t *vm);
 void _add(const vm_t *vm);
 void _sub(const vm_t *vm);
