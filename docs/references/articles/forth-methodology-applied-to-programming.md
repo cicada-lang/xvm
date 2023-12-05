@@ -20,7 +20,7 @@ date: 2001-12-09
 4. Optimize that solution design as far as it can go in that direction.
 
 5. Identify and reject the illusion that starting over is bad and you
-   are ready to code.  Return to 1. with a greater understanding  of
+   are ready to code.  Return to 1. with a gt understanding  of
    the issues UNTIL you collect all the good solutions that
    you can imagine.
 

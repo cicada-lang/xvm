@@ -19,6 +19,6 @@
 1 2 lteq assert
 2 2 lteq assert
 
-2 1 greater assert
+2 1 gt assert
 2 1 gteq assert
 2 2 gteq assert

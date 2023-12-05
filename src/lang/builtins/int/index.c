@@ -11,7 +11,7 @@ void _eq(const vm_t *vm) {
     vm_value_stack_push(vm, left == right);
 }
 
-void _greater(const vm_t *vm) {
+void _gt(const vm_t *vm) {
     int_t right = vm_value_stack_pop(vm);
     int_t left = vm_value_stack_pop(vm);
     vm_value_stack_push(vm, left > right);

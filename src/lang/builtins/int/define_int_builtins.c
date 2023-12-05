@@ -4,7 +4,7 @@ void
 define_int_builtins(vm_t *vm) {
     vm_define_primitive(vm, "int_print", _int_print);
     vm_define_primitive(vm, "eq", _eq);
-    vm_define_primitive(vm, "greater", _greater);
+    vm_define_primitive(vm, "gt", _gt);
     vm_define_primitive(vm, "lt", _lt);
     vm_define_primitive(vm, "gteq", _gteq);
     vm_define_primitive(vm, "lteq", _lteq);

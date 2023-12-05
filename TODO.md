@@ -1,5 +1,3 @@
-[builtins] `_gt` -- instead of `_greater`
-
 [builtins] `_execute` execute a word
 [builtins] `_apply` apply a program
 
