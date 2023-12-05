@@ -86,24 +86,39 @@ vm_return_stack_is_empty(const vm_t *self) {
     return return_stack_is_empty(self->return_stack);
 }
 
+frame_t *
+vm_return_stack_tos(const vm_t *self) {
+    // This function normalize the top frame,
+    // proper tail call is implemented by
+    // calling this function before pushing `return_stack`.
+
+    while (!vm_return_stack_is_empty(self)) {
+        frame_t *frame = vm_return_stack_pop(self);
+        if (frame_is_end(frame)) {
+            frame_destroy(&frame);
+        } else {
+            vm_return_stack_push(self, frame);
+            return frame;
+        }
+    }
+
+    return NULL;
+}
+
 void
 vm_load_program(const vm_t *self, program_t *program) {
+    vm_return_stack_tos(self);
+
     frame_t *frame = frame_create(program);
     vm_return_stack_push(self, frame);
 }
 
 void
 vm_step(const vm_t *self) {
-    frame_t *frame = vm_return_stack_pop(self);
+    frame_t *frame = vm_return_stack_tos(self);
     if (!frame) return;
 
-    if (frame_is_end(frame)) {
-        frame_destroy(&frame);
-        return;
-    }
-
     opcode_t opcode = frame_fetch_opcode(frame);
-    vm_return_stack_push(self, frame);
     execute(self, frame, opcode);
 }
 

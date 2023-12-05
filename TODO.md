@@ -1,5 +1,3 @@
-fix `proper_tail_call`
-
 # remove runtime type
 
 add runtime algebraic data type

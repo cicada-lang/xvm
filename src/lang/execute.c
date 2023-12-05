@@ -44,29 +44,18 @@ execute(const vm_t *vm, frame_t *frame, opcode_t opcode) {
 }
 
 void
-proper_tail_call(const vm_t *vm, frame_t *frame) {
-    if (frame_is_end(frame)) {
-        vm_return_stack_pop(vm);
-        frame_destroy(&frame);
-    }
-}
-
-void
 execute_call(const vm_t *vm, frame_t *frame) {
     word_t *word = frame_fetch_word(frame);
 
     primitive_t *primitive = word_primitive(word);
     if (primitive) {
         (*primitive)(vm);
-        // proper_tail_call(vm, frame);
         return;
     }
 
     program_t *program = word_program(word);
     if (program) {
-        proper_tail_call(vm, frame);
-        frame_t *new_frame = frame_create(program);
-        vm_return_stack_push(vm, new_frame);
+        vm_load_program(vm, program);
         return;
     }
 
