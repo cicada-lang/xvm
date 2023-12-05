@@ -8,8 +8,6 @@ typedef int64_t int_t;
 typedef struct _dict_t dict_t;
 typedef struct _word_t word_t;
 typedef struct _program_t program_t;
-typedef struct _type_constructor_t type_constructor_t;
-typedef struct _type_t type_t;
 typedef struct _value_stack_t value_stack_t;
 typedef struct _frame_t frame_t;
 typedef struct _return_stack_t return_stack_t;

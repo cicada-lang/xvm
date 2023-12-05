@@ -52,19 +52,6 @@ execute_call(const vm_t *vm, frame_t *frame) {
 
 void
 execute_word(const vm_t *vm, word_t *word) {
-    type_constructor_t *type_constructor = word_type_constructor(word);
-    if (type_constructor) {
-        size_t arity = type_constructor_arity(type_constructor);
-        type_t *type = type_term_create(word_name(word), arity);
-        for (size_t i = 0; i < arity; i++) {
-            type_t *type_arg = (type_t *) vm_value_stack_pop(vm);
-            type_term_type_arg_set(type, arity - 1 - i, type_arg);
-        }
-
-        vm_value_stack_push(vm, (value_t) type);
-        return;
-    }
-
     primitive_t *primitive = word_primitive(word);
     if (primitive) {
         (*primitive)(vm);

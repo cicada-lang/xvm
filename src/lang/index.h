@@ -5,7 +5,6 @@
 #include "types.h"
 #include "opcode.h"
 #include "program.h"
-#include "type_constructor.h"
 #include "frame.h"
 #include "execute.h"
 #include "return_stack.h"
@@ -16,5 +15,4 @@
 #include "lexer.h"
 #include "interpreter.h"
 #include "vm.h"
-#include "type.h"
 #include "builtins/index.h"
