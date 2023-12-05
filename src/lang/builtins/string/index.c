@@ -12,7 +12,7 @@ void _string_clone(const vm_t *vm) {
     vm_value_stack_push(vm, (value_t) string_clone(s));
 }
 
-void _string_drop(const vm_t *vm) {
+void _string_free(const vm_t *vm) {
     char *s = (char *) vm_value_stack_pop(vm);
     free(s);
 }

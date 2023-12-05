@@ -1,5 +1,3 @@
-ambr string_drop string_free
-
 [builtin] _dup & _drop
 
 - remove dup and drop for atom datatype
