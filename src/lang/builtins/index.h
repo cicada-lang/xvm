@@ -7,5 +7,6 @@
 #include "word/index.h"
 #include "vm/index.h"
 #include "assert/index.h"
+#include "local_variable/index.h"
 
 void define_all_builtins(vm_t *vm);

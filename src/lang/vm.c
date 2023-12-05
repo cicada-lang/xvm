@@ -97,7 +97,14 @@ vm_step(const vm_t *self) {
     frame_t *frame = vm_return_stack_pop(self);
     if (!frame) return;
 
-    execute(self, frame);
+    if (frame_is_end(frame)) {
+        frame_destroy(&frame);
+        return;
+    }
+
+    opcode_t opcode = frame_fetch_opcode(frame);
+    vm_return_stack_push(self, frame);
+    execute(self, frame, opcode);
 }
 
 void

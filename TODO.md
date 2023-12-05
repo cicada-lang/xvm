@@ -1,11 +1,4 @@
-# linear local variable
-
-`frame` -- has `locals`
-
-[builtins] `_set`
-[builtins] `_get`
-
-support linear local variable by `'name set` and `'name get`
+fix `proper_tail_call`
 
 # remove runtime type
 
@@ -26,10 +19,9 @@ datatype_end
 ] define
 ```
 
-# NbE
+# repl
 
-to compare two function types (types of two quoted programs)
-we need to first normalize them into two type effects.
+[repl] repl_command
 
 # dict
 
@@ -42,6 +34,11 @@ dict_word -- handle collision by linked list
 quit using opcode, all that in the body of a program should be words
 
 - a primitive word can do anything to the vm during execution.
+
+# NbE
+
+to compare two function types (types of two quoted programs)
+we need to first normalize them into two type effects.
 
 # instruction set architecture
 
@@ -69,10 +66,6 @@ only simple type (with generic)
 [command-line] `x -h`
 [command-line] `x --version`
 [command-line] `x -v`
-
-# repl
-
-[repl] repl_command
 
 # device
 
