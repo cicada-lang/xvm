@@ -12,16 +12,8 @@
 2 eq assert
 1 eq assert
 
-'gcd [
-  dup2 eq
-  [ drop ]
-  [ dup2 gt
-    [ dup2 sub rot drop ]
-    [ dup2 swap sub swap drop ]
-    if_else
-    gcd ]
-  if_else
-] define
+'abs [ dup 0 lt [ -1 mul ] if ] define
+'gcd [ dup2 eq [ drop ] [ dup2 sub abs gcd ] if_else ] define
 
 8 12 gcd
 4 eq assert
