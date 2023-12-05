@@ -1,4 +1,3 @@
-[builtins] `_lt` -- instead of `_lesser`
 [builtins] `_gt` -- instead of `_greater`
 
 [builtins] `_execute` execute a word

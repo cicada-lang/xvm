@@ -1,5 +1,5 @@
 'int_abs [
-  dup 0 lesser
+  dup 0 lt
   [ -1 mul ] if
 ] define
 

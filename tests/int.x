@@ -15,7 +15,7 @@
 2 2 mul 4 eq assert
 3 3 mul 9 eq assert
 
-1 2 lesser assert
+1 2 lt assert
 1 2 lteq assert
 2 2 lteq assert
 
