@@ -1,10 +1,3 @@
-[builtin] _dup & _drop
-
-- remove dup and drop for atom datatype
-  - int
-  - bool
-  - word
-
 # remove runtime type
 
 add runtime algebraic data type

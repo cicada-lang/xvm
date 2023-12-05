@@ -1,8 +1,6 @@
 #pragma once
 
 void _int_print(const vm_t *vm);
-void _int_dup(const vm_t *vm);
-void _int_drop(const vm_t *vm);
 void _int_equal(const vm_t *vm);
 void _int_greater(const vm_t *vm);
 void _int_lesser(const vm_t *vm);

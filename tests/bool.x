@@ -1,6 +1,6 @@
-true bool_dup assert assert
+true dup assert assert
 
-true false bool_drop
+true false drop
 true bool_equal assert
 
 true true bool_equal assert

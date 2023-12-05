@@ -1,8 +1,8 @@
-'int_dup2 [ int_t - int_t int_t ] claim
+'dup2 [ int_t - int_t int_t ] claim
 'int_mul [ int_t - int_t - int_t ] claim
 
 'int_square [ int_t - int_t ] claim
-'int_square [ int_dup int_mul ] define
+'int_square [ dup int_mul ] define
 
 1 int_square 1 int_equal assert
 2 int_square 4 int_equal assert

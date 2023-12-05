@@ -22,14 +22,14 @@ test_build_program(void) {
         program_t *program = vm_build_program(vm, "square_test");
         assert(program_byte_size(program) == 0);
 
-        program_append_call(program, vm_word(vm, "int_dup"));
+        program_append_call(program, vm_word(vm, "dup"));
         size_t unit_size = sizeof(opcode_t) + sizeof(value_t);
         assert(program_byte_size(program) == unit_size);
 
         program_append_call(program, vm_word(vm, "int_mul"));
         assert(program_byte_size(program) == unit_size * 2);
         assert(program_fetch_byte(program, 0) == CALL);
-        assert(program_fetch_word(program, 1) == vm_word(vm, "int_dup"));
+        assert(program_fetch_word(program, 1) == vm_word(vm, "dup"));
         assert(program_fetch_byte(program, unit_size) == CALL);
         assert(program_fetch_word(program, unit_size + 1) == vm_word(vm, "int_mul"));
     }

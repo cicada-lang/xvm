@@ -1,5 +1,5 @@
 'bool_hello [
-  bool_dup
+  dup
   [ "hello, true!" string_print newline ] if
   [ "hello, false!" string_print newline ] if
 ] define
