@@ -1,14 +1,10 @@
-[
-  [ x y ] swap
-  [ y x ] int_dup
-  [ y x x ] rot
-  [ x x y ] int_dup
-  [ x x y y ] rot
-  [ x y y x ] swap
-  [ x y x y ]
-]
-
-'int_dup2 [ swap int_dup rot int_dup rot swap ] define
+'int_dup2 [
+  'y set 'x set
+  'x get int_dup 'x set
+  'y get int_dup 'y set
+  'x get
+  'y get
+] define
 
 1 2 int_dup2
 2 int_equal assert
