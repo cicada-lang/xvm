@@ -9,5 +9,4 @@ define_all_builtins(vm_t *vm) {
     define_string_builtins(vm);
     define_word_builtins(vm);
     define_vm_builtins(vm);
-    define_type_builtins(vm);
 }

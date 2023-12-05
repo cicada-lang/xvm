@@ -1,3 +1,7 @@
+> remove code about runtime type system
+
+remove type constructor
+
 # old
 
 vm has `type_var_counter`
@@ -13,7 +17,20 @@ vm has scope for type variables -- enter the scope during one call to `cut`
 
 add runtime algebraic data type
 
-remove code about runtime type system
+```
+'list_t datatype_begin
+  'null 0 arity_case
+  'cons 2 arity_case
+datatype_end
+```
+
+```
+'list_lenght [
+  'null [ zero ]
+  'cons [ swap drop list_length add1 ]
+  'list_t match
+] define
+```
 
 # NbE
 
