@@ -1,9 +1,9 @@
 'a dup
-'a word_equal assert
-'a word_equal assert
+'a eq assert
+'a eq assert
 
 'a 'b 'c drop drop
-'a word_equal assert
+'a eq assert
 
-'abc 'abc word_equal assert
-'abc 'abcd word_equal not assert
+'abc 'abc eq assert
+'abc 'abcd eq not assert

@@ -3,6 +3,6 @@
   [ -1 mul ] if
 ] define
 
-0 int_abs 0 int_equal assert
-1 int_abs 1 int_equal assert
--1 int_abs 1 int_equal assert
+0 int_abs 0 eq assert
+1 int_abs 1 eq assert
+-1 int_abs 1 eq assert

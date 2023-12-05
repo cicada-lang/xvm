@@ -7,13 +7,13 @@
 ] define
 
 1 2 dup2
-2 int_equal assert
-1 int_equal assert
-2 int_equal assert
-1 int_equal assert
+2 eq assert
+1 eq assert
+2 eq assert
+1 eq assert
 
 'int_gcd [
-  dup2 int_equal
+  dup2 eq
   [ drop ]
   [ dup2 greater
     [ dup2 sub rot drop ]
@@ -24,10 +24,10 @@
 ] define
 
 8 12 int_gcd
-4 int_equal assert
+4 eq assert
 
 17 5 int_gcd
-1 int_equal assert
+1 eq assert
 
 1 1 int_gcd
-1 int_equal assert
+1 eq assert

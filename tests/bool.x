@@ -1,17 +1,17 @@
 true dup assert assert
 
 true false drop
-true bool_equal assert
+true eq assert
 
-true true bool_equal assert
-false false bool_equal assert
-true false bool_equal not assert
+true true eq assert
+false false eq assert
+true false eq not assert
 
-true not false bool_equal assert
-false not true bool_equal assert
+true not false eq assert
+false not true eq assert
 
-true false and false bool_equal assert
-true true and true bool_equal assert
+true false and false eq assert
+true true and true eq assert
 
-true false or true bool_equal assert
-false false or false bool_equal assert
+true false or true eq assert
+false false or false eq assert

@@ -17,12 +17,6 @@ void _bool_print(const vm_t *vm) {
     }
 }
 
-void _bool_equal(const vm_t *vm) {
-    bool x = vm_value_stack_pop(vm);
-    bool y = vm_value_stack_pop(vm);
-    vm_value_stack_push(vm, x == y);
-}
-
 void _not(const vm_t *vm) {
     bool x = vm_value_stack_pop(vm);
     vm_value_stack_push(vm, !x);

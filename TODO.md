@@ -1,5 +1,3 @@
-[builtins] `_eq` -- instead of `int_equal` & `bool_equal` & `word_equal`
-
 [builtins] `_lt` -- instead of `_lesser`
 [builtins] `_lteq` -- instead of `_lesser_or_equal`
 [builtins] `_gt` -- instead of `_greater`
