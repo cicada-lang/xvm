@@ -1,3 +1,12 @@
+# linear local variable
+
+`frame` -- has `locals`
+
+[builtins] `_set`
+[builtins] `_get`
+
+support linear local variable by `'name set` and `'name get`
+
 # remove runtime type
 
 add runtime algebraic data type
@@ -21,19 +30,6 @@ datatype_end
 
 to compare two function types (types of two quoted programs)
 we need to first normalize them into two type effects.
-
-# later
-
-`execute` -- handle tail call
-
-# linear local variable
-
-`frame` -- has `locals`
-
-[builtins] `_set`
-[builtins] `_get`
-
-support linear local variable by `'name set` and `'name get`
 
 # dict
 

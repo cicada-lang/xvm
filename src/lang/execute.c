@@ -45,7 +45,12 @@ static void execute_word(const vm_t *vm, word_t *word);
 void
 execute_call(const vm_t *vm, frame_t *frame) {
     word_t *word = frame_fetch_word(frame);
-    vm_return_stack_push(vm, frame);
+    if (frame_is_end(frame)) {
+        // We handle proper tail call here.
+        frame_destroy(&frame);
+    } else {
+        vm_return_stack_push(vm, frame);
+    }
 
     execute_word(vm, word);
 }
