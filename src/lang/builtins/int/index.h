@@ -5,7 +5,7 @@ void _eq(const vm_t *vm);
 void _greater(const vm_t *vm);
 void _lesser(const vm_t *vm);
 void _greater_or_equal(const vm_t *vm);
-void _lesser_or_equal(const vm_t *vm);
+void _lteq(const vm_t *vm);
 void _add(const vm_t *vm);
 void _sub(const vm_t *vm);
 void _mul(const vm_t *vm);

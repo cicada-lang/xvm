@@ -1,7 +1,5 @@
 [builtins] `_lt` -- instead of `_lesser`
-[builtins] `_lteq` -- instead of `_lesser_or_equal`
 [builtins] `_gt` -- instead of `_greater`
-[builtins] `_gteq` -- instead of `_greater_or_equal`
 
 [builtins] `_execute` execute a word
 [builtins] `_apply` apply a program

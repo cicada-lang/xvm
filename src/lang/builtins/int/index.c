@@ -29,7 +29,7 @@ void _greater_or_equal(const vm_t *vm) {
     vm_value_stack_push(vm, left >= right);
 }
 
-void _lesser_or_equal(const vm_t *vm) {
+void _lteq(const vm_t *vm) {
     int_t right = vm_value_stack_pop(vm);
     int_t left = vm_value_stack_pop(vm);
     vm_value_stack_push(vm, left <= right);

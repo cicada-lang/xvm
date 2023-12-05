@@ -16,8 +16,8 @@
 3 3 mul 9 eq assert
 
 1 2 lesser assert
-1 2 lesser_or_equal assert
-2 2 lesser_or_equal assert
+1 2 lteq assert
+2 2 lteq assert
 
 2 1 greater assert
 2 1 greater_or_equal assert
