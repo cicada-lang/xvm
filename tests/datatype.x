@@ -1,7 +1,8 @@
 123
 
 'list_t datatype_define
-  dup int_print newline
+  'null 0 arity_case
+  'cons 2 arity_case
 datatype_close
 
 123 eq assert
