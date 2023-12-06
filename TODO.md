@@ -1,5 +1,11 @@
 # remove runtime type
 
+cast type by common tag field
+
+- type_term_t
+- type_variable_t
+- type_program_t
+
 word_entry should be a tagged union
 
 bind datatype to name
