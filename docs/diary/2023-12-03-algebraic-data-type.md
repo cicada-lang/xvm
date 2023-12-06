@@ -47,21 +47,21 @@ which have the type tag and case tag.
 if we do not care about type, only need runtime tagged data:
 
 ```
-'list_t datatype_begin
+'list_t datatype_define
   'null 0 arity_case
   'cons 2 arity_case
-datatype_end
+datatype_close
 ```
 
 for type maybe:
 
 ```
-'list_t [ type_t -- type_t ] datatype_begin
+'list_t [ type_t -- type_t ] datatype_define
   'null [ -- :a list_t ] case
   'cons [ :a :a list_t -- :a list_t ] case
-datatype_end
+datatype_close
 ```
 
 maybe like `define` v.s. `claim`,
-we should use untyped `datatype_begin`
+we should use untyped `datatype_define`
 and `claim` the type separately.
