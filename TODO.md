@@ -1,9 +1,13 @@
 # remove runtime type
 
-_arity_case -- add a data constructor to a datatype
+bind datatype to name
+bind data_constructor to name
+
 data_t -- data of algebraic datatype
+
 - has data_constructor
 - has args of values
+
 _match_softly -- does NOT free the matched data
 _match -- free the match data
 

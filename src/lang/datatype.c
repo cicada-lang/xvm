@@ -35,3 +35,9 @@ bool
 datatype_is_closed(datatype_t *self) {
     return self->is_closed;
 }
+
+void
+datatype_add_data_constructor(datatype_t *self, word_t *name, size_t arity) {
+    data_constructor_t *data_constructor = data_constructor_create(self, name, arity);
+    list_push(self->data_constructor_list, data_constructor);
+}
