@@ -6,7 +6,7 @@ _arity_case -- add a data constructor to a datatype
 data_t -- data of algebraic datatype
 - has data_constructor
 - has args of values
-_borrow_match -- does NOT free the matched data
+_soft_match -- does NOT free the matched data
 _match -- free the match data
 
 add runtime algebraic data type
