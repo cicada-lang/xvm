@@ -1,5 +1,3 @@
-[builtins] `_execute` execute a word
-
 # remove runtime type
 
 add runtime algebraic data type

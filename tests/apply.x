@@ -1,1 +1,2 @@
-[ "hello, apply!" string_print newline ] apply
+[ "hello, apply!" ] apply
+"hello, apply!" string_equal assert

@@ -16,8 +16,15 @@ _claim(const vm_t *vm) {
 
 void
 _apply(const vm_t *vm) {
-    program_t *on_true_program = (program_t *) vm_value_stack_pop(vm);
-    vm_load_program(vm, on_true_program);
+    program_t *program = (program_t *) vm_value_stack_pop(vm);
+    vm_load_program(vm, program);
+}
+
+void
+_execute(const vm_t *vm) {
+    word_t *word = (word_t *) vm_value_stack_pop(vm);
+    program_t *program = word_program(word);
+    vm_load_program(vm, program);
 }
 
 void _dup(const vm_t *vm) {
