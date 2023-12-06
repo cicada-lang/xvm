@@ -1,11 +1,13 @@
 # remove runtime type
 
-_datatype_begin
-_datatype_end
-
+_datatype_begin -- return a datatype to the stack
+_datatype_end -- drop the datatype on the stack
 _arity_case -- add a data constructor to a datatype
-
-_match
+data_t -- data of algebraic datatype
+- has data_constructor
+- has args of values
+_borrow_match -- does NOT free the matched data
+_match -- free the match data
 
 add runtime algebraic data type
 

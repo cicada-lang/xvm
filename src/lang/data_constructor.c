@@ -1,13 +1,15 @@
 #include "index.h"
 
 struct _data_constructor_t {
+    const datatype_t *datatype;
     const word_t *name;
     size_t arity;
 };
 
 data_constructor_t *
-data_constructor_create(const word_t *name, size_t arity) {
+data_constructor_create(const datatype_t *datatype, const word_t *name, size_t arity) {
     data_constructor_t *self = allocate(sizeof(data_constructor_t));
+    self->datatype = datatype;
     self->name = name;
     self->arity = arity;
     return self;
