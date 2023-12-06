@@ -1,5 +1,7 @@
 # remove runtime type
 
+word_entry should be a tagged union
+
 bind datatype to name
 bind data_constructor to name
 
