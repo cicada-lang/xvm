@@ -3,6 +3,7 @@
 struct _datatype_t {
     const word_t *name;
     list_t *data_constructor_list;
+    bool is_closed;
 };
 
 datatype_t *
@@ -10,6 +11,7 @@ datatype_create(const word_t *name) {
     datatype_t *self = allocate(sizeof(datatype_t));
     self->name = name;
     self->data_constructor_list = list_create();
+    self->is_closed = false;
     return self;
 }
 
@@ -22,4 +24,14 @@ datatype_destroy(datatype_t **self_pointer) {
         free(self);
         *self_pointer = NULL;
     }
+}
+
+void
+datatype_close(datatype_t *self) {
+    self->is_closed = true;
+}
+
+bool
+datatype_is_closed(datatype_t *self) {
+    return self->is_closed;
 }
