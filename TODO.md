@@ -1,5 +1,14 @@
 # remove runtime type
 
+datatype_t -- has a name and a list of data constructors
+
+_datatype_begin
+_datatype_end
+
+_arity_case -- add a data constructor to a datatype
+
+_match
+
 add runtime algebraic data type
 
 ```

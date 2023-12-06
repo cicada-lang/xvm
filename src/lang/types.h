@@ -15,5 +15,6 @@ typedef struct _token_t token_t;
 typedef struct _lexer_t lexer_t;
 typedef struct _interpreter_t interpreter_t;
 typedef struct _vm_t vm_t;
+typedef struct _data_constructor_t data_constructor_t;
 
 typedef void (primitive_t)(const vm_t *vm);
