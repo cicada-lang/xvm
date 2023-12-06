@@ -1,6 +1,5 @@
 # remove runtime type
 
-_datatype_define -- return a datatype to the stack
 _datatype_close -- drop the datatype on the stack
 _arity_case -- add a data constructor to a datatype
 data_t -- data of algebraic datatype
@@ -22,7 +21,7 @@ datatype_close
 'list_lenght [
   'null [ zero ]
   'cons [ swap drop list_length add1 ]
-  'list_t match
+  'list_t match_softly
 ] define
 ```
 

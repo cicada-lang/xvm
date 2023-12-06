@@ -10,4 +10,5 @@ define_all_builtins(vm_t *vm) {
     define_word_builtins(vm);
     define_vm_builtins(vm);
     define_local_variable_builtins(vm);
+    define_datatype_builtins(vm);
 }

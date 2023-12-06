@@ -8,5 +8,6 @@
 #include "vm/index.h"
 #include "assert/index.h"
 #include "local_variable/index.h"
+#include "datatype/index.h"
 
 void define_all_builtins(vm_t *vm);
