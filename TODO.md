@@ -1,7 +1,5 @@
 # remove runtime type
 
-datatype_t -- has a name and a list of data constructors
-
 _datatype_begin
 _datatype_end
 

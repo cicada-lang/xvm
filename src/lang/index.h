@@ -15,4 +15,6 @@
 #include "lexer.h"
 #include "interpreter.h"
 #include "vm.h"
+#include "data_constructor.h"
+#include "datatype.h"
 #include "builtins/index.h"
