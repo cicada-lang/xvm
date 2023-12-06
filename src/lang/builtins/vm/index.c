@@ -14,6 +14,12 @@ _claim(const vm_t *vm) {
     word_type_program_set(word, type_program);
 }
 
+void
+_apply(const vm_t *vm) {
+    program_t *on_true_program = (program_t *) vm_value_stack_pop(vm);
+    vm_load_program(vm, on_true_program);
+}
+
 void _dup(const vm_t *vm) {
     value_t value = vm_value_stack_pop(vm);
     vm_value_stack_push(vm, value);

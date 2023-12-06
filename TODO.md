@@ -1,5 +1,4 @@
 [builtins] `_execute` execute a word
-[builtins] `_apply` apply a program
 
 # remove runtime type
 
