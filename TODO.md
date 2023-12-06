@@ -1,6 +1,5 @@
 # remove runtime type
 
-_datatype_close -- drop the datatype on the stack and mark the datatype as closed
 _arity_case -- add a data constructor to a datatype
 data_t -- data of algebraic datatype
 - has data_constructor
