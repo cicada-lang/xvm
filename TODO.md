@@ -1,4 +1,10 @@
-# remove runtime type
+# runtime type
+
+tagged_t
+
+there should be no type_program_t
+
+- the general form of program_t should be [ ... -- ... ]
 
 cast type by common tag field
 
@@ -6,7 +12,13 @@ cast type by common tag field
 - type_variable_t
 - type_program_t
 
-word_entry should be a tagged union
+# algebraic datatype
+
+entry in word should be a tagged_t
+
+primitive datatype data_constructor program should have tag
+
+a function that maps tag to name
 
 bind datatype to name
 bind data_constructor to name
@@ -16,8 +28,8 @@ data_t -- data of algebraic datatype
 - has data_constructor
 - has args of values
 
-_match_softly -- does NOT free the matched data
-_match -- free the match data
+_match -- does NOT free the matched data
+_decons -- free the match data
 
 add runtime algebraic data type
 
@@ -32,7 +44,7 @@ datatype_close
 'list_lenght [
   'null [ zero ]
   'cons [ swap drop list_length add1 ]
-  'list_t match_softly
+  'list_t match
 ] define
 ```
 

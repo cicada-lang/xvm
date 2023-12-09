@@ -57,6 +57,8 @@ How to implement `--`?
 A frame can record the stack pointer on enter,
 `--` can use this stack pointer to collect types into `input_type_stack`.
 
+Or the general form of a program should be `[ ... -- ... ]`.
+
 # Defining types
 
 About defining types,
