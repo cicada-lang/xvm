@@ -35,4 +35,6 @@ do it with good performance.
 
 Maybe one level of indirection can do the job.
 
-TODO
+------
+
+I should just copy and rename first!
