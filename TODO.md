@@ -1,10 +1,16 @@
 # runtime type
 
+tags.h
+
 tagged_t
 
-there should be no type_program_t
+`program_t` has `tag_t tag`
 
-- the general form of program_t should be [ ... -- ... ]
+`type_program_t` has `tag_t tag`
+
+`type_program_t` use `[ ... -- ... ]` as syntax
+
+`type_program_t` can be copy and renamed
 
 cast type by common tag field
 
