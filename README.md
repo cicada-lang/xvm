@@ -1,18 +1,17 @@
-# X Script
+# XVM
 
-X Script is a pure postfix scripting language.
+XVM is a extensible VM.
 
-- It is trivially extensible by C, to be used as scripting language for C/C++ projects.
-- It has NO garbage collector, it allocates and frees memory directly.
-- It uses a simple linear type system for resource management.
+- Written in C and extensible by C.
+- Use tagged values and a garbage collector.
 
 ## Usage
 
 On Linux:
 
 ```
-git clone https://github.com/xieyuheng/x-script
-cd x-script
+git clone https://github.com/cicada-lang/xvm
+cd xvm
 make
 make test
 ```
@@ -53,8 +52,8 @@ make clean    # clean up compiled files
 
 **Articles**:
 
-- [Thoughts on Forth Programming](https://readonly.link/articles/https://code-of-x-script.fidb.app/docs/references/articles/thoughts-on-forth-programming.md)
-- [Forth Methodology Applied to Programming](https://readonly.link/articles/https://code-of-x-script.fidb.app/docs/references/articles/forth-methodology-applied-to-programming.md)
+- [Thoughts on Forth Programming](https://readonly.link/articles/https://code-of-xvm.fidb.app/docs/references/articles/thoughts-on-forth-programming.md)
+- [Forth Methodology Applied to Programming](https://readonly.link/articles/https://code-of-xvm.fidb.app/docs/references/articles/forth-methodology-applied-to-programming.md)
 
 ## Contributions
 

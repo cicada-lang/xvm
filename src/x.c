@@ -5,7 +5,7 @@
 int
 main(int argc, char *argv[]) {
     command_runner_t *runner = command_runner_create(
-        "x-script", X_VERSION, argc, argv);
+        "xvm", X_VERSION, argc, argv);
 
     command_runner_mount(runner, run_command);
     command_runner_mount(runner, repl_command);
