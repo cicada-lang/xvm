@@ -1,6 +1,6 @@
 # XVM
 
-XVM is a extensible VM.
+XVM is a extensible virtual machine.
 
 - Written in C and extensible by C.
 - Use tagged values and a garbage collector.
