@@ -7,8 +7,8 @@ date: 2023-10-20
 Instead of a VM for byte code,
 I want a VM for forth-like word code.
 Because people use byte code for fast load time,
-but forth-like system is trivial to parse,
-thus already have first load time.
+but a forth-like system is trivial to parse,
+thus already has first load time.
 
 # Basic features
 
