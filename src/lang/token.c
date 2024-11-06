@@ -5,7 +5,7 @@ typedef enum {
     TOKEN_DOUBLE_QUOTES,
 } token_kind_t;
 
-struct _token_t {
+struct token_t {
     token_kind_t kind;
     char *string;
     size_t start;

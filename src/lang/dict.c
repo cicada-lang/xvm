@@ -1,6 +1,6 @@
 #include "index.h"
 
-struct _dict_t {
+struct dict_t {
     size_t size;
     word_t **words;
 };

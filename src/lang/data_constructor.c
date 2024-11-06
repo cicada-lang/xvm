@@ -1,6 +1,6 @@
 #include "index.h"
 
-struct _data_constructor_t {
+struct data_constructor_t {
     const datatype_t *datatype;
     const word_t *name;
     size_t arity;

@@ -1,6 +1,6 @@
 #include "index.h"
 
-struct _lexer_t {
+struct lexer_t {
     list_t *token_list;
     const char *code;
     size_t code_length;

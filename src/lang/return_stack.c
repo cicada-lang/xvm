@@ -1,6 +1,6 @@
 #include "index.h"
 
-struct _return_stack_t {
+struct return_stack_t {
     size_t size;
     frame_t **frames;
     size_t cursor;

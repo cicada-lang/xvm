@@ -1,6 +1,6 @@
 #include "index.h"
 
-struct _value_stack_t {
+struct value_stack_t {
     size_t size;
     value_t *values;
     size_t cursor;

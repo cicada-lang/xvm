@@ -1,6 +1,6 @@
 #include "index.h"
 
-struct _frame_t {
+struct frame_t {
     size_t index;
     const program_t *program;
     list_t *local_variable_list;

@@ -1,6 +1,6 @@
 #include "index.h"
 
-struct _word_t {
+struct word_t {
     char *name;
     program_t *program;
     program_t *type_program;

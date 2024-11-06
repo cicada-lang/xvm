@@ -1,6 +1,6 @@
 #include "index.h"
 
-struct _interpreter_t {
+struct interpreter_t {
     const vm_t *vm;
     const char *code;
     lexer_t *lexer;

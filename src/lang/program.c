@@ -1,6 +1,6 @@
 #include "index.h"
 
-struct _program_t {
+struct program_t {
     size_t size;
     byte_t *bytes;
 };

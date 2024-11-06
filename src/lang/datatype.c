@@ -1,6 +1,6 @@
 #include "index.h"
 
-struct _datatype_t {
+struct datatype_t {
     const word_t *name;
     list_t *data_constructor_list;
     bool is_closed;

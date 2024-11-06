@@ -1,6 +1,6 @@
 #include "index.h"
 
-struct _vm_t {
+struct vm_t {
     dict_t *dict;
     value_stack_t *value_stack;
     value_stack_t *input_type_stack;
