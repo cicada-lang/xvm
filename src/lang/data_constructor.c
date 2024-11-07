@@ -7,7 +7,7 @@ struct data_constructor_t {
 };
 
 data_constructor_t *
-data_constructor_create(const datatype_t *datatype, const word_t *name, size_t arity) {
+data_constructor_new(const datatype_t *datatype, const word_t *name, size_t arity) {
     data_constructor_t *self = allocate(sizeof(data_constructor_t));
     self->datatype = datatype;
     self->name = name;

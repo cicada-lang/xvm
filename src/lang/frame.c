@@ -12,7 +12,7 @@ typedef struct {
 } local_variable_t;
 
 static local_variable_t *
-local_variable_create(const word_t *word, value_t value) {
+local_variable_new(const word_t *word, value_t value) {
     local_variable_t *self = allocate(sizeof(local_variable_t));
     self->word = word;
     self->value = value;
@@ -31,11 +31,11 @@ local_variable_destroy(local_variable_t **self_pointer) {
 
 
 frame_t *
-frame_create(const program_t *program) {
+frame_new(const program_t *program) {
     frame_t *self = allocate(sizeof(frame_t));
     self->index = 0;
     self->program = program;
-    self->local_variable_list = list_create();
+    self->local_variable_list = list_new();
     return self;
 }
 
@@ -83,7 +83,7 @@ frame_fetch_word(frame_t *self) {
 
 void
 frame_set_local_variable(frame_t *self, word_t *word, value_t value) {
-    local_variable_t *local_variable = local_variable_create(word, value);
+    local_variable_t *local_variable = local_variable_new(word, value);
     list_push(self->local_variable_list, local_variable);
 }
 

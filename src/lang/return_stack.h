@@ -1,6 +1,6 @@
 #pragma once
 
-return_stack_t *return_stack_create(size_t size);
+return_stack_t *return_stack_new(size_t size);
 void return_stack_destroy(return_stack_t **self_pointer);
 
 frame_t *return_stack_pop(return_stack_t *self);

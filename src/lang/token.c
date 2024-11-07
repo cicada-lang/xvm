@@ -13,7 +13,7 @@ struct token_t {
 };
 
 token_t *
-token_word_create(char *string, size_t start, size_t end) {
+token_word_new(char *string, size_t start, size_t end) {
     token_t *self = allocate(sizeof(token_t));
     self->kind = TOKEN_WORD;
     self->string = string;
@@ -23,7 +23,7 @@ token_word_create(char *string, size_t start, size_t end) {
 }
 
 token_t *
-token_double_quotes_create(char *string, size_t start, size_t end) {
+token_double_quotes_new(char *string, size_t start, size_t end) {
     token_t *self = allocate(sizeof(token_t));
     self->kind = TOKEN_DOUBLE_QUOTES;
     self->string = string;

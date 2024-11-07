@@ -7,10 +7,10 @@ struct datatype_t {
 };
 
 datatype_t *
-datatype_create(const word_t *name) {
+datatype_new(const word_t *name) {
     datatype_t *self = allocate(sizeof(datatype_t));
     self->name = name;
-    self->data_constructor_list = list_create();
+    self->data_constructor_list = list_new();
     self->is_closed = false;
     return self;
 }
@@ -38,6 +38,6 @@ datatype_is_closed(datatype_t *self) {
 
 void
 datatype_add_data_constructor(datatype_t *self, word_t *name, size_t arity) {
-    data_constructor_t *data_constructor = data_constructor_create(self, name, arity);
+    data_constructor_t *data_constructor = data_constructor_new(self, name, arity);
     list_push(self->data_constructor_list, data_constructor);
 }

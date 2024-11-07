@@ -8,13 +8,13 @@ struct interpreter_t {
 };
 
 interpreter_t *
-interpreter_create(const vm_t *vm, const char *code) {
+interpreter_new(const vm_t *vm, const char *code) {
     interpreter_t *self = allocate(sizeof(interpreter_t));
     self->vm = vm;
     self->code = code;
-    self->lexer = lexer_create(code);
+    self->lexer = lexer_new(code);
     lexer_lex(self->lexer);
-    self->program_list = list_create();
+    self->program_list = list_new();
     return self;
 }
 
@@ -58,7 +58,7 @@ interpreter_execute_token(interpreter_t *self, token_t *token) {
         if (string_is_int(string)) {
             vm_value_stack_push(self->vm, string_to_int(string));
         } else if (string_equal(string, "[")) {
-            list_push(self->program_list, program_create());
+            list_push(self->program_list, program_new());
         } else if (string_equal(string, "]")) {
             assert(false && "[interpreter_execute_token] I meet extract ]");
         } else if (string_starts_with(string, "'")) {
@@ -83,7 +83,7 @@ interpreter_compile_token(interpreter_t *self, token_t *token, program_t *progra
         if (string_is_int(string)) {
             program_append_literal_int(program, string_to_int(string));
         } else if (string_equal(string, "[")) {
-            list_push(self->program_list, program_create());
+            list_push(self->program_list, program_new());
         } else if (string_equal(string, "]")) {
             list_pop(self->program_list);
             if (list_is_empty(self->program_list)) {

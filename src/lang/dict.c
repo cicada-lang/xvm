@@ -6,7 +6,7 @@ struct dict_t {
 };
 
 dict_t *
-dict_create(size_t size) {
+dict_new(size_t size) {
     dict_t *self = allocate(sizeof(dict_t));
     self->size = size;
     self->words = allocate_array(size, sizeof(word_t *));
@@ -39,7 +39,7 @@ dict_word(dict_t *self, const char *name) {
     word_t *found = self->words[hash];
     if (found) return found;
 
-    word_t *word = word_create(name);
+    word_t *word = word_new(name);
     self->words[hash] = word;
     return word;
 }

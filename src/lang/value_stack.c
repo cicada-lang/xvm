@@ -7,7 +7,7 @@ struct value_stack_t {
 };
 
 value_stack_t *
-value_stack_create(size_t size) {
+value_stack_new(size_t size) {
     value_stack_t *self = allocate(sizeof(value_stack_t));
     self->size = size;
     self->values = allocate_array(size, sizeof(value_t));

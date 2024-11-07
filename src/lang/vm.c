@@ -13,12 +13,12 @@ struct vm_t {
 #define RETURN_STACK_SIZE 10000
 
 vm_t *
-vm_create(void) {
+vm_new(void) {
     vm_t *self = allocate(sizeof(vm_t));
-    self->dict = dict_create(DICT_SIZE);
-    self->value_stack = value_stack_create(VALUE_STACK_SIZE);
-    self->input_type_stack = value_stack_create(INPUT_TYPE_STACK_SIZE);
-    self->return_stack = return_stack_create(RETURN_STACK_SIZE);
+    self->dict = dict_new(DICT_SIZE);
+    self->value_stack = value_stack_new(VALUE_STACK_SIZE);
+    self->input_type_stack = value_stack_new(INPUT_TYPE_STACK_SIZE);
+    self->return_stack = return_stack_new(RETURN_STACK_SIZE);
     return self;
 }
 
@@ -109,7 +109,7 @@ void
 vm_load_program(const vm_t *self, program_t *program) {
     vm_return_stack_tos(self);
 
-    frame_t *frame = frame_create(program);
+    frame_t *frame = frame_new(program);
     vm_return_stack_push(self, frame);
 }
 
@@ -131,7 +131,7 @@ vm_run(const vm_t *self) {
 
 void
 vm_run_word(const vm_t *self, word_t *word) {
-    program_t *program = program_create();
+    program_t *program = program_new();
     program_append_call(program, word);
     vm_load_program(self, program);
     vm_run(self);
@@ -144,7 +144,7 @@ vm_build_program(vm_t *self, const char *name) {
     program_t *found = word_program(word);
     if (found) return found;
 
-    program_t *program = program_create();
+    program_t *program = program_new();
     word_program_set(word, program);
     return program;
 }
@@ -157,14 +157,14 @@ vm_define_primitive(vm_t *self, const char *name, primitive_t *primitive) {
 
 vm_t *
 vm_init(void) {
-    vm_t *vm = vm_create();
+    vm_t *vm = vm_new();
     define_all_builtins(vm);
     return vm;
 }
 
 void
 vm_interpret_code(vm_t *self, const char *code) {
-    interpreter_t *interpreter = interpreter_create(self, code);
+    interpreter_t *interpreter = interpreter_new(self, code);
     interpreter_interpret(interpreter);
     interpreter_destroy(&interpreter);
 }

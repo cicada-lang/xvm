@@ -10,9 +10,9 @@ struct lexer_t {
     size_t string_length;
 };
 
-lexer_t *lexer_create(const char *code) {
+lexer_t *lexer_new(const char *code) {
     lexer_t *self = allocate(sizeof(lexer_t));
-    self->token_list = list_create();
+    self->token_list = list_new();
     self->code = code;
     self->code_length = strlen(code);
     self->index = 0;
@@ -125,7 +125,7 @@ lexer_lex_double_qoutes(lexer_t *self) {
             size_t start = self->index;
             size_t end = self->index + strlen(self->string);
             char *string = string_clone(self->string);
-            token_t *token = token_double_quotes_create(string, start, end);
+            token_t *token = token_double_quotes_new(string, start, end);
             list_push(self->token_list, token);
             self->string[0] = '\0';
             self->string_length = 0;
@@ -167,7 +167,7 @@ lexer_lex_word(lexer_t *self) {
             size_t start = self->index;
             size_t end = self->index + strlen(self->string);
             char *string = string_clone(self->string);
-            token_t *token = token_word_create(string, start, end);
+            token_t *token = token_word_new(string, start, end);
             list_push(self->token_list, token);
             self->string[0] = '\0';
             self->string_length = 0;

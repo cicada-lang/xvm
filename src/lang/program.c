@@ -6,7 +6,7 @@ struct program_t {
 };
 
 program_t *
-program_create(void) {
+program_new(void) {
     program_t *self = allocate(sizeof(program_t));
     self->size = 0;
     self->bytes = NULL;

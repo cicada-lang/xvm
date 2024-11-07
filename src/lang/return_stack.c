@@ -7,7 +7,7 @@ struct return_stack_t {
 };
 
 return_stack_t *
-return_stack_create(size_t size) {
+return_stack_new(size_t size) {
     return_stack_t *self = allocate(sizeof(return_stack_t));
     self->size = size;
     self->frames = allocate_array(size, sizeof(frame_t *));

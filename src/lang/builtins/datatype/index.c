@@ -2,7 +2,7 @@
 
 void _datatype_define(const vm_t *vm) {
     word_t *name = (word_t *) vm_value_stack_pop(vm);
-    datatype_t *datatype = datatype_create(name);
+    datatype_t *datatype = datatype_new(name);
     vm_value_stack_push(vm, (value_t) datatype);
 }
 
