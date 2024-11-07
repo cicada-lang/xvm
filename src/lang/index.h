@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../dependencies.h"
+#include "../deps.h"
 #include "../utils/index.h"
 #include "types.h"
 #include "opcode.h"
