@@ -4,11 +4,11 @@
 static int run(char **args);
 
 void
-default_version_command(const command_runner_t *runner) {
+default_version_command(const commander_t *runner) {
     command_t *command = command_new("version");
     command->description = "print version";
     command->run = run;
-    command_runner_add_command(runner, command);
+    commander_add_command(runner, command);
 }
 
 int

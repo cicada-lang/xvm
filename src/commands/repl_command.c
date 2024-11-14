@@ -4,11 +4,11 @@
 static int run(char **args);
 
 void
-repl_command(const command_runner_t *runner) {
+repl_command(const commander_t *runner) {
     command_t *command = command_new("repl");
     command->description = "start the read-eval-print-loop";
     command->run = run;
-    command_runner_add_command(runner, command);
+    commander_add_command(runner, command);
 }
 
 int

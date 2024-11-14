@@ -1,19 +1,19 @@
-#include "command_runner/index.h"
+#include "commander/index.h"
 #include "commands/index.h"
 #include "lang/index.h"
 
 int
 main(int argc, char *argv[]) {
-    command_runner_t *runner = command_runner_new(
+    commander_t *runner = commander_new(
         "xvm", X_VERSION, argc, argv);
 
-    command_runner_mount(runner, run_command);
-    command_runner_mount(runner, repl_command);
-    command_runner_mount(runner, self_test_command);
-    command_runner_mount(runner, default_help_command);
-    command_runner_mount(runner, default_version_command);
+    commander_mount(runner, run_command);
+    commander_mount(runner, repl_command);
+    commander_mount(runner, self_test_command);
+    commander_mount(runner, default_help_command);
+    commander_mount(runner, default_version_command);
 
-    int status_code = command_runner_run(runner);
-    command_runner_destroy(&runner);
+    int status_code = commander_run(runner);
+    commander_destroy(&runner);
     return status_code;
 }
