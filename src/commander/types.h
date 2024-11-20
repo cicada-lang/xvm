@@ -2,7 +2,7 @@
 
 typedef struct commander_t commander_t;
 
-typedef void (command_plugin_t)(const commander_t *runner);
+typedef void (commander_plugin_t)(const commander_t *runner);
 
 typedef int (command_run_t)(char **args);
 typedef int (command_run_with_runner_t)(char **args, const commander_t *runner);
