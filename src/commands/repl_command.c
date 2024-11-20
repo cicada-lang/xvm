@@ -8,7 +8,7 @@ repl_command(const commander_t *runner) {
     command_t *command = command_new("repl");
     command->description = "start the read-eval-print-loop";
     command->run = run;
-    commander_add_command(runner, command);
+    commander_add(runner, command);
 }
 
 int

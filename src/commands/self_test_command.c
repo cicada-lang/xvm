@@ -8,7 +8,7 @@ self_test_command(const commander_t *runner) {
     command_t *command = command_new("self-test");
     command->description = "run self test";
     command->run = run;
-    commander_add_command(runner, command);
+    commander_add(runner, command);
 }
 
 int

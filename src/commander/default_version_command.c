@@ -8,7 +8,7 @@ default_version_command(const commander_t *runner) {
     command_t *command = command_new("version");
     command->description = "print version";
     command->run = run;
-    commander_add_command(runner, command);
+    commander_add(runner, command);
 }
 
 int
