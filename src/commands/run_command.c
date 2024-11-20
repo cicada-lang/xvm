@@ -27,14 +27,9 @@ run(char **args) {
 
 int
 run_file(const char *file_name) {
-    if (!file_name) {
-        printf("[run] I expect a file name.\n");
-        return 1;
-    }
-
     FILE *file = fopen(file_name, "r");
     if (!file) {
-        printf("[run] I file to open file: %s\n", file_name);
+        printf("[run] can not open file: %s\n", file_name);
         return 1;
     }
 
