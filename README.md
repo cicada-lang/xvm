@@ -45,11 +45,6 @@ make clean    # clean up compiled files
 
 - [Scalable C](https://github.com/booksbyus/scalable-c)
 
-**Tools**:
-
-- [Makefile tutorial](https://makefiletutorial.com)
-- [Makefile manual](https://www.gnu.org/software/make/manual/make.html)
-
 **Articles**:
 
 - [Thoughts on Forth Programming](https://readonly.link/articles/https://code-of-xvm.xieyuheng.com/docs/references/articles/thoughts-on-forth-programming.md)
