@@ -1,5 +1,3 @@
-change app to x
-
 # new plan
 
 xvm -- xasm and xemu -- 用最经典的 4-bit tag + 62-bit value runtime 编码

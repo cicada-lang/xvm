@@ -5,7 +5,7 @@ cflags = -g -Wall -Wwrite-strings -Wextra -Werror -Wpedantic -O3 -std=c99 -D_POS
 src = $(shell find src -name '*.c')
 headers = $(shell find src -name '*.h')
 lib = $(patsubst src/%,lib/%,$(patsubst %.c,%.o,$(src)))
-app = app
+app = x
 bin = bin/$(app)
 
 .PHONY: all
