@@ -6,7 +6,7 @@ vm_new(size_t ram_size) {
     self->ram_size = ram_size;
     self->ram = allocate(ram_size * sizeof(value_t));
     self->value_stack = stack_new();
-    self->frame_stack = stack_new();
+    self->frame_stack = stack_new_with((destroy_fn_t *) frame_destroy);
     return self;
 }
 

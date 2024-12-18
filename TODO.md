@@ -1,7 +1,5 @@
 # vm
 
-[vm] `vm_new` -- `frame_stack` -- use `frame_destroy`
-
 [vm] `vm_step`
 [vm] `vm_run_until`
 
