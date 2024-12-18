@@ -1,7 +1,7 @@
 # vm
 
-[vm] `vm_t` -- has `ram`
 [vm] `vm_new`
+- default `RAM_SIZE` in `config.h`
 [vm] `vm_destroy`
 
 values/xint
