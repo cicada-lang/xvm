@@ -8,14 +8,14 @@ typedef void *value_t;
 // address in vm ram is different from
 // address of pointer (object).
 typedef enum {
-    XOBJECT       = 0, // 0b000
-    XADDRESS      = 1, // 0b001
-    XINT          = 2, // 0b010
-    // TODO       = 3, // 0b011
-    // TODO       = 4, // 0b100
-    // TODO       = 5, // 0b101
-    // TODO       = 6, // 0b110
-    XEXTENDED     = 7, // 0b111
+    XOBJECT      = 0, // 0b000
+    XADDRESS     = 1, // 0b001
+    XINT         = 2, // 0b010
+    XSYMBOL      = 3, // 0b011
+    // TODO      = 4, // 0b100
+    // TODO      = 5, // 0b101
+    // TODO      = 6, // 0b110
+    XEXTENDED    = 7, // 0b111
 } tag_t;
 
 // extended_tag_t ?

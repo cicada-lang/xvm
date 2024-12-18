@@ -1,6 +1,5 @@
 # vm
 
-[vm] setup `frame`
 [vm] `frame_t` -- only has `program_counter` for now -- will have local variables
 [vm] `frame_new`
 [vm] `frame_destroy`
@@ -14,6 +13,7 @@
 
 values/xint
 values/xaddress
+values/xsymbol
 values/xobject -- with `kind`
 
 objects/xstring
