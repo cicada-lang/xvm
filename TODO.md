@@ -1,7 +1,5 @@
 # vm
 
-[vm] setup `vm_test`
-
 [vm] setup `value.c`
 
 [vm] `value_t` -- 用最经典的 3-bit tag + 61-bit value runtime 编码
