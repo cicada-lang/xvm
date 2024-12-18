@@ -1,6 +1,5 @@
 # vm
 
-remove example programs
 [vm] setup `vm_test`
 
 [vm] setup `value.c`
