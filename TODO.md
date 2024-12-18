@@ -1,7 +1,5 @@
 # vm
 
-[vm] setup `values/`
-
 [vm] encoding of value with extended tag
 
 [vm] xbool
