@@ -1,10 +1,6 @@
 # vm
 
-[vm] setup `value.c`
-
-[vm] `value_t` -- 用最经典的 3-bit tag + 61-bit value runtime 编码
-[vm] `tag_t`
-[vm] `value_tag`
+[vm] `value_tag` -- 3-bit tag + 61-bit data
 
 [vm] `vm_t` -- has `value_stack` and `return_stack`
 [vm] `vm_new`
