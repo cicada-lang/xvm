@@ -26,3 +26,4 @@ typedef enum {
 // - xop_t    -- TODO 0b111
 
 typedef struct vm_t vm_t;
+typedef struct frame_t frame_t;

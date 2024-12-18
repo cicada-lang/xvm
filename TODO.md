@@ -1,6 +1,5 @@
 # vm
 
-[vm] `frame_t` -- only has `program_counter` for now -- will have local variables
 [vm] `frame_new`
 [vm] `frame_destroy`
 
