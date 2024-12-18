@@ -9,6 +9,8 @@
 [vm] xnull
 [vm] xopcode
 
+[vm] `frame_is_finished` -- need `end_opcode`
+
 [vm] xint
 [vm] xaddress
 [vm] xsymbol

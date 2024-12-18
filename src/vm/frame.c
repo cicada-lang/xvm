@@ -23,3 +23,10 @@ frame_fetch_value(frame_t *self) {
     self->program_counter++;
     return value;
 }
+
+bool
+frame_is_finished(const frame_t *self) {
+    (void) self;
+    // TODO
+    return false;
+}

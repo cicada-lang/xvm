@@ -8,3 +8,4 @@ frame_t *frame_new(value_t *program_counter);
 void frame_destroy(frame_t **self_pointer);
 
 value_t frame_fetch_value(frame_t *self);
+bool frame_is_finished(const frame_t *self);
