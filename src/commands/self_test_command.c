@@ -1,5 +1,4 @@
 #include "index.h"
-#include "../font_editor/index.h"
 
 static int run(commander_t *commander);
 
@@ -18,7 +17,6 @@ run(commander_t *commander) {
     printf("<self_test>\n");
 
     modules_test();
-    font_editor_test();
 
     printf("</self_test>\n");
 

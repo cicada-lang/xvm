@@ -1,4 +1,4 @@
-remove font editor and image viewer
+change app to x
 
 # new plan
 
