@@ -1,7 +1,5 @@
 # vm
 
-[vm] `value_tag` -- 3-bit tag + 61-bit data
-
 [vm] `vm_t` -- has `value_stack` and `return_stack`
 [vm] `vm_new`
 [vm] `vm_destroy`
@@ -21,6 +19,7 @@ x_immediate_t -- 3
 - xbool_t    --
 - xchar_t    --
 - xnull_t    --
+- xop_t      --
 ```
 
 [vm] `x emu` command
