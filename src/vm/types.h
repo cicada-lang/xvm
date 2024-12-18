@@ -11,7 +11,7 @@ typedef enum {
     XOBJECT      = 0, // 0b000
     XADDRESS     = 1, // 0b001
     XINT         = 2, // 0b010
-    XSYMBOL      = 3, // 0b011
+    XFLOAT       = 3, // 0b011
     // TODO      = 4, // 0b100
     // TODO      = 5, // 0b101
     // TODO      = 6, // 0b110

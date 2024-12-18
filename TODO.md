@@ -3,20 +3,21 @@
 [vm] encoding of value with extended tag
 
 [vm] xbool
-[vm] xchar
 [vm] xnull
 [vm] xopcode
+[vm] xchar
 
 [vm] `frame_is_finished` -- need `end_opcode`
 
 [vm] xint
+[vm] xfloat -- double-precision floating-point but truncate the lower 3 bits
 [vm] xaddress
-[vm] xsymbol
 [vm] xobject -- with `kind`
 
 [vm] `execute`
 
 [vm] xstring
+[vm] xsymbol -- should not use lisp-like symbol for module system
 [vm] xtuple
 
 [vm] `x emu` command
