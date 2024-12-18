@@ -1,6 +1,5 @@
 # vm
 
-[vm] `vm_destroy`
 [vm] `frame_t`
 [vm] `vm_new` -- `frame_stack` -- use `frame_destroy`
 
