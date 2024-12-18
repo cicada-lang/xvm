@@ -16,3 +16,10 @@ frame_destroy(frame_t **self_pointer) {
         *self_pointer = NULL;
     }
 }
+
+value_t
+frame_fetch_value(frame_t *self) {
+    value_t value = *self->program_counter;
+    self->program_counter++;
+    return value;
+}

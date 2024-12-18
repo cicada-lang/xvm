@@ -22,3 +22,23 @@ vm_destroy(vm_t **self_pointer) {
         *self_pointer = NULL;
     }
 }
+
+
+void
+vm_step(vm_t *self) {
+    if (stack_is_empty(self->frame_stack))
+        return;
+
+    frame_t *frame = stack_pop(self->frame_stack);
+    value_t value = frame_fetch_value(frame);
+    // execution of the value decides
+    // to push the frame back or not.
+    execute(self, frame, value);
+}
+
+void
+vm_run_until(vm_t *self, size_t base_length) {
+    while (stack_length(self->frame_stack) > base_length) {
+        vm_step(self);
+    }
+}

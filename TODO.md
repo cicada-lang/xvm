@@ -1,17 +1,23 @@
 # vm
 
-[vm] `vm_step`
-[vm] `vm_run_until`
+[vm] setup `values/`
+
+[vm] encoding of value with extended tag
+
+[vm] xbool
+[vm] xchar
+[vm] xnull
+[vm] xopcode
+
+[vm] xint
+[vm] xaddress
+[vm] xsymbol
+[vm] xobject -- with `kind`
 
 [vm] `execute`
 
-values/xint
-values/xaddress
-values/xsymbol
-values/xobject -- with `kind`
-
-objects/xstring
-objects/xtuple
+[vm] xstring
+[vm] xtuple
 
 [vm] `x emu` command
 
