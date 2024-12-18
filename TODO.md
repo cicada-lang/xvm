@@ -1,8 +1,8 @@
 # vm
 
-[vm] `vm_new`
-- default `RAM_SIZE` in `config.h`
 [vm] `vm_destroy`
+[vm] `frame_t`
+[vm] `vm_new` -- `frame_stack` -- use `frame_destroy`
 
 values/xint
 values/xaddress

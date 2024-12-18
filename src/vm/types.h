@@ -13,3 +13,5 @@ typedef enum {
     XINT = 2,
     XIMMEDIATE = 3,
 } tag_t;
+
+typedef struct vm_t vm_t;
