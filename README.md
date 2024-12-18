@@ -1,25 +1,28 @@
 # XVM
 
-XVM is a extensible virtual machine.
-
-- Written in C and extensible by C.
-- Use tagged values and a garbage collector.
+XVM is a extensible virtual machine with tagged-values,
+written in C and extensible by C.
 
 ## Usage
 
-On Linux:
+Dependencies:
+
+- `libx11`:
+  - debian: `sudo apt install libx11-dev`
+  - ubuntu: `sudo apt install libx11-dev`
+
+Compile:
 
 ```
 git clone https://github.com/cicada-lang/xvm
 cd xvm
-make
+make -j
 make test
 ```
 
 The compiled `bin/x` is the command-line program.
 
 ```sh
-x repl        # start the read-eval-print-loop
 x run         # run a script
 x version     # print version
 x help        # print help
@@ -39,16 +42,10 @@ make clean    # clean up compiled files
 **Inspirations**:
 
 - [uxn](https://100r.co/site/uxn.html)
-- [dt](https://github.com/so-dang-cool/dt)
 
 **Books**:
 
 - [Scalable C](https://github.com/booksbyus/scalable-c)
-
-**Articles**:
-
-- [Thoughts on Forth Programming](https://readonly.link/articles/https://code-of-xvm.xieyuheng.com/docs/references/articles/thoughts-on-forth-programming.md)
-- [Forth Methodology Applied to Programming](https://readonly.link/articles/https://code-of-xvm.xieyuheng.com/docs/references/articles/forth-methodology-applied-to-programming.md)
 
 ## Contributions
 

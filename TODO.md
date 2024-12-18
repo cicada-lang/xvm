@@ -1,22 +1,14 @@
-# runtime type
+remove old code
+init new c project by cicada-lang/c-modules
 
-tags.h
+# new plan
 
-tagged_t
-
-`program_t` has `tag_t tag`
-
-`type_program_t` has `tag_t tag`
-
-`type_program_t` use `[ ... -- ... ]` as syntax
-
-`type_program_t` can be copy and renamed
-
-cast type by common tag field
-
-- type_term_t
-- type_variable_t
-- type_program_t
+xvm -- xasm and xemu -- 用最经典的 4-bit tag + 62-bit value runtime 编码
+- xasm 重点在于能以灵活的方式把 byte 写入 rom
+- xemu 重点在于实现起来简单
+- 如何设计一个带有 symbol 的 rom（可执行文件格式）？
+  - symbol 的语法是 :symbol
+  - 或者直接用 string？
 
 # algebraic datatype
 
@@ -67,22 +59,3 @@ quit using opcode, all that in the body of a program should be words
     - `(hidden) literal_atom`
     - `(hidden) literal_string` -- need to clone string
     - `(hidden) literal_program` -- NO need to clone program
-
-# repl
-
-[repl] repl_command
-
-# dict
-
-dict_word -- handle collision by linked list
-
-- test collision by using a small dict size
-
-# command-line
-
-[command-line] parse options
-
-[command-line] `x --help`
-[command-line] `x -h`
-[command-line] `x --version`
-[command-line] `x -v`
