@@ -20,10 +20,10 @@ typedef enum {
 
 // extended_tag_t ?
 
-// - xbool_t  -- TODO 0b111
-// - xchar_t  -- TODO 0b111
-// - xnull_t  -- TODO 0b111
-// - xop_t    -- TODO 0b111
+// - xbool_t   -- TODO 0b111
+// - xchar_t   -- TODO 0b111
+// - xnull_t   -- TODO 0b111
+// - xopcode_t -- TODO 0b111
 
 typedef struct vm_t vm_t;
 typedef struct frame_t frame_t;
