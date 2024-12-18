@@ -1,6 +1,6 @@
 # vm
 
-[vm] `vm_t` -- has `value_stack` and `return_stack`
+[vm] `vm_t` -- has `ram`
 [vm] `vm_new`
 [vm] `vm_destroy`
 
