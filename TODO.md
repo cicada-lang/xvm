@@ -1,4 +1,3 @@
-remove old code
 init new c project by cicada-lang/c-modules
 
 # new plan
