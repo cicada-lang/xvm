@@ -1,7 +1,6 @@
 # XVM
 
-XVM is a extensible virtual machine with tagged-values,
-written in C and extensible by C.
+XVM is a 64-bit virtual machine with tagged value.
 
 ## Usage
 

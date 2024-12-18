@@ -1,6 +1,25 @@
 # vm
 
 [vm] encoding of value with extended tag
+0x 0000 0000
+0x 0000 0000
+0x 0000 0000
+0x 0000 0000
+
+0x 0000 0000
+0x 0000 0000
+0x 0000 0000
+0x 0000 0000
+
+0x 0000 0000
+0x 0000 0000
+0x 0000 0000
+0x 0000 0000
+
+0x 0000 0000
+0x 0000 0000
+0x 0000 0000
+0x 0000 0000
 
 [vm] xbool
 [vm] xnull
@@ -18,6 +37,8 @@
 
 [vm] xstring
 [vm] xsymbol -- should not use lisp-like symbol for module system
+- [vm] xsymbol_inline -- withing 64bits
+- [vm] xsymbol_long
 [vm] xtuple
 
 [vm] `x emu` command
