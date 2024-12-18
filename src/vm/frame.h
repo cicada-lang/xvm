@@ -5,3 +5,4 @@ struct frame_t {
 };
 
 frame_t *frame_new(value_t *program_counter);
+void frame_destroy(frame_t **self_pointer);
