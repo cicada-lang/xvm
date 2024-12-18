@@ -1,4 +1,4 @@
-init new c project by cicada-lang/c-modules
+remove font editor and image viewer
 
 # new plan
 
