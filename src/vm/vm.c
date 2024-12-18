@@ -6,7 +6,7 @@ vm_new(size_t ram_size) {
     self->ram_size = ram_size;
     self->ram = allocate(ram_size * sizeof(value_t));
     self->value_stack = stack_new();
-    self->frame_stack = stack_new_with((destroy_fn_t *) frame_destroy);
+    self->return_stack = stack_new_with((destroy_fn_t *) frame_destroy);
     return self;
 }
 
@@ -16,7 +16,7 @@ vm_destroy(vm_t **self_pointer) {
     if (*self_pointer) {
         vm_t *self = *self_pointer;
         stack_destroy(&self->value_stack);
-        stack_destroy(&self->frame_stack);
+        stack_destroy(&self->return_stack);
         free(self->ram);
         free(self);
         *self_pointer = NULL;
@@ -26,10 +26,10 @@ vm_destroy(vm_t **self_pointer) {
 
 void
 vm_step(vm_t *self) {
-    if (stack_is_empty(self->frame_stack))
+    if (stack_is_empty(self->return_stack))
         return;
 
-    frame_t *frame = stack_pop(self->frame_stack);
+    frame_t *frame = stack_pop(self->return_stack);
     value_t value = frame_fetch_value(frame);
     // execution of the value decides
     // to push the frame back or not.
@@ -38,7 +38,7 @@ vm_step(vm_t *self) {
 
 void
 vm_run_until(vm_t *self, size_t base_length) {
-    while (stack_length(self->frame_stack) > base_length) {
+    while (stack_length(self->return_stack) > base_length) {
         vm_step(self);
     }
 }
