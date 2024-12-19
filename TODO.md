@@ -1,6 +1,5 @@
 # vm
 
-[vm] setup `xbool`
 [vm] `as_xbool`
 [vm] `is_xbool`
 [vm] `xbool_value`
