@@ -2,8 +2,6 @@
 
 [vm] setup `xnull`
 
-[vm] `value_encode_16_bit` & `value_decode_16_bit`
-
 [vm] xopcode
 [vm] xchar
 
