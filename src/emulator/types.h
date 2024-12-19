@@ -18,12 +18,5 @@ typedef enum {
     XEXTENDED    = 7, // 0b111
 } tag_t;
 
-// extended_tag_t ?
-
-// - xbool_t   -- TODO 0b111
-// - xchar_t   -- TODO 0b111
-// - xnull_t   -- TODO 0b111
-// - xopcode_t -- TODO 0b111
-
 typedef struct emulator_t emulator_t;
 typedef struct frame_t frame_t;
