@@ -10,6 +10,11 @@ xfalse(void) {
     return (value_t) 0x01ffffffffffffff;
 }
 
+value_t
+xbool(bool target) {
+    return target ? xtrue() : xfalse();
+}
+
 bool
 value_is_xbool(value_t value) {
     return value == xtrue() || value == xfalse();
