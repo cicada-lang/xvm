@@ -1,9 +1,5 @@
 # vm
 
-[vm] `xaddress`
-[vm] `value_is_xaddress`
-[vm] `value_to_address`
-
 [vm] `execute` -- handle `xopcode_call`
 
 [vm] `xchar`
