@@ -26,7 +26,6 @@ frame_fetch_value(frame_t *self) {
 
 bool
 frame_is_end(const frame_t *self) {
-    (void) self;
-    // TODO
-    return false;
+    value_t value = *self->program_counter;
+    return value == xopcode_end();
 }

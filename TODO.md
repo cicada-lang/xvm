@@ -1,7 +1,5 @@
 # vm
 
-[vm] `frame_is_end` -- need `opcode_end`
-
 [vm] `xchar`
 [vm] `xint`
 [vm] `xfloat` -- double-precision floating-point but truncate the lower 3 bits

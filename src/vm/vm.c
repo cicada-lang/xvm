@@ -23,13 +23,14 @@ vm_destroy(vm_t **self_pointer) {
     }
 }
 
-
 void
 vm_step(vm_t *self) {
-    if (stack_is_empty(self->return_stack)) return;
+    if (stack_is_empty(self->return_stack))
+        return;
 
     frame_t *frame = stack_pop(self->return_stack);
-    if (frame_is_end(frame)) return;
+    if (frame_is_end(frame))
+        return;
 
     value_t value = frame_fetch_value(frame);
     // proper tail-call = do not push finished frame.
