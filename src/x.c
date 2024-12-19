@@ -10,6 +10,7 @@ main(int argc, char *argv[]) {
 
     commander_t *commander = commander_new("x", X_VERSION, argc, argv);
 
+    commander_use(commander, emu_command);    
     commander_use(commander, self_test_command);
     commander_use(commander, default_version_command);
     commander_use(commander, default_help_command);

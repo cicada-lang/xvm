@@ -1,9 +1,15 @@
+[assembler] `x asm` command -- setup
+[run] `x run` command -- setup
+
 setup `builtins/`
 
 # assembler
 
-[assembler] `x asm` command
-[assembler] `x asm` command call `assembler_assemble`
+[assembler] `assembler_t` -- has `lexer`
+[assembler] `assembler_new`
+[assembler] `assembler_destroy`
+
+[assembler] `x asm` command -- call `assembler_assemble`
 
 # emulator
 
@@ -15,7 +21,7 @@ setup `builtins/`
 [emulator] `xstring`
 [emulator] `xtuple`
 
-[emulator] `x emu` command
+[emulator] `x emu` command -- call `emulator_emulate`
 
 # run
 
