@@ -1,9 +1,9 @@
 #include "index.h"
 
 value_t
-xaddress(void *pointer) {
-    assert(pointer_is_8_bytes_aligned(pointer));
-    return (void *) (((uint64_t) pointer) | XADDRESS);
+xaddress(void *address) {
+    assert(address_is_8_bytes_aligned(address));
+    return (void *) (((uint64_t) address) | XADDRESS);
 }
 
 bool
@@ -12,7 +12,7 @@ value_is_xaddress(value_t value) {
 }
 
 void*
-value_to_pointer(value_t value) {
+value_to_address(value_t value) {
     assert(value_is_xaddress(value));
     return (void *) (((uint64_t) value) & 0xfffffffffffffff8);
 }

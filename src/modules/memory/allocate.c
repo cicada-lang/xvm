@@ -1,28 +1,28 @@
 #include "index.h"
 
-// The pointer of a block returned by malloc or realloc in GNU systems
+// The address of a block returned by malloc or realloc in GNU systems
 // is always a multiple of eight (or sixteen on 64-bit systems).
 // -- https://www.gnu.org/software/libc/manual/html_node/Aligned-Memory-Blocks.html
 
 bool
-pointer_is_8_bytes_aligned(void *pointer) {
-    return (((uintptr_t) pointer) & ((uintptr_t) 0x7)) == 0;
+address_is_8_bytes_aligned(void *address) {
+    return (((uintptr_t) address) & ((uintptr_t) 0x7)) == 0;
 }
 
 void *
 allocate(size_t size) {
-    void *pointer = calloc(1, size);
-    assert(pointer);
-    assert(pointer_is_8_bytes_aligned(pointer));
-    return pointer;
+    void *address = calloc(1, size);
+    assert(address);
+    assert(address_is_8_bytes_aligned(address));
+    return address;
 }
 
 void *
 allocate_many(size_t size, size_t unit_size) {
-    void *pointer = calloc(size, unit_size);
-    assert(pointer);
-    assert(pointer_is_8_bytes_aligned(pointer));
-    return pointer;
+    void *address = calloc(size, unit_size);
+    assert(address);
+    assert(address_is_8_bytes_aligned(address));
+    return address;
 }
 
 void *

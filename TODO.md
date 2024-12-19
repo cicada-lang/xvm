@@ -1,7 +1,5 @@
 # vm
 
-[vm] `execute` -- handle `xopcode_call`
-
 [vm] `xchar`
 [vm] `xint`
 [vm] `xfloat` -- double-precision floating-point but truncate the lower 3 bits
