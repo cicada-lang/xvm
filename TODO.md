@@ -1,7 +1,5 @@
 # vm
 
-[vm] `value_to_null`
-
 [vm] `xopcode`
 [vm] `xchar`
 
