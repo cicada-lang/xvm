@@ -1,12 +1,22 @@
-setup `builtins/`
-
 # assembler
 
 [assembler] `assembler_t` -- has `lexer`
 [assembler] `assembler_new`
 [assembler] `assembler_destroy`
 
+[assembler] setup `name_t`
+[assembler] `name_new`
+[assembler] `name_destroy`
+[assembler] `name_t` -- has `sub_name_hash`
+[assembler] `assembler_t` -- has `name_hash`
+
 [assembler] `x asm` command -- call `assembler_assemble`
+
+[assembler] setup `builtins/`
+
+# xrom
+
+[xrom] executable format -- `[address, length, words...]`
 
 # emulator
 
@@ -27,6 +37,5 @@ setup `builtins/`
 # later
 
 [emulator] `xsymbol` -- should not use lisp-like symbol for module system
-
-- [emulator] xsymbol_inline -- within 64bits -- max length is 7 bytes
-- [emulator] xsymbol_long
+[emulator] [maybe] `xsymbol_inline` -- within 64bits -- max length is 7 bytes
+[emulator] [maybe] `xsymbol_long`
