@@ -1,18 +1,23 @@
-# vm
+rename vm to emulator
 
-[vm] `xchar`
-[vm] `xint`
-[vm] `xfloat` -- double-precision floating-point but truncate the lower 3 bits
-[vm] `xobject` -- first field must be `kind`
+# assembler
 
-[vm] `xstring`
-[vm] `xtuple`
+[assembler] setup `assembler`
+[assembler] setup `builtins/`
+[assembler] `x asm` command
+[assembler] `x asm` command call `assembler_assemble`
 
-[vm] `x emu` command
+# emulator
 
-# asm
+[emulator] `xchar`
+[emulator] `xint`
+[emulator] `xfloat` -- double-precision floating-point but truncate the lower 3 bits
+[emulator] `xobject` -- first field must be `kind`
 
-[asm] `x asm` command
+[emulator] `xstring`
+[emulator] `xtuple`
+
+[emulator] `x emu` command
 
 # run
 
@@ -20,7 +25,7 @@
 
 # later
 
-[vm] `xsymbol` -- should not use lisp-like symbol for module system
+[emulator] `xsymbol` -- should not use lisp-like symbol for module system
 
-- [vm] xsymbol_inline -- within 64bits -- max length is 7 bytes
-- [vm] xsymbol_long
+- [emulator] xsymbol_inline -- within 64bits -- max length is 7 bytes
+- [emulator] xsymbol_long
