@@ -1,9 +1,8 @@
 # vm
 
-[vm] setup `xnull`
-
-[vm] xopcode
-[vm] xchar
+[vm] `xnull`
+[vm] `xopcode`
+[vm] `xchar`
 
 [vm] `frame_is_finished` -- need `end_opcode`
 
