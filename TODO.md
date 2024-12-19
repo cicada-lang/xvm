@@ -1,6 +1,5 @@
 # vm
 
-[vm] `value_is_xnull`
 [vm] `value_to_null`
 
 [vm] `xopcode`
