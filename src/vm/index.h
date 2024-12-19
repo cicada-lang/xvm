@@ -11,3 +11,4 @@
 #include "xbool.h"
 #include "xnull.h"
 #include "xopcode.h"
+#include "xaddress.h"

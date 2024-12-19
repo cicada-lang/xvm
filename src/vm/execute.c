@@ -12,6 +12,7 @@ execute(vm_t *vm, frame_t *frame, value_t value) {
     }
 
     if (value == xopcode_call()) {
+        (void) frame;
         // TODO
         return;
     }
