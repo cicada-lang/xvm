@@ -3,9 +3,9 @@
 static int run(commander_t *commander);
 
 void
-emu_command(commander_t *commander) {
-    command_t *command = command_new("emu");
-    command->description = "emulate a .xrom file";
+asm_command(commander_t *commander) {
+    command_t *command = command_new("asm");
+    command->description = "assemble a .xasm file";
     command->run = run;
     commander_add(commander, command);
 }
