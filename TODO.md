@@ -1,22 +1,23 @@
 # vm
 
-[vm] `xopcode`
+[vm] `value_is_xopcode`
+[vm] `xopcode_end`
+
+[vm] `frame_is_finished` -- need `opcode_end`
+
 [vm] `xchar`
-
-[vm] `frame_is_finished` -- need `end_opcode`
-
-[vm] xint
-[vm] xfloat -- double-precision floating-point but truncate the lower 3 bits
-[vm] xaddress
-[vm] xobject -- with `kind`
+[vm] `xint`
+[vm] `xfloat` -- double-precision floating-point but truncate the lower 3 bits
+[vm] `xaddress`
+[vm] `xobject` -- first field must be `kind`
 
 [vm] `execute`
 
-[vm] xstring
-[vm] xsymbol -- should not use lisp-like symbol for module system
-- [vm] xsymbol_inline -- withing 64bits
+[vm] `xstring`
+[vm] `xsymbol` -- should not use lisp-like symbol for module system
+- [vm] xsymbol_inline -- within 64bits -- max length is 7 bytes
 - [vm] xsymbol_long
-[vm] xtuple
+[vm] `xtuple`
 
 [vm] `x emu` command
 
