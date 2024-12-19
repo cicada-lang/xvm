@@ -1,7 +1,7 @@
+setup `builtins/`
+
 # assembler
 
-[assembler] setup `assembler`
-[assembler] setup `builtins/`
 [assembler] `x asm` command
 [assembler] `x asm` command call `assembler_assemble`
 
