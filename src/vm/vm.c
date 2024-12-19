@@ -29,11 +29,11 @@ vm_step(vm_t *self) {
     if (stack_is_empty(self->return_stack)) return;
 
     frame_t *frame = stack_pop(self->return_stack);
-    if (frame_is_finished(frame)) return;
+    if (frame_is_end(frame)) return;
 
     value_t value = frame_fetch_value(frame);
     // proper tail-call = do not push finished frame.
-    bool finished = frame_is_finished(frame);
+    bool finished = frame_is_end(frame);
     if (!finished) stack_push(self->return_stack, frame);
     execute(self, frame, value);
     if (finished) frame_destroy(&frame);

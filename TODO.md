@@ -1,6 +1,6 @@
 # vm
 
-[vm] `frame_is_finished` -- need `opcode_end`
+[vm] `frame_is_end` -- need `opcode_end`
 
 [vm] `xchar`
 [vm] `xint`

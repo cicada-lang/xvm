@@ -25,7 +25,7 @@ frame_fetch_value(frame_t *self) {
 }
 
 bool
-frame_is_finished(const frame_t *self) {
+frame_is_end(const frame_t *self) {
     (void) self;
     // TODO
     return false;
