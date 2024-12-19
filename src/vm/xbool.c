@@ -11,12 +11,12 @@ xfalse(void) {
 }
 
 bool
-is_xbool(value_t value) {
+value_is_xbool(value_t value) {
     return value == xtrue() || value == xfalse();
 }
 
-value_t
-as_xbool(value_t value) {
-    assert(is_xbool(value));
-    return value;
+bool
+value_to_bool(value_t value) {
+    assert(value_is_xbool(value));
+    return value == xtrue();
 }
