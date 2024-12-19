@@ -5,8 +5,8 @@
 #include "value.h"
 #include "frame.h"
 #include "execute.h"
-#include "vm.h"
-#include "vm_test.h"
+#include "emulator.h"
+#include "emulator_test.h"
 
 #include "xbool.h"
 #include "xnull.h"

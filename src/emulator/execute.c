@@ -1,11 +1,11 @@
 #include "index.h"
 
 void
-execute(vm_t *vm, frame_t *frame, value_t value) {
+execute(emulator_t *emulator, frame_t *frame, value_t value) {
     (void) frame;
 
     if (!value_is_xopcode(value)) {
-        stack_push(vm->value_stack, value);
+        stack_push(emulator->value_stack, value);
         return;
     }
 
@@ -14,8 +14,8 @@ execute(vm_t *vm, frame_t *frame, value_t value) {
     }
 
     if (value == xopcode_call()) {
-        void *address = value_to_address(stack_pop(vm->value_stack));
-        stack_push(vm->return_stack, frame_new(address));
+        void *address = value_to_address(stack_pop(emulator->value_stack));
+        stack_push(emulator->return_stack, frame_new(address));
         return;
     }
 

@@ -1,8 +1,8 @@
 #include "index.h"
 
-vm_t *
-vm_new(size_t ram_size) {
-    vm_t *self = new(vm_t);
+emulator_t *
+emulator_new(size_t ram_size) {
+    emulator_t *self = new(emulator_t);
     self->ram_size = ram_size;
     self->ram = allocate(ram_size * sizeof(value_t));
     self->value_stack = stack_new();
@@ -11,10 +11,10 @@ vm_new(size_t ram_size) {
 }
 
 void
-vm_destroy(vm_t **self_pointer) {
+emulator_destroy(emulator_t **self_pointer) {
     assert(self_pointer);
     if (*self_pointer) {
-        vm_t *self = *self_pointer;
+        emulator_t *self = *self_pointer;
         stack_destroy(&self->value_stack);
         stack_destroy(&self->return_stack);
         free(self->ram);
@@ -24,7 +24,7 @@ vm_destroy(vm_t **self_pointer) {
 }
 
 void
-vm_step(vm_t *self) {
+emulator_step(emulator_t *self) {
     if (stack_is_empty(self->return_stack))
         return;
 
@@ -41,8 +41,8 @@ vm_step(vm_t *self) {
 }
 
 void
-vm_run_until(vm_t *self, size_t base_length) {
+emulator_run_until(emulator_t *self, size_t base_length) {
     while (stack_length(self->return_stack) > base_length) {
-        vm_step(self);
+        emulator_step(self);
     }
 }

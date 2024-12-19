@@ -18,7 +18,7 @@ run(commander_t *commander) {
 
     modules_test();
 
-    vm_test();
+    emulator_test();
 
     printf("</self_test>\n");
 

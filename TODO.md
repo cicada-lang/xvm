@@ -1,5 +1,3 @@
-rename vm to emulator
-
 # assembler
 
 [assembler] setup `assembler`

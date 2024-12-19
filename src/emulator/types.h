@@ -5,7 +5,7 @@ typedef void *value_t;
 // value = higher 61 bits data + lower 3 bits tag.
 // thus we have 8 tags.
 
-// address in vm ram is different from
+// address in emulator ram is different from
 // address of pointer (object).
 typedef enum {
     XOBJECT      = 0, // 0b000
@@ -25,5 +25,5 @@ typedef enum {
 // - xnull_t   -- TODO 0b111
 // - xopcode_t -- TODO 0b111
 
-typedef struct vm_t vm_t;
+typedef struct emulator_t emulator_t;
 typedef struct frame_t frame_t;
