@@ -1,0 +1,6 @@
+@main
+  false false and false equal assert
+  false true and false equal assert
+  true false and false equal assert
+  true true and true equal assert
+  end

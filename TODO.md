@@ -2,6 +2,7 @@
 
 [vm] `value_is_xopcode`
 [vm] `xopcode_end`
+[vm] `xopcode_call`
 
 [vm] `frame_is_finished` -- need `opcode_end`
 
