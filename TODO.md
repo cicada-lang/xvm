@@ -1,5 +1,3 @@
-[run] `x run` command -- setup
-
 setup `builtins/`
 
 # assembler
