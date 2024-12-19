@@ -1,6 +1,5 @@
 # vm
 
-[vm] `value_is_xopcode`
 [vm] `xopcode_end`
 [vm] `xopcode_call`
 
