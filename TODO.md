@@ -1,28 +1,14 @@
 # vm
 
-[vm] encoding of value with extended tag
-0x 0000 0000
-0x 0000 0000
-0x 0000 0000
-0x 0000 0000
+[vm] setup `xbool`
+[vm] `as_xbool`
+[vm] `is_xbool`
+[vm] `xbool_value`
 
-0x 0000 0000
-0x 0000 0000
-0x 0000 0000
-0x 0000 0000
+[vm] setup `xnull`
 
-0x 0000 0000
-0x 0000 0000
-0x 0000 0000
-0x 0000 0000
+[vm] `value_encode_16_bit` & `value_decode_16_bit`
 
-0x 0000 0000
-0x 0000 0000
-0x 0000 0000
-0x 0000 0000
-
-[vm] xbool
-[vm] xnull
 [vm] xopcode
 [vm] xchar
 
