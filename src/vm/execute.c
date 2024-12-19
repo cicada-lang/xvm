@@ -2,9 +2,19 @@
 
 void
 execute(vm_t *vm, frame_t *frame, value_t value) {
-    // if the value is not an opcode,
-    // pust it to the `value_stack`.
-    (void) vm;
-    (void) frame;
-    (void) value;
+    if (!value_is_xopcode(value)) {
+        stack_push(vm->value_stack, value);
+        return;
+    }
+
+    if (value == xopcode_end()) {
+        return;
+    }
+
+    if (value == xopcode_call()) {
+        // TODO
+        return;
+    }
+
+    assert(false && "[execute] unknown opcode");
 }
