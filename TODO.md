@@ -1,7 +1,7 @@
 # vm
 
-[vm] `as_xbool`
-[vm] `is_xbool`
+[vm] `xtrue` & `xfalse`
+[vm] `is_xbool` & `as_xbool`
 [vm] `xbool_value`
 
 [vm] setup `xnull`
