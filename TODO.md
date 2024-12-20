@@ -1,6 +1,5 @@
 # emulator
 
-[emulator] `execute` -- `LIT`
 [emulator] `execute` -- `CALL`
 
 [emulator] `xchar`

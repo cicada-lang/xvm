@@ -8,10 +8,9 @@ execute(emulator_t *emulator, frame_t *frame, opcode_t opcode) {
     }
 
     case LIT: {
-        (void) emulator;
-        (void) frame;
-        (void) opcode;
-        // TODO
+        value_t value = frame_fetch_value(frame, emulator->ram);
+        stack_push(emulator->value_stack, value);
+        return;
     }
 
     case CALL: {
