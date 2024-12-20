@@ -1,6 +1,5 @@
 # emulator
 
-[emulator] `ram_new`
 [emulator] `ram_destroy`
 [emulator] `ram_load_byte`
 [emulator] `ram_load_opcode`
