@@ -4,7 +4,7 @@ assembler_t *
 assembler_new(void) {
     assembler_t *self = new(assembler_t);
     self->lexer = lexer_new();
-    self->emulator = emulator_new(1000);
+    self->xvm = xvm_new(1000);
     return self;
 }
 

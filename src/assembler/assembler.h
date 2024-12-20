@@ -2,7 +2,7 @@
 
 struct assembler_t {
     lexer_t *lexer;
-    emulator_t *emulator;
+    xvm_t *xvm;
 };
 
 assembler_t *assembler_new(void);

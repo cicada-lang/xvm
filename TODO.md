@@ -10,7 +10,7 @@
 
 [assembler] `ram` can dynamicly expand
 
-- `emulator_new` should not take `ram_size`
+- `xvm_new` should not take `ram_size`
 
 [assembler] `assembler_step`
 
@@ -28,7 +28,7 @@
   @user-name <comptime> "xieyuheng" here </comptime> end
   ```
 
-  这要求在 assemble 的过程中可以运行 emulator。
+  这要求在 assemble 的过程中可以运行 xvm。
 
 方案 B：
 
@@ -84,39 +84,39 @@
 
 [run] `x run` command
 
-# emulator
+# xvm
 
-[emulator] use utf8-style opcode encoding -- to be extensible
+[xvm] use utf8-style opcode encoding -- to be extensible
 
-[emulator] opcode about `xbool` -- `OP_AND` `OP_OR` `OP_NOT`
-[emulator] `OP_EQ`
-[emulator] `OP_OK` -- as `assert`
-[emulator] `OP_DUP`
-[emulator] `OP_DROP`
-[emulator] `OP_SWAP`
-[emulator] `OP_ROT`
-[emulator] `OP_OVER`
-[emulator] `OP_TUCK`
-[emulator] `xint` -- `int64_t` but truncate the lower 3 bits
-[emulator] `xint_add`
-[emulator] `xint_sub`
-[emulator] `xint_mul`
-[emulator] `xint_div`
-[emulator] `xint_mod`
-[emulator] `OP_ADD` `OP_SUB` `OP_MUL` `OP_DIV` `OP_MOD`
-[emulator] `xfloat` -- double-precision floating-point but truncate the lower 3 bits
-[emulator] `xfloat_add`
-[emulator] `xfloat_sub`
-[emulator] `xfloat_mul`
-[emulator] `xfloat_div`
-[emulator] `xchar`
-[emulator] `xobject` -- first field must be `kind`
-[emulator] `xstring`
-[emulator] `xtuple`
-[emulator] `x emu` command -- call `emulator_emulate`
+[xvm] opcode about `xbool` -- `OP_AND` `OP_OR` `OP_NOT`
+[xvm] `OP_EQ`
+[xvm] `OP_OK` -- as `assert`
+[xvm] `OP_DUP`
+[xvm] `OP_DROP`
+[xvm] `OP_SWAP`
+[xvm] `OP_ROT`
+[xvm] `OP_OVER`
+[xvm] `OP_TUCK`
+[xvm] `xint` -- `int64_t` but truncate the lower 3 bits
+[xvm] `xint_add`
+[xvm] `xint_sub`
+[xvm] `xint_mul`
+[xvm] `xint_div`
+[xvm] `xint_mod`
+[xvm] `OP_ADD` `OP_SUB` `OP_MUL` `OP_DIV` `OP_MOD`
+[xvm] `xfloat` -- double-precision floating-point but truncate the lower 3 bits
+[xvm] `xfloat_add`
+[xvm] `xfloat_sub`
+[xvm] `xfloat_mul`
+[xvm] `xfloat_div`
+[xvm] `xchar`
+[xvm] `xobject` -- first field must be `kind`
+[xvm] `xstring`
+[xvm] `xtuple`
+[xvm] `x emu` command -- call `xvm_emulate`
 
 # later
 
-[emulator] `xsymbol` -- should not use lisp-like symbol for module system
-[emulator] [maybe] `xsymbol_inline` -- within 64bits -- max length is 7 bytes
-[emulator] [maybe] `xsymbol_long`
+[xvm] `xsymbol` -- should not use lisp-like symbol for module system
+[xvm] [maybe] `xsymbol_inline` -- within 64bits -- max length is 7 bytes
+[xvm] [maybe] `xsymbol_long`

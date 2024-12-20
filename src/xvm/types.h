@@ -10,7 +10,7 @@ typedef void *value_t;
 
 // TODO maybe this is wrong,
 // object should not be c pointer,
-// but be index to `emulator->ram`.
+// but be index to `xvm->ram`.
 
 typedef enum {
     XOBJECT      = 0, // 0b000
@@ -35,4 +35,4 @@ typedef enum {
 
 typedef struct ram_t ram_t;
 typedef struct frame_t frame_t;
-typedef struct emulator_t emulator_t;
+typedef struct xvm_t xvm_t;

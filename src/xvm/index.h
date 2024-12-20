@@ -6,8 +6,8 @@
 #include "ram.h"
 #include "frame.h"
 #include "execute.h"
-#include "emulator.h"
-#include "emulator_test.h"
+#include "xvm.h"
+#include "xvm_test.h"
 
 #include "xbool.h"
 #include "xnull.h"
