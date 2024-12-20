@@ -1,8 +1,10 @@
 # emulator
 
-[emulator] `ram_load_byte`
-[emulator] `ram_load_opcode`
 [emulator] `ram_load_value`
+
+[emulator] `opcode_t`
+
+[emulator] `ram_load_opcode`
 
 [emulator] `emulator_t` has `ram`
 
@@ -10,7 +12,7 @@
 
 [emulator] `frame_fetch_byte`
 [emulator] `frame_fetch_opcode`
-[emulator] `opcode_t`
+
 
 [emulator] `execute` handle opcodes
 
