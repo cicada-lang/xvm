@@ -1,8 +1,18 @@
-# rom
+# assembler
 
-[rom] setup `rom/`
-[rom] `rom_t`
-[rom] executable format -- `[address, length, words...]`
+[assembler] `ram` can dynamicly expand
+
+- `emulator_new` should not take `ram_size`
+
+[assembler] setup `name_t`
+[assembler] `name_new`
+[assembler] `name_destroy`
+[assembler] `name_t` -- has `sub_name_hash`
+[assembler] `assembler_t` -- has `name_hash`
+
+[assembler] `assembler_step`
+
+[assembler] `x asm` command -- call `assembler_assemble`
 
 # const object
 
@@ -67,17 +77,6 @@
 
   - 如何处理 array 对元素的 ownership？
     learn from jai。
-
-# assembler
-
-[assembler] `assembler_t` has `rom`
-[assembler] setup `name_t`
-[assembler] `name_new`
-[assembler] `name_destroy`
-[assembler] `name_t` -- has `sub_name_hash`
-[assembler] `assembler_t` -- has `name_hash`
-[assembler] `assembler_step`
-[assembler] `x asm` command -- call `assembler_assemble`
 
 # run
 
