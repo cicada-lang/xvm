@@ -1,6 +1,5 @@
 # assembler
 
-[assembler] `assembler_t` -- has `lexer`
 [assembler] `assembler_new`
 [assembler] `assembler_destroy`
 
