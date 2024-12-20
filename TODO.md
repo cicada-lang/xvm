@@ -1,7 +1,5 @@
 # xasm
 
-[xasm] `xasm_dump`
-
 [xasm] `x asm` command -- call `xasm_asm` and `xasm_dump` to get `xexe`
 
 [xasm] `xasm_asm_token`

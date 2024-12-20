@@ -44,3 +44,11 @@ xasm_asm_token(xasm_t *self, const token_t *token) {
     (void) self;
     (void) token;
 }
+
+xexe_t *
+xasm_dump(xasm_t *self) {
+    size_t size = self->xvm->ram->size;
+    uint8_t *bytes = new(size);
+    memcpy(bytes, self->xvm->ram->bytes, size);
+    return xexe_new(size, bytes);
+}
