@@ -1,14 +1,16 @@
 # assembler
 
+[assembler] `name_table_t` -- from `string` to `entry_t` -- with sub `name_table`
+
+[assembler] `name_table_t`
+[assembler] `name_table_new`
+[assembler] `name_table_destroy`
+
+[assembler] `assembler_t` -- has `name_hash`
+
 [assembler] `ram` can dynamicly expand
 
 - `emulator_new` should not take `ram_size`
-
-[assembler] setup `name_t`
-[assembler] `name_new`
-[assembler] `name_destroy`
-[assembler] `name_t` -- has `sub_name_hash`
-[assembler] `assembler_t` -- has `name_hash`
 
 [assembler] `assembler_step`
 
