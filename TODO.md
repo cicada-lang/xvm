@@ -1,3 +1,34 @@
+# emulator
+
+[emulator] `ram_t` has `size` and `bytes`
+[emulator] `ram_new`
+[emulator] `ram_destroy`
+[emulator] `ram_load_byte`
+[emulator] `ram_load_opcode`
+[emulator] `ram_load_value`
+
+[emulator] `emulator_t` has `ram`
+
+[emulator] `frame_t` has `ram` -- `program_counter` should be a `uint64_t`
+
+[emulator] `frame_fetch_byte`
+[emulator] `frame_fetch_opcode`
+[emulator] `opcode_t`
+
+[emulator] `execute` handle opcodes
+
+[emulator] `xchar`
+[emulator] `xint`
+[emulator] `xfloat` -- double-precision floating-point but truncate the lower 3 bits
+[emulator] `xobject` -- first field must be `kind`
+
+[emulator] `xstring`
+[emulator] `xtuple`
+
+[emulator] `x emu` command -- call `emulator_emulate`
+
+
+
 # assembler
 
 [assembler] `assembler_t` -- has `lexer`
@@ -15,26 +46,6 @@
 # xrom
 
 [xrom] executable format -- `[address, length, words...]`
-
-# emulator
-
-[emulator] `emulator_t` ram has byte instead of value
-
-[emulator] `frame_fetch_byte`
-[emulator] `frame_fetch_opcode`
-[emulator] `opcode_t`
-
-[emulator] `execute` handle opcodes
-
-[emulator] `xchar`
-[emulator] `xint`
-[emulator] `xfloat` -- double-precision floating-point but truncate the lower 3 bits
-[emulator] `xobject` -- first field must be `kind`
-
-[emulator] `xstring`
-[emulator] `xtuple`
-
-[emulator] `x emu` command -- call `emulator_emulate`
 
 # run
 

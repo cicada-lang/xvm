@@ -2,7 +2,7 @@
 
 struct emulator_t {
     size_t ram_size;
-    value_t *ram;
+    void *ram;
     stack_t *value_stack;
     stack_t *return_stack;
 };

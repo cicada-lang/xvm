@@ -3,6 +3,7 @@
 #include "deps.h"
 #include "types.h"
 #include "value.h"
+#include "ram.h"
 #include "frame.h"
 #include "execute.h"
 #include "emulator.h"
