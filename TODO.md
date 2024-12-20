@@ -1,4 +1,3 @@
-[xasm] `xasm_t` has `cursor`
 [xasm] `xasm_emit_byte` -- call `ram_expand` if needed
 [xasm] `xasm_emit_opcode` -- call `ram_expand` if needed
 [xasm] `xasm_emit_value` -- call `ram_expand` if needed

@@ -4,6 +4,7 @@ struct xasm_t {
     xvm_t *xvm;
     lexer_t *lexer;
     name_table_t *name_table;
+    size_t cursor;
 };
 
 xasm_t *xasm_new(void);
