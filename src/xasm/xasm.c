@@ -8,6 +8,7 @@ xasm_new(void) {
     self->lexer = lexer_new();
     self->name_table = name_table_new();
     self->cursor = 0;
+    self->ram_expand_step = init_ram_size;
     return self;
 }
 
