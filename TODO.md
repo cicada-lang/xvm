@@ -1,7 +1,5 @@
 # xasm
 
-[xasm] `x asm` command -- call `xasm_asm` and `xasm_dump` to get `xexe`
-
 [xasm] `xasm_asm_token`
 
 [xasm] `xasm_emit_byte` -- call `ram_expand` if needed
