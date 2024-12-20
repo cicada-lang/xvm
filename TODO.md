@@ -1,3 +1,6 @@
+remove `xasm_emit_opcode` just use `xasm_emit_byte`
+remove `ram_set_opcode` just use `ram_set_byte`
+
 [xasm] `xasm_asm_token` -- handle lit number
 
 # xvm
