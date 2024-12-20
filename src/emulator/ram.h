@@ -6,3 +6,4 @@ struct ram_t {
 };
 
 ram_t *ram_new(size_t size);
+void ram_destroy(ram_t **self_pointer);
