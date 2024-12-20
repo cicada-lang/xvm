@@ -1,9 +1,6 @@
 # xasm
 
-[xasm] `xasm_asm_token`
-
 [xasm] `xasm_emit_byte` -- call `ram_expand` if needed
-[xasm] `xasm_emit_opcode` -- call `ram_expand` if needed
 [xasm] `xasm_emit_value` -- call `ram_expand` if needed
 
 # xvm

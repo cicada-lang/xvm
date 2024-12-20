@@ -13,4 +13,9 @@ void xasm_destroy(xasm_t **self_pointer);
 
 void xasm_asm(xasm_t *self, const char *string);
 void xasm_asm_token(xasm_t *self, const token_t *token);
+
+void xasm_emit_byte(xasm_t *self, uint8_t byte);
+void xasm_emit_value(xasm_t *self, value_t value);
+void xasm_emit_opcode(xasm_t *self, opcode_t opcode);
+
 xexe_t *xasm_dump(xasm_t *self);
