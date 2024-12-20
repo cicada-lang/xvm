@@ -1,7 +1,5 @@
 # xasm
 
-[xasm] `name_entry_destroy` -- call `name_table_destroy`
-
 [xasm] `xasm_t` -- has `name_hash`
 
 [xasm] `ram` can dynamicly expand

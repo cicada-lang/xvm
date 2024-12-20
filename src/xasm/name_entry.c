@@ -14,7 +14,7 @@ name_entry_destroy(name_entry_t **self_pointer) {
     if (*self_pointer) {
         name_entry_t *self = *self_pointer;
         free(self->name);
-        // TODO
+        name_table_destroy(&self->name_table);
         free(self);
         *self_pointer = NULL;
     }
