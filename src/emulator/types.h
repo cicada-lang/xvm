@@ -34,5 +34,5 @@ typedef enum {
 } opcode_t;
 
 typedef struct ram_t ram_t;
-typedef struct emulator_t emulator_t;
 typedef struct frame_t frame_t;
+typedef struct emulator_t emulator_t;

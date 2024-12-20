@@ -1,6 +1,7 @@
 # emulator
 
-[emulator] `execute` take `opcode` instead of `value`
+[emulator] `execute` -- `LIT`
+[emulator] `execute` -- `CALL`
 
 [emulator] `xchar`
 [emulator] `xint`

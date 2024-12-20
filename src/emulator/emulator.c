@@ -31,12 +31,18 @@ emulator_step(emulator_t *self) {
     if (frame_is_end(frame, self->ram))
         return;
 
-    value_t value = frame_fetch_value(frame, self->ram);
-    // proper tail-call = do not push finished frame.
-    bool finished = frame_is_end(frame, self->ram);
-    if (!finished) stack_push(self->return_stack, frame);
-    execute(self, frame, value);
-    if (finished) frame_destroy(&frame);
+    opcode_t opcode = frame_fetch_opcode(frame, self->ram);
+
+    // proper tail-call = do not push ended frame.
+
+    bool is_end = frame_is_end(frame, self->ram);
+    if (!is_end)
+        stack_push(self->return_stack, frame);
+
+    execute(self, frame, opcode);
+
+    if (is_end)
+        frame_destroy(&frame);
 }
 
 void
