@@ -1,3 +1,7 @@
+# xasm
+
+[xasm] has `ram_expand_step`
+
 [xasm] `xasm_emit_byte` -- call `ram_expand` if needed
 [xasm] `xasm_emit_opcode` -- call `ram_expand` if needed
 [xasm] `xasm_emit_value` -- call `ram_expand` if needed
@@ -5,12 +9,24 @@
 [xasm] `xasm_asm` -- call `xasm_step`
 [xasm] `xasm_step`
 
-[xexe] setup `xexe/`
-[xexe] `xexe_t` -- simple for now
+# xexe
+
+[xexe] `xexe_t` -- simple just `bytes` for now
 [xexe] `xexe_new`
 [xexe] `xexe_destroy`
+[xexe] `xexe_read`
+[xexe] `xexe_write`
+
+# xvm
+
+[xvm] `xvm_exe`
+[xvm] `x exe` command -- call `xvm_exe`
+
+# xasm
 
 [xasm] `x asm` command -- call `xasm_asm` and `xasm_link` to get `xexe`
+
+# name table
 
 [name table] setup `name_path`
 [name table] `name_path_t` -- has `name_list`
@@ -110,7 +126,6 @@
 [xvm] `xobject` -- first field must be `kind`
 [xvm] `xstring`
 [xvm] `xtuple`
-[xvm] `x exe` command -- call `xvm_exe`
 
 # xexe
 
