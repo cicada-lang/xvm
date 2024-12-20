@@ -1,10 +1,11 @@
 # xasm
 
-[xasm] `name_entry_new`
 [xasm] `name_entry_destroy`
 
 [xasm] `name_table_new`
-[xasm] `name_table_destroy`
+[xasm] `name_table_destroy` -- setup `name_entry_destroy`
+
+[xasm] `name_entry_new` -- call `name_table_new`
 
 [xasm] `xasm_t` -- has `name_hash`
 
