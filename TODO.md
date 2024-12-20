@@ -1,20 +1,19 @@
 # xasm
 
+[xasm] `xasm_dump`
+
+[xasm] `x asm` command -- call `xasm_asm` and `xasm_dump` to get `xexe`
+
+[xasm] `xasm_asm_token`
+
 [xasm] `xasm_emit_byte` -- call `ram_expand` if needed
 [xasm] `xasm_emit_opcode` -- call `ram_expand` if needed
 [xasm] `xasm_emit_value` -- call `ram_expand` if needed
-
-[xasm] `xasm_asm` -- call `xasm_step`
-[xasm] `xasm_step`
 
 # xvm
 
 [xvm] `xvm_exe(xexe_t xexe)`
 [xvm] `x exe` command -- call `xvm_exe`
-
-# xasm
-
-[xasm] `x asm` command -- call `xasm_asm` and `xasm_link` to get `xexe`
 
 # name table
 

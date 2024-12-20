@@ -24,3 +24,23 @@ xasm_destroy(xasm_t **self_pointer) {
         *self_pointer = NULL;
     }
 }
+
+void
+xasm_asm(xasm_t *self, const char *string) {
+    self->lexer->string = string;
+    lexer_lex(self->lexer);
+
+    token_t *token = list_first(self->lexer->token_list);
+    while (token) {
+        xasm_asm_token(self, token);
+        token = list_next(self->lexer->token_list);
+    }
+
+    list_destroy(&self->lexer->token_list);
+}
+
+void
+xasm_asm_token(xasm_t *self, const token_t *token) {
+    (void) self;
+    (void) token;
+}
