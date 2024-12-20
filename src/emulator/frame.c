@@ -24,6 +24,19 @@ frame_fetch_value(frame_t *self, ram_t *ram) {
     return value;
 }
 
+uint8_t
+frame_fetch_byte(frame_t *self, ram_t *ram) {
+    uint8_t byte = ram_load_byte(ram, self->program_counter);
+    self->program_counter += sizeof(uint8_t);
+    return byte;
+}
+
+opcode_t frame_fetch_opcode(frame_t *self, ram_t *ram) {
+    opcode_t opcode = ram_load_opcode(ram, self->program_counter);
+    self->program_counter += sizeof(opcode_t);
+    return opcode;
+}
+
 bool
 frame_is_end(const frame_t *self) {
     (void) self;

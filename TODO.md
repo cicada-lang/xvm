@@ -1,7 +1,6 @@
 # emulator
 
-[emulator] `frame_fetch_byte`
-[emulator] `frame_fetch_opcode`
+[emulator] fix `frame_is_end`
 
 [emulator] `execute` take `opcode` instead of `value`
 
