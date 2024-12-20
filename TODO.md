@@ -1,4 +1,3 @@
-[xvm] `ram_store_value`
 [xvm] `ram_expand`
 
 [xasm] `xasm_t` has `cursor`
