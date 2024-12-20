@@ -71,11 +71,19 @@ xasm_maybe_expend(xasm_t *self, size_t required_size) {
 }
 
 void
+xasm_emit_byte(xasm_t *self, uint8_t byte) {
+    xasm_maybe_expend(self, sizeof(uint8_t));
+
+    ram_set_byte(self->xvm->ram, self->cursor, byte);
+    self->cursor += sizeof(uint8_t);
+}
+
+void
 xasm_emit_opcode(xasm_t *self, opcode_t opcode) {
     xasm_maybe_expend(self, sizeof(opcode_t));
 
     ram_set_opcode(self->xvm->ram, self->cursor, opcode);
-    self->cursor++;
+    self->cursor += sizeof(opcode_t);
 }
 
 xexe_t *
