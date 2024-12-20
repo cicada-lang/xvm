@@ -29,6 +29,8 @@ typedef enum {
     NOP      = 0x00,
     LIT      = 0x01,
     CALL     = 0x02,
+    // ...
+    END      = 0xff,
 } opcode_t;
 
 typedef struct ram_t ram_t;

@@ -38,7 +38,7 @@ opcode_t frame_fetch_opcode(frame_t *self, ram_t *ram) {
 }
 
 bool
-frame_is_end(const frame_t *self) {
-    (void) self;
-    return false;
+frame_is_end(const frame_t *self, ram_t *ram) {
+    opcode_t opcode = ram_load_opcode(ram, self->program_counter);
+    return opcode == END;
 }

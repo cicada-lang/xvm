@@ -1,7 +1,5 @@
 # emulator
 
-[emulator] fix `frame_is_end`
-
 [emulator] `execute` take `opcode` instead of `value`
 
 [emulator] `xchar`
@@ -13,8 +11,6 @@
 [emulator] `xtuple`
 
 [emulator] `x emu` command -- call `emulator_emulate`
-
-
 
 # assembler
 
