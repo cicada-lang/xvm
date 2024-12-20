@@ -44,18 +44,18 @@ ram_get_opcode(ram_t *self, size_t address) {
 }
 
 void
-ram_store_byte(ram_t *self, size_t address, uint8_t byte) {
+ram_set_byte(ram_t *self, size_t address, uint8_t byte) {
     assert(address < self->size);
     *((uint8_t *) self->bytes + address) = byte;
 }
 
 void
-ram_store_value(ram_t *self, size_t address, value_t value) {
+ram_set_value(ram_t *self, size_t address, value_t value) {
     assert(address + 8 < self->size);
     *((value_t *) (self->bytes + address)) = value;
 }
 
 void
-ram_store_opcode(ram_t *self, size_t address, opcode_t opcode) {
-    ram_store_byte(self, address, opcode);
+ram_set_opcode(ram_t *self, size_t address, opcode_t opcode) {
+    ram_set_byte(self, address, opcode);
 }
