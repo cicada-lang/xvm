@@ -1,11 +1,11 @@
 #pragma once
 
 struct frame_t {
-    value_t *program_counter;
+    size_t program_counter;
 };
 
-frame_t *frame_new(value_t *program_counter);
+frame_t *frame_new(size_t program_counter);
 void frame_destroy(frame_t **self_pointer);
 
-value_t frame_fetch_value(frame_t *self);
+value_t frame_fetch_value(frame_t *self, ram_t *ram);
 bool frame_is_end(const frame_t *self);

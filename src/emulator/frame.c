@@ -1,7 +1,7 @@
 #include "index.h"
 
 frame_t *
-frame_new(value_t *program_counter) {
+frame_new(size_t program_counter) {
     frame_t *self = new(frame_t);
     self->program_counter = program_counter;
     return self;
@@ -18,9 +18,9 @@ frame_destroy(frame_t **self_pointer) {
 }
 
 value_t
-frame_fetch_value(frame_t *self) {
-    value_t value = *self->program_counter;
-    self->program_counter++;
+frame_fetch_value(frame_t *self, ram_t *ram) {
+    value_t value = ram_load_value(ram, self->program_counter);
+    self->program_counter += sizeof(value_t);
     return value;
 }
 

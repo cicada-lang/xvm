@@ -1,12 +1,9 @@
 # emulator
 
-[emulator] `frame_t` has `ram` -- `program_counter` should be a `uint64_t`
-
 [emulator] `frame_fetch_byte`
 [emulator] `frame_fetch_opcode`
 
-
-[emulator] `execute` handle opcodes
+[emulator] `execute` take `opcode` instead of `value`
 
 [emulator] `xchar`
 [emulator] `xint`

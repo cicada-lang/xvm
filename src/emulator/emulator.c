@@ -31,7 +31,7 @@ emulator_step(emulator_t *self) {
     if (frame_is_end(frame))
         return;
 
-    value_t value = frame_fetch_value(frame);
+    value_t value = frame_fetch_value(frame, self->ram);
     // proper tail-call = do not push finished frame.
     bool finished = frame_is_end(frame);
     if (!finished) stack_push(self->return_stack, frame);
