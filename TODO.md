@@ -1,7 +1,5 @@
 # emulator
 
-[emulator] `ram_load_value`
-
 [emulator] `opcode_t`
 
 [emulator] `ram_load_opcode`

@@ -2,10 +2,11 @@
 
 struct ram_t {
     size_t size;
-    void *memory;
+    uint8_t *bytes;
 };
 
 ram_t *ram_new(size_t size);
 void ram_destroy(ram_t **self_pointer);
 
-uint8_t ram_load_byte(const ram_t *self, size_t index);
+uint8_t ram_load_byte(const ram_t *self, size_t address);
+value_t ram_load_value(const ram_t *self, size_t address);
