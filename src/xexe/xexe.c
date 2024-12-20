@@ -26,4 +26,7 @@ xexe_read(file_t *file) {
     return xexe_new(size, bytes);
 }
 
-// void xexe_write(xexe_t *self, file_t *file);
+void
+xexe_write(xexe_t *self, file_t *file) {
+    file_write_bytes(file, self->bytes, self->size);
+}

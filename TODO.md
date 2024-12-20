@@ -1,6 +1,3 @@
-# xexe
-[xexe] `xexe_write`
-
 # xasm
 
 [xasm] has `ram_expand_step`
