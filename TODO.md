@@ -1,4 +1,3 @@
-[xvm] `ram_store_opcode`
 [xvm] `ram_store_value`
 [xvm] `ram_expand`
 

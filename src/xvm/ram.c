@@ -41,3 +41,8 @@ ram_store_byte(const ram_t *self, size_t address, uint8_t byte) {
     assert(address < self->size);
     *((uint8_t *) self->bytes + address) = byte;
 }
+
+void
+ram_store_opcode(const ram_t *self, size_t address, opcode_t opcode) {
+    ram_store_byte(self, address, opcode);
+}
