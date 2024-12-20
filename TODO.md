@@ -1,17 +1,3 @@
-# emulator
-
-[emulator] opcode about bool and null
-
-[emulator] `xchar`
-[emulator] `xint`
-[emulator] `xfloat` -- double-precision floating-point but truncate the lower 3 bits
-[emulator] `xobject` -- first field must be `kind`
-
-[emulator] `xstring`
-[emulator] `xtuple`
-
-[emulator] `x emu` command -- call `emulator_emulate`
-
 # assembler
 
 [assembler] `assembler_t` -- has `lexer`
@@ -33,6 +19,44 @@
 # run
 
 [run] `x run` command
+
+# emulator
+
+[emulator] opcode about `xbool` -- `OP_AND` `OP_OR` `OP_NOT`
+
+[emulator] `OP_EQ`
+[emulator] `OP_OK` -- as `assert`
+[emulator] `OP_DUP`
+[emulator] `OP_DROP`
+[emulator] `OP_SWAP`
+[emulator] `OP_ROT`
+[emulator] `OP_OVER`
+[emulator] `OP_TUCK`
+
+[emulator] `xint` -- `int64_t` but truncate the lower 3 bits
+
+[emulator] `xint_add`
+[emulator] `xint_sub`
+[emulator] `xint_mul`
+[emulator] `xint_div`
+[emulator] `xint_mod`
+
+[emulator] `OP_ADD` `OP_SUB` `OP_MUL` `OP_DIV` `OP_MOD`
+
+[emulator] `xfloat` -- double-precision floating-point but truncate the lower 3 bits
+
+[emulator] `xfloat_add`
+[emulator] `xfloat_sub`
+[emulator] `xfloat_mul`
+[emulator] `xfloat_div`
+
+[emulator] `xchar`
+[emulator] `xobject` -- first field must be `kind`
+
+[emulator] `xstring`
+[emulator] `xtuple`
+
+[emulator] `x emu` command -- call `emulator_emulate`
 
 # later
 
