@@ -1,3 +1,10 @@
+# xexe
+
+[xexe] `xexe_new`
+[xexe] `xexe_destroy`
+[xexe] `xexe_read`
+[xexe] `xexe_write`
+
 # xasm
 
 [xasm] has `ram_expand_step`
@@ -9,17 +16,9 @@
 [xasm] `xasm_asm` -- call `xasm_step`
 [xasm] `xasm_step`
 
-# xexe
-
-[xexe] `xexe_t` -- simple just `bytes` for now
-[xexe] `xexe_new`
-[xexe] `xexe_destroy`
-[xexe] `xexe_read`
-[xexe] `xexe_write`
-
 # xvm
 
-[xvm] `xvm_exe`
+[xvm] `xvm_exe(xexe_t xexe)`
 [xvm] `x exe` command -- call `xvm_exe`
 
 # xasm
