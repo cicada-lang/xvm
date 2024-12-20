@@ -35,3 +35,9 @@ opcode_t
 ram_load_opcode(const ram_t *self, size_t address) {
     return ram_load_byte(self, address);
 }
+
+void
+ram_store_byte(const ram_t *self, size_t address, uint8_t byte) {
+    assert(address < self->size);
+    *((uint8_t *) self->bytes + address) = byte;
+}
