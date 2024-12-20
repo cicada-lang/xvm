@@ -1,3 +1,5 @@
+ambr ram_store ram_set
+
 # xexe
 
 [xexe] `xexe_new`

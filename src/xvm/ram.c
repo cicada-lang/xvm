@@ -27,20 +27,20 @@ ram_expand(ram_t *self, size_t size) {
 }
 
 uint8_t
-ram_load_byte(ram_t *self, size_t address) {
+ram_get_byte(ram_t *self, size_t address) {
     assert(address < self->size);
     return *((uint8_t *) self->bytes + address);
 }
 
 value_t
-ram_load_value(ram_t *self, size_t address) {
+ram_get_value(ram_t *self, size_t address) {
     assert(address + 8 < self->size);
     return *((value_t *) (self->bytes + address));
 }
 
 opcode_t
-ram_load_opcode(ram_t *self, size_t address) {
-    return ram_load_byte(self, address);
+ram_get_opcode(ram_t *self, size_t address) {
+    return ram_get_byte(self, address);
 }
 
 void
