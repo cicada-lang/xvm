@@ -1,20 +1,20 @@
-# assembler
+# xasm
 
-[assembler] `name_table_t` -- from `string` to `entry_t` -- with sub `name_table`
+[xasm] `name_table_t` -- from `string` to `entry_t` -- with sub `name_table`
 
-[assembler] `name_table_t`
-[assembler] `name_table_new`
-[assembler] `name_table_destroy`
+[xasm] `name_table_t`
+[xasm] `name_table_new`
+[xasm] `name_table_destroy`
 
-[assembler] `assembler_t` -- has `name_hash`
+[xasm] `xasm_t` -- has `name_hash`
 
-[assembler] `ram` can dynamicly expand
+[xasm] `ram` can dynamicly expand
 
 - `xvm_new` should not take `ram_size`
 
-[assembler] `assembler_step`
+[xasm] `xasm_step`
 
-[assembler] `x asm` command -- call `assembler_assemble`
+[xasm] `x asm` command -- call `xasm_assemble`
 
 # const object
 

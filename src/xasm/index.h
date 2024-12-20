@@ -3,5 +3,5 @@
 #include "deps.h"
 #include "types.h"
 #include "name_table.h"
-#include "assembler.h"
-#include "assembler_test.h"
+#include "xasm.h"
+#include "xasm_test.h"
