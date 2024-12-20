@@ -1,7 +1,5 @@
 # xasm
 
-[xasm] `xasm_t` -- has `name_hash`
-
 [xasm] `ram` can dynamicly expand
 
 - `xvm_new` should not take `ram_size`

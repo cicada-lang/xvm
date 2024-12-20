@@ -1,8 +1,9 @@
 #pragma once
 
 struct xasm_t {
-    lexer_t *lexer;
     xvm_t *xvm;
+    lexer_t *lexer;
+    name_table_t *name_table;
 };
 
 xasm_t *xasm_new(void);
