@@ -1,10 +1,4 @@
-move `value` to top level
 move `opcode` to top level
-
-[name table] setup `name_path`
-[name table] `name_path_t` -- has `name_list`
-[name table] `name_path_new`
-[name table] `name_path_destroy`
 
 [xvm] `ram_store_byte`
 [xvm] `ram_store_opcode`
@@ -25,6 +19,11 @@ move `opcode` to top level
 [xexe] `xexe_destroy`
 
 [xasm] `x asm` command -- call `xasm_asm` and `xasm_link` to get `xexe`
+
+[name table] setup `name_path`
+[name table] `name_path_t` -- has `name_list`
+[name table] `name_path_new`
+[name table] `name_path_destroy`
 
 # about object
 
