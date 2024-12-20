@@ -1,7 +1,5 @@
 # assembler
 
-[assembler] `assembler_destroy`
-
 [assembler] setup `name_t`
 [assembler] `name_new`
 [assembler] `name_destroy`

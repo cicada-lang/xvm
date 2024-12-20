@@ -5,3 +5,4 @@ struct assembler_t {
 };
 
 assembler_t *assembler_new(void);
+void assembler_destroy(assembler_t **self_pointer);
