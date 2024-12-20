@@ -1,6 +1,6 @@
 # emulator
 
-[emulator] `execute` -- `CALL`
+ambr program_counter address
 
 [emulator] `xchar`
 [emulator] `xint`

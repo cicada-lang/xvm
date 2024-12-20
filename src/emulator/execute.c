@@ -14,7 +14,8 @@ execute(emulator_t *emulator, frame_t *frame, opcode_t opcode) {
     }
 
     case CALL: {
-        // size_t address = value_to_address(stack_pop(emulator->value_stack));
+        size_t address = value_to_address(stack_pop(emulator->value_stack));
+        stack_push(emulator->return_stack, frame_new(address));
         return;
     }
 
