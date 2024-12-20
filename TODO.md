@@ -1,6 +1,4 @@
-# xasm
-
-[xasm] `xasm_emit_value` -- call `ram_expand` if needed
+[xasm] `xasm_asm_token` -- handle lit numebr
 
 # xvm
 

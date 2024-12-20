@@ -79,6 +79,14 @@ xasm_emit_byte(xasm_t *self, uint8_t byte) {
 }
 
 void
+xasm_emit_value(xasm_t *self, value_t value) {
+    xasm_maybe_expend(self, sizeof(value_t));
+
+    ram_set_value(self->xvm->ram, self->cursor, value);
+    self->cursor += sizeof(value_t);
+}
+
+void
 xasm_emit_opcode(xasm_t *self, opcode_t opcode) {
     xasm_maybe_expend(self, sizeof(opcode_t));
 
