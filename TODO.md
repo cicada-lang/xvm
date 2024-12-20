@@ -1,8 +1,4 @@
-`blob_purge` -- so that we can copy the bytes out
-
 # xexe
-
-[xexe] `xexe_read`
 [xexe] `xexe_write`
 
 # xasm

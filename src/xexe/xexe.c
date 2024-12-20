@@ -18,3 +18,12 @@ xexe_destroy(xexe_t **self_pointer) {
         *self_pointer = NULL;
     }
 }
+
+xexe_t *
+xexe_read(file_t *file) {
+    size_t size = file_size(file);
+    uint8_t *bytes = file_read_bytes(file);
+    return xexe_new(size, bytes);
+}
+
+// void xexe_write(xexe_t *self, file_t *file);
