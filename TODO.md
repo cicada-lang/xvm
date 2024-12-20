@@ -1,6 +1,5 @@
 # emulator
 
-[emulator] `ram_t` has `size` and `bytes`
 [emulator] `ram_new`
 [emulator] `ram_destroy`
 [emulator] `ram_load_byte`
