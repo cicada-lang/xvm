@@ -1,7 +1,5 @@
 # emulator
 
-ambr program_counter address
-
 [emulator] `xchar`
 [emulator] `xint`
 [emulator] `xfloat` -- double-precision floating-point but truncate the lower 3 bits
