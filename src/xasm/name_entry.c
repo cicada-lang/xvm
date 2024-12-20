@@ -4,7 +4,7 @@ name_entry_t *
 name_entry_new(char *name) {
     name_entry_t *self = new(name_entry_t);
     self->name = name;
-    // TODO
+    self->name_table = name_table_new();
     return self;
 }
 
