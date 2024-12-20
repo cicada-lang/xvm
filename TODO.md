@@ -1,6 +1,5 @@
 # xasm
 
-[xasm] `name_entry_t` -- has `name_table`
 [xasm] `name_entry_new`
 [xasm] `name_entry_destroy`
 
