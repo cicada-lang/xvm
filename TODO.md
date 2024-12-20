@@ -1,4 +1,4 @@
-[xasm] `xasm_asm_token` -- handle lit numebr
+[xasm] `xasm_asm_token` -- handle lit number
 
 # xvm
 

@@ -46,8 +46,21 @@ xasm_asm_token(xasm_t *self, const token_t *token) {
         return;
     }
 
-    if (string_equal(token->string, "LIT")) {
+    if (string_equal(token->string, "null")) {
         xasm_emit_opcode(self, OP_LIT);
+        xasm_emit_value(self, xnull());
+        return;
+    }
+
+    if (string_equal(token->string, "false")) {
+        xasm_emit_opcode(self, OP_LIT);
+        xasm_emit_value(self, xfalse());
+        return;
+    }
+
+    if (string_equal(token->string, "true")) {
+        xasm_emit_opcode(self, OP_LIT);
+        xasm_emit_value(self, xtrue());
         return;
     }
 
