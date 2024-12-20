@@ -1,7 +1,7 @@
+`blob_purge` -- so that we can copy the bytes out
+
 # xexe
 
-[xexe] `xexe_new`
-[xexe] `xexe_destroy`
 [xexe] `xexe_read`
 [xexe] `xexe_write`
 

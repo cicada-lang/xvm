@@ -6,3 +6,4 @@ struct xexe_t {
 };
 
 xexe_t *xexe_new(size_t size, uint8_t *bytes);
+void xexe_destroy(xexe_t **self_pointer);
