@@ -32,13 +32,13 @@ frame_fetch_byte(frame_t *self, ram_t *ram) {
 }
 
 opcode_t frame_fetch_opcode(frame_t *self, ram_t *ram) {
-    opcode_t opcode = ram_get_opcode(ram, self->address);
+    opcode_t opcode = ram_get_byte(ram, self->address);
     self->address += sizeof(opcode_t);
     return opcode;
 }
 
 bool
 frame_is_end(const frame_t *self, ram_t *ram) {
-    opcode_t opcode = ram_get_opcode(ram, self->address);
+    opcode_t opcode = ram_get_byte(ram, self->address);
     return opcode == OP_END;
 }

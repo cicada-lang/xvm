@@ -38,11 +38,6 @@ ram_get_value(ram_t *self, size_t address) {
     return *((value_t *) (self->bytes + address));
 }
 
-opcode_t
-ram_get_opcode(ram_t *self, size_t address) {
-    return ram_get_byte(self, address);
-}
-
 void
 ram_set_byte(ram_t *self, size_t address, uint8_t byte) {
     assert(address < self->size);
@@ -53,9 +48,4 @@ void
 ram_set_value(ram_t *self, size_t address, value_t value) {
     assert(address + 8 < self->size);
     *((value_t *) (self->bytes + address)) = value;
-}
-
-void
-ram_set_opcode(ram_t *self, size_t address, opcode_t opcode) {
-    ram_set_byte(self, address, opcode);
 }
