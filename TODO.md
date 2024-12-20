@@ -85,6 +85,8 @@
 
 # emulator
 
+[emulator] use utf8-style opcode encoding -- to be extensible
+
 [emulator] opcode about `xbool` -- `OP_AND` `OP_OR` `OP_NOT`
 [emulator] `OP_EQ`
 [emulator] `OP_OK` -- as `assert`
