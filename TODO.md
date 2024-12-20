@@ -1,7 +1,5 @@
 # emulator
 
-[emulator] `emulator_t` has `ram`
-
 [emulator] `frame_t` has `ram` -- `program_counter` should be a `uint64_t`
 
 [emulator] `frame_fetch_byte`

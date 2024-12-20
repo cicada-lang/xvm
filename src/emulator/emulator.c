@@ -3,8 +3,7 @@
 emulator_t *
 emulator_new(size_t ram_size) {
     emulator_t *self = new(emulator_t);
-    self->ram_size = ram_size;
-    self->ram = allocate(ram_size * sizeof(value_t));
+    self->ram = ram_new(ram_size);
     self->value_stack = stack_new();
     self->return_stack = stack_new_with((destroy_fn_t *) frame_destroy);
     return self;
@@ -17,7 +16,7 @@ emulator_destroy(emulator_t **self_pointer) {
         emulator_t *self = *self_pointer;
         stack_destroy(&self->value_stack);
         stack_destroy(&self->return_stack);
-        free(self->ram);
+        ram_destroy(&self->ram);
         free(self);
         *self_pointer = NULL;
     }
