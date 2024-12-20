@@ -5,3 +5,4 @@ struct name_table_t {
 };
 
 name_table_t *name_table_new(void);
+void name_table_destroy(name_table_t **self_pointer);

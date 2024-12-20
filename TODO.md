@@ -1,7 +1,5 @@
 # xasm
 
-[xasm] `name_table_destroy` -- setup `name_entry_destroy`
-
 [xasm] `name_entry_new` -- call `name_table_new`
 [xasm] `name_entry_destroy` -- call `name_table_destroy`
 
