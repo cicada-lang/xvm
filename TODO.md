@@ -1,8 +1,10 @@
 # xasm
 
-[xasm] `name_table_t` -- from `string` to `entry_t` -- with sub `name_table`
+[xasm] setup `name_entry.c`
+[xasm] `name_entry_t` -- has `name_table`
+[xasm] `name_entry_new`
+[xasm] `name_entry_destroy`
 
-[xasm] `name_table_t`
 [xasm] `name_table_new`
 [xasm] `name_table_destroy`
 
