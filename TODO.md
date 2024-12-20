@@ -1,5 +1,7 @@
 # emulator
 
+[emulator] opcode about bool and null
+
 [emulator] `xchar`
 [emulator] `xint`
 [emulator] `xfloat` -- double-precision floating-point but truncate the lower 3 bits
