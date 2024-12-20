@@ -5,8 +5,13 @@ typedef void *value_t;
 // value = higher 61 bits data + lower 3 bits tag.
 // thus we have 8 tags.
 
-// address in emulator ram is different from
-// address of pointer (object).
+// xobject is 8 bytes aligned.
+// xaddress is not (thus need shift).
+
+// TODO maybe this is wrong,
+// object should not be c pointer,
+// but be index to `emulator->ram`.
+
 typedef enum {
     XOBJECT      = 0, // 0b000
     XADDRESS     = 1, // 0b001
@@ -17,6 +22,14 @@ typedef enum {
     // TODO      = 6, // 0b110
     XEXTENDED    = 7, // 0b111
 } tag_t;
+
+// one opcode is one byte.
+
+typedef enum {
+    NOP      = 0x00,
+    LIT      = 0x01,
+    CALL     = 0x02,
+} opcode_t;
 
 typedef struct ram_t ram_t;
 typedef struct emulator_t emulator_t;

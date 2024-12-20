@@ -1,7 +1,5 @@
 # emulator
 
-[emulator] `opcode_t`
-
 [emulator] `ram_load_opcode`
 
 [emulator] `emulator_t` has `ram`
