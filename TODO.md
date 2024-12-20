@@ -1,5 +1,3 @@
-move `opcode` to top level
-
 [xvm] `ram_store_byte`
 [xvm] `ram_store_opcode`
 [xvm] `ram_store_value`
