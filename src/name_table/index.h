@@ -2,5 +2,5 @@
 
 #include "deps.h"
 #include "types.h"
-#include "xasm.h"
-#include "xasm_test.h"
+#include "name_entry.h"
+#include "name_table.h"

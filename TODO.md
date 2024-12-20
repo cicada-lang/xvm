@@ -1,16 +1,37 @@
-# xasm
+move `value` to top level
+move `opcode` to top level
 
-[xasm] `ram` can dynamicly expand
+[name table] setup `name_path`
+[name table] `name_path_t` -- has `name_list`
+[name table] `name_path_new`
+[name table] `name_path_destroy`
 
-- `xvm_new` should not take `ram_size`
+[xvm] `ram_store_byte`
+[xvm] `ram_store_opcode`
+[xvm] `ram_store_value`
+[xvm] `ram_expand`
 
+[xasm] `xasm_t` has `cursor`
+[xasm] `xasm_emit_byte` -- call `ram_expand` if needed
+[xasm] `xasm_emit_opcode` -- call `ram_expand` if needed
+[xasm] `xasm_emit_value` -- call `ram_expand` if needed
+
+[xasm] `xasm_asm` -- call `xasm_step`
 [xasm] `xasm_step`
 
-[xasm] `x asm` command -- call `xasm_assemble`
+[xexe] setup `xexe/`
+[xexe] `xexe_t` -- simple for now
+[xexe] `xexe_new`
+[xexe] `xexe_destroy`
 
-# const object
+[xasm] `x asm` command -- call `xasm_asm` and `xasm_link` to get `xexe`
 
-问题：如何处理函数中的 const object？
+# about object
+
+问题：
+
+- 如何处理函数中的 object？
+- 尤其是 const object。
 
 方案 A：
 
@@ -43,15 +64,8 @@
   struct-spec 用类似 inet 中 node-spec 的方案来解决。
 
   ```
-  @user/struct
-    :name string? TODO 想要用这些 predicate 就需要 standard lib
-    :age int?
-    END
-
-  @main
-    &user cons TODO 可以区分 local 和 heap 的 struct
-    &user new
-    END
+  @user/struct :name! :age END
+  @main "xieyuheng" 123 &user new END
   ```
 
 讨论：
@@ -106,6 +120,10 @@
 [xvm] `xstring`
 [xvm] `xtuple`
 [xvm] `x exe` command -- call `xvm_exe`
+
+# xexe
+
+[xexe] `xexe_t` with `name_table`
 
 # later
 

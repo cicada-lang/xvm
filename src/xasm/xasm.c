@@ -3,7 +3,8 @@
 xasm_t *
 xasm_new(void) {
     xasm_t *self = new(xasm_t);
-    self->xvm = xvm_new(1000);
+    size_t init_ram_size = 64 * 1024;
+    self->xvm = xvm_new(init_ram_size);
     self->lexer = lexer_new();
     self->name_table = name_table_new();
     return self;
