@@ -70,7 +70,7 @@
   可以在实现 inet 的编译器的时候，再加上 tagged value。
 
 - 可以是「方案 C」 和「方案 B」的结合。
-  我们很难放弃 xasm + xemu 的方案，
+  我们很难放弃 xasm + xvm 的方案，
   因为考虑 inet 的实现，就算是用 lisp 语法，也要编译的 stack vm。
   既然觉得可以有 inet-asm，那么 xasm 中也可以加 struct。
 
@@ -113,7 +113,7 @@
 [xvm] `xobject` -- first field must be `kind`
 [xvm] `xstring`
 [xvm] `xtuple`
-[xvm] `x emu` command -- call `xvm_emulate`
+[xvm] `x exe` command -- call `xvm_exe`
 
 # later
 
