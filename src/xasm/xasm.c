@@ -42,35 +42,35 @@ xasm_asm(xasm_t *self, const char *string) {
 void
 xasm_asm_token(xasm_t *self, const token_t *token) {
     if (string_equal(token->string, "NOP")) {
-        xasm_emit_opcode(self, OP_NOP);
+        xasm_emit_byte(self, OP_NOP);
         return;
     }
 
     if (string_equal(token->string, "null")) {
-        xasm_emit_opcode(self, OP_LIT);
+        xasm_emit_byte(self, OP_LIT);
         xasm_emit_value(self, xnull());
         return;
     }
 
     if (string_equal(token->string, "false")) {
-        xasm_emit_opcode(self, OP_LIT);
+        xasm_emit_byte(self, OP_LIT);
         xasm_emit_value(self, xfalse());
         return;
     }
 
     if (string_equal(token->string, "true")) {
-        xasm_emit_opcode(self, OP_LIT);
+        xasm_emit_byte(self, OP_LIT);
         xasm_emit_value(self, xtrue());
         return;
     }
 
     if (string_equal(token->string, "CALL")) {
-        xasm_emit_opcode(self, OP_CALL);
+        xasm_emit_byte(self, OP_CALL);
         return;
     }
 
     if (string_equal(token->string, "END")) {
-        xasm_emit_opcode(self, OP_END);
+        xasm_emit_byte(self, OP_END);
         return;
     }
 }
@@ -97,14 +97,6 @@ xasm_emit_value(xasm_t *self, value_t value) {
 
     ram_set_value(self->xvm->ram, self->cursor, value);
     self->cursor += sizeof(value_t);
-}
-
-void
-xasm_emit_opcode(xasm_t *self, opcode_t opcode) {
-    xasm_maybe_expend(self, sizeof(opcode_t));
-
-    ram_set_opcode(self->xvm->ram, self->cursor, opcode);
-    self->cursor += sizeof(opcode_t);
 }
 
 xexe_t *
