@@ -39,12 +39,26 @@ xasm_run(xasm_t *self, const char *string) {
     list_destroy(&self->lexer->token_list);
 }
 
+static bool
+xasm_step_opcode(xasm_t *self, const token_t *token) {
+    for (size_t i = 0; i < 256; i++) {
+        opcode_t opcode = (opcode_t) i;
+        const char *mnemonic = opcode_table[opcode];
+        if (!mnemonic) continue;
+
+        if (string_equal(token->string, mnemonic)) {
+            xasm_emit_byte(self, opcode);
+            return true;
+        }
+    }
+
+    return false;
+}
+
 void
 xasm_step(xasm_t *self, const token_t *token) {
-    if (string_equal(token->string, "NOP")) {
-        xasm_emit_byte(self, OP_NOP);
-        return;
-    }
+    if (xasm_step_opcode(self, token)) return;
+
 
     if (string_equal(token->string, "null")) {
         xasm_emit_byte(self, OP_LIT);
@@ -61,21 +75,6 @@ xasm_step(xasm_t *self, const token_t *token) {
     if (string_equal(token->string, "true")) {
         xasm_emit_byte(self, OP_LIT);
         xasm_emit_value(self, xtrue());
-        return;
-    }
-
-    if (string_equal(token->string, "CALL")) {
-        xasm_emit_byte(self, OP_CALL);
-        return;
-    }
-
-    if (string_equal(token->string, "OK")) {
-        xasm_emit_byte(self, OP_OK);
-        return;
-    }
-
-    if (string_equal(token->string, "END")) {
-        xasm_emit_byte(self, OP_END);
         return;
     }
 }

@@ -1,14 +1,15 @@
+[value] `constant_table`
+[xasm] `xasm_step` -- use `constant_table`
+
 # xemu
 
 [xemu] `OP_EQ`
-
 [xemu] `OP_AND` `OP_OR` `OP_NOT`
+[xemu] `OP_EQ` -- `execute` report value stack and frame stack
 [xemu] `OP_DUP` `OP_DROP` `OP_SWAP` `OP_ROT` `OP_OVER` `OP_TUCK`
 
 [xemu] `xint` -- `int64_t` but truncate the lower 3 bits
-
 [xemu] `xfloat` -- double-precision floating-point but truncate the lower 3 bits
-
 
 [xasm] `xasm_step` -- handle lit int
 
