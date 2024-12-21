@@ -1,3 +1,5 @@
+[xemu] `xemu_step` -- handle no end in rom
+
 [value] `xbool_and`
 [value] `xbool_or`
 [value] `xbool_not`
