@@ -1,8 +1,7 @@
 # xasm
 
-[xasm] `xasm_step_label` -- need 2 passes
-[xasm] `xasm_step_xaddress` -- need 2 passes
-[xasm] `xasm_step_call` -- address and CALL
+[xasm] xasm_step_xaddress -- collect xaddress_placeholder_t
+[xasm] xasm_step_call -- address and CALL
 
 # xemu
 

@@ -101,12 +101,31 @@ xasm_step_xfloat(xasm_t *self, const token_t *token) {
     return false;
 }
 
+static bool
+xasm_step_label(xasm_t *self, const token_t *token) {
+    if (!string_starts_with(token->string, "@"))
+        return false;
+
+    size_t length = string_length(token->string);
+    char *key = string_slice(token->string, 1, length);
+    lexeme_t *lexeme = lexeme_new(key, self->cursor);
+    bool ok = hash_set(self->lexicon->lexeme_hash, key, lexeme);
+    if (ok) return true;
+
+    fprintf(
+        stderr,
+        "[xasm_step_label] label already used: %s\n",
+        token->string);
+    exit(1);
+}
+
 void
 xasm_step(xasm_t *self, const token_t *token) {
     if (xasm_step_opcode(self, token)) return;
     if (xasm_step_constant(self, token)) return;
     if (xasm_step_xint(self, token)) return;
     if (xasm_step_xfloat(self, token)) return;
+    if (xasm_step_label(self, token)) return;
 
     fprintf(
         stderr,
