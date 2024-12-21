@@ -81,35 +81,11 @@ xasm_step_constant(xasm_t *self, const token_t *token) {
 
 static bool
 xasm_step_int(xasm_t *self, const token_t *token) {
-    // const char *string = token->string;
-    // size_t length = string_length(string);
-    // assert(length > 0);
-
-    // char c = string[0];
-
-    // if (length >= 2 && string_starts_with(string, "0x")) {
-    //     char *substring = string_slice(string, 2, length);
-    //     int64_t n = string_to_int(string_to_int, 16);
-    //     xasm_emit_byte(self, OP_LIT);
-    //     xasm_emit_value(self, n);
-    //     return;
-    // }
-
-    // if (string_is_int(string) && char_is_digit(c)) {
-    //     xasm_emit_byte(self, OP_LIT);
-    //     xasm_emit_value(self, xtrue());
-    //     return;
-    // }
-
-    // if (char_is_digit(c) && string_is_int(string)) {
-    //     xasm_emit_byte(self, OP_LIT);
-    //     xasm_emit_value(self, xtrue());
-    //     return
-    // }
-
-    // if (lengthstring_length(token->string) >)
-    (void) self;
-    (void) token;
+    if (string_is_xint(token->string)) {
+        xasm_emit_byte(self, OP_LIT);
+        xasm_emit_value(self, xint(string_parse_xint(token->string)));
+        return true;
+    }
 
     return false;
 }
