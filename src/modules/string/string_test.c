@@ -21,11 +21,11 @@ string_test(void) {
     assert(string_is_int("123"));
     assert(!string_is_int("a123"));
 
-    assert(string_parse_int("") == 0);
-    assert(string_parse_int("-") == 0);
-    assert(string_parse_int("-1") == -1);
-    assert(string_parse_int("123") == 123);
-    assert(string_parse_int("-123") == -123);
+    assert(string_parse_int_base_10("") == 0);
+    assert(string_parse_int_base_10("-") == 0);
+    assert(string_parse_int_base_10("-1") == -1);
+    assert(string_parse_int_base_10("123") == 123);
+    assert(string_parse_int_base_10("-123") == -123);
 
     assert(string_parse_hex("") == 0);
     assert(string_parse_hex("f") == 15);

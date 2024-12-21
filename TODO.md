@@ -1,7 +1,3 @@
-[value] xfloat -- double-precision floating-point but truncate the lower 3 bits
-[value] is_xfloat
-[value] to_doule
-
 [xasm] xasm_step -- handle lit int
 
 [value] xint_add
@@ -9,6 +5,10 @@
 [value] xint_mul
 [value] xint_div
 [value] xint_mod
+
+[value] xfloat -- double-precision floating-point but truncate the lower 3 bits
+[value] is_xfloat
+[value] to_doule
 
 [value] xfloat_add
 [value] xfloat_sub
