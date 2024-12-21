@@ -1,4 +1,3 @@
-ambr store_cache_size store_cache_length
 extract string_hash_new
 [xasm] `xasm` should not have `xvm` should only have `ram` -- keep it simple
 [xasm] `xasm_dump` -- find the last non zero byte -- should not dump ending zeros

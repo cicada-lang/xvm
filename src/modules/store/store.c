@@ -39,7 +39,7 @@ store_purge_cache(store_t *self) {
 }
 
 size_t
-store_cache_size(store_t *self) {
+store_cache_length(store_t *self) {
     return hash_length(self->cached_blob_hash);
 }
 
