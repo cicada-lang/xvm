@@ -1,7 +1,6 @@
-[value] constant_table
-[xasm] xasm_step -- use constant_table
-
 [value] xint -- int64_t but truncate the lower 3 bits
+[value] is_xint
+[value] value_to_int
 [value] xfloat -- double-precision floating-point but truncate the lower 3 bits
 
 [xasm] xasm_step -- handle lit int
@@ -18,6 +17,11 @@
 [value] xfloat_div
 
 [xemu] OP_ADD OP_SUB OP_MUL OP_DIV OP_MOD
+
+
+[value] constant_table
+[xasm] xasm_step -- use constant_table
+
 
 [xemu] xchar
 

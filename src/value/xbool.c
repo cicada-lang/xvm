@@ -16,13 +16,13 @@ xbool(bool target) {
 }
 
 bool
-value_is_xbool(value_t value) {
+is_xbool(value_t value) {
     return value == xtrue() || value == xfalse();
 }
 
 bool
 value_to_bool(value_t value) {
-    assert(value_is_xbool(value));
+    assert(is_xbool(value));
     return value == xtrue();
 }
 
