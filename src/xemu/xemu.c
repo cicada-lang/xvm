@@ -52,10 +52,15 @@ xemu_run_until(xemu_t *self, size_t base_length) {
     }
 }
 
-// void
-// xemu_emu(const blob_t *blob) {
-//     xemu_t *self = xemu_new(size_t blob->size);
-//     blob_copy_into(blob, self->ram->bytes);
-//     xemu_run_until(self, 0);
-//     xemu_destroy(&self);
-// }
+void
+xemu_run(xemu_t *self) {
+    xemu_run_until(self, 0);
+}
+
+void
+xemu_emu(const blob_t *blob) {
+    xemu_t *self = xemu_new(blob_size(blob));
+    blob_copy_into(blob, self->ram->bytes);
+    xemu_run(self);
+    xemu_destroy(&self);
+}

@@ -1,5 +1,3 @@
-[xemu] `xemu_emu(const blob_t *blob)`
-
 # xemu
 
 [xemu] `x emu` command -- call `xemu_emu`
