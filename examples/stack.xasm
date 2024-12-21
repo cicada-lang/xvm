@@ -1,0 +1,7 @@
+@main
+  true DUP OK OK
+  true true false SWAP OK DROP OK
+  true false false ROT OK NOT OK NOT OK
+  true false TUCK NOT OK OK NOT OK
+  true false OVER OK NOT OK OK
+  END

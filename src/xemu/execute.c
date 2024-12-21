@@ -81,6 +81,54 @@ execute(xemu_t *xemu, frame_t *frame, opcode_t opcode) {
         stack_push(xemu->value_stack, xbool_not(x));
         return;
     }
+
+    case OP_DUP: {
+        value_t x = stack_pop(xemu->value_stack);
+        stack_push(xemu->value_stack, x);
+        stack_push(xemu->value_stack, x);
+        return;
+    }
+
+    case OP_DROP: {
+        (void) stack_pop(xemu->value_stack);
+        return;
+    }
+
+    case OP_SWAP: {
+        value_t y = stack_pop(xemu->value_stack);
+        value_t x = stack_pop(xemu->value_stack);
+        stack_push(xemu->value_stack, y);
+        stack_push(xemu->value_stack, x);
+        return;
+    }
+
+    case OP_ROT: {
+        value_t z = stack_pop(xemu->value_stack);
+        value_t y = stack_pop(xemu->value_stack);
+        value_t x = stack_pop(xemu->value_stack);
+        stack_push(xemu->value_stack, y);
+        stack_push(xemu->value_stack, z);
+        stack_push(xemu->value_stack, x);
+        return;
+    }
+
+    case OP_OVER: {
+        value_t y = stack_pop(xemu->value_stack);
+        value_t x = stack_pop(xemu->value_stack);
+        stack_push(xemu->value_stack, x);
+        stack_push(xemu->value_stack, y);
+        stack_push(xemu->value_stack, x);
+        return;
+    }
+
+    case OP_TUCK: {
+        value_t y = stack_pop(xemu->value_stack);
+        value_t x = stack_pop(xemu->value_stack);
+        stack_push(xemu->value_stack, y);
+        stack_push(xemu->value_stack, x);
+        stack_push(xemu->value_stack, y);
+        return;
+    }
     }
 
     assert(false && "[execute] unknown opcode");
