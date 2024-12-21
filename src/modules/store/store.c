@@ -75,7 +75,6 @@ blob_t *
 store_get(store_t *self, const char* path) {
     blob_t *cached_blob = store_get_cache(self, path);
     if (cached_blob) {
-        printf("[store_get]\n");
         return cached_blob;
     }
 

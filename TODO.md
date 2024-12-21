@@ -1,5 +1,3 @@
-[xasm] `xasm_asm_token` -- handle lit number
-
 # xvm
 
 [xvm] `xvm_exe(xexe_t xexe)`
@@ -106,6 +104,10 @@
 [xvm] `xobject` -- first field must be `kind`
 [xvm] `xstring`
 [xvm] `xtuple`
+
+# xasm
+
+[xasm] `xasm_asm_token` -- handle lit int
 
 # xexe
 
