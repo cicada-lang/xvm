@@ -105,3 +105,12 @@ xasm_dump(xasm_t *self) {
     blob_copy_bytes(blob, self->ram->bytes);
     return blob;
 }
+
+blob_t *
+xasm_asm(const char *string) {
+    xasm_t *self = xasm_new();
+    xasm_run(self, string);
+    blob_t *blob = xasm_dump(self);
+    xasm_destroy(&self);
+    return blob;
+}

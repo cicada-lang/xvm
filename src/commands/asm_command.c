@@ -14,11 +14,8 @@ int
 run(commander_t *commander) {
     char **paths = commander_rest_argv(commander);
     file_t *input = file_open_or_fail(paths[0], "r");
-    const char *string = file_read_string(input);
-    xasm_t *xasm = xasm_new();
-    xasm_run(xasm, string);
-    blob_t *blob = xasm_dump(xasm);
     file_t *output = file_open_or_fail(paths[1], "w");
+    blob_t *blob = xasm_asm(file_read_string(input));
     file_write_blob(output, blob);
     return 0;
 }

@@ -1,5 +1,3 @@
-simple `xasm_run_string`
-
 # xemu
 
 [xemu] `xemu_emu(blob_t *blob)`

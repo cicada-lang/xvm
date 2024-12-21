@@ -18,3 +18,5 @@ void xasm_emit_byte(xasm_t *self, uint8_t byte);
 void xasm_emit_value(xasm_t *self, value_t value);
 
 blob_t *xasm_dump(xasm_t *self);
+
+blob_t *xasm_asm(const char *string);
