@@ -203,5 +203,22 @@ string_test(void) {
         assert(string_is_double("-0.0"));
     }
 
+    {
+        assert(string_parse_double("0") == 0);
+        assert(string_parse_double("0.1") == 0.1);
+        assert(string_parse_double(".1") == 0.1);
+        assert(string_parse_double("0.0") == 0);
+
+        assert(string_parse_double("+0") == 0);
+        assert(string_parse_double("+0.1") == 0.1);
+        assert(string_parse_double("+.1") == 0.1);
+        assert(string_parse_double("+0.0") == 0);
+
+        assert(string_parse_double("-0") == 0);
+        assert(string_parse_double("-0.1") == -0.1);
+        assert(string_parse_double("-.1") == -0.1);
+        assert(string_parse_double("-0.0") == 0);
+    }
+
     printf("</string_test>\n");
 }

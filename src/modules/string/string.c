@@ -83,10 +83,11 @@ string_is_double(const char *self) {
     return *end == '\0';
 }
 
-// double
-// string_parse_double(const char *self) {
-
-// }
+double
+string_parse_double(const char *self) {
+    char *end = NULL;
+    return strtod(self, &end);
+}
 
 bool
 string_starts_with(const char *target, const char *prefix) {
