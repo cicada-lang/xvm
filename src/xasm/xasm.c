@@ -1,5 +1,20 @@
 #include "index.h"
 
+struct xaddress_blank_t {
+    size_t blank_address;
+    char *string;
+};
+
+typedef struct xaddress_blank_t xaddress_blank_t;
+
+struct xasm_t {
+    ram_t *ram;
+    lexer_t *lexer;
+    lexicon_t *lexicon;
+    size_t cursor;
+    size_t ram_expand_step;
+};
+
 xasm_t *
 xasm_new(void) {
     xasm_t *self = new(xasm_t);
