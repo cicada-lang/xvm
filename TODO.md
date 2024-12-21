@@ -1,6 +1,5 @@
 # xemu
 
-[xemu] `x emu` command -- call `xemu_emu`
 [run] `x run` command -- call both `xasm_asm` and `xemu_emu`
 
 [xemu] `OP_OK` for testing
