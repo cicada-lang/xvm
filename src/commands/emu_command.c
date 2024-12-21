@@ -3,9 +3,9 @@
 static int run(commander_t *commander);
 
 void
-exe_command(commander_t *commander) {
-    command_t *command = command_new("exe");
-    command->description = "execute a .xexe file";
+emu_command(commander_t *commander) {
+    command_t *command = command_new("emu");
+    command->description = "emulate a .xrom file";
     command->run = run;
     commander_add(commander, command);
 }
