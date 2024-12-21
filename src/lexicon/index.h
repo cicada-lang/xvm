@@ -2,5 +2,5 @@
 
 #include "deps.h"
 #include "types.h"
-#include "name_entry.h"
+#include "lexeme.h"
 #include "lexicon.h"

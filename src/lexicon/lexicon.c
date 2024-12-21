@@ -4,7 +4,7 @@ lexicon_t *
 lexicon_new(void) {
     lexicon_t *self = new(lexicon_t);
     self->name_hash = hash_new();
-    hash_set_destroy_fn(self->name_hash, (destroy_fn_t *) name_entry_destroy);
+    hash_set_destroy_fn(self->name_hash, (destroy_fn_t *) lexeme_destroy);
     return self;
 }
 
