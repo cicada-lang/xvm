@@ -6,6 +6,7 @@ xasm_new(void) {
     size_t init_ram_size = 64 * 1024;
     self->ram = ram_new(init_ram_size);
     self->lexer = lexer_new();
+    self->lexer->line_comment_start = "//";
     self->lexicon = lexicon_new();
     self->cursor = 0;
     self->ram_expand_step = init_ram_size;

@@ -54,6 +54,13 @@ execute(xemu_t *xemu, frame_t *frame, opcode_t opcode) {
         frame_destroy(&frame);
         return;
     }
+
+    case OP_EQ: {
+        value_t x2 = stack_pop(xemu->value_stack);
+        value_t x1 = stack_pop(xemu->value_stack);
+        stack_push(xemu->value_stack, xbool(x1 == x2));
+        return;
+    }
     }
 
     assert(false && "[execute] unknown opcode");

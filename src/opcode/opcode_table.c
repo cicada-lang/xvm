@@ -6,4 +6,5 @@ const char *opcode_table[256] = {
     "CALL",
     "OK",
     "END",
+    "EQ",
 };
