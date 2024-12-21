@@ -1,2 +1,3 @@
-NOP NOP NOP
-END
+@main
+  NOP NOP NOP
+  END

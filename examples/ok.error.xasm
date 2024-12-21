@@ -1,2 +1,3 @@
-false OK
-END
+@main
+  false OK
+  END

@@ -1,8 +1,6 @@
-false false EQ OK
-
-// false false AND false EQ OK
-// false true AND false EQ OK
-// true false AND false EQ OK
-// true true AND true EQ OK
-
-END
+@main
+  false false AND false EQ OK
+  false true AND false EQ OK
+  true false AND false EQ OK
+  true true AND true EQ OK
+  END
