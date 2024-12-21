@@ -18,33 +18,62 @@ string_test(void) {
     string_destroy(&abc);
     assert(abc == NULL);
 
-    assert(string_is_int("123"));
-    assert(!string_is_int("a123"));
+    {
+        assert(string_is_int_of_base("123", 10));
+        assert(string_is_int_of_base("-123", 10));
 
-    assert(string_parse_int("", 10) == 0);
-    assert(string_parse_int("-", 10) == 0);
-    assert(string_parse_int("-1", 10) == -1);
-    assert(string_parse_int("123", 10) == 123);
-    assert(string_parse_int("-123", 10) == -123);
+        assert(!string_is_int_of_base("123", 3));
+        assert(!string_is_int_of_base("-123", 3));
+    }
+    {
+        assert(string_is_int("123"));
+        assert(string_is_int("-123"));
+        assert(string_is_int("+123"));
+        assert(!string_is_int("a123"));
+        assert(!string_is_int("123a"));
 
-    assert(string_parse_int("0x10", 16) == 16);
-    assert(string_parse_int("-0x10", 16) == -16);
+        assert(!string_is_int("0x123z"));
+        assert(string_is_int("0x123a"));
+        assert(string_is_int("0x123A"));
+        assert(string_is_int("-0x123a"));
+        assert(!string_is_int("--0x123A"));
 
-    assert(string_parse_int("010", 8) == 8);
-    assert(string_parse_int("-010", 8) == -8);
+        // 0b and 0o is not handled by c.
 
-    assert(string_parse_int("10", 8) == 8);
-    assert(string_parse_int("-10", 8) == -8);
+        assert(!string_is_int("0b10"));
+        assert(!string_is_int("0o10"));
+    }
 
-    assert(string_parse_int("10", 2) == 2);
-    assert(string_parse_int("-10", 2) == -2);
+    {
+        assert(string_parse_int("", 10) == 0);
+        assert(string_parse_int("-", 10) == 0);
+        assert(string_parse_int("-1", 10) == -1);
+        assert(string_parse_int("123", 10) == 123);
+        assert(string_parse_int("+123", 10) == 123);
+        assert(string_parse_int("-123", 10) == -123);
 
-    assert(string_parse_uint("", 16) == 0);
-    assert(string_parse_uint("f", 16) == 15);
-    assert(string_parse_uint("F", 16) == 15);
-    assert(string_parse_uint("ff", 16) == 255);
-    assert(string_parse_uint("FF", 16) == 255);
-    assert(string_parse_uint("FF:123", 16) == 255);
+        assert(string_parse_int("0x10", 16) == 16);
+        assert(string_parse_int("+0x10", 16) == 16);
+        assert(string_parse_int("-0x10", 16) == -16);
+
+        assert(string_parse_int("010", 8) == 8);
+        assert(string_parse_int("-010", 8) == -8);
+
+        assert(string_parse_int("10", 8) == 8);
+        assert(string_parse_int("-10", 8) == -8);
+
+        assert(string_parse_int("10", 2) == 2);
+        assert(string_parse_int("-10", 2) == -2);
+    }
+
+    {
+        assert(string_parse_uint("", 16) == 0);
+        assert(string_parse_uint("f", 16) == 15);
+        assert(string_parse_uint("F", 16) == 15);
+        assert(string_parse_uint("ff", 16) == 255);
+        assert(string_parse_uint("FF", 16) == 255);
+        assert(string_parse_uint("FF:123", 16) == 255);
+    }
 
     char *abc123 = string_append("abc", "123");
     assert(string_equal(abc123, "abc123"));

@@ -1,3 +1,6 @@
+[string] bool string_is_xint(const char *restrict self);
+[string] int64_t string_parse_xint(const char *self);
+
 [xasm] xasm_step_int -- handle lit int
 
 [value] xint_add xint_sub xint_mul xint_div xint_mod

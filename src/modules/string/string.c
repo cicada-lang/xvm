@@ -48,6 +48,14 @@ string_bernstein_hash(const char *self) {
 }
 
 bool
+string_is_int_of_base(const char *self, size_t base) {
+    char *int_end = NULL;
+    strtol(self, &int_end, base);
+    if (int_end == self) return false;
+    return *int_end == '\0';
+}
+
+bool
 string_is_int(const char *self) {
     char *int_end = NULL;
     strtol(self, &int_end, 0);
@@ -192,3 +200,10 @@ string_next_line(const char *self) {
 
     return next_line;
 }
+
+// bool
+// string_is_xint(const char *self) {
+
+// }
+
+// int64_t string_parse_xint(const char *self);
