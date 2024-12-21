@@ -6,12 +6,18 @@ size_t string_length(const char *self);
 char *string_empty(void);
 bool string_equal(const char *left, const char *right);
 size_t string_bernstein_hash(const char *self);
+
 bool string_is_int_of_base(const char *self, size_t base);
 bool string_is_int(const char *self);
 int64_t string_parse_int(const char *self, size_t base);
 uint64_t string_parse_uint(const char *self, size_t base);
+
+bool string_is_double(const char *self);
+double string_parse_double(const char *self);
+
 bool string_starts_with(const char *self, const char *prefix);
 bool string_ends_with(const char *self, const char *postfix);
+
 char *string_append(const char *left, const char *right);
 char *string_slice(const char *self, size_t start, size_t end);
 int string_find_index(const char *self, char ch);

@@ -1,3 +1,5 @@
+[string] string_parse_double
+
 [xasm] `xasm_step_xfloat`
 
 [xemu] INT and FLOAT -- explicit convert between xint and xfloat

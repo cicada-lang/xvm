@@ -49,31 +49,44 @@ string_bernstein_hash(const char *self) {
 
 bool
 string_is_int_of_base(const char *self, size_t base) {
-    char *int_end = NULL;
-    strtol(self, &int_end, base);
-    if (int_end == self) return false;
-    return *int_end == '\0';
+    char *end = NULL;
+    strtol(self, &end, base);
+    if (end == self) return false;
+    return *end == '\0';
 }
 
 bool
 string_is_int(const char *self) {
-    char *int_end = NULL;
-    strtol(self, &int_end, 0);
-    if (int_end == self) return false;
-    return *int_end == '\0';
+    char *end = NULL;
+    strtol(self, &end, 0);
+    if (end == self) return false;
+    return *end == '\0';
 }
 
 int64_t
 string_parse_int(const char *self, size_t base) {
-    char *int_end = NULL;
-    return strtol(self, &int_end, base);
+    char *end = NULL;
+    return strtol(self, &end, base);
 }
 
 uint64_t
 string_parse_uint(const char *self, size_t base) {
-    char *int_end = NULL;
-    return strtoul(self, &int_end, base);
+    char *end = NULL;
+    return strtoul(self, &end, base);
 }
+
+bool
+string_is_double(const char *self) {
+    char *end = NULL;
+    strtod(self, &end);
+    if (end == self) return false;
+    return *end == '\0';
+}
+
+// double
+// string_parse_double(const char *self) {
+
+// }
 
 bool
 string_starts_with(const char *target, const char *prefix) {

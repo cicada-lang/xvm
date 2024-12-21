@@ -186,5 +186,22 @@ string_test(void) {
         assert(string_parse_xint("-10") == -10);
     }
 
+    {
+        assert(string_is_double("0"));
+        assert(string_is_double("0.1"));
+        assert(string_is_double(".1"));
+        assert(string_is_double("0.0"));
+
+        assert(string_is_double("+0"));
+        assert(string_is_double("+0.1"));
+        assert(string_is_double("+.1"));
+        assert(string_is_double("+0.0"));
+
+        assert(string_is_double("-0"));
+        assert(string_is_double("-0.1"));
+        assert(string_is_double("-.1"));
+        assert(string_is_double("-0.0"));
+    }
+
     printf("</string_test>\n");
 }
