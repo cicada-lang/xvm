@@ -3,7 +3,6 @@
 value_t xtrue(void);
 value_t xfalse(void);
 value_t xbool(bool target);
-
 bool is_xbool(value_t value);
 bool to_bool(value_t value);
 
