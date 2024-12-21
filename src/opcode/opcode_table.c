@@ -7,4 +7,7 @@ const char *opcode_table[256] = {
     "OK",
     "END",
     "EQ",
+    "AND",
+    "OR",
+    "NOT",
 };

@@ -1,5 +1,3 @@
-[xemu] `OP_AND` `OP_OR` `OP_NOT`
-
 [value] `constant_table`
 [xasm] `xasm_step` -- use `constant_table`
 

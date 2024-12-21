@@ -56,9 +56,29 @@ execute(xemu_t *xemu, frame_t *frame, opcode_t opcode) {
     }
 
     case OP_EQ: {
-        value_t x2 = stack_pop(xemu->value_stack);
-        value_t x1 = stack_pop(xemu->value_stack);
-        stack_push(xemu->value_stack, xbool(x1 == x2));
+        value_t y = stack_pop(xemu->value_stack);
+        value_t x = stack_pop(xemu->value_stack);
+        stack_push(xemu->value_stack, xbool(x == y));
+        return;
+    }
+
+    case OP_AND: {
+        value_t y = stack_pop(xemu->value_stack);
+        value_t x = stack_pop(xemu->value_stack);
+        stack_push(xemu->value_stack, xbool_and(x, y));
+        return;
+    }
+
+    case OP_OR: {
+        value_t y = stack_pop(xemu->value_stack);
+        value_t x = stack_pop(xemu->value_stack);
+        stack_push(xemu->value_stack, xbool_or(x, y));
+        return;
+    }
+
+    case OP_NOT: {
+        value_t x = stack_pop(xemu->value_stack);
+        stack_push(xemu->value_stack, xbool_not(x));
         return;
     }
     }

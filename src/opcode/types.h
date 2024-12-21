@@ -10,3 +10,6 @@ typedef uint8_t opcode_t;
 #define OP_OK    ((opcode_t) 0x03)
 #define OP_END   ((opcode_t) 0x04)
 #define OP_EQ    ((opcode_t) 0x05)
+#define OP_AND   ((opcode_t) 0x06)
+#define OP_OR    ((opcode_t) 0x07)
+#define OP_NOT   ((opcode_t) 0x08)
