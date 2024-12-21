@@ -1,7 +1,7 @@
 # xemu
 
-[xemu] `xemu_exe(xexe_t xexe)`
-[xemu] `x exe` command -- call `xemu_exe`
+[xemu] `xemu_emu(blob_t *blob)`
+[xemu] `x emu` command -- call `xemu_emu`
 [xemu] `OP_OK` for testing
 
 # run
