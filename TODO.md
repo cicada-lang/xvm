@@ -1,8 +1,3 @@
-[xemu] INT and FLOAT -- explicit convert between xint and xfloat
-
-[value] constant_table
-[xasm] xasm_step -- use constant_table
-
 # xasm
 
 [xasm] `xasm_step_label` -- need 2 passes
@@ -10,6 +5,11 @@
 [xasm] `xasm_step_call` -- address and CALL
 
 # xemu
+
+[xemu] INT and FLOAT -- explicit convert between xint and xfloat
+
+[value] constant_table
+[xasm] xasm_step -- use constant_table
 
 [xemu] xsymbol
 [xemu] [maybe] xsymbol_inline -- within 64bits -- max length is 7 bytes
