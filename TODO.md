@@ -1,4 +1,3 @@
-[value] xint -- int64_t but truncate the lower 3 bits
 [value] is_xint
 [value] to_int
 

@@ -2,7 +2,7 @@
 
 value_t
 xaddress(size_t address) {
-    return (void *) ((address << 3) | XADDRESS);
+    return (value_t) ((address << 3) | XADDRESS);
 }
 
 bool

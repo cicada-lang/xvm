@@ -7,3 +7,4 @@
 #include "xbool.h"
 #include "xnull.h"
 #include "xaddress.h"
+#include "xint.h"
