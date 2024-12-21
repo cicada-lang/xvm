@@ -1,4 +1,3 @@
-extract string_hash_new
 [xasm] `xasm` should not have `xvm` should only have `ram` -- keep it simple
 [xasm] `xasm_dump` -- find the last non zero byte -- should not dump ending zeros
 [xasm] `xasm_asm_token` -- handle lit number
