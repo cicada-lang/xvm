@@ -8,5 +8,4 @@ typedef uint8_t opcode_t;
 #define OP_LIT   ((opcode_t) 0x01)
 #define OP_CALL  ((opcode_t) 0x02)
 #define OP_OK    ((opcode_t) 0x03)
-// ...
-#define OP_END   ((opcode_t) 0xff)
+#define OP_END   ((opcode_t) 0x04)
