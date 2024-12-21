@@ -1,4 +1,3 @@
-rename xvm to xemu
 rename exe command to emu
 remove xexe just use blob
 

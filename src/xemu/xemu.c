@@ -1,8 +1,8 @@
 #include "index.h"
 
-xvm_t *
-xvm_new(size_t ram_size) {
-    xvm_t *self = new(xvm_t);
+xemu_t *
+xemu_new(size_t ram_size) {
+    xemu_t *self = new(xemu_t);
     self->ram = ram_new(ram_size);
     self->value_stack = stack_new();
     self->return_stack = stack_new_with((destroy_fn_t *) frame_destroy);
@@ -10,10 +10,10 @@ xvm_new(size_t ram_size) {
 }
 
 void
-xvm_destroy(xvm_t **self_pointer) {
+xemu_destroy(xemu_t **self_pointer) {
     assert(self_pointer);
     if (*self_pointer) {
-        xvm_t *self = *self_pointer;
+        xemu_t *self = *self_pointer;
         stack_destroy(&self->value_stack);
         stack_destroy(&self->return_stack);
         ram_destroy(&self->ram);
@@ -23,7 +23,7 @@ xvm_destroy(xvm_t **self_pointer) {
 }
 
 void
-xvm_step(xvm_t *self) {
+xemu_step(xemu_t *self) {
     if (stack_is_empty(self->return_stack))
         return;
 
@@ -46,8 +46,8 @@ xvm_step(xvm_t *self) {
 }
 
 void
-xvm_run_until(xvm_t *self, size_t base_length) {
+xemu_run_until(xemu_t *self, size_t base_length) {
     while (stack_length(self->return_stack) > base_length) {
-        xvm_step(self);
+        xemu_step(self);
     }
 }

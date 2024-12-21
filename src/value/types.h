@@ -10,7 +10,7 @@ typedef void *value_t;
 
 // TODO maybe this is wrong,
 // object should not be c pointer,
-// but be index to `xvm->ram`.
+// but be index to `xemu->ram`.
 
 typedef enum {
     XOBJECT      = 0, // 0b000

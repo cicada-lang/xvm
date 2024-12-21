@@ -18,7 +18,7 @@ run(commander_t *commander) {
 
     modules_test();
 
-    xvm_test();
+    xemu_test();
 
     printf("</self_test>\n");
 
