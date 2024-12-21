@@ -25,6 +25,7 @@ string_test(void) {
         assert(!string_is_int_of_base("123", 3));
         assert(!string_is_int_of_base("-123", 3));
     }
+
     {
         assert(string_is_int("123"));
         assert(string_is_int("-123"));
@@ -163,8 +164,26 @@ string_test(void) {
         assert(string_is_xint("+0b10"));
         assert(string_is_xint("-0b10"));
         assert(!string_is_xint("0b12"));
-        assert(!string_is_xint("++0b12"));
-        assert(!string_is_xint("--0b12"));
+        assert(!string_is_xint("++0b10"));
+        assert(!string_is_xint("--0b11"));
+    }
+
+    {
+        assert(string_parse_xint("0b10") == 2);
+        assert(string_parse_xint("+0b10") == 2);
+        assert(string_parse_xint("-0b10") == -2);
+
+        assert(string_parse_xint("0o10") == 8);
+        assert(string_parse_xint("+0o10") == 8);
+        assert(string_parse_xint("-0o10") == -8);
+
+        assert(string_parse_xint("0x10") == 16);
+        assert(string_parse_xint("+0x10") == 16);
+        assert(string_parse_xint("-0x10") == -16);
+
+        assert(string_parse_xint("10") == 10);
+        assert(string_parse_xint("+10") == 10);
+        assert(string_parse_xint("-10") == -10);
     }
 
     printf("</string_test>\n");

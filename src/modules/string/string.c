@@ -208,7 +208,15 @@ string_is_xint(const char *self) {
     if (string_starts_with(self, "-") ||
         string_starts_with(self, "+"))
     {
+
         char *substring = string_slice(self, 1, length);
+        if (string_starts_with(substring, "-") ||
+            string_starts_with(substring, "+"))
+        {
+            free(substring);
+            return false;
+        }
+
         bool result = string_is_xint(substring);
         free(substring);
         return result;
@@ -238,4 +246,44 @@ string_is_xint(const char *self) {
     return string_is_int_of_base(self, 10);
 }
 
-// int64_t string_parse_xint(const char *self);
+int64_t
+string_parse_xint(const char *self) {
+    size_t length = string_length(self);
+
+    if (string_starts_with(self, "-")) {
+        char *substring = string_slice(self, 1, length);
+        int64_t result = string_parse_xint(substring);
+        free(substring);
+        return -result;
+    }
+
+    if (string_starts_with(self, "+")) {
+        char *substring = string_slice(self, 1, length);
+        int64_t result = string_parse_xint(substring);
+        free(substring);
+        return result;
+    }
+
+    if (string_starts_with(self, "0x")) {
+        char *substring = string_slice(self, 2, length);
+        int64_t result = string_parse_int(substring, 16);
+        free(substring);
+        return result;
+    }
+
+    if (string_starts_with(self, "0o")) {
+        char *substring = string_slice(self, 2, length);
+        int64_t result = string_parse_int(substring, 8);
+        free(substring);
+        return result;
+    }
+
+    if (string_starts_with(self, "0b")) {
+        char *substring = string_slice(self, 2, length);
+        int64_t result = string_parse_int(substring, 2);
+        free(substring);
+        return result;
+    }
+
+    return string_parse_int(self, 10);
+}
