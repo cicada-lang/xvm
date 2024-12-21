@@ -4,13 +4,6 @@
 [xvm] `x exe` command -- call `xvm_exe`
 [xvm] `OP_OK` for testing
 
-# name table
-
-[name table] setup `name_path`
-[name table] `name_path_t` -- has `name_list`
-[name table] `name_path_new`
-[name table] `name_path_destroy`
-
 # about object
 
 问题：
