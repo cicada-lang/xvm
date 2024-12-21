@@ -79,10 +79,20 @@ xasm_step_constant(xasm_t *self, const token_t *token) {
     return false;
 }
 
+
+static bool
+xasm_step_int(xasm_t *self, const token_t *token) {
+    (void) self;
+    (void) token;
+
+    return false;
+}
+
 void
 xasm_step(xasm_t *self, const token_t *token) {
     if (xasm_step_opcode(self, token)) return;
     if (xasm_step_constant(self, token)) return;
+    if (xasm_step_int(self, token)) return;
 
     fprintf(
         stderr,

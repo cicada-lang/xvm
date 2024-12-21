@@ -1,4 +1,4 @@
-[xasm] xasm_step -- handle lit int
+[xasm] xasm_step_int -- handle lit int
 
 [value] xint_add xint_sub xint_mul xint_div xint_mod
 
