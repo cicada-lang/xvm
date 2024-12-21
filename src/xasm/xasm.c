@@ -69,6 +69,11 @@ xasm_step(xasm_t *self, const token_t *token) {
         return;
     }
 
+    if (string_equal(token->string, "OK")) {
+        xasm_emit_byte(self, OP_OK);
+        return;
+    }
+
     if (string_equal(token->string, "END")) {
         xasm_emit_byte(self, OP_END);
         return;

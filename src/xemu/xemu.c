@@ -32,17 +32,7 @@ xemu_step(xemu_t *self) {
         return;
 
     opcode_t opcode = frame_fetch_opcode(frame, self->ram);
-
-    // proper tail-call = do not push ended frame.
-
-    bool is_end = frame_is_end(frame, self->ram);
-    if (!is_end)
-        stack_push(self->return_stack, frame);
-
     execute(self, frame, opcode);
-
-    if (is_end)
-        frame_destroy(&frame);
 }
 
 void
@@ -54,13 +44,16 @@ xemu_run_until(xemu_t *self, size_t base_length) {
 
 void
 xemu_run(xemu_t *self) {
-    xemu_run_until(self, 0);
+    while (!stack_is_empty(self->return_stack)) {
+        xemu_step(self);
+    }
 }
 
 void
 xemu_emu(const blob_t *blob) {
     xemu_t *self = xemu_new(blob_size(blob));
     blob_copy_into(blob, self->ram->bytes);
+    stack_push(self->return_stack, frame_new(0));
     xemu_run(self);
     xemu_destroy(&self);
 }
