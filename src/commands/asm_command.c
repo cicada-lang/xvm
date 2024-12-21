@@ -19,8 +19,8 @@ run(commander_t *commander) {
     const char *string = file_read_string(input_file);
     xasm_t *xasm = xasm_new();
     xasm_asm(xasm, string);
-    xexe_t *xexe = xasm_dump(xasm);
+    blob_t *blob = xasm_dump(xasm);
     file_t *output_file = file_open_or_fail(output_file_name, "w");
-    xexe_write(xexe, output_file);
+    file_write_blob(output_file, blob);
     return 0;
 }

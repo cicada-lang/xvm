@@ -99,10 +99,9 @@ xasm_emit_value(xasm_t *self, value_t value) {
     self->cursor += sizeof(value_t);
 }
 
-xexe_t *
+blob_t *
 xasm_dump(xasm_t *self) {
-    size_t size = self->cursor;
-    uint8_t *bytes = allocate(size);
-    memcpy(bytes, self->ram->bytes, size);
-    return xexe_new(size, bytes);
+    blob_t *blob = blob_new(self->cursor);
+    blob_copy_bytes(blob, self->ram->bytes);
+    return blob;
 }

@@ -17,4 +17,4 @@ void xasm_asm_token(xasm_t *self, const token_t *token);
 void xasm_emit_byte(xasm_t *self, uint8_t byte);
 void xasm_emit_value(xasm_t *self, value_t value);
 
-xexe_t *xasm_dump(xasm_t *self);
+blob_t *xasm_dump(xasm_t *self);

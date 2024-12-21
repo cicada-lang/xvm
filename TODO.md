@@ -1,5 +1,3 @@
-remove xexe just use blob
-
 # xemu
 
 [xemu] `xemu_exe(xexe_t xexe)`

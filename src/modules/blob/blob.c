@@ -41,6 +41,11 @@ blob_string(blob_t *self) {
     return (char *) self->bytes;
 }
 
+void
+blob_copy_bytes(blob_t *self, uint8_t *bytes) {
+    memcpy(self->bytes, bytes, self->size);
+}
+
 bool
 blob_equal(blob_t *left, blob_t *right) {
     if (left == right)
