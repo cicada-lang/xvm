@@ -11,3 +11,5 @@ void xemu_destroy(xemu_t **self_pointer);
 
 void xemu_step(xemu_t *self);
 void xemu_run_until(xemu_t *self, size_t base_length);
+
+void xemu_emu(const blob_t *blob);

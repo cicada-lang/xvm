@@ -42,7 +42,7 @@ blob_string(blob_t *self) {
 }
 
 void
-blob_copy_bytes(blob_t *self, uint8_t *bytes) {
+blob_copy_from(blob_t *self, uint8_t *bytes) {
     memcpy(self->bytes, bytes, self->size);
 }
 

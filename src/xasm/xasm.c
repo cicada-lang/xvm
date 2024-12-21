@@ -102,7 +102,7 @@ xasm_emit_value(xasm_t *self, value_t value) {
 blob_t *
 xasm_dump(xasm_t *self) {
     blob_t *blob = blob_new(self->cursor);
-    blob_copy_bytes(blob, self->ram->bytes);
+    blob_copy_from(blob, self->ram->bytes);
     return blob;
 }
 

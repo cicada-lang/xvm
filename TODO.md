@@ -1,12 +1,13 @@
+[xemu] `xemu_emu(const blob_t *blob)`
+
+- with the help of `blob_copy_into`
+
 # xemu
 
-[xemu] `xemu_emu(blob_t *blob)`
 [xemu] `x emu` command -- call `xemu_emu`
+[run] `x run` command -- call both `xasm_asm` and `xemu_emu`
+
 [xemu] `OP_OK` for testing
-
-# run
-
-[run] `x run` command
 
 # xemu
 
