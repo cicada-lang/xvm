@@ -56,15 +56,15 @@ string_is_int(const char *self) {
 }
 
 int64_t
-string_parse_int_base_10(const char *self) {
+string_parse_int(const char *self, size_t base) {
     char *int_end = NULL;
-    return strtol(self, &int_end, 0);
+    return strtol(self, &int_end, base);
 }
 
 uint64_t
-string_parse_uint_base_16(const char *self) {
+string_parse_uint(const char *self, size_t base) {
     char *int_end = NULL;
-    return strtoul(self, &int_end, 16);
+    return strtoul(self, &int_end, base);
 }
 
 bool

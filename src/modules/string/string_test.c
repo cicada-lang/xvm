@@ -21,18 +21,18 @@ string_test(void) {
     assert(string_is_int("123"));
     assert(!string_is_int("a123"));
 
-    assert(string_parse_int_base_10("") == 0);
-    assert(string_parse_int_base_10("-") == 0);
-    assert(string_parse_int_base_10("-1") == -1);
-    assert(string_parse_int_base_10("123") == 123);
-    assert(string_parse_int_base_10("-123") == -123);
+    assert(string_parse_int("", 10) == 0);
+    assert(string_parse_int("-", 10) == 0);
+    assert(string_parse_int("-1", 10) == -1);
+    assert(string_parse_int("123", 10) == 123);
+    assert(string_parse_int("-123", 10) == -123);
 
-    assert(string_parse_uint_base_16("") == 0);
-    assert(string_parse_uint_base_16("f") == 15);
-    assert(string_parse_uint_base_16("F") == 15);
-    assert(string_parse_uint_base_16("ff") == 255);
-    assert(string_parse_uint_base_16("FF") == 255);
-    assert(string_parse_uint_base_16("FF:123") == 255);
+    assert(string_parse_uint("", 16) == 0);
+    assert(string_parse_uint("f", 16) == 15);
+    assert(string_parse_uint("F", 16) == 15);
+    assert(string_parse_uint("ff", 16) == 255);
+    assert(string_parse_uint("FF", 16) == 255);
+    assert(string_parse_uint("FF:123", 16) == 255);
 
     char *abc123 = string_append("abc", "123");
     assert(string_equal(abc123, "abc123"));
