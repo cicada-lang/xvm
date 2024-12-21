@@ -35,7 +35,7 @@ execute(xemu_t *xemu, frame_t *frame, opcode_t opcode) {
 
     case OP_OK: {
         bool ok = value_to_bool(stack_pop(xemu->value_stack));
-        fprintf(stderr, "[execute] ok\n");
+        fprintf(stderr, "ok\n");
         if (!ok) {
             fprintf(stderr, "[execute] assertion failed\n");
             exit(1);
