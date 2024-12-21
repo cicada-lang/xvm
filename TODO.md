@@ -1,5 +1,3 @@
-[value] to_int
-
 [value] xfloat -- double-precision floating-point but truncate the lower 3 bits
 [value] is_xfloat
 [value] to_doule

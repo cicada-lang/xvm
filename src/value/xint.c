@@ -12,4 +12,8 @@ is_xint(value_t value) {
     return value_tag(value) == XINT;
 }
 
-// int64_t to_xint(value_t value);
+int64_t
+to_xint(value_t value) {
+    assert(is_xint(value));
+    return ((int64_t) value) >> 3;
+}
