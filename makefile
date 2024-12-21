@@ -16,11 +16,15 @@ run: bin/$(app)
 	./bin/$(app)
 
 .PHONY: test
-test: self-test
+test: self-test run-examples
 
 .PHONY: self-test
 self-test: bin/$(app)
 	./bin/$(app) self-test
+
+.PHONY: run-examples
+run-examples: bin/$(app)
+	bash run-examples.sh
 
 bin/$(app): $(lib) lib/$(app).o
 	mkdir -p $(dir $@); $(cc) $^ $(ldflags) -o $@
