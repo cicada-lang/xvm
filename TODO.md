@@ -1,5 +1,3 @@
-[opcode] `opcode_mnemonic`
-
 # xemu
 
 [xemu] `OP_EQ`

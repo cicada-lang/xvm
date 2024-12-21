@@ -2,7 +2,11 @@
 
 void
 execute(xemu_t *xemu, frame_t *frame, opcode_t opcode) {
-    fprintf(stderr, "[execute] opcode: 0x%02x\n", opcode);
+    // debug
+    // {
+    //     fprintf(stderr, "[execute] opcode: %s\n", opcode_mnemonic(opcode));
+    // }
+
 
     if (opcode != OP_NOP && opcode != OP_CALL) {
         // maybe need to handle tail call on OP_CALL.
@@ -35,11 +39,11 @@ execute(xemu_t *xemu, frame_t *frame, opcode_t opcode) {
 
     case OP_OK: {
         bool ok = value_to_bool(stack_pop(xemu->value_stack));
-        fprintf(stderr, "ok\n");
         if (!ok) {
             fprintf(stderr, "[execute] assertion failed\n");
             exit(1);
         }
+
         return;
     }
 
