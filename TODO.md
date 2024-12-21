@@ -1,5 +1,3 @@
-[xemu] OP_ADD OP_SUB OP_MUL OP_DIV OP_MOD
-
 [value] xfloat -- double-precision floating-point but truncate the lower 3 bits
 [value] is_xfloat
 [value] to_doule

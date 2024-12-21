@@ -129,6 +129,41 @@ execute(xemu_t *xemu, frame_t *frame, opcode_t opcode) {
         stack_push(xemu->value_stack, y);
         return;
     }
+
+    case OP_ADD: {
+        value_t y = stack_pop(xemu->value_stack);
+        value_t x = stack_pop(xemu->value_stack);
+        stack_push(xemu->value_stack, xint_add(x, y));
+        return;
+    }
+
+    case OP_SUB: {
+        value_t y = stack_pop(xemu->value_stack);
+        value_t x = stack_pop(xemu->value_stack);
+        stack_push(xemu->value_stack, xint_sub(x, y));
+        return;
+    }
+
+    case OP_MUL: {
+        value_t y = stack_pop(xemu->value_stack);
+        value_t x = stack_pop(xemu->value_stack);
+        stack_push(xemu->value_stack, xint_mul(x, y));
+        return;
+    }
+
+    case OP_DIV: {
+        value_t y = stack_pop(xemu->value_stack);
+        value_t x = stack_pop(xemu->value_stack);
+        stack_push(xemu->value_stack, xint_div(x, y));
+        return;
+    }
+
+    case OP_MOD: {
+        value_t y = stack_pop(xemu->value_stack);
+        value_t x = stack_pop(xemu->value_stack);
+        stack_push(xemu->value_stack, xint_mod(x, y));
+        return;
+    }
     }
 
     assert(false && "[execute] unknown opcode");

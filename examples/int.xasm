@@ -3,4 +3,17 @@
   1 2 EQ NOT OK
   1 -1 EQ NOT OK
   -1 -1 EQ OK
+
+  1 1 ADD 2 EQ OK
+  2 2 ADD 4 EQ OK
+  1 -1 ADD 0 EQ OK
+
+  1 1 MUL 1 EQ OK
+  2 2 MUL 4 EQ OK
+  2 -1 MUL -2 EQ OK
+
+  1 1 DIV 1 EQ OK
+  5 2 DIV 2 EQ OK
+  5 2 MOD 1 EQ OK
+
   END
