@@ -1,6 +1,5 @@
 # xasm
 
-[xasm] setup xaddress_blank.c
 [xasm] xaddress_blank_new
 [xasm] xaddress_blank_destroy
 [xasm] xasm_step_xaddress -- collect xaddress_blank_t

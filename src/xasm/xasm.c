@@ -1,12 +1,5 @@
 #include "index.h"
 
-struct xaddress_blank_t {
-    size_t blank_address;
-    char *string;
-};
-
-typedef struct xaddress_blank_t xaddress_blank_t;
-
 struct xasm_t {
     ram_t *ram;
     lexer_t *lexer;
