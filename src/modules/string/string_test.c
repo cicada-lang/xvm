@@ -158,6 +158,14 @@ string_test(void) {
         }
     }
 
+    {
+        assert(string_is_xint("0b10"));
+        assert(string_is_xint("+0b10"));
+        assert(string_is_xint("-0b10"));
+        assert(!string_is_xint("0b12"));
+        assert(!string_is_xint("++0b12"));
+        assert(!string_is_xint("--0b12"));
+    }
 
     printf("</string_test>\n");
 }

@@ -1,5 +1,4 @@
-[string] bool string_is_xint(const char *restrict self);
-[string] int64_t string_parse_xint(const char *self);
+[string] string_parse_xint
 
 [xasm] xasm_step_int -- handle lit int
 
