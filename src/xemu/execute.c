@@ -133,35 +133,90 @@ execute(xemu_t *xemu, frame_t *frame, opcode_t opcode) {
     case OP_ADD: {
         value_t y = stack_pop(xemu->value_stack);
         value_t x = stack_pop(xemu->value_stack);
-        stack_push(xemu->value_stack, xint_add(x, y));
+
+        if (is_xint(x) && is_xint(y)) {
+            stack_push(xemu->value_stack, xint_add(x, y));
+            return;
+        }
+
+        if (is_xfloat(x) && is_xfloat(y)) {
+            stack_push(xemu->value_stack, xfloat_add(x, y));
+            return;
+        }
+
+        fprintf(stderr, "ADD type mismatch\n");
         return;
     }
 
     case OP_SUB: {
         value_t y = stack_pop(xemu->value_stack);
         value_t x = stack_pop(xemu->value_stack);
-        stack_push(xemu->value_stack, xint_sub(x, y));
+
+        if (is_xint(x) && is_xint(y)) {
+            stack_push(xemu->value_stack, xint_sub(x, y));
+            return;
+        }
+
+        if (is_xfloat(x) && is_xfloat(y)) {
+            stack_push(xemu->value_stack, xfloat_sub(x, y));
+            return;
+        }
+
+        fprintf(stderr, "SUB type mismatch\n");
         return;
     }
 
     case OP_MUL: {
         value_t y = stack_pop(xemu->value_stack);
         value_t x = stack_pop(xemu->value_stack);
-        stack_push(xemu->value_stack, xint_mul(x, y));
+
+        if (is_xint(x) && is_xint(y)) {
+            stack_push(xemu->value_stack, xint_mul(x, y));
+            return;
+        }
+
+        if (is_xfloat(x) && is_xfloat(y)) {
+            stack_push(xemu->value_stack, xfloat_mul(x, y));
+            return;
+        }
+
+        fprintf(stderr, "MUL type mismatch\n");
         return;
     }
 
     case OP_DIV: {
         value_t y = stack_pop(xemu->value_stack);
         value_t x = stack_pop(xemu->value_stack);
-        stack_push(xemu->value_stack, xint_div(x, y));
+
+        if (is_xint(x) && is_xint(y)) {
+            stack_push(xemu->value_stack, xint_div(x, y));
+            return;
+        }
+
+        if (is_xfloat(x) && is_xfloat(y)) {
+            stack_push(xemu->value_stack, xfloat_div(x, y));
+            return;
+        }
+
+        fprintf(stderr, "DIV type mismatch\n");
         return;
     }
 
     case OP_MOD: {
         value_t y = stack_pop(xemu->value_stack);
         value_t x = stack_pop(xemu->value_stack);
-        stack_push(xemu->value_stack, xint_mod(x, y));
+
+        if (is_xint(x) && is_xint(y)) {
+            stack_push(xemu->value_stack, xint_mod(x, y));
+            return;
+        }
+
+        if (is_xfloat(x) && is_xfloat(y)) {
+            stack_push(xemu->value_stack, xfloat_mod(x, y));
+            return;
+        }
+
+        fprintf(stderr, "MOD type mismatch\n");
         return;
     }
     }

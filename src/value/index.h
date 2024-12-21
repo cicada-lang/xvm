@@ -8,3 +8,4 @@
 #include "xnull.h"
 #include "xaddress.h"
 #include "xint.h"
+#include "xfloat.h"

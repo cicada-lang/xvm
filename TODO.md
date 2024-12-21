@@ -1,4 +1,4 @@
-[xemu] OP_ADD OP_SUB OP_MUL OP_DIV OP_MOD -- support xfloat
+[xasm] `xasm_step_xfloat`
 
 [xemu] INT and FLOAT -- explicit convert between xint and xfloat
 
@@ -8,7 +8,7 @@
 # xasm
 
 [xasm] `xasm_step_label` -- need 2 passes
-[xasm] `xasm_step_address` -- need 2 passes
+[xasm] `xasm_step_xaddress` -- need 2 passes
 [xasm] `xasm_step_call` -- address and CALL
 
 # xemu
