@@ -46,6 +46,11 @@ blob_copy_from(blob_t *self, uint8_t *bytes) {
     memcpy(self->bytes, bytes, self->size);
 }
 
+void
+blob_copy_into(blob_t *self, uint8_t *bytes) {
+    memcpy(bytes, self->bytes, self->size);
+}
+
 bool
 blob_equal(blob_t *left, blob_t *right) {
     if (left == right)

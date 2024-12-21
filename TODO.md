@@ -1,7 +1,5 @@
 [xemu] `xemu_emu(const blob_t *blob)`
 
-- with the help of `blob_copy_into`
-
 # xemu
 
 [xemu] `x emu` command -- call `xemu_emu`
