@@ -26,13 +26,13 @@ xasm_destroy(xasm_t **self_pointer) {
 }
 
 void
-xasm_asm(xasm_t *self, const char *string) {
+xasm_run(xasm_t *self, const char *string) {
     self->lexer->string = string;
     lexer_lex(self->lexer);
 
     token_t *token = list_first(self->lexer->token_list);
     while (token) {
-        xasm_asm_token(self, token);
+        xasm_step(self, token);
         token = list_next(self->lexer->token_list);
     }
 
@@ -40,7 +40,7 @@ xasm_asm(xasm_t *self, const char *string) {
 }
 
 void
-xasm_asm_token(xasm_t *self, const token_t *token) {
+xasm_step(xasm_t *self, const token_t *token) {
     if (string_equal(token->string, "NOP")) {
         xasm_emit_byte(self, OP_NOP);
         return;

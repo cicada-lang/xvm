@@ -1,3 +1,5 @@
+simple `xasm_run_string`
+
 # xemu
 
 [xemu] `xemu_emu(blob_t *blob)`
@@ -23,7 +25,7 @@
 
 [xemu] `xint` -- `int64_t` but truncate the lower 3 bits
 
-[xasm] `xasm_asm_token` -- handle lit int
+[xasm] `xasm_step` -- handle lit int
 
 [xemu] `xint_add`
 [xemu] `xint_sub`
