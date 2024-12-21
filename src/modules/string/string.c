@@ -62,7 +62,7 @@ string_parse_int_base_10(const char *self) {
 }
 
 uint64_t
-string_parse_hex(const char *self) {
+string_parse_uint_base_16(const char *self) {
     char *int_end = NULL;
     return strtoul(self, &int_end, 16);
 }

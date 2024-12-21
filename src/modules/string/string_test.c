@@ -27,12 +27,12 @@ string_test(void) {
     assert(string_parse_int_base_10("123") == 123);
     assert(string_parse_int_base_10("-123") == -123);
 
-    assert(string_parse_hex("") == 0);
-    assert(string_parse_hex("f") == 15);
-    assert(string_parse_hex("F") == 15);
-    assert(string_parse_hex("ff") == 255);
-    assert(string_parse_hex("FF") == 255);
-    assert(string_parse_hex("FF:123") == 255);
+    assert(string_parse_uint_base_16("") == 0);
+    assert(string_parse_uint_base_16("f") == 15);
+    assert(string_parse_uint_base_16("F") == 15);
+    assert(string_parse_uint_base_16("ff") == 255);
+    assert(string_parse_uint_base_16("FF") == 255);
+    assert(string_parse_uint_base_16("FF:123") == 255);
 
     char *abc123 = string_append("abc", "123");
     assert(string_equal(abc123, "abc123"));
