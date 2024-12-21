@@ -1,5 +1,3 @@
-[xasm] `xasm_step_xfloat`
-
 [xemu] INT and FLOAT -- explicit convert between xint and xfloat
 
 [value] constant_table

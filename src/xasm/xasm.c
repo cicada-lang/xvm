@@ -90,11 +90,23 @@ xasm_step_xint(xasm_t *self, const token_t *token) {
     return false;
 }
 
+static bool
+xasm_step_xfloat(xasm_t *self, const token_t *token) {
+    if (string_is_double(token->string)) {
+        xasm_emit_byte(self, OP_LIT);
+        xasm_emit_value(self, xfloat(string_parse_double(token->string)));
+        return true;
+    }
+
+    return false;
+}
+
 void
 xasm_step(xasm_t *self, const token_t *token) {
     if (xasm_step_opcode(self, token)) return;
     if (xasm_step_constant(self, token)) return;
     if (xasm_step_xint(self, token)) return;
+    if (xasm_step_xfloat(self, token)) return;
 
     fprintf(
         stderr,
