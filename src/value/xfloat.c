@@ -11,3 +11,9 @@ bool
 is_xfloat(value_t value) {
     return value_tag(value) == XFLOAT;
 }
+
+double
+to_double(value_t value) {
+    assert(is_xfloat(value));
+    return (double) (((uint64_t) value) & (0xffffffffffffff07));
+}

@@ -1,5 +1,3 @@
-[value] to_doule
-
 [value] xfloat_add xfloat_sub xfloat_mul xfloat_div xfloat_mod
 
 [xemu] OP_ADD OP_SUB OP_MUL OP_DIV OP_MOD -- support xfloat
