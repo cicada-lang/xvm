@@ -101,7 +101,7 @@ xasm_emit_value(xasm_t *self, value_t value) {
 
 xexe_t *
 xasm_dump(xasm_t *self) {
-    size_t size = self->ram->size;
+    size_t size = self->cursor;
     uint8_t *bytes = allocate(size);
     memcpy(bytes, self->ram->bytes, size);
     return xexe_new(size, bytes);
