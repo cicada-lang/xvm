@@ -5,6 +5,9 @@ typedef void *value_t;
 // value = higher 61 bits data + lower 3 bits tag.
 // thus we have 8 tags.
 
+#define DATA_MASK ((uint64_t) 0xfffffffffffffff8)
+#define TAG_MASK ((uint64_t) 0x07)
+
 // xobject is 8 bytes aligned.
 // xaddress is not (thus need shift).
 

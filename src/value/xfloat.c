@@ -2,9 +2,15 @@
 
 // double-precision floating-point but truncate the lower 3 bits
 
+typedef union { double as_double; uint64_t as_uint64; } double_or_uint64_t;
+
 value_t
 xfloat(double target) {
-    return (value_t) (((uint64_t) target) | XFLOAT);
+    double_or_uint64_t the_union = (double_or_uint64_t) {
+        .as_double = target
+    };
+
+    return (value_t) ((the_union.as_uint64 & DATA_MASK) | XFLOAT);
 }
 
 bool
@@ -15,12 +21,17 @@ is_xfloat(value_t value) {
 double
 to_double(value_t value) {
     assert(is_xfloat(value));
-    return (double) (((uint64_t) value) & (0xffffffffffffff07));
+
+    double_or_uint64_t the_union = (double_or_uint64_t) {
+        .as_uint64 = ((uint64_t) value) & DATA_MASK
+    };
+
+    return the_union.as_double;
 }
 
 value_t
 xfloat_add(value_t x, value_t y) {
-    return xint(to_int64(x) + to_int64(y));
+    return xfloat(to_double(x) + to_double(y));
 }
 
 value_t

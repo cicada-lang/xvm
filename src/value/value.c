@@ -2,5 +2,5 @@
 
 tag_t
 value_tag(value_t value) {
-    return (size_t) value & 0x7;
+    return (size_t) value & TAG_MASK;
 }

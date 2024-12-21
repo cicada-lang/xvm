@@ -1,0 +1,15 @@
+@main
+  0.1 0.1 EQ OK
+  0.1 0.2 EQ NOT OK
+  0.1 -0.1 EQ NOT OK
+  -0.1 -0.1 EQ OK
+
+  0.1 0.1 ADD 0.2 EQ OK
+  0.2 0.2 ADD 0.4 EQ OK
+  0.1 -0.1 ADD 0.0 EQ OK
+
+  0.1 0.1 DIV 1.0 EQ OK
+  0.5 0.2 DIV 2.5 EQ OK
+  5.0 2.0 DIV 2.5 EQ OK
+
+  END
