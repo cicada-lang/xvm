@@ -36,6 +36,9 @@ string_test(void) {
     assert(string_parse_int("10", 8) == 8);
     assert(string_parse_int("-10", 8) == -8);
 
+    assert(string_parse_int("10", 2) == 2);
+    assert(string_parse_int("-10", 2) == -2);
+
     assert(string_parse_uint("", 16) == 0);
     assert(string_parse_uint("f", 16) == 15);
     assert(string_parse_uint("F", 16) == 15);
