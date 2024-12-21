@@ -4,7 +4,7 @@ xasm_t *
 xasm_new(void) {
     xasm_t *self = new(xasm_t);
     size_t init_ram_size = 64 * 1024;
-    self->xvm = xvm_new(init_ram_size);
+    self->ram = ram_new(init_ram_size);
     self->lexer = lexer_new();
     self->name_table = name_table_new();
     self->cursor = 0;
@@ -17,7 +17,7 @@ xasm_destroy(xasm_t **self_pointer) {
     assert(self_pointer);
     if (*self_pointer) {
         xasm_t *self = *self_pointer;
-        xvm_destroy(&self->xvm);
+        ram_destroy(&self->ram);
         lexer_destroy(&self->lexer);
         name_table_destroy(&self->name_table);
         free(self);
@@ -77,17 +77,17 @@ xasm_asm_token(xasm_t *self, const token_t *token) {
 
 static void
 xasm_maybe_expend(xasm_t *self, size_t required_size) {
-    if (self->cursor + required_size < self->xvm->ram->size)
+    if (self->cursor + required_size < self->ram->size)
         return;
 
-    ram_expand(self->xvm->ram, self->xvm->ram->size + self->ram_expand_step);
+    ram_expand(self->ram, self->ram->size + self->ram_expand_step);
 }
 
 void
 xasm_emit_byte(xasm_t *self, uint8_t byte) {
     xasm_maybe_expend(self, sizeof(uint8_t));
 
-    ram_set_byte(self->xvm->ram, self->cursor, byte);
+    ram_set_byte(self->ram, self->cursor, byte);
     self->cursor += sizeof(uint8_t);
 }
 
@@ -95,14 +95,14 @@ void
 xasm_emit_value(xasm_t *self, value_t value) {
     xasm_maybe_expend(self, sizeof(value_t));
 
-    ram_set_value(self->xvm->ram, self->cursor, value);
+    ram_set_value(self->ram, self->cursor, value);
     self->cursor += sizeof(value_t);
 }
 
 xexe_t *
 xasm_dump(xasm_t *self) {
-    size_t size = self->xvm->ram->size;
+    size_t size = self->ram->size;
     uint8_t *bytes = allocate(size);
-    memcpy(bytes, self->xvm->ram->bytes, size);
+    memcpy(bytes, self->ram->bytes, size);
     return xexe_new(size, bytes);
 }

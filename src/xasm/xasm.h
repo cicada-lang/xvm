@@ -1,7 +1,7 @@
 #pragma once
 
 struct xasm_t {
-    xvm_t *xvm;
+    ram_t *ram;
     lexer_t *lexer;
     name_table_t *name_table;
     size_t cursor;
