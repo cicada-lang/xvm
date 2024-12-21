@@ -3,7 +3,7 @@
 struct xasm_t {
     ram_t *ram;
     lexer_t *lexer;
-    name_table_t *name_table;
+    lexicon_t *lexicon;
     size_t cursor;
     size_t ram_expand_step;
 };

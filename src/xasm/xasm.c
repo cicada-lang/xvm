@@ -6,7 +6,7 @@ xasm_new(void) {
     size_t init_ram_size = 64 * 1024;
     self->ram = ram_new(init_ram_size);
     self->lexer = lexer_new();
-    self->name_table = name_table_new();
+    self->lexicon = lexicon_new();
     self->cursor = 0;
     self->ram_expand_step = init_ram_size;
     return self;
@@ -19,7 +19,7 @@ xasm_destroy(xasm_t **self_pointer) {
         xasm_t *self = *self_pointer;
         ram_destroy(&self->ram);
         lexer_destroy(&self->lexer);
-        name_table_destroy(&self->name_table);
+        lexicon_destroy(&self->lexicon);
         free(self);
         *self_pointer = NULL;
     }
