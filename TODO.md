@@ -1,5 +1,3 @@
-[value] xint_add xint_sub xint_mul xint_div xint_mod
-
 [xemu] OP_ADD OP_SUB OP_MUL OP_DIV OP_MOD
 
 [value] xfloat -- double-precision floating-point but truncate the lower 3 bits
