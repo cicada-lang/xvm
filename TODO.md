@@ -1,9 +1,3 @@
-[xemu] `xemu_step` -- handle no end in rom
-
-[value] `xbool_and`
-[value] `xbool_or`
-[value] `xbool_not`
-
 [xemu] `OP_AND` `OP_OR` `OP_NOT`
 
 [value] `constant_table`
