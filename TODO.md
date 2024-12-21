@@ -1,26 +1,21 @@
 [xasm] xasm_step -- handle lit int
 
-[value] xint_add
-[value] xint_sub
-[value] xint_mul
-[value] xint_div
-[value] xint_mod
+[value] xint_add xint_sub xint_mul xint_div xint_mod
+
+[xemu] OP_ADD OP_SUB OP_MUL OP_DIV OP_MOD
 
 [value] xfloat -- double-precision floating-point but truncate the lower 3 bits
 [value] is_xfloat
 [value] to_doule
 
-[value] xfloat_add
-[value] xfloat_sub
-[value] xfloat_mul
-[value] xfloat_div
+[value] xfloat_add xfloat_sub xfloat_mul xfloat_div
 
-[xemu] OP_ADD OP_SUB OP_MUL OP_DIV OP_MOD
+[xemu] OP_ADD OP_SUB OP_MUL OP_DIV -- support xfloat
 
+[xemu] INT and FLOAT -- explicit convert between xint and xfloat
 
 [value] constant_table
 [xasm] xasm_step -- use constant_table
-
 
 [xemu] xchar
 
