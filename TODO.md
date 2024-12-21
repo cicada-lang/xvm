@@ -1,4 +1,3 @@
-[value] is_xfloat
 [value] to_doule
 
 [value] xfloat_add xfloat_sub xfloat_mul xfloat_div xfloat_mod
