@@ -56,28 +56,38 @@ xasm_step_opcode(xasm_t *self, const token_t *token) {
     return false;
 }
 
-void
-xasm_step(xasm_t *self, const token_t *token) {
-    if (xasm_step_opcode(self, token)) return;
-
-
+static bool
+xasm_step_constant(xasm_t *self, const token_t *token) {
     if (string_equal(token->string, "null")) {
         xasm_emit_byte(self, OP_LIT);
         xasm_emit_value(self, xnull());
-        return;
+        return true;
     }
 
     if (string_equal(token->string, "false")) {
         xasm_emit_byte(self, OP_LIT);
         xasm_emit_value(self, xfalse());
-        return;
+        return true;
     }
 
     if (string_equal(token->string, "true")) {
         xasm_emit_byte(self, OP_LIT);
         xasm_emit_value(self, xtrue());
-        return;
+        return true;
     }
+
+    return false;
+}
+
+void
+xasm_step(xasm_t *self, const token_t *token) {
+    if (xasm_step_opcode(self, token)) return;
+    if (xasm_step_constant(self, token)) return;
+
+    fprintf(
+        stderr,
+        "[xasm_step] unknown token: %s\n",
+        token->string);
 }
 
 static void
