@@ -31,13 +31,13 @@ execute(xemu_t *xemu, frame_t *frame, opcode_t opcode) {
             stack_push(xemu->return_stack, frame);
         }
 
-        size_t address = value_to_address(stack_pop(xemu->value_stack));
+        size_t address = to_address(stack_pop(xemu->value_stack));
         stack_push(xemu->return_stack, frame_new(address));
         return;
     }
 
     case OP_OK: {
-        bool ok = value_to_bool(stack_pop(xemu->value_stack));
+        bool ok = to_bool(stack_pop(xemu->value_stack));
         if (!ok) {
             fprintf(
                 stderr,

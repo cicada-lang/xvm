@@ -1,6 +1,6 @@
 [value] xint -- int64_t but truncate the lower 3 bits
 [value] is_xint
-[value] value_to_int
+[value] to_int
 [value] xfloat -- double-precision floating-point but truncate the lower 3 bits
 
 [xasm] xasm_step -- handle lit int

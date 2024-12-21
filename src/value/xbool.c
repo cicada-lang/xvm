@@ -21,7 +21,7 @@ is_xbool(value_t value) {
 }
 
 bool
-value_to_bool(value_t value) {
+to_bool(value_t value) {
     assert(is_xbool(value));
     return value == xtrue();
 }
@@ -29,14 +29,14 @@ value_to_bool(value_t value) {
 
 value_t
 xbool_and(value_t x, value_t y) {
-    return xbool(value_to_bool(x) && value_to_bool(y));
+    return xbool(to_bool(x) && to_bool(y));
 }
 
 value_t
 xbool_or(value_t x, value_t y) {
-    return xbool(value_to_bool(x) || value_to_bool(y));
+    return xbool(to_bool(x) || to_bool(y));
 }
 
 value_t xbool_not(value_t x) {
-    return xbool(!value_to_bool(x));
+    return xbool(!to_bool(x));
 }

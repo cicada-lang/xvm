@@ -11,7 +11,7 @@ is_xaddress(value_t value) {
 }
 
 size_t
-value_to_address(value_t value) {
+to_address(value_t value) {
     assert(is_xaddress(value));
     return ((uint64_t) value) >> 3;
 }

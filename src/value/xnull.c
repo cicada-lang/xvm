@@ -11,7 +11,7 @@ is_xnull(value_t value) {
 }
 
 void *
-value_to_null(value_t value) {
+to_null(value_t value) {
     assert(is_xnull(value));
     return NULL;
 }
