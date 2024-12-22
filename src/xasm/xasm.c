@@ -5,7 +5,7 @@ struct xasm_t {
     lexer_t *lexer;
     lexicon_t *lexicon;
     size_t cursor;
-    size_t ram_expand_step;
+    size_t ram_expanding_size;
     stack_t *xaddress_blank_stack;
 };
 
@@ -18,7 +18,7 @@ xasm_new(void) {
     self->lexer->line_comment_start = "//";
     self->lexicon = lexicon_new();
     self->cursor = 0;
-    self->ram_expand_step = init_ram_size;
+    self->ram_expanding_size = init_ram_size;
     self->xaddress_blank_stack = stack_new_with(
         (destroy_fn_t *) xaddress_blank_destroy);
     return self;
@@ -185,7 +185,7 @@ xasm_maybe_expend(xasm_t *self, size_t required_size) {
     if (self->cursor + required_size < self->ram->size)
         return;
 
-    ram_expand(self->ram, self->ram->size + self->ram_expand_step);
+    ram_expand(self->ram, self->ram->size + self->ram_expanding_size);
 }
 
 void

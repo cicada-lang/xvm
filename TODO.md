@@ -1,6 +1,6 @@
 # xasm
 
-[xasm] xasm_step_call -- address and CALL
+[xasm] step_call -- address and CALL
 
 # xemu
 
