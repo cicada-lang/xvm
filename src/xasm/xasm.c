@@ -115,7 +115,8 @@ xasm_step_xfloat(xasm_t *self, const token_t *token) {
 
 static bool
 xasm_step_label(xasm_t *self, const token_t *token) {
-    if (!string_starts_with(token->string, "@"))
+    if (!string_starts_with(token->string, "@") ||
+        string_count_char(token->string, '@') != 1)
         return false;
 
     size_t length = string_length(token->string);
@@ -131,6 +132,20 @@ xasm_step_label(xasm_t *self, const token_t *token) {
     exit(1);
 }
 
+static bool
+xasm_step_xaddress(xasm_t *self, const token_t *token) {
+    if (!string_starts_with(token->string, "&") ||
+        string_count_char(token->string, '&') != 1)
+        return false;
+
+    xasm_emit_byte(self, OP_LIT);
+    size_t length = string_length(token->string);
+    char *key = string_slice(token->string, 1, length);
+    xaddress_blank_new(key, self->cursor);
+    self->cursor += sizeof(value_t);
+    return true;
+}
+
 void
 xasm_step(xasm_t *self, const token_t *token) {
     if (xasm_step_opcode(self, token)) return;
@@ -138,6 +153,7 @@ xasm_step(xasm_t *self, const token_t *token) {
     if (xasm_step_xint(self, token)) return;
     if (xasm_step_xfloat(self, token)) return;
     if (xasm_step_label(self, token)) return;
+    if (xasm_step_xaddress(self, token)) return;
 
     fprintf(
         stderr,

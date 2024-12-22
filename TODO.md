@@ -1,6 +1,5 @@
 # xasm
 
-[xasm] xasm_step_xaddress -- collect xaddress_blank_t
 [xasm] xasm_run -- fill xaddress_blank_t at the end
 [xasm] xasm_step_call -- address and CALL
 
