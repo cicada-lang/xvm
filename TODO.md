@@ -1,6 +1,7 @@
 # xasm
 
-[xasm] xasm_run -- fill xaddress_blank_t at the end
+ambr blank_address address
+
 [xasm] xasm_step_call -- address and CALL
 
 # xemu
