@@ -7,7 +7,7 @@ string_test(void) {
     assert(string_equal("abc", "abc"));
     assert(!string_equal("abc", "abd"));
 
-    char *abc = string_dup("abc");
+    char *abc = string_copy("abc");
     assert(string_equal("abc", abc));
 
     assert(string_length("") == 0);

@@ -1,8 +1,3 @@
-# xasm
-
-ambr dup_ copy_
-ambr _dup _copy
-
 # xemu
 
 [xemu] INT and FLOAT -- explicit convert between xint and xfloat

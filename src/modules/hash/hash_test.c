@@ -12,19 +12,19 @@ hash_test(void) {
         void *k2 = (void *) 2;
         void *k3 = (void *) 3;
 
-        assert(hash_set(hash, k1, string_dup("a")));
-        assert(hash_set(hash, k2, string_dup("b")));
-        assert(hash_set(hash, k3, string_dup("c")));
+        assert(hash_set(hash, k1, string_copy("a")));
+        assert(hash_set(hash, k2, string_copy("b")));
+        assert(hash_set(hash, k3, string_copy("c")));
         assert(hash_length(hash) == 3);
 
         assert(string_equal(hash_get(hash, k1), "a"));
         assert(string_equal(hash_get(hash, k2), "b"));
         assert(string_equal(hash_get(hash, k3), "c"));
 
-        assert(!hash_set(hash, k2, string_dup("d")));
+        assert(!hash_set(hash, k2, string_copy("d")));
         assert(string_equal(hash_get(hash, k2), "b"));
 
-        hash_put(hash, k2, string_dup("d"));
+        hash_put(hash, k2, string_copy("d"));
         assert(string_equal(hash_get(hash, k2), "d"));
 
         hash_delete(hash, k2);
@@ -75,10 +75,10 @@ hash_test(void) {
         hash_set_key_equal_fn(hash, (equal_fn_t *) string_equal);
 
         //  Insert some entries
-        assert(hash_set(hash, string_dup("DEADBEEF"), string_dup("dead beef")));
-        assert(hash_set(hash, string_dup("ABADCAFE"), string_dup("a bad cafe")));
-        assert(hash_set(hash, string_dup("C0DEDBAD"), string_dup("coded bad")));
-        assert(hash_set(hash, string_dup("DEADF00D"), string_dup("dead food")));
+        assert(hash_set(hash, string_copy("DEADBEEF"), string_copy("dead beef")));
+        assert(hash_set(hash, string_copy("ABADCAFE"), string_copy("a bad cafe")));
+        assert(hash_set(hash, string_copy("C0DEDBAD"), string_copy("coded bad")));
+        assert(hash_set(hash, string_copy("DEADF00D"), string_copy("dead food")));
         assert(hash_length(hash) == 4);
 
         //  Look for existing entries
@@ -91,11 +91,11 @@ hash_test(void) {
         assert(!hash_get(hash, "foo"));
 
         //  Try to insert duplicate entries
-        assert(!hash_set(hash, string_dup("DEADBEEF"), string_dup("foo")));
+        assert(!hash_set(hash, string_copy("DEADBEEF"), string_copy("foo")));
         assert(string_equal(hash_get(hash, "DEADBEEF"), "dead beef"));
 
         //  Put duplicate entries
-        hash_put(hash, string_dup("DEADBEEF"), string_dup("foo"));
+        hash_put(hash, string_copy("DEADBEEF"), string_copy("foo"));
         assert(string_equal(hash_get(hash, "DEADBEEF"), "foo"));
 
         //  Delete entries
@@ -120,10 +120,10 @@ hash_test(void) {
         assert(!hash_first(hash));
 
         //  Insert some entries
-        assert(hash_set(hash, string_dup("DEADBEEF"), string_dup("dead beef")));
-        assert(hash_set(hash, string_dup("ABADCAFE"), string_dup("a bad cafe")));
-        assert(hash_set(hash, string_dup("C0DEDBAD"), string_dup("coded bad")));
-        assert(hash_set(hash, string_dup("DEADF00D"), string_dup("dead food")));
+        assert(hash_set(hash, string_copy("DEADBEEF"), string_copy("dead beef")));
+        assert(hash_set(hash, string_copy("ABADCAFE"), string_copy("a bad cafe")));
+        assert(hash_set(hash, string_copy("C0DEDBAD"), string_copy("coded bad")));
+        assert(hash_set(hash, string_copy("DEADF00D"), string_copy("dead food")));
         assert(hash_length(hash) == 4);
 
         {

@@ -173,7 +173,7 @@ step_xaddress(xasm_t *self, const token_t *token) {
 
 static bool
 step_call(xasm_t *self, const token_t *token) {
-    step_xaddress_aux(self, string_dup(token->string));
+    step_xaddress_aux(self, string_copy(token->string));
     xasm_emit_byte(self, OP_CALL);
     return true;
 }

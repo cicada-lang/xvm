@@ -11,7 +11,7 @@ string_destroy(char **self_pointer) {
 }
 
 char*
-string_dup(const char *self) {
+string_copy(const char *self) {
     size_t length = strlen(self);
     char *string = malloc(length + 1);
     assert(string);
@@ -170,7 +170,7 @@ string_count_substring(const char *self, const char* substring) {
 
 char *
 string_to_lower_case(const char *self) {
-    char *result = string_dup(self);
+    char *result = string_copy(self);
     for (size_t i = 0; i < string_length(result); i++) {
         result[i] = tolower((unsigned char) result[i]);
     }
@@ -180,7 +180,7 @@ string_to_lower_case(const char *self) {
 
 char *
 string_to_upper_case(const char *self) {
-    char *result = string_dup(self);
+    char *result = string_copy(self);
     for (size_t i = 0; i < string_length(result); i++) {
         result[i] = toupper((unsigned char) result[i]);
     }
