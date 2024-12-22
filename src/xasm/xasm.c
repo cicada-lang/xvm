@@ -151,17 +151,30 @@ step_label(xasm_t *self, const token_t *token) {
     exit(1);
 }
 
+static void
+step_xaddress_aux(xasm_t *self, char *key) {
+    xasm_emit_byte(self, OP_LIT);
+    stack_push(self->xaddress_blank_stack,
+               xaddress_blank_new(key, self->cursor));
+    self->cursor += sizeof(value_t);
+}
+
 static bool
 step_xaddress(xasm_t *self, const token_t *token) {
     if (!string_starts_with(token->string, "&") ||
         string_count_char(token->string, '&') != 1)
         return false;
 
-    xasm_emit_byte(self, OP_LIT);
     size_t length = string_length(token->string);
     char *key = string_slice(token->string, 1, length);
-    xaddress_blank_new(key, self->cursor);
-    self->cursor += sizeof(value_t);
+    step_xaddress_aux(self, key);
+    return true;
+}
+
+static bool
+step_call(xasm_t *self, const token_t *token) {
+    step_xaddress_aux(self, string_dup(token->string));
+    xasm_emit_byte(self, OP_CALL);
     return true;
 }
 
@@ -173,6 +186,7 @@ xasm_step(xasm_t *self, const token_t *token) {
     if (step_xfloat(self, token)) return;
     if (step_label(self, token)) return;
     if (step_xaddress(self, token)) return;
+    if (step_call(self, token)) return;
 
     fprintf(
         stderr,

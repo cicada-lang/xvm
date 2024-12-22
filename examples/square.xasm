@@ -1,7 +1,3 @@
-main END
-
-@square DUP MUL END
-
 @main
   2 square 4 EQ OK
   3 square 9 EQ OK
@@ -10,3 +6,5 @@ main END
   3 &square CALL 9 EQ OK
 
   END
+
+@square DUP MUL END

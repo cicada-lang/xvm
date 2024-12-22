@@ -1,6 +1,7 @@
 # xasm
 
-[xasm] step_call -- address and CALL
+ambr dup_ copy_
+ambr _dup _copy
 
 # xemu
 
