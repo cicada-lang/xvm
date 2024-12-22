@@ -6,6 +6,7 @@ struct xasm_t {
     lexicon_t *lexicon;
     size_t cursor;
     size_t ram_expand_step;
+    stack_t *xaddress_blank_stack;
 };
 
 xasm_t *
@@ -18,6 +19,8 @@ xasm_new(void) {
     self->lexicon = lexicon_new();
     self->cursor = 0;
     self->ram_expand_step = init_ram_size;
+    self->xaddress_blank_stack = stack_new_with(
+        (destroy_fn_t *) xaddress_blank_destroy);
     return self;
 }
 
@@ -29,6 +32,7 @@ xasm_destroy(xasm_t **self_pointer) {
         ram_destroy(&self->ram);
         lexer_destroy(&self->lexer);
         lexicon_destroy(&self->lexicon);
+        stack_destroy(&self->xaddress_blank_stack);
         free(self);
         *self_pointer = NULL;
     }
