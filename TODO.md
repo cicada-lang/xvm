@@ -1,7 +1,5 @@
 # xasm
 
-ambr blank_address address
-
 [xasm] xasm_step_call -- address and CALL
 
 # xemu

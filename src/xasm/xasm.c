@@ -51,7 +51,7 @@ fill_in_all_xaddress_blanks(xasm_t *self) {
             exit(1);
         }
 
-        ram_set_value(self->ram, xaddress_blank->blank_address, xaddress(lexeme->address));
+        ram_set_value(self->ram, xaddress_blank->address, xaddress(lexeme->address));
     }
 }
 
