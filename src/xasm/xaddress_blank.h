@@ -6,3 +6,4 @@ struct xaddress_blank_t {
 };
 
 xaddress_blank_t *xaddress_blank_new(char *string, size_t blank_address);
+void xaddress_blank_destroy(xaddress_blank_t **self_pointer);
