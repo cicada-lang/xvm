@@ -1,6 +1,3 @@
-[xasm] xasm_step -- use string_to_constant_value
-
-
 [xasm] $name for local variable
 
 [xemu] TO-INT and TO-FLOAT -- explicit convert between xint and xfloat

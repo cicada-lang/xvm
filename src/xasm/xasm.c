@@ -97,7 +97,8 @@ xasm_run(xasm_t *self, const char *string) {
 
 static bool
 compile_opcode(xasm_t *self, const token_t *token) {
-    if (!string_is_mnemonic(token->string)) return false;
+    if (!string_is_mnemonic(token->string))
+        return false;
 
     xasm_emit_byte(self, mnemonic_to_opcode(token->string));
     return true;
@@ -105,25 +106,12 @@ compile_opcode(xasm_t *self, const token_t *token) {
 
 static bool
 compile_constant(xasm_t *self, const token_t *token) {
-    if (string_equal(token->string, "null")) {
-        xasm_emit_byte(self, OP_LIT);
-        xasm_emit_value(self, xnull);
-        return true;
-    }
+    if (!string_is_constant_value(token->string))
+        return false;
 
-    if (string_equal(token->string, "false")) {
-        xasm_emit_byte(self, OP_LIT);
-        xasm_emit_value(self, xfalse);
-        return true;
-    }
-
-    if (string_equal(token->string, "true")) {
-        xasm_emit_byte(self, OP_LIT);
-        xasm_emit_value(self, xtrue);
-        return true;
-    }
-
-    return false;
+    xasm_emit_byte(self, OP_LIT);
+    xasm_emit_value(self, string_to_constant_value(token->string));
+    return true;
 }
 
 static bool
