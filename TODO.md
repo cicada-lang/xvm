@@ -1,9 +1,9 @@
-# xemu
-
-[xemu] INT and FLOAT -- explicit convert between xint and xfloat
-
 [value] constant_table
 [xasm] xasm_step -- use constant_table
+
+[xasm] $name for local variable
+
+[xemu] TO-INT and TO-FLOAT -- explicit convert between xint and xfloat
 
 [xemu] xsymbol
 [xemu] [maybe] xsymbol_inline -- within 64bits -- max length is 7 bytes
