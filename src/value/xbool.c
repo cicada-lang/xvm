@@ -1,29 +1,19 @@
 #include "index.h"
 
 value_t
-xtrue(void) {
-    return (value_t) 0x00ffffffffffffff;
-}
-
-value_t
-xfalse(void) {
-    return (value_t) 0x01ffffffffffffff;
-}
-
-value_t
 xbool(bool target) {
-    return target ? xtrue() : xfalse();
+    return target ? xtrue : xfalse;
 }
 
 bool
 is_xbool(value_t value) {
-    return value == xtrue() || value == xfalse();
+    return value == xtrue || value == xfalse;
 }
 
 bool
 to_bool(value_t value) {
     assert(is_xbool(value));
-    return value == xtrue();
+    return value == xtrue;
 }
 
 

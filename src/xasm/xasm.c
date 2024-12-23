@@ -113,13 +113,13 @@ compile_constant(xasm_t *self, const token_t *token) {
 
     if (string_equal(token->string, "false")) {
         xasm_emit_byte(self, OP_LIT);
-        xasm_emit_value(self, xfalse());
+        xasm_emit_value(self, xfalse);
         return true;
     }
 
     if (string_equal(token->string, "true")) {
         xasm_emit_byte(self, OP_LIT);
-        xasm_emit_value(self, xtrue());
+        xasm_emit_value(self, xtrue);
         return true;
     }
 

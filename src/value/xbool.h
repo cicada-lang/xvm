@@ -1,7 +1,8 @@
 #pragma once
 
-value_t xtrue(void);
-value_t xfalse(void);
+#define xtrue ((value_t) 0x00ffffffffffffff)
+#define xfalse ((value_t) 0x01ffffffffffffff)
+
 value_t xbool(bool target);
 bool is_xbool(value_t value);
 bool to_bool(value_t value);
