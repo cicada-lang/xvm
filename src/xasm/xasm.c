@@ -39,6 +39,30 @@ xasm_destroy(xasm_t **self_pointer) {
 }
 
 static void
+xasm_maybe_expend(xasm_t *self, size_t required_size) {
+    if (self->cursor + required_size < self->ram->size)
+        return;
+
+    ram_expand(self->ram, self->ram->size + self->ram_expanding_size);
+}
+
+static void
+xasm_emit_byte(xasm_t *self, uint8_t byte) {
+    xasm_maybe_expend(self, sizeof(uint8_t));
+
+    ram_set_byte(self->ram, self->cursor, byte);
+    self->cursor += sizeof(uint8_t);
+}
+
+static void
+xasm_emit_value(xasm_t *self, value_t value) {
+    xasm_maybe_expend(self, sizeof(value_t));
+
+    ram_set_value(self->ram, self->cursor, value);
+    self->cursor += sizeof(value_t);
+}
+
+static void
 fill_in_all_xaddress_blanks(xasm_t *self) {
     while (!stack_is_empty(self->xaddress_blank_stack)) {
         xaddress_blank_t *xaddress_blank = stack_pop(self->xaddress_blank_stack);
@@ -72,7 +96,7 @@ xasm_run(xasm_t *self, const char *string) {
 }
 
 static bool
-step_opcode(xasm_t *self, const token_t *token) {
+compile_opcode(xasm_t *self, const token_t *token) {
     for (size_t i = 0; i < 256; i++) {
         opcode_t opcode = (opcode_t) i;
         const char *mnemonic = opcode_table[opcode];
@@ -88,7 +112,7 @@ step_opcode(xasm_t *self, const token_t *token) {
 }
 
 static bool
-step_constant(xasm_t *self, const token_t *token) {
+compile_constant(xasm_t *self, const token_t *token) {
     if (string_equal(token->string, "null")) {
         xasm_emit_byte(self, OP_LIT);
         xasm_emit_value(self, xnull());
@@ -111,7 +135,7 @@ step_constant(xasm_t *self, const token_t *token) {
 }
 
 static bool
-step_xint(xasm_t *self, const token_t *token) {
+compile_xint(xasm_t *self, const token_t *token) {
     if (string_is_xint(token->string)) {
         xasm_emit_byte(self, OP_LIT);
         xasm_emit_value(self, xint(string_parse_xint(token->string)));
@@ -122,7 +146,7 @@ step_xint(xasm_t *self, const token_t *token) {
 }
 
 static bool
-step_xfloat(xasm_t *self, const token_t *token) {
+compile_xfloat(xasm_t *self, const token_t *token) {
     if (string_is_double(token->string)) {
         xasm_emit_byte(self, OP_LIT);
         xasm_emit_value(self, xfloat(string_parse_double(token->string)));
@@ -133,7 +157,7 @@ step_xfloat(xasm_t *self, const token_t *token) {
 }
 
 static bool
-step_label(xasm_t *self, const token_t *token) {
+compile_label(xasm_t *self, const token_t *token) {
     if (!string_starts_with(token->string, "@") ||
         string_count_char(token->string, '@') != 1)
         return false;
@@ -146,13 +170,13 @@ step_label(xasm_t *self, const token_t *token) {
 
     fprintf(
         stderr,
-        "[step_label] label already used: %s\n",
+        "[compile_label] label already used: %s\n",
         token->string);
     exit(1);
 }
 
 static void
-step_xaddress_aux(xasm_t *self, char *key) {
+compile_xaddress_aux(xasm_t *self, char *key) {
     xasm_emit_byte(self, OP_LIT);
     stack_push(self->xaddress_blank_stack,
                xaddress_blank_new(key, self->cursor));
@@ -160,62 +184,38 @@ step_xaddress_aux(xasm_t *self, char *key) {
 }
 
 static bool
-step_xaddress(xasm_t *self, const token_t *token) {
+compile_xaddress(xasm_t *self, const token_t *token) {
     if (!string_starts_with(token->string, "&") ||
         string_count_char(token->string, '&') != 1)
         return false;
 
     size_t length = string_length(token->string);
     char *key = string_slice(token->string, 1, length);
-    step_xaddress_aux(self, key);
+    compile_xaddress_aux(self, key);
     return true;
 }
 
 static bool
-step_call(xasm_t *self, const token_t *token) {
-    step_xaddress_aux(self, string_copy(token->string));
+compile_call(xasm_t *self, const token_t *token) {
+    compile_xaddress_aux(self, string_copy(token->string));
     xasm_emit_byte(self, OP_CALL);
     return true;
 }
 
 void
 xasm_step(xasm_t *self, const token_t *token) {
-    if (step_opcode(self, token)) return;
-    if (step_constant(self, token)) return;
-    if (step_xint(self, token)) return;
-    if (step_xfloat(self, token)) return;
-    if (step_label(self, token)) return;
-    if (step_xaddress(self, token)) return;
-    if (step_call(self, token)) return;
+    if (compile_opcode(self, token)) return;
+    if (compile_constant(self, token)) return;
+    if (compile_xint(self, token)) return;
+    if (compile_xfloat(self, token)) return;
+    if (compile_label(self, token)) return;
+    if (compile_xaddress(self, token)) return;
+    if (compile_call(self, token)) return;
 
     fprintf(
         stderr,
         "[xasm_step] unknown token: %s\n",
         token->string);
-}
-
-static void
-xasm_maybe_expend(xasm_t *self, size_t required_size) {
-    if (self->cursor + required_size < self->ram->size)
-        return;
-
-    ram_expand(self->ram, self->ram->size + self->ram_expanding_size);
-}
-
-void
-xasm_emit_byte(xasm_t *self, uint8_t byte) {
-    xasm_maybe_expend(self, sizeof(uint8_t));
-
-    ram_set_byte(self->ram, self->cursor, byte);
-    self->cursor += sizeof(uint8_t);
-}
-
-void
-xasm_emit_value(xasm_t *self, value_t value) {
-    xasm_maybe_expend(self, sizeof(value_t));
-
-    ram_set_value(self->ram, self->cursor, value);
-    self->cursor += sizeof(value_t);
 }
 
 blob_t *
