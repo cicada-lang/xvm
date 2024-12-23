@@ -1,4 +1,3 @@
-[value] xnull constant
 [value] xtrue and xfalse should be constant
 [xasm] constant_table and find_constant
 [xasm] xasm_step -- use find_constant

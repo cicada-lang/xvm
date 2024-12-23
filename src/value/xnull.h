@@ -1,4 +1,4 @@
 #pragma once
 
-value_t xnull(void);
+#define xnull ((value_t) 0xffffffffffffffff)
 bool is_xnull(value_t value);

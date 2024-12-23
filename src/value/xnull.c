@@ -1,13 +1,8 @@
 #include "index.h"
 
-value_t
-xnull(void) {
-    return (value_t) 0xffffffffffffffff;
-}
-
 bool
 is_xnull(value_t value) {
-    return value == xnull();
+    return value == xnull;
 }
 
 void *

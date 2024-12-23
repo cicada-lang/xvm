@@ -107,7 +107,7 @@ static bool
 compile_constant(xasm_t *self, const token_t *token) {
     if (string_equal(token->string, "null")) {
         xasm_emit_byte(self, OP_LIT);
-        xasm_emit_value(self, xnull());
+        xasm_emit_value(self, xnull);
         return true;
     }
 
