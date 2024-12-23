@@ -6,7 +6,7 @@ opcode_to_mnemonic(opcode_t opcode) {
 }
 
 bool
-is_mnemonic(const char *string) {
+string_is_mnemonic(const char *string) {
     for (size_t i = 0; i < 256; i++) {
         opcode_t opcode = (opcode_t) i;
         const char *mnemonic = opcode_table[opcode];

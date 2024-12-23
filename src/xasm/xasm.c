@@ -97,7 +97,7 @@ xasm_run(xasm_t *self, const char *string) {
 
 static bool
 compile_opcode(xasm_t *self, const token_t *token) {
-    if (!is_mnemonic(token->string)) return false;
+    if (!string_is_mnemonic(token->string)) return false;
 
     xasm_emit_byte(self, mnemonic_to_opcode(token->string));
     return true;
