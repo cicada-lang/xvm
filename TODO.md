@@ -15,3 +15,5 @@
 [xemu] OP_OK -- execute report value stack and frame stack
 
 [xemu] [maybe] use utf8-style opcode encoding -- to be extensible
+
+[motivation] at worst, xvm will provide inet tagged primitive values
