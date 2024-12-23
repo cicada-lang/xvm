@@ -4,7 +4,7 @@ void
 execute(xemu_t *xemu, frame_t *frame, opcode_t opcode) {
     // debug
     // {
-    //     fprintf(stderr, "[execute] opcode: %s\n", opcode_mnemonic(opcode));
+    //     fprintf(stderr, "[execute] opcode: %s\n", opcode_to_mnemonic(opcode));
     // }
 
     if (opcode != OP_NOP && opcode != OP_CALL) {

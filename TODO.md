@@ -1,5 +1,8 @@
-[value] constant_table
-[xasm] xasm_step -- use constant_table
+[opcode] extract mnemonic_to_opcode
+[value] xnull constant
+[value] xtrue and xfalse should be constant
+[xasm] constant_table and find_constant
+[xasm] xasm_step -- use find_constant
 
 [xasm] $name for local variable
 

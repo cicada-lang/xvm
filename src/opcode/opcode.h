@@ -1,3 +1,3 @@
 #pragma once
 
-const char *opcode_mnemonic(opcode_t opcode);
+const char *opcode_to_mnemonic(opcode_t opcode);
