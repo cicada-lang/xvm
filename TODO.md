@@ -1,4 +1,5 @@
-[xasm] $name for local variable
+[xasm] LOCAL_SET LOCAL_GET
+[xasm] compile_local_variable -- $name
 
 [xemu] xsymbol
 [xemu] [maybe] xsymbol_inline -- within 64bits -- max length is 7 bytes
