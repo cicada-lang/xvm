@@ -97,18 +97,10 @@ xasm_run(xasm_t *self, const char *string) {
 
 static bool
 compile_opcode(xasm_t *self, const token_t *token) {
-    for (size_t i = 0; i < 256; i++) {
-        opcode_t opcode = (opcode_t) i;
-        const char *mnemonic = opcode_table[opcode];
-        if (!mnemonic) continue;
+    if (!is_mnemonic(token->string)) return false;
 
-        if (string_equal(token->string, mnemonic)) {
-            xasm_emit_byte(self, opcode);
-            return true;
-        }
-    }
-
-    return false;
+    xasm_emit_byte(self, mnemonic_to_opcode(token->string));
+    return true;
 }
 
 static bool

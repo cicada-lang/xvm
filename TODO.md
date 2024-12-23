@@ -1,4 +1,3 @@
-[opcode] extract mnemonic_to_opcode
 [value] xnull constant
 [value] xtrue and xfalse should be constant
 [xasm] constant_table and find_constant
