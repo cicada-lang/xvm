@@ -1,6 +1,6 @@
 # XVM
 
-XVM is a 64-bit virtual machine with tagged value.
+XVM is an extensible 64-bit virtual machine with tagged value.
 
 ## Usage
 
