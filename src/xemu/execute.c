@@ -219,6 +219,40 @@ execute(xemu_t *xemu, frame_t *frame, opcode_t opcode) {
         fprintf(stderr, "MOD type mismatch\n");
         return;
     }
+
+    case OP_TO_INT: {
+        value_t x = stack_pop(xemu->value_stack);
+
+        if (is_xint(x)) {
+            stack_push(xemu->value_stack, x);
+            return;
+        }
+
+        if (is_xfloat(x)) {
+            stack_push(xemu->value_stack, xint((uint64_t) to_double(x)));
+            return;
+        }
+
+        fprintf(stderr, "TO-INT type mismatch\n");
+        return;
+    }
+
+    case OP_TO_FLOAT: {
+        value_t x = stack_pop(xemu->value_stack);
+
+        if (is_xint(x)) {
+            stack_push(xemu->value_stack, xfloat((double) to_int64(x)));
+            return;
+        }
+
+        if (is_xfloat(x)) {
+            stack_push(xemu->value_stack, x);
+            return;
+        }
+
+        fprintf(stderr, "TO-INT type mismatch\n");
+        return;
+    }
     }
 
     assert(false && "[execute] unknown opcode");

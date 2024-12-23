@@ -5,4 +5,5 @@ const char *opcode_table[256] = {
     "AND", "OR", "NOT",
     "DUP", "DROP", "SWAP", "ROT", "OVER", "TUCK",
     "ADD", "SUB", "MUL", "DIV", "MOD",
+    "TO-INT", "TO-FLOAT",
 };
