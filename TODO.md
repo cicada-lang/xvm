@@ -1,5 +1,5 @@
-[xasm] name_to_constant
-[xasm] xasm_step -- use name_to_constant
+[xasm] xasm_step -- use string_to_constant_value
+ambr is_mnemonic string_is_mnemonic
 
 [xasm] $name for local variable
 
