@@ -5,5 +5,6 @@
 #include "lexeme.h"
 #include "lexicon.h"
 #include "xaddress_blank.h"
+#include "constant_table.h"
 #include "xasm.h"
 #include "xasm_test.h"

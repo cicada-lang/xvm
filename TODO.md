@@ -1,5 +1,5 @@
-[xasm] constant_table and find_constant
-[xasm] xasm_step -- use find_constant
+[xasm] name_to_constant
+[xasm] xasm_step -- use name_to_constant
 
 [xasm] $name for local variable
 
