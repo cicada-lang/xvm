@@ -1,0 +1,18 @@
+@user/struct :name! :age END
+
+@main
+  "xieyuheng" 100 user $xyh
+
+  xyh .user:name "xieyuheng" EQUAL OK
+  xyh .user:age 100 EQ OK
+
+  xyh .name "xieyuheng" EQUAL OK
+  xyh .age 100 EQ OK
+
+  xyh SPREAD
+  100 EQ OK
+  "xieyuheng" EQUAL OK
+
+  xyh DELETE
+
+  END
