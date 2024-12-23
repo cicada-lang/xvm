@@ -1,4 +1,3 @@
-[xasm] compile @ to END
 [xasm] LOCAL_SET LOCAL_GET
 [xasm] compile_local_variable -- $name
 
