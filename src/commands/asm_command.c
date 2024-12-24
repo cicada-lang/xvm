@@ -16,7 +16,6 @@ run(commander_t *commander) {
     file_t *input = file_open_or_fail(paths[0], "r");
     file_t *output = file_open_or_fail(paths[1], "w");
 
-
     xasm_t *xasm = xasm_new();
     xasm_run(xasm, file_read_string(input));
     blob_t *blob = xasm_dump(xasm);

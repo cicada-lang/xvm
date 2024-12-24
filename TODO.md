@@ -1,6 +1,11 @@
-[xasm] xasm_disasm
-[xasm] setup disasm command
-[xemu] OP_OK -- execute report value stack and frame stack
+[xdisasm] setup xdisasm/
+[xdisasm] xdisasm_t -- note that this class is more like xemu_t (not like xasm_t)
+[xdisasm] xdisasm_new
+[xdisasm] xdisasm_destroy
+[xdisasm] setup disasm command
+[xdisasm] xdisasm_disasm
+
+[xemu] OP_OK -- execute report value stack, frame stack, disasm the context
 
 [xemu] frame has locals -- 32 max
 [opcode] LOCAL_SET LOCAL_GET -- just use int as index
