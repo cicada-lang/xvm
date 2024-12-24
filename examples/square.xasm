@@ -8,6 +8,6 @@
   LIT 2 LIT &square APPLY LIT 4 EQ OK
   LIT 3 LIT &square APPLY LIT 9 EQ OK
 
-  END
+  RET
 
-@square DUP MUL END
+@square DUP MUL RET

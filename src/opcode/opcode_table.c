@@ -5,7 +5,7 @@ opcode_table_entry_t opcode_table[] = {
     { "LIT", OP_LIT },
     { "CALL", OP_CALL },
     { "OK", OP_OK },
-    { "END", OP_END },
+    { "RET", OP_RET },
     { "EQ", OP_EQ },
 
     { "AND", OP_AND },

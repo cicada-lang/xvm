@@ -28,7 +28,7 @@ xemu_step(xemu_t *self) {
         return;
 
     frame_t *frame = stack_pop(self->return_stack);
-    if (frame_is_end(frame, self->ram))
+    if (frame_is_tail(frame, self->ram))
         return;
 
     opcode_t opcode = frame_fetch_opcode(frame, self->ram);

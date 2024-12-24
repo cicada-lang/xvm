@@ -4,7 +4,7 @@
 [xemu] OP_OK -- execute report value stack and frame stack
 
 [xasm] LOCAL_SET LOCAL_GET -- just use int as index
-rename END to RET
+
 [xemu] xsymbol
 [xemu] [maybe] xsymbol_inline -- within 64bits -- max length is 7 bytes
 [xemu] [maybe] xsymbol_long

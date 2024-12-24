@@ -38,7 +38,7 @@ opcode_t frame_fetch_opcode(frame_t *self, ram_t *ram) {
 }
 
 bool
-frame_is_end(const frame_t *self, ram_t *ram) {
+frame_is_tail(const frame_t *self, ram_t *ram) {
     opcode_t opcode = ram_get_byte(ram, self->address);
-    return opcode == OP_END;
+    return opcode == OP_RET;
 }

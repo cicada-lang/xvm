@@ -30,7 +30,7 @@ execute(xemu_t *xemu, frame_t *frame, opcode_t opcode) {
         size_t address = to_address(frame_fetch_value(frame, xemu->ram));
 
         // handle tail-call here.
-        if (frame_is_end(frame, xemu->ram)) {
+        if (frame_is_tail(frame, xemu->ram)) {
             frame_destroy(&frame);
         } else {
             stack_push(xemu->return_stack, frame);
@@ -42,7 +42,7 @@ execute(xemu_t *xemu, frame_t *frame, opcode_t opcode) {
 
     case OP_APPLY: {
         // handle tail-call here.
-        if (frame_is_end(frame, xemu->ram)) {
+        if (frame_is_tail(frame, xemu->ram)) {
             frame_destroy(&frame);
         } else {
             stack_push(xemu->return_stack, frame);
@@ -67,7 +67,7 @@ execute(xemu_t *xemu, frame_t *frame, opcode_t opcode) {
         return;
     }
 
-    case OP_END: {
+    case OP_RET: {
         frame_destroy(&frame);
         return;
     }
