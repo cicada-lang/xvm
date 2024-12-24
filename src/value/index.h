@@ -9,3 +9,5 @@
 #include "xaddress.h"
 #include "xint.h"
 #include "xfloat.h"
+
+#include "constant_table.h"

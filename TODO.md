@@ -1,9 +1,12 @@
 opcode table should not depends on order
 explicit LIT
 CALL vs APPLY
-[xasm] support disasm
-[xasm] LOCAL_SET LOCAL_GET -- just use int as index
 
+[xasm] also output .lexicon -- to support disasm
+[xasm] support disasm
+
+[xasm] LOCAL_SET LOCAL_GET -- just use int as index
+rename END to RET
 [xemu] xsymbol
 [xemu] [maybe] xsymbol_inline -- within 64bits -- max length is 7 bytes
 [xemu] [maybe] xsymbol_long
