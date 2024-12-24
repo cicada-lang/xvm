@@ -116,7 +116,6 @@ compile_constant(xasm_t *self, const token_t *token) {
 static bool
 compile_xint(xasm_t *self, const token_t *token) {
     if (string_is_xint(token->string)) {
-        xasm_emit_byte(self, OP_LIT);
         xasm_emit_value(self, xint(string_parse_xint(token->string)));
         return true;
     }
@@ -127,7 +126,6 @@ compile_xint(xasm_t *self, const token_t *token) {
 static bool
 compile_xfloat(xasm_t *self, const token_t *token) {
     if (string_is_double(token->string)) {
-        xasm_emit_byte(self, OP_LIT);
         xasm_emit_value(self, xfloat(string_parse_double(token->string)));
         return true;
     }

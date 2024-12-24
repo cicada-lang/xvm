@@ -1,9 +1,9 @@
 @main
-  2 square 4 EQ OK
-  3 square 9 EQ OK
+  LIT 2 square LIT 4 EQ OK
+  LIT 3 square LIT 9 EQ OK
 
-  2 &square CALL 4 EQ OK
-  3 &square CALL 9 EQ OK
+  LIT 2 &square CALL LIT 4 EQ OK
+  LIT 3 &square CALL LIT 9 EQ OK
 
   END
 
