@@ -7,8 +7,11 @@ execute(xemu_t *xemu, frame_t *frame, opcode_t opcode) {
     //     fprintf(stderr, "[execute] opcode: %s\n", opcode_to_mnemonic(opcode));
     // }
 
-    if (opcode != OP_NOP && opcode != OP_CALL) {
-        // maybe need to handle tail call on OP_CALL.
+    if (!(opcode == OP_NOP ||
+          opcode == OP_CALL ||
+          opcode == OP_APPLY))
+    {
+        // maybe need to handle tail call on OP_CALL and OP_APPLY.
         stack_push(xemu->return_stack, frame);
     }
 
@@ -25,6 +28,7 @@ execute(xemu_t *xemu, frame_t *frame, opcode_t opcode) {
 
     case OP_CALL: {
         size_t address = to_address(frame_fetch_value(frame, xemu->ram));
+
         // handle tail-call here.
         if (frame_is_end(frame, xemu->ram)) {
             frame_destroy(&frame);
@@ -32,6 +36,19 @@ execute(xemu_t *xemu, frame_t *frame, opcode_t opcode) {
             stack_push(xemu->return_stack, frame);
         }
 
+        stack_push(xemu->return_stack, frame_new(address));
+        return;
+    }
+
+    case OP_APPLY: {
+        // handle tail-call here.
+        if (frame_is_end(frame, xemu->ram)) {
+            frame_destroy(&frame);
+        } else {
+            stack_push(xemu->return_stack, frame);
+        }
+
+        size_t address = to_address(stack_pop(xemu->value_stack));
         stack_push(xemu->return_stack, frame_new(address));
         return;
     }

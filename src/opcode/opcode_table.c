@@ -27,6 +27,8 @@ opcode_table_entry_t opcode_table[] = {
 
     { "TO-INT", OP_TO_INT },
     { "TO-FLOAT", OP_TO_FLOAT },
+
+    { "APPLY", OP_APPLY },
 };
 
 const char *

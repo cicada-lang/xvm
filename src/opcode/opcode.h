@@ -26,3 +26,5 @@
 
 #define OP_TO_INT      ((opcode_t) 0x14)
 #define OP_TO_FLOAT    ((opcode_t) 0x15)
+
+#define OP_APPLY       ((opcode_t) 0x16)

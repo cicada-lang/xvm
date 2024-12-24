@@ -1,6 +1,7 @@
-APPLY vs CALL
 [xasm] also output .lexicon -- to support disasm
 [xasm] support disasm
+
+[xemu] OP_OK -- execute report value stack and frame stack
 
 [xasm] LOCAL_SET LOCAL_GET -- just use int as index
 rename END to RET
@@ -14,8 +15,6 @@ rename END to RET
 [xemu] xstring
 [xemu] xtuple
 [xemu] xchar
-
-[xemu] OP_OK -- execute report value stack and frame stack
 
 [xemu] [maybe] use utf8-style opcode encoding -- to be extensible
 
