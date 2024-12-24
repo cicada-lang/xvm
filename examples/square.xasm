@@ -1,6 +1,6 @@
 @main
-  // LIT 2 square LIT 4 EQ OK
-  // LIT 3 square LIT 9 EQ OK
+  LIT 2 square LIT 4 EQ OK
+  LIT 3 square LIT 9 EQ OK
 
   LIT 2 CALL &square LIT 4 EQ OK
   LIT 3 CALL &square LIT 9 EQ OK
