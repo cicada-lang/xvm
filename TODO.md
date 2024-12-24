@@ -1,4 +1,3 @@
-[xdisasm] setup xdisasm/
 [xdisasm] xdisasm_t -- note that this class is more like xemu_t (not like xasm_t)
 [xdisasm] xdisasm_new
 [xdisasm] xdisasm_destroy
