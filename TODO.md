@@ -1,4 +1,3 @@
-[xdisasm] setup disasm command
 [xdisasm] xdisasm_disasm
 
 [xemu] OP_OK -- execute report value stack, frame stack, disasm the context
