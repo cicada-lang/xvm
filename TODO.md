@@ -1,5 +1,5 @@
-CALL vs APPLY
-
+fix step_call
+APPLY vs CALL
 [xasm] also output .lexicon -- to support disasm
 [xasm] support disasm
 

@@ -96,7 +96,7 @@ xasm_run(xasm_t *self, const char *string) {
 }
 
 static bool
-compile_opcode(xasm_t *self, const token_t *token) {
+step_opcode(xasm_t *self, const token_t *token) {
     if (!string_is_mnemonic(token->string))
         return false;
 
@@ -105,7 +105,7 @@ compile_opcode(xasm_t *self, const token_t *token) {
 }
 
 static bool
-compile_constant(xasm_t *self, const token_t *token) {
+step_constant(xasm_t *self, const token_t *token) {
     if (!string_is_constant_value(token->string))
         return false;
 
@@ -114,7 +114,7 @@ compile_constant(xasm_t *self, const token_t *token) {
 }
 
 static bool
-compile_xint(xasm_t *self, const token_t *token) {
+step_xint(xasm_t *self, const token_t *token) {
     if (string_is_xint(token->string)) {
         xasm_emit_value(self, xint(string_parse_xint(token->string)));
         return true;
@@ -124,7 +124,7 @@ compile_xint(xasm_t *self, const token_t *token) {
 }
 
 static bool
-compile_xfloat(xasm_t *self, const token_t *token) {
+step_xfloat(xasm_t *self, const token_t *token) {
     if (string_is_double(token->string)) {
         xasm_emit_value(self, xfloat(string_parse_double(token->string)));
         return true;
@@ -134,7 +134,7 @@ compile_xfloat(xasm_t *self, const token_t *token) {
 }
 
 static bool
-compile_label(xasm_t *self, const token_t *token) {
+step_label(xasm_t *self, const token_t *token) {
     if (!string_starts_with(token->string, "@") ||
         string_count_char(token->string, '@') != 1)
         return false;
@@ -147,47 +147,46 @@ compile_label(xasm_t *self, const token_t *token) {
 
     fprintf(
         stderr,
-        "[compile_label] label already used: %s\n",
+        "[step_label] label already used: %s\n",
         token->string);
     exit(1);
 }
 
 static void
-compile_xaddress_aux(xasm_t *self, char *key) {
-    xasm_emit_byte(self, OP_LIT);
+step_xaddress_aux(xasm_t *self, char *key) {
     stack_push(self->xaddress_blank_stack,
                xaddress_blank_new(key, self->cursor));
     self->cursor += sizeof(value_t);
 }
 
 static bool
-compile_xaddress(xasm_t *self, const token_t *token) {
+step_xaddress(xasm_t *self, const token_t *token) {
     if (!string_starts_with(token->string, "&") ||
         string_count_char(token->string, '&') != 1)
         return false;
 
     size_t length = string_length(token->string);
     char *key = string_slice(token->string, 1, length);
-    compile_xaddress_aux(self, key);
+    step_xaddress_aux(self, key);
     return true;
 }
 
 static bool
-compile_call(xasm_t *self, const token_t *token) {
-    compile_xaddress_aux(self, string_copy(token->string));
+step_call(xasm_t *self, const token_t *token) {
+    step_xaddress_aux(self, string_copy(token->string));
     xasm_emit_byte(self, OP_CALL);
     return true;
 }
 
 void
 xasm_step(xasm_t *self, const token_t *token) {
-    if (compile_opcode(self, token)) return;
-    if (compile_constant(self, token)) return;
-    if (compile_xint(self, token)) return;
-    if (compile_xfloat(self, token)) return;
-    if (compile_label(self, token)) return;
-    if (compile_xaddress(self, token)) return;
-    if (compile_call(self, token)) return;
+    if (step_opcode(self, token)) return;
+    if (step_constant(self, token)) return;
+    if (step_xint(self, token)) return;
+    if (step_xfloat(self, token)) return;
+    if (step_label(self, token)) return;
+    if (step_xaddress(self, token)) return;
+    if (step_call(self, token)) return;
 
     fprintf(
         stderr,

@@ -24,6 +24,7 @@ execute(xemu_t *xemu, frame_t *frame, opcode_t opcode) {
     }
 
     case OP_CALL: {
+        size_t address = to_address(frame_fetch_value(frame, xemu->ram));
         // handle tail-call here.
         if (frame_is_end(frame, xemu->ram)) {
             frame_destroy(&frame);
@@ -31,7 +32,6 @@ execute(xemu_t *xemu, frame_t *frame, opcode_t opcode) {
             stack_push(xemu->return_stack, frame);
         }
 
-        size_t address = to_address(stack_pop(xemu->value_stack));
         stack_push(xemu->return_stack, frame_new(address));
         return;
     }
