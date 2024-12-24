@@ -6,3 +6,5 @@
 struct xdisasm_t {
     ram_t *ram;
 };
+
+xdisasm_t *xdisasm_new(size_t ram_size);

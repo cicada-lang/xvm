@@ -1,5 +1,4 @@
-[xdisasm] xdisasm_new -- like xemu_new
-[xdisasm] xdisasm_destroy --
+[xdisasm] xdisasm_destroy
 [xdisasm] setup disasm command
 [xdisasm] xdisasm_disasm
 
