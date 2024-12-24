@@ -1,4 +1,3 @@
-opcode table should not depends on order
 explicit LIT
 CALL vs APPLY
 
