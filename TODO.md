@@ -1,4 +1,3 @@
-[xdisasm] xdisasm_destroy
 [xdisasm] setup disasm command
 [xdisasm] xdisasm_disasm
 
