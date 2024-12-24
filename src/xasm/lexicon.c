@@ -18,3 +18,17 @@ lexicon_destroy(lexicon_t **self_pointer) {
         *self_pointer = NULL;
     }
 }
+
+// one lexeme one line -- <string> <address>
+// <address> in explicit 0x format.
+
+void
+lexicon_print(lexicon_t *self, file_t *file) {
+    // TODO only the first level for now.
+
+    lexeme_t *lexeme = hash_first(self->lexeme_hash);
+    while (lexeme) {
+        fprintf(file, "%s 0x%lx\n", lexeme->string, lexeme->address);
+        lexeme = hash_next(self->lexeme_hash);
+    }
+}
