@@ -1,4 +1,3 @@
-[xasm] asm command -- also output .lexi -- to support disasm
 [xasm] xasm_disasm
 [xasm] setup disasm command
 [xemu] OP_OK -- execute report value stack and frame stack
