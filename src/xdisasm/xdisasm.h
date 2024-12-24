@@ -10,3 +10,4 @@ struct xdisasm_t {
 xdisasm_t *xdisasm_new(size_t ram_size);
 void xdisasm_destroy(xdisasm_t **self_pointer);
 
+void xdisasm_disasm(const blob_t *blob);
