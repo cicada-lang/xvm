@@ -1,5 +1,8 @@
-[xasm] LOCAL_SET LOCAL_GET
-[xasm] compile_local_variable -- $name
+opcode table should not depends on order
+explicit LIT
+CALL vs APPLY
+[xasm] support disasm
+[xasm] LOCAL_SET LOCAL_GET -- just use int as index
 
 [xemu] xsymbol
 [xemu] [maybe] xsymbol_inline -- within 64bits -- max length is 7 bytes
