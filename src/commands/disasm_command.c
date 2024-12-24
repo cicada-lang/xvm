@@ -14,6 +14,10 @@ int
 run(commander_t *commander) {
     char **paths = commander_rest_argv(commander);
     file_t *input = file_open_or_fail(paths[0], "r");
-    xdisasm_disasm(file_read_blob(input));
+
+    char *lexi_input_name = string_append(paths[0], ".lexi");
+    file_t *lexi_input = file_open_or_fail(lexi_input_name, "r");
+
+    xdisasm_disasm(file_read_blob(input), file_read_blob(lexi_input));
     return 0;
 }

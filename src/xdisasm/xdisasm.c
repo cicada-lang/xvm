@@ -19,7 +19,8 @@ xdisasm_destroy(xdisasm_t **self_pointer) {
 }
 
 void
-xdisasm_disasm(const blob_t *blob) {
+xdisasm_disasm(const blob_t *blob, const blob_t *lexi_blob) {
     (void) blob;
+    (void) lexi_blob;
     printf("[xdisasm_disasm] TODO\n");
 }
