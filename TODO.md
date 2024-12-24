@@ -1,4 +1,5 @@
-explicit LIT
+explicit LIT for int & float
+
 CALL vs APPLY
 
 [xasm] also output .lexicon -- to support disasm

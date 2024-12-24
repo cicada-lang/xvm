@@ -1,6 +1,6 @@
 @main
-  false false AND false EQ OK
-  false true AND false EQ OK
-  true false AND false EQ OK
-  true true AND true EQ OK
+  LIT false LIT false AND LIT false EQ OK
+  LIT false LIT true AND LIT false EQ OK
+  LIT true LIT false AND LIT false EQ OK
+  LIT true LIT true AND LIT true EQ OK
   END

@@ -109,7 +109,6 @@ compile_constant(xasm_t *self, const token_t *token) {
     if (!string_is_constant_value(token->string))
         return false;
 
-    xasm_emit_byte(self, OP_LIT);
     xasm_emit_value(self, string_to_constant_value(token->string));
     return true;
 }

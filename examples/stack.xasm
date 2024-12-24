@@ -1,7 +1,7 @@
 @main
-  true DUP OK OK
-  true true false SWAP OK DROP OK
-  true false false ROT OK NOT OK NOT OK
-  true false TUCK NOT OK OK NOT OK
-  true false OVER OK NOT OK OK
+  LIT true DUP OK OK
+  LIT true LIT true LIT false SWAP OK DROP OK
+  LIT true LIT false LIT false ROT OK NOT OK NOT OK
+  LIT true LIT false TUCK NOT OK OK NOT OK
+  LIT true LIT false OVER OK NOT OK OK
   END
