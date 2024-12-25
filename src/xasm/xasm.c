@@ -6,7 +6,7 @@ xasm_new(void) {
     size_t init_ram_size = 64 * 1024;
     self->ram = ram_new(init_ram_size);
     self->lexer = lexer_new();
-    self->lexer->line_comment_start = "//";
+    self->lexer->line_comment = "//";
     self->lexicon = lexicon_new();
     self->cursor = 0;
     self->ram_expanding_size = init_ram_size;
@@ -73,7 +73,7 @@ fill_in_all_xaddress_blanks(xasm_t *self) {
 void
 xasm_run(xasm_t *self, const char *string) {
     self->lexer->string = string;
-    lexer_lex(self->lexer);
+    lexer_run(self->lexer);
 
     token_t *token = list_first(self->lexer->token_list);
     while (token) {

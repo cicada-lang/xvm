@@ -1,11 +1,21 @@
 #include "index.h"
 
+static void
+lexer_init(lexer_t *self) {
+    self->cursor = 0;
+    self->lineno = 1;
+    self->column = 1;
+    self->buffer_length = 0;
+}
+
 lexer_t *
 lexer_new(void) {
     lexer_t *self = new(lexer_t);
-    self->cursor = 0;
-    self->buffer_length = 0;
     self->buffer = allocate(MAX_TOKEN_LENGTH + 1);
+    self->delimiter_list = list_new();
+    self->enable_int = false;
+    self->enable_float = false;
+    lexer_init(self);
     return self;
 }
 
@@ -21,102 +31,217 @@ lexer_destroy(lexer_t **self_pointer) {
     }
 }
 
+void
+lexer_add_delimiter(lexer_t *self, const char *delimiter) {
+    list_push(self->delimiter_list, (void *) delimiter);
+}
+
 static bool
-lexer_is_finished(lexer_t *self) {
+is_finished(lexer_t *self) {
     return self->cursor == self->length;
 }
 
 static char
-lexer_current_char(const lexer_t *self) {
+current_char(const lexer_t *self) {
     return self->string[self->cursor];
 }
 
+static const char*
+current_substring(const lexer_t *self) {
+    return self->string + self->cursor;
+}
+
+static const char*
+match_delimiter(const lexer_t *self) {
+    const char *delimiter = list_first(self->delimiter_list);
+    while (delimiter) {
+        if (string_starts_with(current_substring(self), delimiter))
+            return delimiter;
+
+        delimiter = list_next(self->delimiter_list);
+    }
+
+    return NULL;
+}
+
 static void
-lexer_collect_char(lexer_t *self, char c) {
+step(lexer_t *self) {
+    assert(!is_finished(self));
+
+    if (current_char(self) == '\n') {
+        self->lineno++;
+        self->column = 1;
+    } else {
+        self->column++;
+    }
+
+    self->cursor++;
+}
+
+static void
+forward(lexer_t *self, size_t length) {
+    while (length > 0) {
+        step(self);
+        length--;
+    }
+}
+
+static bool
+ignore_space(lexer_t *self) {
+    char c = current_char(self);
+    if (!isspace(c))
+        return false;
+
+    while (!is_finished(self)) {
+        char c = current_char(self);
+
+        if (isspace(c)) {
+            step(self);
+        } else {
+            break;
+        }
+    }
+
+    return true;
+}
+
+static bool
+ignore_comment(lexer_t *self) {
+    if (!self->line_comment)
+        return false;
+
+    if (!string_starts_with(current_substring(self), self->line_comment))
+        return false;
+
+    forward(self, string_length(self->line_comment));
+
+    while (!is_finished(self)) {
+        char c = current_char(self);
+
+        if (c == '\n') {
+            step(self);
+            break;
+        } else {
+            step(self);
+        }
+    }
+
+    return true;
+}
+
+static bool
+collect_delimiter(lexer_t *self) {
+    const char *delimiter = match_delimiter(self);
+    if (!delimiter)
+        return false;
+
+    size_t start = self->cursor;
+    size_t end = self->cursor + string_length(delimiter);
+
+    forward(self, string_length(delimiter));
+
+    char *string = string_copy(delimiter);
+    token_t *token = token_new(
+        string,
+        DELIMITER_TOKEN,
+        start, end,
+        self->lineno,
+        self->column);
+    list_push(self->token_list, token);
+
+    return true;
+}
+
+static void
+collect_char(lexer_t *self, char c) {
     self->buffer[self->buffer_length] = c;
     self->buffer[self->buffer_length + 1] = '\0';
     self->buffer_length++;
     assert(self->buffer_length <= MAX_TOKEN_LENGTH);
 }
 
-// dispatch over current char in a loop.
-
-static void lexer_lex_ignore_space(lexer_t *self);
-static void lexer_lex_ignore_comment(lexer_t *self);
-static void lexer_lex_word(lexer_t *self);
-
-void
-lexer_lex(lexer_t *self) {
-    assert(self->string);
-
-    self->cursor = 0;
+static void
+collect_generic(lexer_t *self) {
+    self->buffer[0] = '\0';
     self->buffer_length = 0;
-    self->length = strlen(self->string);
 
-    self->token_list = list_new_with((destroy_fn_t *) token_destroy);
-    while (!lexer_is_finished(self)) {
-        char c = lexer_current_char(self);
-        if (c == '\0') {
-            return;
-        } else if (isspace(c)) {
-            lexer_lex_ignore_space(self);
-        } else if (self->line_comment_start &&
-                   string_starts_with(
-                     self->string + self->cursor,
-                     self->line_comment_start)
-            ) {
-            lexer_lex_ignore_comment(self);
-        } else {
-            lexer_lex_word(self);
-        }
-    }
-}
-
-void
-lexer_lex_ignore_space(lexer_t *self) {
-    while (!lexer_is_finished(self)) {
-        char c = lexer_current_char(self);
-
-        if (isspace(c))
-            self->cursor++;
-        else
-            return;
-    }
-}
-
-void
-lexer_lex_ignore_comment(lexer_t *self) {
-    self->cursor += strlen(self->line_comment_start);
-
-    while (!lexer_is_finished(self)) {
-        char c = lexer_current_char(self);
-
-        if (c == '\n') {
-            self->cursor++;
-            return;
-        }
-        else
-            self->cursor++;
-    }
-}
-
-void
-lexer_lex_word(lexer_t *self) {
     while (true) {
-        char c = lexer_current_char(self);
+        char c = current_char(self);
 
-        if (isspace(c) || lexer_is_finished(self)) {
+        if (isspace(c) || match_delimiter(self) || is_finished(self)) {
             size_t start = self->cursor;
-            size_t end = self->cursor + strlen(self->buffer);
+            size_t end = self->cursor + string_length(self->buffer);
             char *string = string_copy(self->buffer);
-            token_t *token = token_new(string, start, end);
+            token_t *token = token_new(
+                string,
+                GENERIC_TOKEN,
+                start, end,
+                self->lineno,
+                self->column);
             list_push(self->token_list, token);
+
             self->buffer[0] = '\0';
             self->buffer_length = 0;
             return;
         } else {
-            lexer_collect_char(self, c);
-            self->cursor++;
+            collect_char(self, c);
+            step(self);
         }
     }
+}
+
+void
+lexer_step(lexer_t *self) {
+    if (ignore_space(self)) return;
+    if (ignore_comment(self)) return;
+    if (collect_delimiter(self)) return;
+
+    collect_generic(self);
+}
+
+static void
+postprocess_int(lexer_t *self) {
+    token_t *token = list_first(self->token_list);
+    while (token) {
+        if (token->kind == GENERIC_TOKEN && string_is_xint(token->string)) {
+            token->kind = INT_TOKEN;
+            token->int_value = string_parse_xint(token->string);
+        }
+
+        token = list_next(self->token_list);
+    }
+}
+
+static void
+postprocess_float(lexer_t *self) {
+    token_t *token = list_first(self->token_list);
+    while (token) {
+        if (token->kind == GENERIC_TOKEN && string_is_double(token->string)) {
+            token->kind = FLOAT_TOKEN;
+            token->float_value = string_parse_double(token->string);
+        }
+
+        token = list_next(self->token_list);
+    }
+}
+
+
+void
+lexer_run(lexer_t *self) {
+    assert(self->string);
+
+    lexer_init(self);
+
+    self->length = string_length(self->string);
+    self->token_list = list_new_with((destroy_fn_t *) token_destroy);
+
+    while (!is_finished(self)) {
+        lexer_step(self);
+    }
+
+    if (self->enable_int)
+        postprocess_int(self);
+
+    if (self->enable_float)
+        postprocess_float(self);
 }
