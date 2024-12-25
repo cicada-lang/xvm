@@ -1,5 +1,5 @@
-move lexicon out again -- to simplify dependance
-move ram out -- to simplify dependance
+[maybe] move lexicon out again -- to simplify dependance
+[maybe] move ram out -- to simplify dependance
 
 [lexicon] lexicon_test -- setup
 
